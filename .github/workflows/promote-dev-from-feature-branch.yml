@@ -1,0 +1,35 @@
+name: promote-dev-from-feature-branch
+
+on:
+  push:
+    branches-ignore:
+      - refs/tags/*
+
+env:
+  NPM_TOKEN: ${{ secrets.BOT_REGISTRY_TOKEN }}
+  NPM_CONFIG_USERCONFIG: .npmrc
+
+jobs:
+  test-lint:
+    if: |
+      !contains(github.event.head_commit.author.name, 'james-pontte')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+
+      - name: Install dependencies
+        run: npm ci --no-optional
+
+      - uses: actions/cache@v1
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-build-node-modules-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-build-node-modules
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Run lint test
+        run: npm run test-lint
