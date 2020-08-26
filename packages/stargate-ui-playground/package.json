@@ -1,0 +1,28 @@
+{
+  "name": "@pontte/stargate-ui-playground",
+  "version": "0.0.1",
+  "private": true,
+  "description": "",
+  "scripts": {
+    "postinstall": "cp .env.sample .env",
+    "start": "start-storybook -s public -p 6006",
+    "build": "build-storybook -s public -o dist"
+  },
+  "dependencies": {
+    "@storybook/addon-a11y": "^6.0.19",
+    "@storybook/addon-essentials": "^6.0.19",
+    "@storybook/addon-jest": "^6.0.19",
+    "@storybook/addon-links": "^6.0.19",
+    "@storybook/cli": "^6.0.19",
+    "@storybook/react": "^6.0.19"
+  },
+  "devDependencies": {
+    "webpack-merge": "^5.1.2"
+  },
+  "peerDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:pontte/stargate-ui.git"
+  },
+  "gitHead": "25ada078605d771e05ece35c9eca6cfa0f65f518"
+}

@@ -1,18 +1,18 @@
-name: promote-prod-from-preprod-branch
+name: promote-prod-stargate-ui-playground
 
 on:
   push:
-    branches:
-      - master
-      - beta
-      - alpha
+    paths:
+      - packages/stargate-ui-playground/**
+    branches-ignore:
+      - gh-pages
 
 env:
   NPM_TOKEN: ${{ secrets.BOT_REGISTRY_TOKEN }}
   NPM_CONFIG_USERCONFIG: .npmrc
 
 jobs:
-  publish:
+  test-lint:
     if: |
       !contains(github.event.head_commit.author.name, 'james-pontte')
     runs-on: ubuntu-latest
@@ -24,21 +24,22 @@ jobs:
       - uses: actions/setup-node@v1
 
       - name: Install dependencies
-        run: npm ci
+        run: yarn install --pure-lockfile
 
       - uses: actions/cache@v1
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-build-node-modules-${{ hashFiles('**/package-lock.json') }}
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-build-node-modules-${{ hashFiles('**/yarn.lock') }}
           restore-keys: |
             ${{ runner.os }}-build-node-modules
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
       - name: Generate build
-        run: npm run build
+        run: |
+          yarn workspace @pontte/stargate-ui-playground build
 
-      - name: Promote under production version
+      - name: Deploy under production distribution
         env:
           GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
           GIT_AUTHOR_NAME: ${{ secrets.BOT_NAME }}
@@ -46,5 +47,6 @@ jobs:
           GIT_COMMITTER_NAME: ${{ secrets.BOT_NAME }}
           GIT_COMMITTER_EMAIL: ${{ secrets.BOT_EMAIL }}
         run: |
-          # Remove comment to generate release.
-          # npx semantic-release
+          npx gh-pages \
+            --dist packages/stargate-ui-playground/dist \
+            --message="build: publish automatically by @${GIT_COMMITTER_NAME} 🤖🛵"

@@ -1,0 +1,15 @@
+{
+  "version": "independent",
+  "useWorkspaces": true,
+  "packages": [
+    "packages/*"
+  ],
+  "npmClient": "yarn",
+  "command": {
+    "publish": {
+      "conventionalCommits": true,
+      "yes": true,
+      "message": "build: main version delivery automatically by @james-pontte 🤖🛵"
+    }
+  }
+}

@@ -11,8 +11,8 @@ logs
 node_modules
 coverage
 .npm
-yarn.lock
 .DS_Store
 .vscode
 .idea
 dist
+package-lock.json

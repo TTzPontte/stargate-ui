@@ -1,57 +1,45 @@
 {
-  "name": "@pontte/stardust",
+  "name": "@pontte/stargate-ui",
   "version": "0.0.1",
   "description": "",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pontte/stardust.git"
+    "url": "git+https://github.com/pontte/stargate-ui.git"
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/pontte/stardust/issues"
+    "url": "https://github.com/pontte/stargate-ui/issues"
   },
-  "homepage": "https://github.com/pontte/stardust#readme",
+  "homepage": "https://github.com/pontte/stargate-ui#readme",
   "main": "",
-  "files": [
-    "LICENSE",
-    "CHANGELOG.md",
-    "README.md"
-  ],
   "scripts": {
     "commit": "git-cz",
-    "start": "echo \"running start script\"",
-    "build": "echo \"running build script\"",
-    "test-lint": "echo \"running test-lint script\"",
-    "test-unit": "echo \"running test-unit script\""
+    "package:core": "sh scripts/stargate-ui-core",
+    "package:styles": "sh scripts/stargate-ui-styles",
+    "package:playground": "sh scripts/stargate-ui-playground"
   },
-  "dependencies": {},
   "devDependencies": {
     "@commitlint/cli": "^9.0.1",
-    "@commitlint/config-conventional": "^9.0.1",
+    "@pontte/babel-preset": "^1.0.0-beta.5",
     "@pontte/commitlint-config": "^1.0.0",
+    "@pontte/eslint-config": "^1.0.0-alpha.6",
+    "babel-plugin-module-resolver": "^4.0.0",
     "commitizen": "^4.1.2",
     "commitlint": "^9.0.1",
     "husky": "^4.2.5"
   },
   "peerDependencies": {
     "@commitlint/cli": "^9.0.1",
-    "@pontte/commitlint-config": "^1.0.0",
-    "@pontte/semantic-release-config": "^1.0.2",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/git": "^9.0.0",
     "commitizen": "^4.1.2",
     "commitlint": "^9.0.1",
-    "husky": "^4.2.5",
-    "semantic-release": "^17.1.1"
-  },
-  "optionalDependencies": {
-    "@pontte/semantic-release-config": "^1.0.2",
-    "@semantic-release/changelog": "^5.0.1",
-    "@semantic-release/git": "^9.0.0",
-    "semantic-release": "^17.1.1"
+    "husky": "^4.2.5"
   },
   "config": {
     "commitizen": {

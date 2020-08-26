@@ -1,0 +1,3 @@
+#!/bin/bash
+
+yarn workspace @pontte/stargate-ui-core $@
