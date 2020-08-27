@@ -2,8 +2,8 @@ name: promote-prod-stargate-ui-playground
 
 on:
   push:
-    paths:
-      - packages/**
+    # paths:
+    #   - packages/**
     branches-ignore:
       - gh-pages
 
@@ -39,14 +39,11 @@ jobs:
         run: |
           yarn workspace @pontte/stargate-ui-playground build
 
-      - name: Deploy under production distribution
-        env:
-          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
-          GIT_COMMITTER_NAME: ${{ secrets.BOT_NAME }}
-          GIT_COMMITTER_EMAIL: ${{ secrets.BOT_EMAIL }}
-        run: |
-          git config --global user.name ${GIT_COMMITTER_NAME}
-          git config --global user.email ${GIT_COMMITTER_EMAIL}
-          npx gh-pages \
-            --dist packages/stargate-ui-playground/dist \
-            --message="build: publish automatically by @${GIT_COMMITTER_NAME} 🤖🛵"
+      - uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.BOT_TOKEN }}
+          user_name: ${{ secrets.BOT_NAME }}
+          user_email: ${{ secrets.BOT_EMAIL }}
+          publish_dir: packages/stargate-ui-playground/dist
+          full_commit_message: |
+            chore: bundle and deploy latest changes ${{ github.event.head_sha }} 🤖🛵📦
