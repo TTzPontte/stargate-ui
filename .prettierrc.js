@@ -4,7 +4,6 @@ const config = {
   htmlWhitespaceSensitivity: 'css',
   insertPragma: false,
   bracketSpacing: true,
-  printWidth: 80,
   endOfLine: 'lf',
   proseWrap: 'preserve',
   useTabs: false,
