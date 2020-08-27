@@ -12,7 +12,7 @@ env:
   NPM_CONFIG_USERCONFIG: .npmrc
 
 jobs:
-  test-lint:
+  publish:
     if: |
       !contains(github.event.head_commit.author.name, 'james-pontte')
     runs-on: ubuntu-latest
