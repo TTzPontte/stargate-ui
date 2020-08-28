@@ -1,3 +1,5 @@
+const path = require('path');
+
 const resolver = [
   'babel-plugin-module-resolver',
   {
@@ -9,9 +11,9 @@ const resolver = [
       '.mdx',
     ],
     alias: {
-      '@pontte/stargate-ui-core': 'packages/stargate-ui-core/src',
-      '@pontte/stargate-ui-styles': 'packages/stargate-ui-styles/src',
-      '@pontte/stargate-ui-playground': 'packages/stargate-ui-playground/src',
+      '@pontte/stargate-ui-core': path.resolve(__dirname, 'packages/stargate-ui-core/src'),
+      '@pontte/stargate-ui-styles': path.resolve(__dirname, 'packages/stargate-ui-styles/src'),
+      '@pontte/stargate-ui-playground': path.resolve(__dirname, 'packages/stargate-ui-playground/src'),
     },
   },
 ];
