@@ -14,7 +14,7 @@ const Theme = ({ theme = stargate, children }) => (
 
 Theme.propTypes = {
   children: PropTypes.node.isRequired,
-  theme: PropTypes.object.isRequired,
+  theme: PropTypes.object,
 };
 
 export default Theme;
