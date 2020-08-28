@@ -1,0 +1,24 @@
+{
+  "name": "@pontte/stargate-ui-styles",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "start": "",
+    "build": ""
+  },
+  "dependencies": {
+    "deepmerge": "^4.2.2",
+    "jss": "^10.4.0",
+    "react-dom": "^16.13.1",
+    "react-jss": "^10.4.0",
+    "reset-jss": "^1.0.0"
+  },
+  "devDependencies": {
+    "prop-types": "^15.7.2"
+  },
+  "peerDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:pontte/stargate-ui.git"
+  }
+}
