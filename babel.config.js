@@ -36,7 +36,12 @@ const development = {
   plugins: [resolver],
 };
 
-const production = {};
+const production = {
+  /**
+   * @todo remove when packages be published.
+   */
+  plugins: [resolver],
+};
 
 const config = {
   presets: ['@pontte/babel-preset/dist/react'],
