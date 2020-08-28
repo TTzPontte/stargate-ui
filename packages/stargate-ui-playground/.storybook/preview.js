@@ -1,6 +1,10 @@
-import { addParameters } from '@storybook/react';
+import React from 'react';
+import { addParameters, addDecorator } from '@storybook/react';
+import { Theme } from '@pontte/stargate-ui-styles';
 
 import sortStories from './helpers/sortStories';
+
+const withTheme = (storyFn) => <Theme>{storyFn()}</Theme>;
 
 addParameters({
   options: {
@@ -12,3 +16,5 @@ addParameters({
     showRoots: true
   },
 });
+
+addDecorator(withTheme);
