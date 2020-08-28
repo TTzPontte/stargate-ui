@@ -1,0 +1,19 @@
+{
+  "name": "@pontte/stargate-ui-core",
+  "version": "0.0.1",
+  "description": "",
+  "scripts": {
+    "start": "",
+    "build": ""
+  },
+  "dependencies": {
+    "clsx": "^1.1.1",
+    "react": "^16.13.1"
+  },
+  "devDependencies": {},
+  "peerDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "ssh://git@github.com:pontte/stargate-ui.git"
+  }
+}

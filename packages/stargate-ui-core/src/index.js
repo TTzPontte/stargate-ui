@@ -1,1 +1,1 @@
-console.log('hello world from core!');
+export { default as Button } from './Button';
