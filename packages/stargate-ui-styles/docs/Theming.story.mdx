@@ -1,3 +1,38 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta, Canvas } from '@storybook/addon-docs/blocks';
+import { Palette, Swatch } from '@pontte/stargate-ui-playground';
+
+import * as colors from '../src/theme/stargate/colors';
+import palette from '../src/theme/stargate/palette';
+import Theme from '../src/Theme.jsx';
 
 <Meta title="Styles/Theming" />
+
+# Theme
+
+Explore our default colors.
+
+## Main Colors
+
+<Swatch name="primary" color={palette.primary[0]} />
+<Swatch name="secondary" color={palette.secondary[0]} />
+<Swatch name="text" color={palette.text[0]} />
+
+## Semantic Colors
+
+<Swatch name="success" color={palette.success[0]} />
+<Swatch name="warning" color={palette.warning[0]} />
+<Swatch name="error" color={palette.error[0]} />
+<Swatch name="info" color={palette.info[0]} />
+
+## Grey Scale
+
+<Palette name="grey" colors={colors.grey} />
+
+## Palette
+
+<Palette name="yellow" colors={colors.yellow} />
+<Palette name="green" colors={colors.green} />
+<Palette name="pink" colors={colors.pink} />
+<Palette name="purple" colors={colors.purple} />
+<Palette name="indigo" colors={colors.indigo} />
+<Palette name="red" colors={colors.red} />

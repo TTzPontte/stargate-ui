@@ -13,16 +13,16 @@ const palette = {
     colors.yellow[THEME_SHADE_DARKEST],
   ],
   text: [
-    colors.yellow[THEME_SHADE_LIGHTER],
-    colors.yellow[THEME_SHADE_DARKEST],
+    colors.purple[THEME_SHADE_DARKEST],
+    colors.purple[THEME_SHADE_DARKEST],
   ],
   success: [
     colors.green[THEME_SHADE_LIGHTER],
     colors.green[THEME_SHADE_DARKEST],
   ],
   warning: [
-    colors.warning[THEME_SHADE_LIGHTER],
-    colors.warning[THEME_SHADE_DARKEST],
+    colors.yellow[THEME_SHADE_LIGHTER],
+    colors.yellow[THEME_SHADE_DARKEST],
   ],
   error: [
     colors.pink[THEME_SHADE_LIGHTER],
@@ -34,6 +34,7 @@ const palette = {
   ],
   darkest: colors.purple[900],
   lighter: colors.grey[100],
+  neutral: colors.grey,
 };
 
 export default palette;
