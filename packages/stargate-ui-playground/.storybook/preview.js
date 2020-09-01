@@ -1,6 +1,6 @@
 import React from 'react';
 import { addParameters, addDecorator } from '@storybook/react';
-import { DocsContainer } from '@storybook/addon-docs/blocks';
+import { DocsContainer } from '@pontte/stargate-ui-playground';
 import { Theme } from '@pontte/stargate-ui-styles';
 
 import sortStories from './helpers/sortStories';
