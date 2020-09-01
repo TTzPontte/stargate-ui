@@ -5,7 +5,7 @@ import breakpoint from './breakpoint';
 const THEME_BASE = 8;
 
 const spacing = (n = 1) => THEME_BASE * n;
-const radius = spacing();
+const radius = (n = 1) => spacing(.5) * n;
 
 const theme = {
   spacing,
