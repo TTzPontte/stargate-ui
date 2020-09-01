@@ -37,9 +37,9 @@ module.exports = async ({ config }) =>
     },
     resolve: {
       alias: {
-        '@pontte/stardust-ui-playground': path.resolve(__dirname, '../src'),
-        '@pontte/stardust-ui-style': path.resolve(__dirname, '../../stargate-ui-styles/src'),
-        '@pontte/stardust-ui-core': path.resolve(__dirname, '../../stargate-ui-core/src'),
+        '@pontte/stargate-ui-playground': path.resolve(__dirname, '../src'),
+        '@pontte/stargate-ui-style': path.resolve(__dirname, '../../stargate-ui-styles/src'),
+        '@pontte/stargate-ui-core': path.resolve(__dirname, '../../stargate-ui-core/src'),
       },
     },
     plugins: [
