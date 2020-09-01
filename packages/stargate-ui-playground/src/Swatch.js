@@ -7,8 +7,11 @@ const styles = (theme) => {
   const {
     palette,
     spacing,
-    radius: borderRadius,
+    radius,
   } = theme;
+
+  const border = 1;
+  const borderRadius = radius();
 
   return {
     card: {
@@ -16,12 +19,12 @@ const styles = (theme) => {
       display: 'inline-block',
       marginRight: spacing(),
       width: 100,
-      border: [[1, 'solid', palette.neutral[800]]],
+      border: [[border, 'solid', palette.neutral[800]]],
     },
     cardSwatch: {
       width: 102,
       height: 100,
-      margin: [[-1, -1, 0]],
+      margin: [[-border, -border, 0]],
       borderTopLeftRadius: borderRadius,
       borderTopRightRadius: borderRadius,
     },
