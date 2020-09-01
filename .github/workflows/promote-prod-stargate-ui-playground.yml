@@ -47,3 +47,4 @@ jobs:
           publish_dir: packages/stargate-ui-playground/dist
           full_commit_message: |
             chore: bundle and deploy latest changes ${GITHUB_SHA} 🤖🛵📦
+          fqdn: ${{ secrets.PLAYGROUND_DOMAIN }}
