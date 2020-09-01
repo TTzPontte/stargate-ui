@@ -2,12 +2,12 @@ import React from 'react';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
 
-const styles = ({ layout }) => {
+const styles = ({ spacing }) => {
   const base = {
     display: 'inline-flex',
-    padding: [layout.base(), layout.base(2)],
+    padding: [spacing(), spacing()],
     border: 0,
-    borderRadius: layout.radius(2),
+    borderRadius: spacing(2),
     cursor: 'pointer',
     outline: 'none',
     '&:hover': {
