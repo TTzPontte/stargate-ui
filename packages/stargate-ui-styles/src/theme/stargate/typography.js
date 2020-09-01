@@ -1,26 +1,28 @@
 import 'typeface-lato';
 
-const fontFamily = ['Lato'];
-const fontHeight = '150%';
+const fontFamily = [
+  'Lato',
+  'Roboto',
+  'Sans-serif',
+];
 
 const fontCommon = {
   fontFamily,
-  fontHeight,
 };
 
 const headingCommon = {
   ...fontCommon,
-  lineSpacing: 1.2,
-  fontWeight: 700,
+  lineHeight: 1.2,
+  fontWeight: 'bold',
 };
 
 const bodyCommon = {
   ...fontCommon,
-  lineSpacing: 1.4,
-  fontWeight: 500,
+  lineHeight: 1.4,
+  fontWeight: 'regular',
 };
 
-const fontVariants = {
+const typographyVariant = {
   h1: {
     ...headingCommon,
     fontSize: 48,
@@ -49,7 +51,7 @@ const fontVariants = {
     ...bodyCommon,
     fontSize: 16,
   },
-  bodySmall: {
+  bodylower: {
     ...bodyCommon,
     fontSize: 14,
   },
@@ -57,14 +59,15 @@ const fontVariants = {
     ...bodyCommon,
     fontSize: 14,
   },
-  caption: {
+  tiny: {
     ...bodyCommon,
     fontSize: 13,
   },
 };
 
 const typography = {
-  ...fontVariants,
+  ...typographyVariant,
+  fontFamily,
 };
 
 export default typography;

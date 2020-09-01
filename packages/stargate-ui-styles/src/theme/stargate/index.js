@@ -1,6 +1,7 @@
 import palette from './palette';
 import grid from './grid';
 import breakpoint from './breakpoint';
+import typography from './typography';
 
 const THEME_BASE = 8;
 
@@ -13,6 +14,7 @@ const theme = {
   palette,
   grid,
   breakpoint,
+  typography,
   mode: 'light',
   dir: 'ltr',
 };
