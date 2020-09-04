@@ -6,8 +6,7 @@ const webpack = require('webpack');
 dotenv.config();
 
 const env = {
-  STORYBOOK_URL,
-  STORYBOOK_URI,
+  PLAYGROUND_DOMAIN,
   NODE_ENV,
 } = process.env;
 
