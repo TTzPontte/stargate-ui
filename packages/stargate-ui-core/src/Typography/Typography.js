@@ -1,4 +1,4 @@
-import React, { createElement } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
