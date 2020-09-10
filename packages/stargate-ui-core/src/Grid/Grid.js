@@ -11,7 +11,7 @@ const styles = () => {
 const Checkbox = (props) => {
   const { children, ...factoryProps } = props;
 
-  const classes = useStyles(styles, {});
+  const [classes] = useStyles(styles, {});
   const className = clsx(classes);
 
   return (

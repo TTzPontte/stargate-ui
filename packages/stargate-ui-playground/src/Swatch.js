@@ -35,7 +35,7 @@ const styles = (theme) => {
 };
 
 const Swatch = (props) => {
-  const classes = useStyles(styles);
+  const [classes] = useStyles(styles);
   const {
     name,
     color,

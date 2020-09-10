@@ -4,17 +4,38 @@ import {
   Status,
   Story,
 } from '@pontte/stargate-ui-playground';
-import Button from './Button';
+import Button from '.';
+
 
 <Meta title="Core/Button" component={Button} />
 
 # Button
 
-<Status type="rc" />
+<Status type="experimental" />
 
-<Story name="Contained Buttons">
+## Text Buttons
+
+<Canvas>
   <Button>Default</Button>
   <Button color="primary">Primary</Button>
   <Button color="secondary">Secondary</Button>
   <Button disabled>Disable</Button>
-</Story>
+</Canvas>
+
+## Contained Buttons
+
+<Canvas>
+  <Button contained>Default</Button>
+  <Button contained color="primary">Primary</Button>
+  <Button contained color="secondary">Secondary</Button>
+  <Button contained disabled>Disable</Button>
+</Canvas>
+
+## Outlined Buttons
+
+<Canvas>
+  <Button outlined>Default</Button>
+  <Button color="primary" outlined>Primary</Button>
+  <Button color="secondary" outlined>Secondary</Button>
+  <Button outlined disabled>Disable</Button>
+</Canvas>

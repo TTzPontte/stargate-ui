@@ -48,7 +48,8 @@ const production = {
         '.json',
       ],
     }),
-    commonjs({ ignoreGlobal: true,
+    commonjs({
+      ignoreGlobal: true,
       include: /node_modules/,
     }),
     babel({

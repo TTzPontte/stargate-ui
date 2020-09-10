@@ -21,6 +21,7 @@
   "main": "",
   "scripts": {
     "commit": "git-cz",
+    "start": "yarn package:playground start",
     "package:core": "sh scripts/stargate-ui-core",
     "package:styles": "sh scripts/stargate-ui-styles",
     "package:playground": "sh scripts/stargate-ui-playground"

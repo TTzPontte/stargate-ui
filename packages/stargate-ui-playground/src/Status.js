@@ -13,6 +13,7 @@ const styles = (theme) => {
     spacing,
     radius,
     palette,
+    mode,
   } = theme;
 
   const borderRadius = radius();
@@ -20,6 +21,16 @@ const styles = (theme) => {
     border: [[1, 'solid']],
     padding: [[spacing(.5), spacing()]],
   };
+
+  const color = {
+    [STATUS_TYPE_RC]: 'warning',
+    [STATUS_TYPE_STABLE]: 'success',
+    [STATUS_TYPE_DEPRECATED]: 'error',
+    [STATUS_TYPE_EXPERIMENTAL]: 'info',
+  };
+
+  const backgroundColor = ({ type }) => palette[color[type]][mode].color;
+  const textColor = ({ type }) => palette[color[type]][mode].text;
 
   return {
     badge: {
@@ -29,9 +40,11 @@ const styles = (theme) => {
     },
     badgeColor: {
       ...badgeCommon,
-      color: palette.lighter,
       borderTopRightRadius: borderRadius,
       borderBottomRightRadius: borderRadius,
+      backgroundColor: backgroundColor,
+      borderColor: backgroundColor,
+      color: textColor,
     },
     badgeLabel: {
       ...badgeCommon,
@@ -40,42 +53,17 @@ const styles = (theme) => {
       borderTopLeftRadius: borderRadius,
       borderBottomLeftRadius: borderRadius,
     },
-    [STATUS_TYPE_RC]: {
-      '& $badgeColor': {
-        color: palette.darkest,
-        backgroundColor: palette.warning[0],
-        borderColor: palette.warning[0],
-      },
-    },
-    [STATUS_TYPE_STABLE]: {
-      '& $badgeColor': {
-        backgroundColor: palette.success[0],
-        borderColor: palette.success[0],
-      },
-    },
-    [STATUS_TYPE_DEPRECATED]: {
-      '& $badgeColor': {
-        backgroundColor: palette.error[0],
-        borderColor: palette.error[0],
-      },
-    },
-    [STATUS_TYPE_EXPERIMENTAL]: {
-      '& $badgeColor': {
-        backgroundColor: palette.info[0],
-        borderColor: palette.info[0],
-      },
-    },
   };
 };
 
 const Status = ({ type = STATUS_TYPE_RC }) => {
-  const classes = useStyles(styles);
   const label = {
     [STATUS_TYPE_RC]: 'release candidate',
     [STATUS_TYPE_STABLE]: 'stable',
     [STATUS_TYPE_DEPRECATED]: 'deprecated',
     [STATUS_TYPE_EXPERIMENTAL]: 'experimental',
   }[type];
+  const [classes] = useStyles(styles, { type });
 
   return (
     <div className={clsx(classes.badge, classes[type])}>
