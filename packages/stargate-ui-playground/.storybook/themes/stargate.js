@@ -14,7 +14,7 @@ const config = {
   brandUrl,
   base: 'light',
   brandTitle: 'Stargate UI',
-  brandImage: 'images/logo-pontte.png',
+  brandImage: 'images/logo-stargate.svg',
   colorPrimary: color1,
   colorSecondary: color3,
   appBg: 'white',

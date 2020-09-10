@@ -20,9 +20,6 @@ const styles = (theme) => {
   const { typography } = theme;
 
   return {
-    typography: {
-      textTransform: ({ transform: textTransform }) => textTransform,
-    },
     [TYPOGRAPHY_VARIANT_H1]: typography.h1,
     [TYPOGRAPHY_VARIANT_H2]: typography.h2,
     [TYPOGRAPHY_VARIANT_H3]: typography.h3,
@@ -41,7 +38,6 @@ const Typography = (props) => {
     paragraph,
     children,
     variant,
-    transform = 'initial',
     type: elementTagString = 'p',
     ...factoryProps
   } = props;
@@ -63,8 +59,8 @@ const Typography = (props) => {
     (a, b) => typographyMapping[b] === elementTagString ? b : a
   );
 
-  const [classes] = useStyles(styles, { transform });
-  const className = clsx(classes.typography, classes[typographyVariant]);
+  const classes = useStyles(styles);
+  const className = clsx(classes[typographyVariant]);
 
   return (
     <Factory type={type} className={className} {...factoryProps}>
@@ -88,12 +84,6 @@ Typography.propTypes = {
     TYPOGRAPHY_VARIANT_TINY,
   ]),
   type: PropTypes.elementType,
-  transform: PropTypes.oneOf([
-    'uppercase',
-    'lowercase',
-    'initial',
-    'capitalize',
-  ]),
   paragraph: PropTypes.bool,
 };
 
