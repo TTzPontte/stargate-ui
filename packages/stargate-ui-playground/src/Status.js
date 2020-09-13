@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { useStyles } from '@pontte/stargate-ui-styles';
+import { Typography } from '@pontte/stargate-ui-core';
 
 const STATUS_TYPE_RC = 'rc';
 const STATUS_TYPE_STABLE = 'stable';
@@ -36,7 +37,7 @@ const styles = (theme) => {
     badge: {
       display: 'inline-block',
       borderRadius: radius(),
-      marginBottom: spacing(),
+      marginBottom: spacing(2),
     },
     badgeColor: {
       ...badgeCommon,
@@ -67,12 +68,12 @@ const Status = ({ type = STATUS_TYPE_RC }) => {
 
   return (
     <div className={clsx(classes.badge, classes[type])}>
-      <span className={classes.badgeLabel}>
+      <Typography element="span" className={classes.badgeLabel}>
         status
-      </span>
-      <span className={clsx(classes.badgeColor)}>
+      </Typography>
+      <Typography element="span" className={classes.badgeColor}>
         {label}
-      </span>
+      </Typography>
     </div>
   );
 };
