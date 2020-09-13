@@ -1,59 +1,86 @@
-import { Meta, Canvas } from '@pontte/stargate-ui-playground';
 import {
   Palette,
   Swatch,
   Status,
+  Meta,
+  Canvas,
 } from '@pontte/stargate-ui-playground';
+import { Typography } from '@pontte/stargate-ui-core';
 
 import * as colors from '../src/theme/stargate/colors';
 import palette from '../src/theme/stargate/palette';
 
 <Meta title="Styles/Theming" />
 
-# Theme
+<Typography element="h1">
+  Theming
+</Typography>
 
 <Status type="rc" />
 
-Explore our default colors.
+<Typography>
+  Explore our default colors.
+</Typography>
 
-## Main Colors
+
+<Typography element="h2" variant="h3">
+  Main Colors
+</Typography>
 
 <Swatch name="primary" color={palette.primary.lighter.color} />
 <Swatch name="secondary" color={palette.secondary.lighter.color} />
 
-## Semantic Colors
+
+<Typography element="h2" variant="h3">
+  Semantic Colors
+</Typography>
 
 <Swatch name="success" color={palette.success.lighter.color} />
 <Swatch name="warning" color={palette.warning.lighter.color} />
 <Swatch name="error" color={palette.error.lighter.color} />
 <Swatch name="info" color={palette.info.lighter.color} />
 
-## Grey Scale
+<Typography element="h2" variant="h3">
+  Colors Scales
+</Typography>
+
+<Typography element="h2" variant="h3">
+  Grey
+</Typography>
 
 <Palette name="grey" colors={colors.grey} />
 
-## Palette
 
-### Yellow
+<Typography element="h3" variant="h4">
+  Yellow
+</Typography>
 
 <Palette name="yellow" colors={colors.yellow} />
 
-### Green
+
+<Typography element="h3" variant="h4">
+  Green
+</Typography>
 
 <Palette name="green" colors={colors.green} />
 
-### Pink
+
+<Typography element="h3" variant="h4">
+  Pink
+</Typography>
 
 <Palette name="pink" colors={colors.pink} />
 
-### Purple
+
+<Typography element="h3" variant="h4">
+  Purple
+</Typography>
 
 <Palette name="purple" colors={colors.purple} />
 
-### Indigo
+
+<Typography element="h3" variant="h4">
+  Indigo
+</Typography>
 
 <Palette name="indigo" colors={colors.indigo} />
-
-### Red
-
-<Palette name="red" colors={colors.red} />
