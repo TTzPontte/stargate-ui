@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import { useStyles } from '@pontte/stargate-ui-styles';
+import { Typography } from '@pontte/stargate-ui-core';
 
 const styles = (theme) => {
   const {
@@ -46,9 +46,16 @@ const Swatch = (props) => {
     <div className={classes.card}>
       <div className={classes.cardSwatch} style={{ backgroundColor: color }} />
       <div className={classes.cardInfo}>
-        {shade}
-        <br />
-        {name}
+        {
+          shade && (
+            <Typography element="span" display="block">
+              {shade}
+            </Typography>
+          )
+        }
+        <Typography element="span" display="block">
+          {name}
+        </Typography>
       </div>
     </div>
   );
