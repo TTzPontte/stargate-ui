@@ -4,38 +4,66 @@ import {
   Status,
   Story,
 } from '@pontte/stargate-ui-playground';
-import Button from '.';
+import { Typography } from '@pontte/stargate-ui-core';
 
+import Button from '.';
 
 <Meta title="Core/Button" component={Button} />
 
-# Button
+<Typography element="h1">
+  Button
+</Typography>
 
-<Status type="experimental" />
+<Status type="rc" />
 
-## Text Buttons
+
+<Typography element="h2" variant="h3">
+  Contained Button
+</Typography>
 
 <Canvas>
-  <Button>Default</Button>
-  <Button color="primary">Primary</Button>
-  <Button color="secondary">Secondary</Button>
-  <Button disabled>Disable</Button>
+  <Story name="Contained">
+    <Button contained>Default</Button>
+    <Button contained color="primary">Primary</Button>
+    <Button contained color="secondary">Secondary</Button>
+    <Button contained disabled>Disable</Button>
+  </Story>
 </Canvas>
 
-## Contained Buttons
+
+<Typography element="h2" variant="h3">
+  Outlined Button
+</Typography>
 
 <Canvas>
-  <Button contained>Default</Button>
-  <Button contained color="primary">Primary</Button>
-  <Button contained color="secondary">Secondary</Button>
-  <Button contained disabled>Disable</Button>
+  <Story name="Outlined">
+    <Button outlined>Default</Button>
+    <Button color="primary" outlined>Primary</Button>
+    <Button color="secondary" outlined>Secondary</Button>
+    <Button outlined disabled>Disable</Button>
+  </Story>
 </Canvas>
 
-## Outlined Buttons
+
+<Typography element="h2" variant="h3">
+  Text Button
+</Typography>
 
 <Canvas>
-  <Button outlined>Default</Button>
-  <Button color="primary" outlined>Primary</Button>
-  <Button color="secondary" outlined>Secondary</Button>
-  <Button outlined disabled>Disable</Button>
+  <Story name="Text">
+    <Button>Default</Button>
+    <Button color="primary">Primary</Button>
+    <Button color="secondary">Secondary</Button>
+    <Button disabled>Disable</Button>
+  </Story>
+</Canvas>
+
+
+<Typography element="h2" variant="h3">
+  Sizes
+</Typography>
+
+<Canvas>
+  <Button color="primary" contained>Small</Button>
+  <Button color="primary" contained large>Large</Button>
 </Canvas>

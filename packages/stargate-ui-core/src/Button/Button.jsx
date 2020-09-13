@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
 
@@ -6,6 +6,9 @@ import Factory from '../Factory';
 import Typography from '../Typography';
 
 const styles = (theme) => {
+  /**
+   * @todo improve dynamic properties
+   */
   const {
     active,
     spacing,
@@ -13,7 +16,6 @@ const styles = (theme) => {
     radius,
     mode,
   } = theme;
-
   const { setLightness } = palette;
 
   const getColor = ({ color }) => (
@@ -26,14 +28,21 @@ const styles = (theme) => {
 
   const button = {
     display: 'inline-flex',
-    padding: [spacing(1.5), spacing(3)],
     border: [[2, 'solid', 'transparent']],
     borderRadius: radius(10),
     cursor: 'pointer',
     outline: 'none',
     backgroundColor: 'transparent',
-    color: getColor,
     transition: [['all', '.4s', 'ease']],
+    margin: [0, spacing(.5)],
+    padding: ({ large }) => {
+      const n = !large ? 1 : 1.2;
+
+      return [[spacing(1.5 * n), spacing(6 * n)]];
+    },
+    pointerEvents: ({ disabled }) => (
+      disabled && 'none'
+    )
   };
 
   const buttonText = {
@@ -49,10 +58,10 @@ const styles = (theme) => {
 
   const buttonContained = {
     color: ({ disabled, ...props }) => (
-      disabled ? setLightness(.6, getColor(props)) : getTextColor(props)
+      disabled ? setLightness(.8, getColor(props)) : getTextColor(props)
     ),
     backgroundColor: ({ disabled, ...props }) => (
-      disabled ? setLightness(.96, getColor(props)) : getColor(props)
+      disabled ? setLightness(.95, getColor(props)) : getColor(props)
     ),
     [active()]: {
       color: ({ disabled, ...props }) => (
@@ -70,10 +79,10 @@ const styles = (theme) => {
   const buttonOutlined = {
     borderColor: getColor,
     color: ({ disabled, ...props }) => (
-      disabled ? setLightness(.6, getColor(props)) : getColor(props)
+      disabled ? setLightness(.85, getColor(props)) : getColor(props)
     ),
     borderColor: ({ disabled, ...props }) => (
-      disabled ? setLightness(.5, getColor(props)) : getColor(props)
+      disabled ? setLightness(.85, getColor(props)) : getColor(props)
     ),
     [active()]: {
       color: ({ disabled, ...props }) => (
@@ -96,14 +105,16 @@ const styles = (theme) => {
   };
 };
 
-const Button = React.forwardRef((props, ref) => {
+const Button = (props) => {
   const {
     children,
     contained,
     outlined,
     disabled,
+    large,
     color = 'default',
-    className: inheritClassName,
+    onClick = () => {},
+    className: inheritedClasses,
     ...factoryProps
   } = props;
 
@@ -114,8 +125,11 @@ const Button = React.forwardRef((props, ref) => {
       buttonOutlined: classButtonOutlined,
       ...classes
     },
-  ] = useStyles(styles, { color, disabled });
-
+  ] = useStyles(styles, {
+    color,
+    disabled,
+    large,
+  });
   const className = clsx(
     Object.values(classes),
     {
@@ -123,16 +137,37 @@ const Button = React.forwardRef((props, ref) => {
       [classButtonContained]: contained,
       [classButtonOutlined]: outlined,
     },
-    inheritClassName,
+    inheritedClasses,
   );
 
+  const typographyVariant = large ? 'body' : 'bodylower';
+
+  const handleClick = ({ event }) => {
+    if (disabled) {
+      event.stopPropagation();
+      return;
+    }
+
+    onClick();
+  }
+
   return (
-    <Factory type="button" className={className} {...factoryProps}>
-      <Typography type="span" variant="small" transform="uppercase">
+    <Factory
+      element="button"
+      className={className}
+      onClick={handleClick}
+      {...factoryProps}
+    >
+      <Typography
+        element="span"
+        variant={typographyVariant}
+        gutter={0}
+        transform="uppercase"
+      >
         {children}
       </Typography>
     </Factory>
   );
-});
+};
 
 export default Button;

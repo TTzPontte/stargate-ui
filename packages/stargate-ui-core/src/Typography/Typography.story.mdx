@@ -7,43 +7,124 @@ import Typography from './Typography';
 
 <Meta title="Core/Typography" component={Typography} />
 
-# Typography
+<Typography element="h1">
+  Typography
+</Typography>
 
 <Status type="rc" />
 
-## Heading
 
-<Story name="Basic Usage">
-  <Typography type="h1">h1. Heading</Typography>
-  <Typography type="h2">h2. Heading</Typography>
-  <Typography type="h3">h3. Heading</Typography>
-  <Typography type="h4">h4. Heading</Typography>
-  <Typography type="h5">h5. Heading</Typography>
-  <Typography type="h6">h6. Heading</Typography>
-  <Typography variant="body">
-    body. Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+<Typography element="h2">
+  Heading
+</Typography>
+
+<Canvas>
+  <div>
+    <Typography element="h1">h1. Heading</Typography>
+    <Typography element="h2">h2. Heading</Typography>
+    <Typography element="h3">h3. Heading</Typography>
+    <Typography element="h4">h4. Heading</Typography>
+    <Typography element="h5">h5. Heading</Typography>
+    <Typography element="h6">h6. Heading</Typography>
+  </div>
+</Canvas>
+
+<Typography element="h2">
+  Body Variant
+</Typography>
+
+<Canvas>
+  <Typography variant="body" paragraph>
+    <b>body.</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
     veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
     consequat. Duis aute irure dolor in reprehenderit in voluptate
     velit esse cillum dolore eu fugiat nulla pariatur
   </Typography>
-  <Typography variant="bodylower">
-    bodylower. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+  <Typography variant="bodylower" paragraph>
+    <b>bodylower.</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
     nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
     velit esse cillum dolore eu fugiat nulla pariatur
   </Typography>
-  <Typography variant="small">
-    small. Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+  <Typography variant="small" paragraph>
+    <b>small.</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit,
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
     veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
     consequat. Duis aute irure dolor in reprehenderit in voluptate
     velit esse cillum dolore eu fugiat nulla pariatur
   </Typography>
-  <Typography variant="tiny">
-    tiny. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+  <Typography variant="tiny" paragraph>
+    <b>tiny.</b> Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
     labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
     nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
     velit esse cillum dolore eu fugiat nulla pariatur
   </Typography>
-</Story>
+</Canvas>
+
+
+<Typography element="h2">
+  Colors
+</Typography>
+
+<Canvas>
+  <Typography variant="body" color="primary">
+    Hello world in <i>primary</i> color!
+  </Typography>
+  <Typography variant="body" color="secondary">
+    Hello world in <i>secondary</i> color!
+  </Typography>
+  <Typography variant="body" color="success">
+    Hello world in <i>success</i> color!
+  </Typography>
+  <Typography variant="body" color="warning">
+    Hello world in <i>warning</i> color!
+  </Typography>
+  <Typography variant="body" color="error">
+    Hello world in <i>error</i> color!
+  </Typography>
+  <Typography variant="body" color="info">
+    Hello world in <i>info</i> color!
+  </Typography>
+</Canvas>
+
+
+<Typography element="h2">
+  Display
+</Typography>
+
+<Canvas>
+  <div>
+    <Typography element="span" display="block">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur
+    </Typography>
+  </div>
+</Canvas>
+
+
+<Typography element="h2">
+  Alignment
+</Typography>
+
+<Canvas>
+  <div>
+    <Typography gutter={0}>
+        Align to <b>left</b>
+    </Typography>
+    <Typography gutter={0} align="center">
+        Align to <b>center</b>
+    </Typography>
+    <Typography gutter={4} align="right">
+        Align to <b>center</b>
+    </Typography>
+    <Typography align="justify">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+      velit esse cillum dolore eu fugiat nulla pariatur
+    </Typography>
+  </div>
+</Canvas>

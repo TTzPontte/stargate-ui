@@ -16,54 +16,131 @@ const TYPOGRAPHY_VARIANT_BODYLOWER = 'bodylower';
 const TYPOGRAPHY_VARIANT_SMALL = 'small';
 const TYPOGRAPHY_VARIANT_TINY = 'tiny';
 
+const TYPOGRAPHY_VARIANT = {
+  [TYPOGRAPHY_VARIANT_H1]: 'h1',
+  [TYPOGRAPHY_VARIANT_H2]: 'h2',
+  [TYPOGRAPHY_VARIANT_H3]: 'h3',
+  [TYPOGRAPHY_VARIANT_H4]: 'h4',
+  [TYPOGRAPHY_VARIANT_H5]: 'h5',
+  [TYPOGRAPHY_VARIANT_H6]: 'h6',
+  [TYPOGRAPHY_VARIANT_BODY]: 'p',
+  /**
+   * @todo needs improvement
+   */
+  // [TYPOGRAPHY_VARIANT_BODYLOWER]: 'p',
+  [TYPOGRAPHY_VARIANT_SMALL]: 'span',
+  [TYPOGRAPHY_VARIANT_TINY]: 'small',
+};
+
 const styles = (theme) => {
-  const { typography } = theme;
+  const { spacing } = theme;
+  const {
+    fontFamily,
+    fontSize,
+    lineHeight,
+    fontWeight,
+  } = theme.typography;
+
+  /**
+   * @todo add support for custom color
+   */
+  const typography = {
+    margin: 0,
+    letterSpacing: .5,
+    fontFamily: ({ variant }) => (
+      theme.typography?.[variant].fontFamily || fontFamily
+    ),
+    fontSize: ({ variant }) => (
+      theme.typography?.[variant].fontSize || fontSize
+    ),
+    lineHeight: ({ variant }) => (
+      theme.typography?.[variant].lineHeight || lineHeight
+    ),
+    fontWeight: ({ variant }) => (
+      theme.typography?.[variant].fontWeight || fontWeight
+    ),
+    textTransform: ({ transform }) => (
+      transform
+    ),
+    marginBottom: (props) => {
+      const {
+        paragraph,
+        gutter,
+        variant,
+      } = props;
+
+      return ((gutter || paragraph || [
+        TYPOGRAPHY_VARIANT_H1,
+        TYPOGRAPHY_VARIANT_H2,
+        TYPOGRAPHY_VARIANT_H3,
+        TYPOGRAPHY_VARIANT_H4,
+        TYPOGRAPHY_VARIANT_H5,
+        TYPOGRAPHY_VARIANT_H6,
+        TYPOGRAPHY_VARIANT_BODY,
+      ].includes(variant)) && spacing(gutter ?? 2)) || 0;
+    },
+    display: (props) => {
+      const {
+        variant,
+        paragraph,
+        display,
+      } = props;
+
+      return display || ((paragraph || [
+        TYPOGRAPHY_VARIANT_H1,
+        TYPOGRAPHY_VARIANT_H2,
+        TYPOGRAPHY_VARIANT_H3,
+        TYPOGRAPHY_VARIANT_H4,
+        TYPOGRAPHY_VARIANT_H5,
+        TYPOGRAPHY_VARIANT_H6,
+        TYPOGRAPHY_VARIANT_BODY,
+      ].includes(variant)) && 'block') || 'initial';
+    },
+    alignText: ({ align }) => (
+      align
+    ),
+  };
 
   return {
-    [TYPOGRAPHY_VARIANT_H1]: typography.h1,
-    [TYPOGRAPHY_VARIANT_H2]: typography.h2,
-    [TYPOGRAPHY_VARIANT_H3]: typography.h3,
-    [TYPOGRAPHY_VARIANT_H4]: typography.h4,
-    [TYPOGRAPHY_VARIANT_H5]: typography.h5,
-    [TYPOGRAPHY_VARIANT_H6]: typography.h6,
-    [TYPOGRAPHY_VARIANT_BODY]: typography.body,
-    [TYPOGRAPHY_VARIANT_BODYLOWER]: typography.bodylower,
-    [TYPOGRAPHY_VARIANT_SMALL]: typography.small,
-    [TYPOGRAPHY_VARIANT_TINY]: typography.tiny,
+    typography,
   };
 };
 
 const Typography = (props) => {
   const {
-    paragraph,
     children,
-    variant,
-    type: elementTagString = 'p',
+    color,
+    display,
+    transform,
+    paragraph,
+    gutter,
+    variant: typographyVariant,
+    element: elementTagString = 'p',
+    className: inheritedClassName,
     ...factoryProps
   } = props;
 
-  const typographyMapping = {
-    [TYPOGRAPHY_VARIANT_H1]: 'h1',
-    [TYPOGRAPHY_VARIANT_H2]: 'h2',
-    [TYPOGRAPHY_VARIANT_H3]: 'h3',
-    [TYPOGRAPHY_VARIANT_H4]: 'h4',
-    [TYPOGRAPHY_VARIANT_H5]: 'h5',
-    [TYPOGRAPHY_VARIANT_H6]: 'h6',
-    [TYPOGRAPHY_VARIANT_BODY]: 'p',
-    [TYPOGRAPHY_VARIANT_BODYLOWER]: 'p',
-    [TYPOGRAPHY_VARIANT_SMALL]: 'span',
-    [TYPOGRAPHY_VARIANT_TINY]: 'small',
-  };
-  const type = elementTagString || typographyMapping[variant] || 'span';
-  const typographyVariant = variant || Object.keys(typographyMapping).reduce(
+  const typographyMapping = TYPOGRAPHY_VARIANT;
+  const element = elementTagString || typographyMapping[typographyVariant];
+  /**
+   * @todo need to filter equal elements
+   */
+  const variant = typographyVariant || Object.keys(typographyMapping).reduce(
     (a, b) => typographyMapping[b] === elementTagString ? b : a
   );
 
-  const classes = useStyles(styles);
-  const className = clsx(classes[typographyVariant]);
+  const [classes] = useStyles(styles, {
+    variant,
+    transform,
+    color,
+    paragraph,
+    gutter,
+    display,
+  });
+  const className = clsx(Object.values(classes), inheritedClassName);
 
   return (
-    <Factory type={type} className={className} {...factoryProps}>
+    <Factory element={element} className={className} {...factoryProps}>
       {children}
     </Factory>
   );
@@ -71,6 +148,13 @@ const Typography = (props) => {
 
 Typography.propTypes = {
   children: PropTypes.node.isRequired,
+  /**
+   * @default p
+   */
+  element: PropTypes.elementType,
+  /**
+   * @default TYPOGRAPHY_VARIANT_BODY
+   */
   variant: PropTypes.oneOf([
     TYPOGRAPHY_VARIANT_H1,
     TYPOGRAPHY_VARIANT_H2,
@@ -83,8 +167,54 @@ Typography.propTypes = {
     TYPOGRAPHY_VARIANT_SMALL,
     TYPOGRAPHY_VARIANT_TINY,
   ]),
-  type: PropTypes.elementType,
+  /**
+   * @default inherit
+   */
+  transform: PropTypes.oneOf([
+    'inherit',
+    'initial',
+    'uppercase',
+    'lowercase',
+    'capitalize',
+  ]),
+  /**
+   * @default inherit
+   */
+  color: PropTypes.oneOf([
+    'inherit',
+    'initial',
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'error',
+    'info',
+  ]),
   paragraph: PropTypes.bool,
+  /**
+   * @default 2
+   */
+  gutter: PropTypes.number,
+  /**
+   * @default initial
+   */
+  display: PropTypes.oneOf([
+    'initial',
+    'inherit',
+    'block',
+    'inline',
+  ]),
+  /**
+   * @default inherit
+   */
+  align: PropTypes.oneOf([
+    'inherit',
+    'initial',
+    'left',
+    'right',
+    'center',
+    'justify',
+  ]),
 };
 
 export default Typography;

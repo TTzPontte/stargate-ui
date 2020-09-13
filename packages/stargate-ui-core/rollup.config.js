@@ -62,7 +62,7 @@ const production = {
         [name]: JSON.stringify(env[name]),
       }), {}),
     ),
-    terser(),
+    // terser(),
   ],
 };
 
