@@ -1,37 +1,38 @@
 import React from 'react';
-import jss from 'jss';
+import { create as createJss } from 'jss';
 import { JssProvider, SheetsRegistry } from 'react-jss';
 import jssPreset from 'jss-preset-default';
 import resetJss from 'reset-jss';
-import increaseSpecificity from 'jss-increase-specificity';
 import deepmerge from 'deepmerge';
 import PropTypes from 'prop-types';
 
-// const jss = createJss();
+const jss = createJss();
 
-// jss.setup(jssPreset());
-// jss.use(increaseSpecificity());
+jss.setup(jssPreset());
 
 const Normalize = ({ children }) => {
   const sheetsRegistry = new SheetsRegistry();
-
-  const cssGlobalCommon = { height: '100%' };
-  const cssGlobal = jss
-    .createStyleSheet(
-      deepmerge(resetJss, {
-        '@global': {
-          html: cssGlobalCommon,
-          body: cssGlobalCommon,
-          '#root': cssGlobalCommon,
-        },
-      })
+  const cssGlobal = {
+    '@global': {
+      '*': {
+        '-webkit-font-smoothing': 'antialiased',
+      },
+    },
+  };
+  const stylesheet = jss.createStyleSheet(
+    deepmerge(
+      resetJss,
+      cssGlobal,
     )
-    .attach();
+  ).attach();
 
-  sheetsRegistry.add(cssGlobal);
+  sheetsRegistry.add(stylesheet);
 
   return (
-    <JssProvider registry={sheetsRegistry} classNamePrefix="stargate-">
+    <JssProvider
+      registry={sheetsRegistry}
+      classNamePrefix="stargate-"
+    >
       {children}
     </JssProvider>
   );

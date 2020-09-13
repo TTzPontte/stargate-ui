@@ -8,6 +8,7 @@ const fontFamily = [
 
 const fontCommon = {
   fontFamily,
+  fontSize: 16,
 };
 
 const headingCommon = {
@@ -66,8 +67,8 @@ const typographyVariant = {
 };
 
 const typography = {
+  ...bodyCommon,
   ...typographyVariant,
-  fontFamily,
 };
 
 export default typography;
