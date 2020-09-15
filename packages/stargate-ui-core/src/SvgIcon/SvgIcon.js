@@ -27,8 +27,8 @@ const styles = (props) => {
     flexShrink: 0,
     width: setDimensions,
     height: setDimensions,
-    color: ({ color }) => (
-      color && palette[color][mode].color
+    fill: ({ color }) => (
+      palette?.[color]?.[mode].color || 'currentColor'
     ),
   };
 

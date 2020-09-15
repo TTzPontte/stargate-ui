@@ -27,6 +27,7 @@ const theme = {
   typography,
   mode: 'lighter',
   dir: 'ltr',
+  border: [2, 'solid'],
 };
 
 export default theme;

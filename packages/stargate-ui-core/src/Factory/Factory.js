@@ -39,7 +39,7 @@ const Factory = (props) => {
 };
 
 Factory.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 export default Factory;

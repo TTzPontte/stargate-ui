@@ -13,6 +13,7 @@ const styles = (theme) => {
     active,
     spacing,
     palette,
+    border,
     radius,
     mode,
   } = theme;
@@ -28,7 +29,7 @@ const styles = (theme) => {
 
   const button = {
     display: 'inline-flex',
-    border: [[2, 'solid', 'transparent']],
+    border: [[...border, 'transparent']],
     borderRadius: radius(10),
     cursor: 'pointer',
     outline: 'none',

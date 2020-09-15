@@ -2,11 +2,88 @@ import {
   Meta,
   Canvas,
   Status,
+  Story,
 } from '@pontte/stargate-ui-playground';
+import { Typography, SvgIcon } from '@pontte/stargate-ui-core';
+
 import Input from './Input';
 
 <Meta title="Core/Form Elements/Input" component={Input} />
 
-# Input
+<Typography element="h1">
+  Input
+</Typography>
 
 <Status type="experimental" />
+
+<Canvas>
+  <Story name="Basic Usage">
+    <Input
+      label="Default"
+      type="text"
+      placeholder="Placeholder"
+    />
+    <Input
+      label="Disabled"
+      type="text"
+      placeholder="Placeholder"
+      disabled
+    />
+  </Story>
+</Canvas>
+
+<Typography element="h3">
+  Colors State
+</Typography>
+
+<Canvas>
+  <Story name="Colors State">
+    <Input
+      type="text"
+      placeholder="Placeholder"
+      color="success"
+    />
+    <Input
+      type="text"
+      placeholder="Placeholder"
+      color="warning"
+    />
+    <Input
+      type="text"
+      placeholder="Placeholder"
+      color="error"
+    />
+  </Story>
+</Canvas>
+
+<Typography element="h3">
+  Input with Icon
+</Typography>
+
+<Canvas>
+  <Story name="Input with Icon">
+    <Input
+      label="Icon at start of input"
+      type="text"
+      color="error"
+      componentAtStart={
+        <SvgIcon
+          path={
+            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="currentColor" />
+          }
+        />
+      }
+    />
+    <Input
+      label="Icon at end of input"
+      type="text"
+      componentAtEnd={
+        <SvgIcon
+          path={
+            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="currentColor" />
+          }
+        />
+      }
+    />
+  </Story>
+</Canvas>

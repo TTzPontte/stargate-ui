@@ -17,7 +17,6 @@ const getReadableTextColor = (backgroundColor, color1 = darkest, color2 = lighte
     throw Error(`Cannot parse color format.`);
   }
 
-
   return readableColor(backgroundColor, color1, color2);
 };
 
