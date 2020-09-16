@@ -2,11 +2,34 @@ import {
   Meta,
   Canvas,
   Status,
+  Link,
 } from '@pontte/stargate-ui-playground';
+import { Typography, SvgIcon } from '@pontte/stargate-ui-core';
+
 import Label from './Label';
 
 <Meta title="Core/Label" component={Label} />
 
-# Button
+<Typography element="h2" variant="h1">
+  Label
+</Typography>
 
-<Status type="rc" />
+<Status type="experimental" />
+
+<Typography element="h2" variant="h3">
+  Basic Usage
+</Typography>
+
+<Typography>
+  You can use <code>Label</code> with any node element.
+</Typography>
+
+<Canvas>
+  <Story name="Basic Usage">
+    <Label>Simple label</Label>
+    <Label>
+      <SvgIcon path={<path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="currentColor" />} />
+      Label with <Link kind="core-svgicon--page">SvgIcon</Link> component
+    </Label>
+  </Story>
+</Canvas>

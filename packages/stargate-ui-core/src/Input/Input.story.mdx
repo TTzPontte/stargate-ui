@@ -3,18 +3,27 @@ import {
   Canvas,
   Status,
   Story,
+  Link,
 } from '@pontte/stargate-ui-playground';
-import { Typography, SvgIcon } from '@pontte/stargate-ui-core';
+import {
+  Typography,
+  SvgIcon,
+  Label,
+} from '@pontte/stargate-ui-core';
 
 import Input from './Input';
 
 <Meta title="Core/Form Elements/Input" component={Input} />
 
-<Typography element="h1">
+<Typography element="h2" variant="h1">
   Input
 </Typography>
 
 <Status type="experimental" />
+
+<Typography element="h2" variant="h3">
+  Usage
+</Typography>
 
 <Canvas>
   <Story name="Basic Usage">
@@ -33,22 +42,25 @@ import Input from './Input';
 </Canvas>
 
 <Typography element="h3">
-  Colors State
+  States
 </Typography>
 
 <Canvas>
-  <Story name="Colors State">
+  <Story name="States">
     <Input
+      label="Input with success state"
       type="text"
       placeholder="Placeholder"
       color="success"
     />
     <Input
+      label="Input with warning state"
       type="text"
       placeholder="Placeholder"
       color="warning"
     />
     <Input
+      label="Input with error state"
       type="text"
       placeholder="Placeholder"
       color="error"
@@ -57,11 +69,11 @@ import Input from './Input';
 </Canvas>
 
 <Typography element="h3">
-  Input with Icon
+  Using Icons And Ornaments
 </Typography>
 
 <Canvas>
-  <Story name="Input with Icon">
+  <Story name="Using Icons And Ornaments">
     <Input
       label="Icon at start of input"
       type="text"
@@ -84,6 +96,30 @@ import Input from './Input';
           }
         />
       }
+    />
+  </Story>
+</Canvas>
+
+<Typography element="h3">
+  Custom Label
+</Typography>
+
+<Typography>
+  You can use any node element for <code>label</code> property. We recommended use <Link kind="core-label--page">Label</Link> component.
+</Typography>
+
+<Canvas>
+  <Story name="Custom Label">
+    <Input
+      label={
+        <Label>
+          <SvgIcon path={<path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="currentColor" />} />
+          Label customized
+        </Label>
+      }
+      type="text"
+      placeholder="Placeholder"
+      color="success"
     />
   </Story>
 </Canvas>

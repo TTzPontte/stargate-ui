@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { useStyles } from '@pontte/stargate-ui-styles';
-import { Label } from '@pontte/stargate-ui-core';
+import { InputLabel } from '@pontte/stargate-ui-core';
 import clsx from 'clsx';
 
 import Factory from '../Factory';
@@ -102,7 +102,7 @@ const Input = (props) => {
 
   return (
     <div>
-      {label && <Label children={label} />}
+      <InputLabel children={label} />
 
       <div className={classInputGroup}>
         {componentAtStart}
