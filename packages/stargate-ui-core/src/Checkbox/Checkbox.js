@@ -2,7 +2,6 @@ import React, { useRef, useState } from 'react';
 import PropTypes from "prop-types";
 import { useStyles } from '@pontte/stargate-ui-styles';
 import { InputLabel } from '@pontte/stargate-ui-core';
-import clsx from 'clsx';
 
 import Factory from '../Factory';
 
@@ -98,7 +97,6 @@ const Checkbox = (props) => {
     readonly,
     color,
   });
-  const className = clsx(Object.values(classes));
 
   const [checked, setChecked] = useState(defaultValue);
   const inputRef = useRef();
