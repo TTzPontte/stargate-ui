@@ -2,11 +2,40 @@ import {
   Meta,
   Canvas,
   Status,
+  Story,
 } from '@pontte/stargate-ui-playground';
+import { Typography } from '@pontte/stargate-ui-core';
+
 import Checkbox from './Checkbox';
 
 <Meta title="Core/Form Elements/Checkbox" component={Checkbox} />
 
-# Checkbox
+<Typography element="h1">
+  Checkbox
+</Typography>
 
 <Status type="experimental" />
+
+<Canvas>
+  <Story name="Checkbox">
+    <Checkbox/>
+  </Story>
+</Canvas>
+
+<Typography element="h3">
+  Colors State
+</Typography>
+
+<Canvas>
+  <Story name="Colors State">
+    <Checkbox
+    color="success"
+    />
+    <Checkbox
+    color="warning"
+    />
+    <Checkbox
+    color="error"
+    />
+  </Story>
+</Canvas>
