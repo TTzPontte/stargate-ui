@@ -149,11 +149,11 @@ Input.propTypes = {
     'error',
   ]),
   /**
-   * @borrows Input.propTypes.label as Label.propTypes.children
+   * @borrows Input.propTypes.label as InputLabel.propTypes.children
    */
   label: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.element,
+    PropTypes.node,
   ]),
   componentAtStart: PropTypes.oneOfType([
     PropTypes.string,
