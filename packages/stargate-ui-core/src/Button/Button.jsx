@@ -164,9 +164,8 @@ const Button = (props) => {
         variant={typographyVariant}
         gutter={0}
         transform="uppercase"
-      >
-        {children}
-      </Typography>
+        children={children}
+      />
     </Factory>
   );
 };

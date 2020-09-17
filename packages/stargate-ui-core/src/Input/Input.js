@@ -81,6 +81,7 @@ const Input = (props) => {
     label,
     componentAtStart,
     componentAtEnd,
+    gutter,
     type = 'text',
     color = 'default',
     onChange = () => {},
@@ -104,7 +105,7 @@ const Input = (props) => {
     <div>
       <InputLabel children={label} />
 
-      <div className={classInputGroup}>
+      <Factory className={classInputGroup} marginBottom={gutter ?? 2}>
         {componentAtStart}
 
         <Factory
@@ -117,7 +118,7 @@ const Input = (props) => {
         />
 
         {componentAtEnd}
-      </div>
+      </Factory>
     </div>
   );
 };

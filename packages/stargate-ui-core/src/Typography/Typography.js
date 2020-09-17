@@ -62,23 +62,6 @@ const styles = (theme) => {
     textTransform: ({ transform }) => (
       transform
     ),
-    marginBottom: (props) => {
-      const {
-        paragraph,
-        gutter,
-        variant,
-      } = props;
-
-      return ((gutter || paragraph || [
-        TYPOGRAPHY_VARIANT_H1,
-        TYPOGRAPHY_VARIANT_H2,
-        TYPOGRAPHY_VARIANT_H3,
-        TYPOGRAPHY_VARIANT_H4,
-        TYPOGRAPHY_VARIANT_H5,
-        TYPOGRAPHY_VARIANT_H6,
-        TYPOGRAPHY_VARIANT_BODY,
-      ].includes(variant)) && spacing(gutter ?? 2)) || 0;
-    },
     display: (props) => {
       const {
         variant,
@@ -108,7 +91,6 @@ const styles = (theme) => {
 
 const Typography = (props) => {
   const {
-    children,
     color,
     display,
     transform,
@@ -138,11 +120,23 @@ const Typography = (props) => {
     display,
   });
   const className = clsx(Object.values(classes), inheritedClassName);
+  const marginBottom = ((gutter || paragraph || [
+    TYPOGRAPHY_VARIANT_H1,
+    TYPOGRAPHY_VARIANT_H2,
+    TYPOGRAPHY_VARIANT_H3,
+    TYPOGRAPHY_VARIANT_H4,
+    TYPOGRAPHY_VARIANT_H5,
+    TYPOGRAPHY_VARIANT_H6,
+    TYPOGRAPHY_VARIANT_BODY,
+  ].includes(variant)) && (gutter ?? 2)) || 0;
 
   return (
-    <Factory element={element} className={className} {...factoryProps}>
-      {children}
-    </Factory>
+    <Factory
+      element={element}
+      className={className}
+      marginBottom={marginBottom}
+      {...factoryProps}
+    />
   );
 };
 
