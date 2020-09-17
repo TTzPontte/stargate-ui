@@ -24,6 +24,7 @@ const parameters = {
   options: {
     storySort: sortStories([
       'Getting Started',
+      'Icons',
       'Styles',
       'Core'
     ]),
