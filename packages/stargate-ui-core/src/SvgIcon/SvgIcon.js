@@ -38,7 +38,7 @@ const styles = (props) => {
 const SvgIcon = (props) => {
   const {
     large,
-    path: children,
+    children,
     className: inheritedClassName,
     color = 'inherit',
     viewBox = '0 0 24 24',
@@ -61,7 +61,7 @@ const SvgIcon = (props) => {
 };
 
 SvgIcon.propTypes = {
-  path: PropTypes.node.isRequired,
+  children: PropTypes.node.isRequired,
   className: PropTypes.string,
   /**
    * Color only works if each path of svg element has property fill as `currentColor`.
