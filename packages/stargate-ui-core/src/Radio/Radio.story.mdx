@@ -2,11 +2,45 @@ import {
   Meta,
   Canvas,
   Status,
+  Story,
 } from '@pontte/stargate-ui-playground';
+import { Typography } from '@pontte/stargate-ui-core';
+
 import Radio from './Radio';
 
 <Meta title="Core/Form Elements/Radio" component={Radio} />
 
-# Radio
+<Typography element="h1">
+  Radio Button
+</Typography>
 
 <Status type="experimental" />
+
+<Canvas>
+  <Story name="Radio">
+    <Radio
+      label="Cool Radio"
+      checked={true}
+    />
+  </Story>
+</Canvas>
+
+<Typography element="h3">
+  Colors State
+</Typography>
+
+<Canvas>
+  <Story name="Colors State">
+    <Radio
+    label
+    color="success"
+    />
+    <Radio
+    color="warning"
+    checked={true}
+    />
+    <Radio
+    color="error"
+    />
+  </Story>
+</Canvas>
