@@ -1,4 +1,4 @@
-import { createElement } from 'react';
+import React, { createElement } from 'react';
 import PropTypes from 'prop-types';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
@@ -11,18 +11,41 @@ const styles = (theme) => {
   const factory = {
     margin: (props) => {
       const {
+        margin,
+        marginX,
+        marginY,
         marginTop,
         marginBottom,
         marginLeft,
-        marginRight
+        marginRight,
       } = props;
 
       return [
-        [
-          marginTop,
-          marginRight,
-          marginBottom,
-          marginLeft
+        (margin && spacing(margin)) ?? [
+          marginY ?? marginTop,
+          marginX ?? marginRight,
+          marginY ?? marginBottom,
+          marginX ?? marginLeft
+        ].map(spacing),
+      ];
+    },
+    padding: (props) => {
+      const {
+        padding,
+        paddingX,
+        paddingY,
+        paddingTop,
+        paddingBottom,
+        paddingLeft,
+        paddingRight,
+      } = props;
+
+      return [
+        (padding && spacing(padding)) ?? [
+          paddingY ?? paddingTop,
+          paddingX ?? paddingRight,
+          paddingY ?? paddingBottom,
+          paddingX ?? paddingLeft
         ].map(spacing),
       ];
     },
@@ -31,15 +54,24 @@ const styles = (theme) => {
   return { factory };
 };
 
-const Factory = (props) => {
+const Factory = React.forwardRef((props, ref) => {
   const {
     children,
-    gutter,
     element = 'div',
+    margin,
     marginTop = 0,
     marginRight = 0,
     marginBottom = 0,
     marginLeft = 0,
+    marginY,
+    marginX,
+    paddingTop = 0,
+    paddingRight = 0,
+    paddingBottom = 0,
+    paddingLeft = 0,
+    paddingY,
+    paddingX,
+    padding,
     className: inheritedClassName,
     ...elementProps
   } = props;
@@ -47,10 +79,20 @@ const Factory = (props) => {
    * segundo argumento volta apenas valores??
    */
   const [classes] = useStyles(styles, {
+    margin,
+    marginY,
+    marginX,
     marginTop,
     marginRight,
     marginBottom,
-    marginLeft
+    marginLeft,
+    paddingTop,
+    paddingRight,
+    paddingBottom,
+    paddingLeft,
+    paddingY,
+    paddingX,
+    padding,
   });
   const className = clsx(Object.values(classes), inheritedClassName);
 
@@ -63,8 +105,12 @@ const Factory = (props) => {
    * align
    */
 
-  return createElement(element, { className, ...elementProps }, children);
-};
+  return createElement(element, {
+    ref,
+    className,
+    ...elementProps,
+  }, children);
+});
 
 Factory.propTypes = {
   children: PropTypes.node,
