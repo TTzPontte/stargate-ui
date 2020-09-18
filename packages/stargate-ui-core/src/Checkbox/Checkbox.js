@@ -67,6 +67,17 @@ const styles = (theme) => {
         transition: [['all', '0.3s', 'ease-out']],
       },
     },
+    '& ~ $checkboxMark:checked': {
+      backgroundColor: (props) => {
+        const {
+          disabled,
+          readonly,
+          color,
+        } = props;
+
+        return (disabled || readonly) ? setLightness(.95, getColor(color)) : getColor(color)
+      },
+    }
   };
 
   return {
