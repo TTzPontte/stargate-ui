@@ -27,9 +27,12 @@ const styles = (props) => {
     flexShrink: 0,
     width: setDimensions,
     height: setDimensions,
-    fill: ({ color }) => (
-      palette?.[color]?.[mode].color || 'currentColor'
-    ),
+    color: 'inherit',
+    '& path': {
+      fill: ({ color }) => (
+        (!color || color === 'default') ? 'currentColor' : palette?.[color][mode].color
+      ),
+    }
   };
 
   return { svgIcon };
@@ -39,20 +42,20 @@ const SvgIcon = (props) => {
   const {
     large,
     children,
+    color = 'default',
+    viewBox = [0, 0, 24, 24],
     className: inheritedClassName,
-    color = 'inherit',
-    viewBox = '0 0 24 24',
     ...factoryProps
   } = props;
 
-  const [classes] = useStyles(styles, { large });
+  const [classes] = useStyles(styles, { color, large });
   const className = clsx(Object.values(classes), inheritedClassName);
 
   return (
     <Svg className={className}>
       <Factory
         element="svg"
-        viewBox={viewBox}
+        viewBox={viewBox.join(',')}
         children={children}
         {...factoryProps}
       />
@@ -65,11 +68,10 @@ SvgIcon.propTypes = {
   className: PropTypes.string,
   /**
    * Color only works if each path of svg element has property fill as `currentColor`.
-   * @default inherit
+   * @default default
    */
   color: PropTypes.oneOf([
-    'inherit',
-    'initial',
+    'default',
     'primary',
     'secondary',
     'success',
@@ -78,7 +80,7 @@ SvgIcon.propTypes = {
     'info',
   ]),
   large: PropTypes.bool,
-  viewBox: PropTypes.string,
+  viewBox: PropTypes.arrayOf(PropTypes.number),
 };
 
 export default SvgIcon;
