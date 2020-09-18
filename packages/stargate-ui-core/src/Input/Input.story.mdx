@@ -4,122 +4,112 @@ import {
   Status,
   Story,
   Link,
+  action,
 } from '@pontte/stargate-ui-playground';
 import {
   Typography,
   SvgIcon,
   Label,
 } from '@pontte/stargate-ui-core';
+import { Close as SvgIconClose } from '@pontte/stargate-ui-icons';
 
 import Input from './Input';
 
+export const InputStory = (props) => (
+  <Input
+    label="Cool input"
+    onClear={action('onClear')}
+    onChange={action('onChange')}
+    {...props}
+  />
+);
+
 <Meta title="Core/Form Elements/Input" component={Input} />
 
-<Typography element="h2" variant="h1">
-  Input
-</Typography>
+<Story
+  name="Explore Properties"
+  parameters={{
+    docs: { disable: true }
+  }}
+>
+  {InputStory.bind({})}
+</Story>
 
-<Status type="experimental" />
+## Input
 
-<Typography element="h2" variant="h3">
-  Usage
-</Typography>
+<Status type="rc" />
+
+### Basic
 
 <Canvas>
-  <Story name="Basic Usage">
-    <Input
-      label="Default"
-      type="text"
-      placeholder="Placeholder"
-    />
-    <Input
-      label="Disabled"
-      type="text"
-      placeholder="Placeholder"
-      disabled
-    />
-  </Story>
+  <Input
+    label="Default"
+    placeholder="Placeholder"
+  />
+  <Input
+    label="Disabled"
+    placeholder="Placeholder"
+    disabled
+  />
 </Canvas>
 
-<Typography element="h3">
-  States
-</Typography>
+### States
 
 <Canvas>
-  <Story name="States">
-    <Input
-      label="Input with success state"
-      type="text"
-      placeholder="Placeholder"
-      color="success"
-    />
-    <Input
-      label="Input with warning state"
-      type="text"
-      placeholder="Placeholder"
-      color="warning"
-    />
-    <Input
-      label="Input with error state"
-      type="text"
-      placeholder="Placeholder"
-      color="error"
-    />
-  </Story>
+  <Input
+    label="Input with success state"
+    placeholder="Placeholder"
+    color="success"
+  />
+  <Input
+    label="Input with warning state"
+    placeholder="Placeholder"
+    color="warning"
+  />
+  <Input
+    label="Input with error state"
+    placeholder="Placeholder"
+    color="error"
+  />
 </Canvas>
 
-<Typography element="h3">
-  Using Icons And Ornaments
-</Typography>
+### Using Icons And Ornaments
 
 <Canvas>
-  <Story name="Using Icons And Ornaments">
-    <Input
-      label="Icon at start of input"
-      type="text"
-      color="error"
-      componentAtStart={
-        <SvgIcon
-          children={
-            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="currentColor" />
-          }
-        />
-      }
-    />
-    <Input
-      label="Icon at end of input"
-      type="text"
-      componentAtEnd={
-        <SvgIcon
-          children={
-            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="currentColor" />
-          }
-        />
-      }
-    />
-  </Story>
+  <Input
+    label="Icon at start of input"
+    componentAtStart={<SvgIconClose />}
+  />
+  <Input
+    label="Icon at end of input"
+    componentAtEnd={<SvgIconClose />}
+  />
 </Canvas>
 
-<Typography element="h3">
-  Custom Label
-</Typography>
+### Custom Label
 
-<Typography>
-  You can use any node element for <code>label</code> property. We recommended use <Link kind="core-label--page">Label</Link> component.
-</Typography>
+You can use any node element for `label` property. We recommended use <Link kind="core-label--page">Label</Link> component.
 
 <Canvas>
-  <Story name="Custom Label">
-    <Input
-      label={
-        <Label>
-          <SvgIcon children={<path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="currentColor" />} />
-          Label customized
-        </Label>
-      }
-      type="text"
-      placeholder="Placeholder"
-      color="success"
-    />
-  </Story>
+  <Input
+    label={
+      <Label>
+        <SvgIcon children={<path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="currentColor" />} />
+        Label customized
+      </Label>
+    }
+    placeholder="Placeholder"
+    color="success"
+  />
+</Canvas>
+
+### Clear Option
+
+<Canvas>
+  <Input
+    label="Input with clear option"
+    value="Click in clear button to clear me!"
+    placeholder="Placeholder"
+    clear
+  />
 </Canvas>

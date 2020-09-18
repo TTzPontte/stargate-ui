@@ -1,7 +1,8 @@
-import React, { Fragment } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import { InputLabel } from '@pontte/stargate-ui-core';
+import { Close as SvgIconClose } from '@pontte/stargate-ui-icons';
 import clsx from 'clsx';
 
 import Factory from '../Factory';
@@ -13,7 +14,6 @@ const styles = (theme) => {
   const {
     palette,
     radius,
-    spacing,
     border,
     active,
     mode,
@@ -25,19 +25,22 @@ const styles = (theme) => {
   );
 
   /**
-   * @todo update `color` for `text` when colors shades be completed
+   * @todo how to define private variables? __ maybe?
    */
-  const getColorText = (color) => (
-    palette?.[color][mode].color
-  );
+  const inlineFlexToCenter = {
+    display: 'inline-flex',
+    alignItems: 'center',
+  };
 
   const input = {
     textOverflow: 'ellipsis',
     width: '100%',
     border: 0,
+    backgroundColor: 'transparent',
+    height: 25,
     '&::placeholder': {
-      color: ({ color }) => (
-        setLightness(.8, getColorText(color))
+      color: () => (
+        setLightness(.8, palette.default[mode].text)
       ),
     },
     [active()]: {
@@ -48,11 +51,11 @@ const styles = (theme) => {
     },
   };
 
+
   const inputGroup = {
+    ...inlineFlexToCenter,
     overflow: 'hidden',
     borderRadius: radius(),
-    padding: [spacing()],
-    display: 'inline-flex',
     width: '100%',
     border: ({ color }) => (
       [[...border, getColor(color)]]
@@ -68,9 +71,34 @@ const styles = (theme) => {
     },
   };
 
+  const inputClear = {
+    border: 0,
+    lineHeight: 0,
+    overflow: 'hidden',
+    cursor: 'pointer',
+    backgroundColor: 'transparent',
+    [active()]: {
+      /**
+       * @todo find an accessible solution
+       */
+      outline: 'none',
+      /**
+       * @todo add support for transitions in ui-core
+       */
+      opacity: .5,
+    },
+  };
+
+  const inputOrnament = {
+    ...inlineFlexToCenter,
+    userSelect: 'none',
+  };
+
   return {
     input,
     inputGroup,
+    inputClear,
+    inputOrnament,
   };
 };
 
@@ -82,18 +110,23 @@ const Input = (props) => {
     componentAtStart,
     componentAtEnd,
     gutter,
+    clear,
     type = 'text',
     color = 'default',
+    onClear = () => {},
     onChange = () => {},
+    value: defaultValue = '',
     ...factoryProps
   } = props;
 
   const [
     {
       inputGroup: classInputGroup,
+      inputClear: classInputClear,
+      inputOrnament: classInputOrnament,
       ...classes
     }
-  ] = useStyles(styles, {
+] = useStyles(styles, {
     disabled,
     readonly,
     color,
@@ -101,35 +134,102 @@ const Input = (props) => {
   });
   const className = clsx(Object.values(classes));
 
+  const [value, setValue] = useState(defaultValue);
+  const inputRef = useRef();
+
+  const handleChange = ({ currentTarget: { value } }) => {
+    if (disabled) {
+      return;
+    }
+
+    setValue(value);
+    onChange({ value });
+  }
+
+  /**
+   * @todo create event manager
+   */
+  const handleClear = () => {
+    if (disabled) {
+      return;
+    }
+
+    setValue('');
+    onClear();
+  }
+
+  const handleControlClick = () => {
+    inputRef.current.focus();
+  };
+
   return (
-    <div>
+    <Factory onClick={handleControlClick}>
       <InputLabel children={label} />
 
-      <Factory className={classInputGroup} marginBottom={gutter ?? 2}>
-        {componentAtStart}
+      <Factory
+        className={classInputGroup}
+        marginBottom={gutter ?? 2}
+        padding={1}
+      >
+        {componentAtStart && (
+          <Factory
+            element="span"
+            className={classInputOrnament}
+            paddingRight={1}
+            children={componentAtStart}
+          />
+        )}
 
         <Factory
+          ref={inputRef}
           element="input"
           type={type}
           className={className}
           disabled={disabled}
           readOnly={readonly}
+          value={value}
+          onChange={handleChange}
           {...factoryProps}
         />
 
-        {componentAtEnd}
+        {clear && (
+          <Factory
+            element="button"
+            className={classInputClear}
+            aria-label="Clear value"
+            paddingX={1}
+            onClick={handleClear}
+          >
+            <SvgIconClose color={color} />
+          </Factory>
+        )}
+
+        {!clear && (componentAtEnd && (
+          <Factory
+            element="span"
+            className={classInputOrnament}
+            paddingLeft={1}
+            children={componentAtEnd}
+          />
+        ))}
       </Factory>
-    </div>
+    </Factory>
   );
 };
 
 Input.propTypes = {
+  clear: PropTypes.bool,
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+    PropTypes.bool,
+  ]),
+  onClear: PropTypes.func,
   /**
    * @default text
    */
   type: PropTypes.oneOf([
     'text',
-    'hidden',
     'number',
     'phone',
     'email',
