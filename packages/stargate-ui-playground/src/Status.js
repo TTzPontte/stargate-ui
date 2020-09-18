@@ -20,7 +20,6 @@ const styles = (theme) => {
   const borderRadius = radius();
   const badgeCommon = {
     border: [[1, 'solid']],
-    padding: [[spacing(.5), spacing()]],
   };
 
   const color = {
@@ -68,10 +67,20 @@ const Status = ({ type = STATUS_TYPE_RC }) => {
 
   return (
     <div className={clsx(classes.badge, classes[type])}>
-      <Typography element="span" className={classes.badgeLabel}>
+      <Typography
+        element="span"
+        className={classes.badgeLabel}
+        paddingX={1}
+        paddingY={.5}
+      >
         status
       </Typography>
-      <Typography element="span" className={classes.badgeColor}>
+      <Typography
+        element="span"
+        className={classes.badgeColor}
+        paddingX={1}
+        paddingY={.5}
+      >
         {label}
       </Typography>
     </div>

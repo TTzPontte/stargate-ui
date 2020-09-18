@@ -1,4 +1,5 @@
 export * from '@storybook/addon-docs/blocks';
+export * from '@storybook/addon-actions';
 export { default as Link } from '@storybook/addon-links/react';
 export { default as Showcase } from './Showcase';
 export { default as Palette } from './Palette';
