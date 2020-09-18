@@ -77,7 +77,12 @@ const styles = (theme) => {
 
         return (disabled || readonly) ? setLightness(.95, getColor(color)) : getColor(color)
       },
-    }
+    },
+    '&:after': {
+      content: '""',
+      display: 'inline-flex',
+      '$checkbox:checked ~ &': {},
+    },
   };
 
   return {
@@ -123,6 +128,7 @@ const Checkbox = (props) => {
 
   return (
     <InputLabel>
+      checked: {checked} {defaultValue}
       <Factory
         ref={inputRef}
         element="input"
