@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Label } from '@pontte/stargate-ui-core';
 
 const InputLabel = ({ children }) => {
-  if (children?.type === Label) {
+  if (children instanceof Object) {
     return children;
   }
 
