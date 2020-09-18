@@ -16,3 +16,4 @@ coverage
 .idea
 dist
 package-lock.json
+jest-coverage.json

@@ -5,18 +5,30 @@ import {
 } from '@pontte/stargate-ui-playground';
 import Typography from './Typography';
 
+export const TypographyStory = (props) => (
+  <Typography {...props}>
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae cum quidem officiis dolor impedit corrupti recusandae asperiores nesciunt architecto ea hic, error dolores fugiat. Eius itaque iure neque beatae ducimus.
+  </Typography>
+);
+
 <Meta title="Core/Typography" component={Typography} />
 
-<Typography element="h1">
-  Typography
-</Typography>
+<Story
+  name="Explore Properties"
+  parameters={{
+    docs: { disable: true },
+    jest: ['Typography.spec.jsx'],
+  }}
+>
+  {TypographyStory.bind({})}
+</Story>
+
+
+## Typography
 
 <Status type="rc" />
 
-
-<Typography element="h2">
-  Heading
-</Typography>
+### Heading
 
 <Canvas>
   <div>
@@ -29,9 +41,7 @@ import Typography from './Typography';
   </div>
 </Canvas>
 
-<Typography element="h2">
-  Body Variant
-</Typography>
+### Body Variant
 
 <Canvas>
   <Typography variant="body" paragraph>
@@ -63,9 +73,7 @@ import Typography from './Typography';
 </Canvas>
 
 
-<Typography element="h2">
-  Colors
-</Typography>
+### Colors
 
 <Canvas>
   <Typography variant="body" color="primary">
@@ -89,25 +97,19 @@ import Typography from './Typography';
 </Canvas>
 
 
-<Typography element="h2">
-  Display
-</Typography>
+### Display
 
 <Canvas>
-  <div>
-    <Typography element="span" display="block">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-      labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-      nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur
-    </Typography>
-  </div>
+  <Typography element="span" display="block">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+    nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
+    velit esse cillum dolore eu fugiat nulla pariatur
+  </Typography>
 </Canvas>
 
 
-<Typography element="h2">
-  Alignment
-</Typography>
+### Alignment
 
 <Canvas>
   <div>

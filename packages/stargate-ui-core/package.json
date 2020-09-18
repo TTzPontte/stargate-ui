@@ -7,7 +7,8 @@
   },
   "main": "dist/stargate-ui-core.min.js",
   "scripts": {
-    "build": "rm -rf dist && rollup -c rollup.config.js"
+    "build": "rm -rf dist && rollup -c rollup.config.js",
+    "test": "jest"
   },
   "dependencies": {
     "clsx": "^1.1.1",

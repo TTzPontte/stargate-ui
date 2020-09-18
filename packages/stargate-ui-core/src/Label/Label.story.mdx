@@ -3,33 +3,42 @@ import {
   Canvas,
   Status,
   Link,
+  Story,
 } from '@pontte/stargate-ui-playground';
-import { Typography, SvgIcon } from '@pontte/stargate-ui-core';
+import { Close as SvgIconClose } from '@pontte/stargate-ui-icons';
 
 import Label from './Label';
 
+export const LabelStory = (props) => (
+  <Label {...props}>
+    <SvgIconClose /> Lorem ipsum dolor
+  </Label>
+);
+
 <Meta title="Core/Label" component={Label} />
 
-<Typography element="h2" variant="h1">
-  Label
-</Typography>
+<Story
+  name="Explore Properties"
+  parameters={{
+    docs: { disable: true },
+    jest: ['Label.spec.jsx'],
+  }}
+>
+  {LabelStory.bind({})}
+</Story>
 
-<Status type="experimental" />
+## Label
 
-<Typography element="h2" variant="h3">
-  Basic Usage
-</Typography>
+<Status type="rc" />
 
-<Typography>
-  You can use <code>Label</code> with any node element.
-</Typography>
+### Basic Usage
+
+You can use `<Label>` with any node element.
 
 <Canvas>
-  <Story name="Basic Usage">
-    <Label>Simple label</Label>
-    <Label>
-      <SvgIcon children={<path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="currentColor" />} />
-      Label with <Link kind="core-svgicon--page">SvgIcon</Link> component
-    </Label>
-  </Story>
+  <Label>Simple label</Label>
+  <Label>
+    <SvgIconClose />
+    Label with <Link kind="core-svgicon--page">SvgIcon</Link> component
+  </Label>
 </Canvas>

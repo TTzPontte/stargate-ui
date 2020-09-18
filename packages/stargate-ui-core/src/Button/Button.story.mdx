@@ -3,15 +3,14 @@ import {
   Canvas,
   Status,
   Story,
-  action,
+  withAction,
 } from '@pontte/stargate-ui-playground';
-import { Typography } from '@pontte/stargate-ui-core';
 
 import Button from './Button';
 
 export const ButtonStory = (props) => (
   <Button
-    onClick={action('onClick')}
+    onClick={withAction('onClick')}
     children="Cool button"
     color="primary"
     contained
@@ -24,7 +23,8 @@ export const ButtonStory = (props) => (
 <Story
   name="Explore Properties"
   parameters={{
-    docs: { disable: true }
+    docs: { disable: true },
+    jest: ['Button.spec.jsx'],
   }}
 >
   {ButtonStory.bind({})}

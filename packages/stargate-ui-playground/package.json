@@ -5,13 +5,14 @@
   "description": "",
   "scripts": {
     "postinstall": "cp .env.sample .env",
-    "start": "start-storybook -s public -p 6006",
-    "build": "build-storybook -s public -o dist"
+    "start": "yarn coverage && start-storybook -s public -p 6006",
+    "build": "yarn coverage && build-storybook -s public -o dist",
+    "coverage": "sh ../../scripts/stargate-ui-core test --json --outputFile=jest-coverage.json"
   },
   "dependencies": {
     "@storybook/addon-a11y": "^6.0.19",
     "@storybook/addon-essentials": "^6.0.19",
-    "@storybook/addon-jest": "^6.0.19",
+    "@storybook/addon-jest": "^6.0.21",
     "@storybook/addon-links": "^6.0.19",
     "@storybook/cli": "^6.0.19",
     "@storybook/react": "^6.0.19",

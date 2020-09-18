@@ -4,7 +4,7 @@ import {
   Status,
   Story,
   Link,
-  action,
+  withAction,
 } from '@pontte/stargate-ui-playground';
 import {
   Typography,
@@ -18,8 +18,8 @@ import Input from './Input';
 export const InputStory = (props) => (
   <Input
     label="Cool input"
-    onClear={action('onClear')}
-    onChange={action('onChange')}
+    onClear={withAction('onClear')}
+    onChange={withAction('onChange')}
     {...props}
   />
 );
@@ -29,7 +29,8 @@ export const InputStory = (props) => (
 <Story
   name="Explore Properties"
   parameters={{
-    docs: { disable: true }
+    docs: { disable: true },
+    jest: ['Input.spec.jsx'],
   }}
 >
   {InputStory.bind({})}

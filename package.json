@@ -31,12 +31,17 @@
     "@pontte/babel-preset": "^1.0.0-beta.5",
     "@pontte/commitlint-config": "^1.0.0",
     "@pontte/eslint-config": "^1.0.0-alpha.6",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.0.4",
+    "babel-jest": "^26.3.0",
     "babel-plugin-module-resolver": "^4.0.0",
     "babel-plugin-optimize-clsx": "^2.6.1",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
     "commitizen": "^4.1.2",
     "commitlint": "^9.0.1",
-    "husky": "^4.2.5"
+    "husky": "^4.2.5",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^26.4.2"
   },
   "peerDependencies": {
     "@commitlint/cli": "^9.0.1",
