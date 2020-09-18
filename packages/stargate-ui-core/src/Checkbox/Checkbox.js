@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from "prop-types";
 import { useStyles } from '@pontte/stargate-ui-styles';
 import { InputLabel } from '@pontte/stargate-ui-core';
@@ -27,27 +27,34 @@ const styles = (theme) => {
   };
 
   const checkboxMark = {
-    '&:after': {
+    cursor: 'pointer',
+    '&:before': {
       content: '""',
       display: 'inline-flex',
-      cursor: 'pointer',
       width: 20,
       height: 20,
       borderRadius: radius(),
       backgroundColor: palette.lighter,
-      border: ({color}) => ([[1, 'solid', getColor(color)]]),
-    },
-    '& ~ $checkboxMark:checked': {
-      backgroundColor: (props) => {
-        const {
-          disabled,
-          readonly,
-          color,
-        } = props;
+      border: ({color}) => (
+        [[1, 'solid', getColor(color)]]
+      ),
+      '$checkbox:checked ~ &': {
+        backgroundColor: (props) => {
+          const {
+            disabled,
+            readonly,
+            color,
+          } = props;
 
-        return (disabled || readonly) ? setLightness(.95, getColor(color)) : getColor(color)
+          return (disabled || readonly) ? setLightness(.95, getColor(color)) : getColor(color)
+        },
       },
-    }
+    },
+    '&:after': {
+      content: '""',
+      display: 'inline-flex',
+      '$checkbox:checked ~ &': {},
+    },
   };
 
   return {
@@ -81,32 +88,36 @@ const Checkbox = (props) => {
   const className = clsx(Object.values(classes));
 
   const [checked, setChecked] = useState(defaultValue);
+  const inputRef = useRef();
 
-  const handleClick = ({ currentTarget: { checked } }) => {
+  const handleClick = () => {
     if (disabled) {
       return;
     }
 
-    setChecked(checked);
-    onClick({ checked });
+    setChecked(!checked);
+    onChange({ checked });
   }
 
   return (
     <InputLabel>
+      checked: {checked} {defaultValue}
       <Factory
+        ref={inputRef}
         element="input"
         type="checkbox"
         className={classCheckbox}
-        />
+        checked={checked}
+      />
+
       <Factory
         element="span"
         className={classCheckboxMark}
         onClick={handleClick}
-        checked={checked}
         marginRight={1}
         {...factoryProps}
-        >
-      </Factory>
+      />
+
       {label}
     </InputLabel>
   );
@@ -120,7 +131,7 @@ Checkbox.propTypes = {
     PropTypes.node,
   ]),
   checked: PropTypes.bool.isRequired,
-  onClick: PropTypes.func,
+  onChange: PropTypes.func,
   readonly: PropTypes.bool,
   type: PropTypes.string
 }
