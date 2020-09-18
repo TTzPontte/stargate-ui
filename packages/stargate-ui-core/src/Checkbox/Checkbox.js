@@ -8,7 +8,6 @@ import Factory from '../Factory';
 
 const styles = (theme) => {
   const {
-    checked,
     palette,
     radius,
     mode,
@@ -69,7 +68,6 @@ const Checkbox = (props) => {
     disabled,
     readonly,
     label,
-    checked = false,
     color = 'default',
     checked: defaultValue = false,
     onChange = () => {},
