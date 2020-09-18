@@ -5,8 +5,8 @@
   "description": "",
   "scripts": {
     "postinstall": "cp .env.sample .env",
-    "start": "yarn coverage && start-storybook -s public -p 6006",
-    "build": "yarn coverage && build-storybook -s public -o dist",
+    "start": "start-storybook -s public -p 6006",
+    "build": "build-storybook -s public -o dist",
     "coverage": "sh ../../scripts/stargate-ui-core test --json --outputFile=jest-coverage.json"
   },
   "dependencies": {

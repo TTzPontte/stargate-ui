@@ -35,9 +35,13 @@ jobs:
             ${{ runner.os }}-build-
             ${{ runner.os }}-
 
+      - name: Generate coverage of packages
+        run: |
+          yarn package:playground coverage
+
       - name: Generate build
         run: |
-          yarn workspace @pontte/stargate-ui-playground build
+          yarn package:playground build
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
