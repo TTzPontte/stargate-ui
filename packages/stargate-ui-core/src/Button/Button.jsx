@@ -35,12 +35,6 @@ const styles = (theme) => {
     outline: 'none',
     backgroundColor: 'transparent',
     transition: [['all', '.4s', 'ease']],
-    margin: [0, spacing(.5)],
-    padding: ({ large }) => {
-      const n = !large ? 1 : 1.2;
-
-      return [[spacing(1.5 * n), spacing(6 * n)]];
-    },
     pointerEvents: ({ disabled }) => (
       disabled && 'none'
     )
@@ -152,11 +146,18 @@ const Button = (props) => {
     onClick();
   }
 
+  const n = !large ? 1 : 1.2;
+  const paddingY = (1.5 * n);
+  const paddingX = (6 * n);
+
   return (
     <Factory
       element="button"
       className={className}
       onClick={handleClick}
+      paddingX={paddingX}
+      paddingY={paddingY}
+      marginX={.5}
       {...factoryProps}
     >
       <Typography

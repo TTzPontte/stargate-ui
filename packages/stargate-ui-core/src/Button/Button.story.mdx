@@ -3,67 +3,71 @@ import {
   Canvas,
   Status,
   Story,
+  action,
 } from '@pontte/stargate-ui-playground';
 import { Typography } from '@pontte/stargate-ui-core';
 
-import Button from '.';
+import Button from './Button';
+
+export const ButtonStory = (props) => (
+  <Button
+    onClick={action('onClick')}
+    children="Cool button"
+    color="primary"
+    contained
+    {...props}
+  />
+);
 
 <Meta title="Core/Button" component={Button} />
 
-<Typography element="h1">
-  Button
-</Typography>
+<Story
+  name="Explore Properties"
+  parameters={{
+    docs: { disable: true }
+  }}
+>
+  {ButtonStory.bind({})}
+</Story>
+
+## Button
 
 <Status type="rc" />
 
-
-<Typography element="h2" variant="h3">
-  Contained Button
-</Typography>
+### Contained Button
 
 <Canvas>
-  <Story name="Contained">
-    <Button contained>Default</Button>
-    <Button contained color="primary">Primary</Button>
-    <Button contained color="secondary">Secondary</Button>
-    <Button contained disabled>Disable</Button>
-  </Story>
+  <Button contained>Default</Button>
+  <Button contained color="primary">Primary</Button>
+  <Button contained color="secondary">Secondary</Button>
+  <Button contained disabled>Disable</Button>
 </Canvas>
 
-
-<Typography element="h2" variant="h3">
-  Outlined Button
-</Typography>
+### Outlined Button
 
 <Canvas>
-  <Story name="Outlined">
-    <Button outlined>Default</Button>
-    <Button color="primary" outlined>Primary</Button>
-    <Button color="secondary" outlined>Secondary</Button>
-    <Button outlined disabled>Disable</Button>
-  </Story>
+  <Button outlined>Default</Button>
+  <Button color="primary" outlined>Primary</Button>
+  <Button color="secondary" outlined>Secondary</Button>
+  <Button outlined disabled>Disable</Button>
 </Canvas>
 
-
-<Typography element="h2" variant="h3">
-  Text Button
-</Typography>
+### Text Button
 
 <Canvas>
-  <Story name="Text">
-    <Button>Default</Button>
-    <Button color="primary">Primary</Button>
-    <Button color="secondary">Secondary</Button>
-    <Button disabled>Disable</Button>
-  </Story>
+  <Button>Default</Button>
+  <Button color="primary">Primary</Button>
+  <Button color="secondary">Secondary</Button>
+  <Button disabled>Disable</Button>
 </Canvas>
 
-
-<Typography element="h2" variant="h3">
-  Sizes
-</Typography>
+### Sizes
 
 <Canvas>
   <Button color="primary" contained>Small</Button>
-  <Button color="primary" contained large>Large</Button>
+  <Button
+    color="primary"
+    contained
+    large
+  >Large</Button>
 </Canvas>
