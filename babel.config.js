@@ -14,6 +14,7 @@ const resolver = [
       '@pontte/stargate-ui-core': path.resolve(__dirname, 'packages/stargate-ui-core/src'),
       '@pontte/stargate-ui-styles': path.resolve(__dirname, 'packages/stargate-ui-styles/src'),
       '@pontte/stargate-ui-playground': path.resolve(__dirname, 'packages/stargate-ui-playground/src'),
+      '@pontte/stargate-ui-icons': path.resolve(__dirname, 'packages/stargate-ui-icons/src'),
     },
   },
 ];
