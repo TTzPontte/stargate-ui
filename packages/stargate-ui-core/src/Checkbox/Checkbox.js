@@ -53,7 +53,20 @@ const styles = (theme) => {
     '&:after': {
       content: '""',
       display: 'inline-flex',
-      '$checkbox:checked ~ &': {},
+      '$checkbox:checked ~ &': {
+        top: -8,
+        left: -16,
+        width: 4,
+        height: 8,
+        position: 'relative',
+        transform: [['rotate(45deg)', 'scale(1)' ]],
+        border: ({color}) => (
+          [['solid', setLightness(.45, getColor(color))]]
+        ),
+        borderWidth: [[0, 2, 2, 0]],
+        borderRadius: 0,
+        transition: [['all', '0.3s', 'ease-out']],
+      },
     },
   };
 
@@ -101,7 +114,6 @@ const Checkbox = (props) => {
 
   return (
     <InputLabel>
-      checked: {checked} {defaultValue}
       <Factory
         ref={inputRef}
         element="input"
