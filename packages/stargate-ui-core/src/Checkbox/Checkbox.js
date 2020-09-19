@@ -128,7 +128,6 @@ const Checkbox = (props) => {
 
   return (
     <InputLabel>
-      checked: {checked} {defaultValue}
       <Factory
         ref={inputRef}
         element="input"
