@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import PropTypes from "prop-types";
 import { useStyles } from '@pontte/stargate-ui-styles';
 import { InputLabel } from '@pontte/stargate-ui-core';
@@ -26,33 +26,53 @@ const styles = (theme) => {
     opacity: 0,
   };
 
-  const radioSelected = {
+  const radioChecked = {
+    cursor: 'pointer',
+    '&:before': {
+      content: '""',
+      display: 'inline-flex',
+      width: 20,
+      height: 20,
+      borderRadius: radius(3),
+      backgroundColor: palette.lighter,
+      border: ({color}) => (
+        [[1, 'solid', getColor(color)]]
+      ),
+    },
     '&:after': {
       content: '""',
       display: 'inline-flex',
-      cursor: 'pointer',
-      width: 20,
-      height: 20,
-      borderRadius: radius(),
-      backgroundColor: palette.lighter,
-      border: ({color}) => ([[1, 'solid', getColor(color)]]),
-    },
-    '& ~ $radioSelected:selected': {
-      backgroundColor: (props) => {
-        const {
-          disabled,
-          readonly,
-          color,
-        } = props;
+      '$radio:checked ~ &': {
+        bottom: 6,
+        right: 18,
+        width: 8,
+        height: 8,
+        position: 'relative',
+        borderRadius: radius(2),
+        border: (props) => {
+          const {
+            disabled,
+            readonly,
+            color,
+          } = props;
+          return (disabled || readonly) ? [['solid', setLightness(.95, getColor(color))]] : [['solid', (color !== 'default' ? getColor(color) : getColor('success'))]]
+        },
+        backgroundColor: (props) => {
+          const {
+            disabled,
+            readonly,
+            color,
+          } = props;
 
-        return (disabled || readonly) ? setLightness(.95, getColor(color)) : getColor(color)
+          return (disabled || readonly) ? setLightness(.95, getColor(color)) : (color !== 'default' ? getColor(color) : getColor('success'))
+        },
       },
-    }
+    },
   };
 
   return {
     radio,
-    radioSelected,
+    radioChecked,
   };
 };
 
@@ -62,7 +82,7 @@ const Radio = (props) => {
     readonly,
     label,
     color = 'default',
-    selected: defaultValue = false,
+    checked: defaultValue = false,
     onChange = () => {},
     ...factoryProps
   } = props;
@@ -70,7 +90,7 @@ const Radio = (props) => {
   const [
     {
       radio: classRadio,
-      radioSelected: classRadioSelected,
+      radioChecked: classRadioChecked,
       ...classes
     }
   ] = useStyles(styles, {
@@ -80,33 +100,36 @@ const Radio = (props) => {
   });
   const className = clsx(Object.values(classes));
 
-  const [selected, setSelected] = useState(defaultValue);
+  const [checked, setChecked] = useState(defaultValue);
+  const inputRef = useRef();
 
-  const handleClick = ({ currentTarget: { selected } }) => {
+  const handleClick = () => {
     if (disabled) {
       return;
     }
 
-    setSelected(selected);
-    onClick({ selected });
+    setChecked(!checked);
+    onChange({ checked });
   }
 
   return (
     <InputLabel>
       <Factory
+        ref={inputRef}
         element="input"
         type="radio"
         className={classRadio}
-        />
+        checked={checked}
+      />
+
       <Factory
         element="span"
-        className={classRadioSelected}
+        className={classRadioChecked}
         onClick={handleClick}
-        selected={selected}
-        marginRight={1}
+        marginX={1}
         {...factoryProps}
-        >
-      </Factory>
+      />
+
       {label}
     </InputLabel>
   );
@@ -119,8 +142,8 @@ Radio.propTypes = {
     PropTypes.string,
     PropTypes.node,
   ]),
-  selected: PropTypes.bool.isRequired,
-  onClick: PropTypes.func,
+  checked: PropTypes.bool.isRequired,
+  onChange: PropTypes.func,
   readonly: PropTypes.bool,
   type: PropTypes.string
 }
