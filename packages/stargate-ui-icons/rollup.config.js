@@ -25,6 +25,7 @@ const globals = {
   'react-is': 'ReactIs',
   'object-assign': 'Object.assign',
   'react-jss': 'ReactJss',
+  '@pontte/stargate-ui-core': 'StargateUICore',
 };
 
 const external = Object.keys(globals);

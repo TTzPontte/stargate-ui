@@ -21,6 +21,7 @@ const globals = {
   'react-dom': 'ReactDOM',
   'react-is': 'ReactIs',
   'object-assign': 'Object.assign',
+  'jss': 'jss',
   '@pontte/stargate-ui-styles': 'StargateUIStyles',
 };
 
@@ -62,7 +63,7 @@ const production = {
         [name]: JSON.stringify(env[name]),
       }), {}),
     ),
-    // terser(),
+    terser(),
   ],
 };
 

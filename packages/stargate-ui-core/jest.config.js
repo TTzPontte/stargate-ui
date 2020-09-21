@@ -18,6 +18,6 @@ jestConfig.projects.push({
     ...config.moduleNameMapper,
     ...jestConfig.moduleNameMapper,
   },
-})
+});
 
 module.exports = jestConfig;

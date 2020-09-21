@@ -5,10 +5,12 @@
     "packages/*"
   ],
   "npmClient": "yarn",
+  "tagVersionPrefix": "",
+  "changelogPreset": "angular",
   "command": {
     "publish": {
+      "verifyAccess": false,
       "conventionalCommits": true,
-      "yes": true,
       "message": "build: main version delivery automatically by @james-pontte 🤖🛵"
     }
   }

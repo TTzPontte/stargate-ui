@@ -1,0 +1,51 @@
+name: promote-prod-stargate-ui
+
+on:
+  push:
+    # paths:
+      # - packages/stargate-ui-core
+      # - packages/stargate-ui-icons
+      # - packages/stargate-ui-styles
+    branches-ignore:
+      - gh-pages
+
+env:
+  NPM_TOKEN: ${{ secrets.BOT_REGISTRY_TOKEN }}
+  NPM_CONFIG_USERCONFIG: .npmrc
+
+jobs:
+  publish:
+    if: |
+      !contains(github.event.head_commit.author.name, 'james-pontte')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - uses: actions/setup-node@v1
+
+      - name: Install dependencies
+        run: yarn install --pure-lockfile
+
+      - uses: actions/cache@v1
+        with:
+          path: ~/.cache/yarn
+          key: ${{ runner.os }}-build-node-modules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-node-modules
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      # - name: Generate coverage of packages
+      #   run: |
+      #     yarn package:playground coverage
+
+      - name: Generate build
+        run: yarn build
+
+      - name: Promote under production
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        run: |
+          npx lerna publish -y --canary --preid alpha

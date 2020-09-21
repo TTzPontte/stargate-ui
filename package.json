@@ -22,8 +22,10 @@
   "scripts": {
     "commit": "git-cz",
     "start": "yarn package:playground start",
+    "build": "yarn package:core build && yarn package:styles build && yarn package:icons build",
     "package:core": "sh scripts/stargate-ui-core",
     "package:styles": "sh scripts/stargate-ui-styles",
+    "package:icons": "sh scripts/stargate-ui-icons",
     "package:playground": "sh scripts/stargate-ui-playground"
   },
   "devDependencies": {
