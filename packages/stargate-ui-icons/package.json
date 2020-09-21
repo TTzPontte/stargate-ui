@@ -2,10 +2,16 @@
   "name": "@pontte/stargate-ui-icons",
   "version": "0.0.1",
   "description": "",
-  "main": "src/index.js",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
+  "files": [
+    "dist/*",
+    "LICENSE",
+    "CHANGELOG.md",
+    "README.md"
+  ],
+  "main": "dist/stargate-ui-icons.min.js",
   "scripts": {
     "build": "rm -rf dist && rollup -c rollup.config.js"
   },

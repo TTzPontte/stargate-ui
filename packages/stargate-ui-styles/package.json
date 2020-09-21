@@ -2,10 +2,16 @@
   "name": "@pontte/stargate-ui-styles",
   "version": "0.0.1",
   "description": "",
-  "main": "src/index.js",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
+  "main": "dist/stargate-ui-styles.min.js",
+  "files": [
+    "dist/*",
+    "LICENSE",
+    "CHANGELOG.md",
+    "README.md"
+  ],
   "scripts": {
     "build": "rm -rf dist && rollup -c rollup.config.js"
   },
