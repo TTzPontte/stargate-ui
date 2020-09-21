@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputHelper should render properly 1`] = `
+<div>
+  <small
+    class="stargate-factory-0-2-3 stargate-factory-d0-0-2-4 stargate-typography-0-2-1 stargate-typography-d0-0-2-2"
+  >
+    Lorem ipsum dolor siet amiet.
+  </small>
+</div>
+`;
