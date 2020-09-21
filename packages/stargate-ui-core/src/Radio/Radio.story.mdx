@@ -4,30 +4,37 @@ import {
   Status,
   Story,
 } from '@pontte/stargate-ui-playground';
-import { Typography } from '@pontte/stargate-ui-core';
 
 import Radio from './Radio';
 
 <Meta title="Core/Form Elements/Radio" component={Radio} />
 
-<Typography element="h1">
-  Radio Button
-</Typography>
+## Radio Button
 
 <Status type="experimental" />
 
 <Canvas>
   <Story name="Radio">
     <Radio
-      label="Cool Radio"
-      checked={true}
+      label="Radio Unchecked"
+    />
+    <Radio
+      label="Radio Checked"
+      checked
+    />
+    <Radio
+      label="Radio Checked Disabled"
+      checked
+      disabled
+    />
+    <Radio
+      label="Radio Unchecked Disabled"
+      disabled
     />
   </Story>
 </Canvas>
 
-<Typography element="h3">
-  Colors State
-</Typography>
+  ## Colors State
 
 <Canvas>
   <Story name="Colors State">
@@ -37,7 +44,7 @@ import Radio from './Radio';
     />
     <Radio
     color="warning"
-    checked={true}
+    checked
     />
     <Radio
     color="error"
