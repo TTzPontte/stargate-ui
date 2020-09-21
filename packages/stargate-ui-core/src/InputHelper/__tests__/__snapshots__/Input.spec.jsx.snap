@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Input should render properly 1`] = `
+<div>
+  <div
+    class="stargate-factory-0-2-7 stargate-factory-d0-0-2-8"
+  >
+    <label
+      class="stargate-factory-0-2-11 stargate-factory-d0-0-2-12 stargate-typography-0-2-9 stargate-typography-d0-0-2-10"
+    >
+      Lorem ipsum dolor
+    </label>
+    <div
+      class="stargate-factory-0-2-13 stargate-factory-d0-0-2-14 stargate-inputGroup-0-2-2 stargate-inputGroup-d1-0-2-6"
+    >
+      <input
+        class="stargate-factory-0-2-15 stargate-factory-d0-0-2-16 stargate-input-0-2-1 stargate-input-d0-0-2-5"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+</div>
+`;

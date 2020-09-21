@@ -135,6 +135,7 @@ const Typography = (props) => {
       element={element}
       className={className}
       marginBottom={marginBottom}
+      color={color}
       {...factoryProps}
     />
   );

@@ -6,9 +6,14 @@ import clsx from 'clsx';
 const styles = (theme) => {
   const {
     spacing,
+    palette,
+    mode,
   } = theme;
 
   const factory = {
+    color: ({ color }) => (
+      palette?.[color]?.[mode].color
+    ),
     margin: (props) => {
       const {
         margin,
@@ -72,6 +77,7 @@ const Factory = React.forwardRef((props, ref) => {
     paddingY,
     paddingX,
     padding,
+    color,
     className: inheritedClassName,
     ...elementProps
   } = props;
@@ -93,6 +99,7 @@ const Factory = React.forwardRef((props, ref) => {
     paddingY,
     paddingX,
     padding,
+    color,
   });
   const className = clsx(Object.values(classes), inheritedClassName);
 
@@ -114,6 +121,15 @@ const Factory = React.forwardRef((props, ref) => {
 
 Factory.propTypes = {
   children: PropTypes.node,
+  color: PropTypes.oneOf([
+    'default',
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'error',
+    'info',
+  ]),
 };
 
 export default Factory;

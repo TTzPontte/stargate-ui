@@ -27,10 +27,9 @@ const styles = (props) => {
     flexShrink: 0,
     width: setDimensions,
     height: setDimensions,
-    color: 'inherit',
     '& path': {
       fill: ({ color }) => (
-        (!color || color === 'default') ? 'currentColor' : palette?.[color][mode].color
+        palette?.[color]?.[mode].color || 'currentColor'
       ),
     }
   };
@@ -42,7 +41,7 @@ const SvgIcon = (props) => {
   const {
     large,
     children,
-    color = 'default',
+    color,
     viewBox = [0, 0, 24, 24],
     className: inheritedClassName,
     ...factoryProps
