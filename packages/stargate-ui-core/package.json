@@ -11,7 +11,8 @@
     "CHANGELOG.md",
     "README.md"
   ],
-  "main": "dist/stargate-ui-core.min.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "scripts": {
     "build": "rm -rf dist && rollup -c rollup.config.js",
     "test": "jest"

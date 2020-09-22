@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Typography } from '@pontte/stargate-ui-core';
+
+import Typography from '../Typography';
 
 /**
  * @todo needs to add support for custom element.

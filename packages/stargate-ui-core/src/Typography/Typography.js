@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
 
+console.log('stargate-ui-core button:', useStyles);
+
 import Factory from '../Factory';
 
 const TYPOGRAPHY_VARIANT_H1 = 'h1';
@@ -33,6 +35,7 @@ const TYPOGRAPHY_VARIANT = {
 };
 
 const styles = (theme) => {
+  console.log('stargate-ui-core button:', theme);
   const { spacing } = theme;
   const {
     fontFamily,

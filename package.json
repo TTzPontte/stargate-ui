@@ -21,6 +21,7 @@
   "main": "",
   "scripts": {
     "commit": "git-cz",
+    "bootstrap": "lerna bootstrap --use-workspaces",
     "start": "yarn package:playground start",
     "build": "yarn package:core build && yarn package:styles build && yarn package:icons build",
     "package:core": "sh scripts/stargate-ui-core",
@@ -29,10 +30,12 @@
     "package:playground": "sh scripts/stargate-ui-playground"
   },
   "devDependencies": {
+    "@babel/plugin-transform-runtime": "^7.11.5",
     "@commitlint/cli": "^9.0.1",
     "@pontte/babel-preset": "^1.0.0-beta.5",
     "@pontte/commitlint-config": "^1.0.0",
     "@pontte/eslint-config": "^1.0.0-alpha.6",
+    "@rollup/plugin-multi-entry": "^4.0.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.0.4",
     "babel-jest": "^26.3.0",
@@ -43,7 +46,10 @@
     "commitlint": "^9.0.1",
     "husky": "^4.2.5",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.4.2"
+    "jest": "^26.4.2",
+    "lerna": "^3.22.1",
+    "rollup-plugin-node-globals": "^1.4.0",
+    "rollup-plugin-sourcemaps": "^0.6.2"
   },
   "peerDependencies": {
     "@commitlint/cli": "^9.0.1",

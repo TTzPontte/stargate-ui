@@ -2,7 +2,9 @@
   "version": "independent",
   "useWorkspaces": true,
   "packages": [
-    "packages/*"
+    "packages/stargate-ui-styles",
+    "packages/stargate-ui-core",
+    "packages/stargate-ui-icons"
   ],
   "npmClient": "yarn",
   "tagVersionPrefix": "",

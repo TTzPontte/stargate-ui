@@ -6,11 +6,15 @@ import ThemeProvider from './ThemeProvider';
 
 import stargate from './theme/stargate';
 
-const Theme = ({ theme = stargate, children }) => (
-  <Normalize>
-    <ThemeProvider theme={theme}>{children}</ThemeProvider>
-  </Normalize>
-);
+const Theme = ({ theme = stargate, children }) => {
+  console.log('stargate-ui-styles:', theme);
+
+  return (
+    <Normalize>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
+    </Normalize>
+  );
+};
 
 Theme.propTypes = {
   children: PropTypes.node.isRequired,

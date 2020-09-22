@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Label } from '@pontte/stargate-ui-core';
+import Label from '../Label';
 
 const InputLabel = ({ children }) => {
   if (children instanceof Object) {

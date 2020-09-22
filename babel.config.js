@@ -11,10 +11,10 @@ const resolver = [
       '.mdx',
     ],
     alias: {
-      '@pontte/stargate-ui-core': path.resolve(__dirname, 'packages/stargate-ui-core/src'),
-      '@pontte/stargate-ui-styles': path.resolve(__dirname, 'packages/stargate-ui-styles/src'),
+      // '@pontte/stargate-ui-core': path.resolve(__dirname, 'packages/stargate-ui-core/src'),
+      // '@pontte/stargate-ui-styles': path.resolve(__dirname, 'packages/stargate-ui-styles/src'),
       '@pontte/stargate-ui-playground': path.resolve(__dirname, 'packages/stargate-ui-playground/src'),
-      '@pontte/stargate-ui-icons': path.resolve(__dirname, 'packages/stargate-ui-icons/src'),
+      // '@pontte/stargate-ui-icons': path.resolve(__dirname, 'packages/stargate-ui-icons/src'),
     },
   },
 ];
@@ -22,7 +22,7 @@ const resolver = [
 const test = {
   presets: [
     [
-      '@babel/preset-env',
+      '@pontte/babel-preset/dist/react',
       {
         targets: {
           node: 'current',
@@ -30,22 +30,23 @@ const test = {
       },
     ],
   ],
-  plugins: [resolver],
 };
 
-const development = {
-  plugins: [resolver],
-};
+const development = {};
 
-const production = {
-  /**
-   * @todo remove when packages be published.
-   */
-  plugins: [],
-};
+const production = {};
 
 const config = {
-  presets: ['@pontte/babel-preset/dist/react'],
+  presets: [
+    ['@pontte/babel-preset/dist/react', { inputSourceMap: true }],
+  ],
+  plugins: [
+    resolver,
+    ['@babel/plugin-transform-runtime', { useESModules: true }],
+    ['babel-plugin-transform-react-remove-prop-types', {
+      mode: 'unsafe-wrap',
+    }],
+  ],
   env: {
     test,
     development,

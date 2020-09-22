@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import clsx from 'clsx';
 import { useStyles } from '@pontte/stargate-ui-styles';
-import { Svg } from '@pontte/stargate-ui-core';
 
 import Factory from '../Factory';
+import Svg from '../Svg';
 
 const styles = (props) => {
   const {

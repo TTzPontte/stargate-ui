@@ -10,7 +10,6 @@
     "coverage": "sh ../../scripts/stargate-ui-core test --json --outputFile=jest-coverage.json"
   },
   "dependencies": {
-    "@pontte/stargate-ui-core": "0.0.2-alpha.1",
     "@storybook/addon-a11y": "^6.0.19",
     "@storybook/addon-essentials": "^6.0.19",
     "@storybook/addon-jest": "^6.0.21",

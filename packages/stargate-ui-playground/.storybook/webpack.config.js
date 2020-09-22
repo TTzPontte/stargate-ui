@@ -13,6 +13,7 @@ const env = {
 module.exports = async ({ config }) =>
   merge(config, {
     mode: NODE_ENV,
+    devtool: 'inline-source-map',
     module: {
       rules: [
         {

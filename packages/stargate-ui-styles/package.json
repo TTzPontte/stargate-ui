@@ -5,13 +5,14 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "main": "dist/stargate-ui-styles.min.js",
   "files": [
     "dist/*",
     "LICENSE",
     "CHANGELOG.md",
     "README.md"
   ],
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "scripts": {
     "build": "rm -rf dist && rollup -c rollup.config.js"
   },

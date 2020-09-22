@@ -1,7 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Typography } from '@pontte/stargate-ui-core';
 import { useStyles } from '@pontte/stargate-ui-styles';
+
+import Typography from '../Typography';
 
 const styles = () => {
   const label = {
