@@ -1,6 +1,6 @@
 {
   "name": "@pontte/stargate-ui-core",
-  "version": "0.0.2-alpha.0",
+  "version": "0.0.2-alpha.1",
   "description": "",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -17,8 +17,8 @@
     "test": "jest"
   },
   "dependencies": {
-    "@pontte/stargate-ui-icons": "0.0.2-alpha.0",
-    "@pontte/stargate-ui-styles": "0.0.2-alpha.0",
+    "@pontte/stargate-ui-icons": "^0.0.2-alpha.1",
+    "@pontte/stargate-ui-styles": "^0.0.2-alpha.1",
     "clsx": "^1.1.1",
     "react": "^16.13.1"
   },
@@ -35,7 +35,6 @@
     "rollup-plugin-terser": "^7.0.2",
     "yarn": "^1.22.5"
   },
-  "peerDependencies": {},
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:pontte/stargate-ui.git"
