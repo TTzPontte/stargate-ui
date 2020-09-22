@@ -23,6 +23,16 @@ jobs:
         with:
           persist-credentials: false
 
+      - name: Authenticate with @james-pontte
+        run: |
+          git config --global user.name ${GIT_COMMITTER_NAME}
+          git config --global user.email ${GIT_COMMITTER_EMAIL}
+          git remote set-url origin https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}
+        env:
+          GITHUB_TOKEN: ${{ secrets.BOT_TOKEN }}
+          GIT_COMMITTER_NAME: ${{ secrets.BOT_NAME }}
+          GIT_COMMITTER_EMAIL: ${{ secrets.BOT_EMAIL }}
+
       - uses: actions/setup-node@v1
 
       - name: Install dependencies
@@ -44,8 +54,14 @@ jobs:
       - name: Generate build
         run: yarn build
 
-      - name: Promote under production
-        env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - name: Promote under production version
         run: |
-          npx lerna publish -y --canary --preid alpha
+          npx lerna version --conventional-prerelease --create-release github -y
+        env:
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
+
+      - name: Publish
+        run: |
+          npx lerna publish from-package -y
+        env:
+          GH_TOKEN: ${{ secrets.BOT_TOKEN }}

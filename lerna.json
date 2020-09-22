@@ -8,10 +8,12 @@
   "tagVersionPrefix": "",
   "changelogPreset": "angular",
   "command": {
-    "publish": {
-      "verifyAccess": false,
+    "version": {
       "conventionalCommits": true,
-      "message": "build: main version delivery automatically by @james-pontte 🤖🛵"
+      "message": "build: main version delivery by @james-pontte 🤖🛵"
+    },
+    "publish": {
+      "verifyAccess": false
     }
   }
 }
