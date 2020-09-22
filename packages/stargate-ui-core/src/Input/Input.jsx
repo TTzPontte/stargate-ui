@@ -1,6 +1,8 @@
 import React, { useRef, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useStyles } from '@pontte/stargate-ui-styles';
+import { InputLabel } from '@pontte/stargate-ui-core';
+import { CloseRounded as SvgIconClose } from '@pontte/stargate-ui-icons';
 import clsx from 'clsx';
 
 import { Close as SvgIconClose } from '../icons';

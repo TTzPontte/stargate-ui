@@ -12,3 +12,6 @@ export { default as Youtube } from './Youtube';
 export { default as Linkedin } from './Linkedin';
 export { default as User } from './User';
 export { default as Logout } from './Logout';
+export { default as CloseRounded } from './CloseRounded';
+export { default as Close } from './Close';
+export { default as Alert } from './Alert';

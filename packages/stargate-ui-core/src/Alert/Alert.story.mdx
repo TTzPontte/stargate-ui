@@ -1,0 +1,41 @@
+import {
+  Meta,
+  Canvas,
+  Status,
+  Story,
+} from '@pontte/stargate-ui-playground';
+import { Alert as SvgIconAlert } from '@pontte/stargate-ui-icons';
+
+import Alert from './Alert';
+
+<Meta title="Core/Alert" component={Alert} />
+
+## Alert
+
+<Status type="experimental" />
+
+### Contained Alert
+
+<Canvas>
+  <Alert componentAtStart={<SvgIconAlert />} contained close>This is an default alert w/ close btn — check it out!</Alert>
+</Canvas>
+
+<Canvas>
+  <Alert componentAtStart={<SvgIconAlert />} contained close color="warning">This is an warning alert w/ close btn — check it out!</Alert>
+</Canvas>
+
+<Canvas>
+  <Alert componentAtStart={<SvgIconAlert />} contained close color="error">This is an error alert w/ close btn — check it out!</Alert>
+</Canvas>
+
+<Canvas>
+  <Alert componentAtStart={<SvgIconAlert />} contained  color="success">This is an success alert — check it out!</Alert>
+</Canvas>
+
+<Canvas>
+  <Alert componentAtStart={<SvgIconAlert />} contained  color="info">This is an info alert — check it out!</Alert>
+</Canvas>
+
+<Canvas>
+  <Alert componentAtStart={<SvgIconAlert />} contained disabled>This is an disabled alert — check it out!</Alert>
+</Canvas>

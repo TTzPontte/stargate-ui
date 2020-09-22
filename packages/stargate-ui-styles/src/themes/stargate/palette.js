@@ -5,6 +5,7 @@ const THEME_SHADE_LIGHTER = 800;
 const THEME_SHADE_DARKEST = 900;
 
 const darkest = colors.purple[900];
+const medium = colors.grey[700];
 const lighter = colors.grey[100];
 
 const getReadableTextColor = (backgroundColor, color1 = darkest, color2 = lighter) => {
@@ -25,6 +26,7 @@ const palette = {
   getReadableTextColor,
   setLightness,
   lighter,
+  medium,
   darkest,
   default: {
     lighter: {
@@ -98,6 +100,7 @@ const palette = {
   },
   text: {
     darkest,
+    medium,
     lighter,
   },
   neutral: colors.grey,
