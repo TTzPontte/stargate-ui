@@ -42,7 +42,7 @@ const config = {
   ],
   plugins: [
     resolver,
-    ['@babel/plugin-transform-runtime', { useESModules: true }],
+    // ['@babel/plugin-transform-runtime', { useESModules: true }],
     ['babel-plugin-transform-react-remove-prop-types', {
       mode: 'unsafe-wrap',
     }],
