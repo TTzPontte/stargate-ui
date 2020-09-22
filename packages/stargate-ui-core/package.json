@@ -1,6 +1,6 @@
 {
   "name": "@pontte/stargate-ui-core",
-  "version": "0.0.1",
+  "version": "0.0.2-alpha.0",
   "description": "",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -17,6 +17,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@pontte/stargate-ui-icons": "0.0.2-alpha.0",
+    "@pontte/stargate-ui-styles": "0.0.2-alpha.0",
     "clsx": "^1.1.1",
     "react": "^16.13.1"
   },

@@ -41,7 +41,7 @@ const production = {
   /**
    * @todo remove when packages be published.
    */
-  plugins: [resolver],
+  plugins: [],
 };
 
 const config = {
