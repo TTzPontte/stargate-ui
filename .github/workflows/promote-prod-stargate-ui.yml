@@ -2,10 +2,10 @@ name: promote-prod-stargate-ui
 
 on:
   push:
-    # paths:
-      # - packages/stargate-ui-core
-      # - packages/stargate-ui-icons
-      # - packages/stargate-ui-styles
+    paths:
+      - packages/stargate-ui-core
+      - packages/stargate-ui-icons
+      - packages/stargate-ui-styles
     branches-ignore:
       - gh-pages
 
