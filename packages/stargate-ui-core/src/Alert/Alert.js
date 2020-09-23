@@ -5,6 +5,7 @@ import clsx from 'clsx';
 import Factory from '../Factory';
 import Typography from '../Typography';
 import { CloseRounded as SvgIconClose } from '@pontte/stargate-ui-icons';
+import { Alert as SvgIconAlert } from '@pontte/stargate-ui-icons';
 
 const styles = (theme) => {
   /**
@@ -38,14 +39,23 @@ const styles = (theme) => {
     ),
   };
 
+  /**
+   * @todo remove after implements <Grid>
+   */
   const alertContainer = {
     display: 'flex',
-    alignItems: 'center',
+    alignItems: 'flex-start',
     alignContent: 'space-around',
   };
 
+  /**
+   * @todo remove after implements <Grid>
+   */
   const alertContainerItem = {
-    flexBasis: 'auto',
+    flex: [[1, 'auto']],
+    '&:nth-child(2)': {
+      flexBasis: '100%',
+    },
   };
 
   const alertContained = {
@@ -116,6 +126,8 @@ const Alert = (props) => {
     large,
     componentAtStart,
     componentAtEnd,
+    componentAtStartCustom,
+    severity,
     close : defaultValue = false,
     color = 'default',
     onClick = () => {},
@@ -176,32 +188,35 @@ const Alert = (props) => {
   const paddingY = (1.5 * n);
   const paddingX = (6 * n);
 
+  let showComponentAtStart = true;
+
+  if (componentAtStartCustom) {
+    showComponentAtStart = false;
+  }
 
   return (
     <Factory
       element="div"
       className={classAlertWrapper}
-      paddingX={paddingX}
-      paddingY={paddingY}
+      paddingX={.5}
       {...factoryProps}
     >
       <Factory
         element="div"
         className={classAlertContainerItem}
+        paddingX={.5}
       >
-        {componentAtStart && (
-          <Factory
-            element="span"
-            className={classAlertOrnament}
-            paddingRight={1}
-            children={componentAtStart}
-          />
+        {componentAtStartCustom}
+
+        {showComponentAtStart && severity === 'alert' && (
+          <SvgIconAlert />
         )}
       </Factory>
 
       <Factory
         element="div"
         className={classAlertContainerItem}
+        paddingX={.5}
       >
         <Typography
           element="span"
@@ -216,6 +231,7 @@ const Alert = (props) => {
         <Factory
           element="div"
           className={classAlertContainerItem}
+          paddingX={.5}
         >
           <Factory
             element="button"

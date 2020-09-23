@@ -6,6 +6,7 @@ import {
 } from '@pontte/stargate-ui-playground';
 import { Alert as SvgIconAlert } from '@pontte/stargate-ui-icons';
 
+import Factory from '../Factory';
 import Alert from './Alert';
 
 <Meta title="Core/Alert" component={Alert} />
@@ -17,25 +18,35 @@ import Alert from './Alert';
 ### Contained Alert
 
 <Canvas>
-  <Alert componentAtStart={<SvgIconAlert />} contained close>This is an default alert w/ close btn — check it out!</Alert>
+  <Alert
+    severity="alert"
+    color="error"
+    contained
+    close
+  >
+    <Factory color="info" element="span">
+      Atenção:
+    </Factory>
+    This is an default alert w/ close btn — check it out!This is an default alert w/ close btn — check it out!This is an default alert w/ close btn — check it out!This is an default alert w/ close btn — check it out!This is an default alert w/ close btn — check it out!This is an default alert w/ close btn — check it out!This is an default alert w/ close btn — check it out!
+  </Alert>
 </Canvas>
 
 <Canvas>
-  <Alert componentAtStart={<SvgIconAlert />} contained close color="warning">This is an warning alert w/ close btn — check it out!</Alert>
+  <Alert severity="alert" contained close>This is an warning alert w/ close btn — check it out!</Alert>
 </Canvas>
 
 <Canvas>
-  <Alert componentAtStart={<SvgIconAlert />} contained close color="error">This is an error alert w/ close btn — check it out!</Alert>
+  <Alert severity="alert" contained close color="error">This is an error alert w/ close btn — check it out!</Alert>
 </Canvas>
 
 <Canvas>
-  <Alert componentAtStart={<SvgIconAlert />} contained  color="success">This is an success alert — check it out!</Alert>
+  <Alert severity="alert" contained  color="success">This is an success alert — check it out!</Alert>
 </Canvas>
 
 <Canvas>
-  <Alert componentAtStart={<SvgIconAlert />} contained  color="info">This is an info alert — check it out!</Alert>
+  <Alert severity="alert" contained  color="info">This is an info alert — check it out!</Alert>
 </Canvas>
 
 <Canvas>
-  <Alert componentAtStart={<SvgIconAlert />} contained disabled>This is an disabled alert — check it out!</Alert>
+  <Alert severity="alert" contained disabled>This is an disabled alert — check it out!</Alert>
 </Canvas>
