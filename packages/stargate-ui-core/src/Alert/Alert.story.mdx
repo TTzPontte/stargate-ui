@@ -25,7 +25,7 @@ import Alert from './Alert';
   <Alert
     contained
     close
-    componentAtStartCustom={<SvgIconClose />}
+    icon={<SvgIconClose />}
   >
     This is an customized alert with a close btn — check it out!
   </Alert>
@@ -40,10 +40,10 @@ import Alert from './Alert';
 </Canvas>
 
 <Canvas>
-  <Alert severity="info" contained close>This is an success alert with a close btn — check it out!</Alert>
+  <Alert severity="info" contained close>This is an info alert with a close btn — check it out!</Alert>
 </Canvas>
 
 <Canvas>
-  <Alert severity="success" contained close>This is an info alert with a close btn — check it out!</Alert>
+  <Alert severity="success" contained close>This is an success alert with a close btn — check it out!</Alert>
 </Canvas>
 
