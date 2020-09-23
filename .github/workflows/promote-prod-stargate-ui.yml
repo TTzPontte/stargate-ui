@@ -4,8 +4,8 @@ on:
   push:
     paths:
       - packages/*
-    branches-ignore:
-      - gh-pages
+    branches:
+      - alpha
 
 env:
   NPM_TOKEN: ${{ secrets.BOT_REGISTRY_TOKEN }}
