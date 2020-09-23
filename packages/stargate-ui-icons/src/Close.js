@@ -3,7 +3,7 @@ import createSvgIcon from './utils/createSvgIcon';
 
 export default createSvgIcon(
   'Close',
-    <g id="Icon_close_primary_32x32" data-name="Icon/close/primary/32x32" transform="translate(1.25 1.252)">
-      <path id="Caminho_19122" data-name="Caminho 19122" class="cls-1" d="M4401.048,19197.051l-12,12,12-12-12-12,12,12,12-12-12,12,12,12Z" transform="translate(-4389.049 -19185.053)"/>
-    </g>
+  <path d="M0.3,1.9c-0.4-0.4-0.4-1.2,0-1.6C0.6,0.1,0.8,0,1.1,0s0.6,0.1,0.8,0.3L12,10.4L22.1,0.3C22.3,0.1,22.6,0,22.9,0
+	s0.6,0.1,0.8,0.3c0.4,0.4,0.4,1.2,0,1.6L13.6,12l10.1,10.1c0.4,0.4,0.4,1.2,0,1.6c-0.4,0.4-1.2,0.4-1.6,0L12,13.6L1.9,23.7
+	c-0.4,0.4-1.2,0.4-1.6,0s-0.4-1.2,0-1.6L10.4,12L0.3,1.9z"/>,
 );
