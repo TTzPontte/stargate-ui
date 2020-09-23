@@ -5,7 +5,10 @@ import clsx from 'clsx';
 import Factory from '../Factory';
 import Typography from '../Typography';
 import { CloseRounded as SvgIconClose } from '@pontte/stargate-ui-icons';
-import { Alert as SvgIconAlert } from '@pontte/stargate-ui-icons';
+import { Warning as SvgIconWarning } from '@pontte/stargate-ui-icons';
+import { Info as SvgIconInfo } from '@pontte/stargate-ui-icons';
+import { Error as SvgIconError } from '@pontte/stargate-ui-icons';
+import { Success as SvgIconSuccess } from '@pontte/stargate-ui-icons';
 
 const styles = (theme) => {
   /**
@@ -24,7 +27,7 @@ const styles = (theme) => {
     palette?.[color][mode].color
   );
 
-  const getTextColor = ({ color }) => (
+  const getTextColor = (color) => (
     color && palette[color][mode].text
   );
 
@@ -59,19 +62,12 @@ const styles = (theme) => {
   };
 
   const alertContained = {
-    color: ({ disabled, ...props }) => (
-      disabled ? setLightness(.8, getColor(props.color)) : getTextColor(props)
+    color: ({ severity }) => (
+      severity ? getColor(severity) : palette.darkest
     ),
-    backgroundColor: ({ disabled, ...props }) => (
-      !disabled && setLightness(.94, getColor(props.color))
+    backgroundColor: ({ severity }) => (
+      severity ? setLightness(.95, getColor(severity)) : palette.lighter
     ),
-    backgroundColor: (props) => {
-      const {
-        disabled,
-        color,
-      } = props;
-      return (disabled) ? setLightness(.95, getColor(color)) : (color !== 'default' ? setLightness(.80, getColor(color)) : palette.lighter)
-    },
   };
 
   const alertClose = {
@@ -80,13 +76,9 @@ const styles = (theme) => {
     overflow: 'hidden',
     cursor: 'pointer',
     backgroundColor: 'transparent',
-    color: (props) => {
-      const {
-        disabled,
-        color,
-      } = props;
-      return (disabled) ? setLightness(.85, getColor(color)) : getColor('primary')
-    },
+    color: ({ severity }) => (
+      severity ? getColor(severity) : palette.darkest
+    ),
     [active()]: {
       /**
        * @todo find an accessible solution
@@ -103,8 +95,8 @@ const styles = (theme) => {
     display: 'inline-flex',
     alignItems: 'start',
     userSelect: 'none',
-    color: ({ disabled, ...props }) => (
-      disabled ? setLightness(.85, getColor(props.color)) : getColor('primary')
+    color: ({ severity }) => (
+      severity ? getColor(severity) : getColor('info')
     ),
   };
 
@@ -129,7 +121,6 @@ const Alert = (props) => {
     componentAtStartCustom,
     severity,
     close : defaultValue = false,
-    color = 'default',
     onClick = () => {},
     className: inheritedClasses,
     ...factoryProps
@@ -143,13 +134,11 @@ const Alert = (props) => {
       alertOrnament: classAlertOrnament,
       alertContainer: classAlertContainer,
       alertContainerItem: classAlertContainerItem,
-      ...classes
     },
   ] = useStyles(styles, {
-    color,
-    disabled,
     close,
     contained,
+    severity,
   });
 
   const classAlertWrapper = clsx(
@@ -159,18 +148,6 @@ const Alert = (props) => {
       [classAlertContained]: contained,
     }
   );
-
-  console.log(classAlert);
-  // const classAlertContainerItem = clsx({ classAlertContained: contained });
-
-  // const className = clsx(
-  //   Object.values(classes),
-  //   {
-  //     [classAlertContained]: contained,
-  //     [classAlertClose]: close,
-  //   },
-  //   inheritedClasses,
-  // );
 
   const typographyVariant = large ? 'body' : 'bodylower';
   const [close, setClose] = useState(defaultValue);
@@ -194,29 +171,55 @@ const Alert = (props) => {
     showComponentAtStart = false;
   }
 
+  const whichIconBySeverity = (props) => {
+    const { severity } = props;
+
+    if (severity === 'warning') {
+      return (<SvgIconWarning className={classAlertOrnament} color="warning"/>);
+    }
+    if (severity === 'info') {
+      return (<SvgIconInfo className={classAlertOrnament} color="info"/>);
+    }
+    if (severity === 'error') {
+      return (<SvgIconError className={classAlertOrnament} color="error"/>);
+    }
+    if (severity === 'success') {
+      return (<SvgIconSuccess className={classAlertOrnament} color="success"/>);
+    }
+
+    return (<SvgIconInfo className={classAlertOrnament}/>);
+  };
+
   return (
     <Factory
       element="div"
       className={classAlertWrapper}
-      paddingX={.5}
       {...factoryProps}
     >
       <Factory
         element="div"
         className={classAlertContainerItem}
-        paddingX={.5}
+        paddingX={1}
+        paddingY={1}
       >
-        {componentAtStartCustom}
+        {componentAtStartCustom && (
+          <Factory
+            element="span"
+            className={classAlertOrnament}
+            children={componentAtStartCustom}
+          />
+        )}
 
-        {showComponentAtStart && severity === 'alert' && (
-          <SvgIconAlert />
+        {showComponentAtStart && (
+          whichIconBySeverity(props)
         )}
       </Factory>
 
       <Factory
         element="div"
         className={classAlertContainerItem}
-        paddingX={.5}
+        paddingX={1}
+        paddingY={1}
       >
         <Typography
           element="span"
@@ -231,13 +234,13 @@ const Alert = (props) => {
         <Factory
           element="div"
           className={classAlertContainerItem}
-          paddingX={.5}
+          paddingX={1}
+          paddingY={1}
         >
           <Factory
             element="button"
             className={classAlertClose}
             aria-label="Close"
-            paddingX={1}
             onClick={handleClose}
           >
             <SvgIconClose />

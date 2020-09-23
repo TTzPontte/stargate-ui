@@ -4,7 +4,7 @@ import {
   Status,
   Story,
 } from '@pontte/stargate-ui-playground';
-import { Alert as SvgIconAlert } from '@pontte/stargate-ui-icons';
+import { CloseRounded as SvgIconClose } from '@pontte/stargate-ui-icons';
 
 import Factory from '../Factory';
 import Alert from './Alert';
@@ -18,35 +18,32 @@ import Alert from './Alert';
 ### Contained Alert
 
 <Canvas>
+  <Alert contained>This is an default alert — check it out!</Alert>
+</Canvas>
+
+<Canvas>
   <Alert
-    severity="alert"
-    color="error"
     contained
     close
+    componentAtStartCustom={<SvgIconClose />}
   >
-    <Factory color="info" element="span">
-      Atenção:
-    </Factory>
-    This is an default alert w/ close btn — check it out!This is an default alert w/ close btn — check it out!This is an default alert w/ close btn — check it out!This is an default alert w/ close btn — check it out!This is an default alert w/ close btn — check it out!This is an default alert w/ close btn — check it out!This is an default alert w/ close btn — check it out!
+    This is an customized alert with a close btn — check it out!
   </Alert>
 </Canvas>
 
 <Canvas>
-  <Alert severity="alert" contained close>This is an warning alert w/ close btn — check it out!</Alert>
+  <Alert severity="warning" contained close>This is an warning alert with a close btn — check it out!</Alert>
 </Canvas>
 
 <Canvas>
-  <Alert severity="alert" contained close color="error">This is an error alert w/ close btn — check it out!</Alert>
+  <Alert severity="error" contained close>This is an error alert with a close btn — check it out!</Alert>
 </Canvas>
 
 <Canvas>
-  <Alert severity="alert" contained  color="success">This is an success alert — check it out!</Alert>
+  <Alert severity="info" contained close>This is an success alert with a close btn — check it out!</Alert>
 </Canvas>
 
 <Canvas>
-  <Alert severity="alert" contained  color="info">This is an info alert — check it out!</Alert>
+  <Alert severity="success" contained close>This is an info alert with a close btn — check it out!</Alert>
 </Canvas>
 
-<Canvas>
-  <Alert severity="alert" contained disabled>This is an disabled alert — check it out!</Alert>
-</Canvas>

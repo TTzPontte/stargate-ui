@@ -14,4 +14,7 @@ export { default as User } from './User';
 export { default as Logout } from './Logout';
 export { default as CloseRounded } from './CloseRounded';
 export { default as Close } from './Close';
-export { default as Alert } from './Alert';
+export { default as Warning } from './Warning';
+export { default as Info } from './Info';
+export { default as Error } from './Error';
+export { default as Success } from './Success';
