@@ -10,3 +10,43 @@ import Grid from './Grid';
 # Grid
 
 <Status type="experimental" />
+
+<Canvas>
+  <Grid row spacing={4}>
+    <Grid col xs={12} style={{background: 'red'}}>
+      xs=12
+    </Grid>
+    <Grid col xs={6} md={12} style={{background: 'green'}}>
+      xs=6
+    </Grid>
+    <Grid col xs={6} style={{background: 'blue'}}>
+      xs=6
+    </Grid>
+    <Grid col xs={3} style={{background: 'grey'}}>
+      xs=3
+    </Grid>
+    <Grid col xs={3} style={{background: 'purple'}}>
+      xs=3
+    </Grid>
+    <Grid col xs style={{background: 'yellow'}}>
+      xs=3
+    </Grid>
+    <Grid col xs style={{background: 'orange'}}>
+      xs=3
+    </Grid>
+  </Grid>
+</Canvas>
+
+<Canvas>
+  <Grid row spacing={4} justifyContent="flex-end">
+    <Grid col xs={3} md={12} style={{background: 'red'}} spacing={1}>
+      xs=12
+    </Grid>
+    <Grid col xs md={12} style={{background: 'green'}} spacing={1}>
+      xs=6
+    </Grid>
+    <Grid col xs={3} md={12} style={{background: 'blue'}} spacing={1}>
+      xs=6
+    </Grid>
+  </Grid>
+</Canvas>

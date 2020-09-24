@@ -29,6 +29,7 @@
     "react-dom": "^16.13.1"
   },
   "dependencies": {
-    "clsx": "^1.1.1"
+    "clsx": "^1.1.1",
+    "deepmerge": "^4.2.2"
   }
 }

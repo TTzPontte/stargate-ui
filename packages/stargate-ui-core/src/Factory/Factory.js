@@ -11,6 +11,7 @@ const styles = (theme) => {
   } = theme;
 
   const factory = {
+    maxWidth: '100%',
     color: ({ color }) => (
       palette?.[color]?.[mode].color
     ),
