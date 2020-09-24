@@ -1,3 +1,5 @@
+import deepmerge from 'deepmerge';
+
 import palette from './palette';
 import grid from './grid';
 import breakpoint from './breakpoint';
@@ -17,7 +19,15 @@ const active = () => (
   '&:hover, &:active, &:focus'
 );
 
+const overrides = [
+  palette,
+  breakpoint,
+  typography,
+  grid,
+].reduce((overrides, { overrides: props = {} }) => deepmerge(overrides, props), {});
+
 const theme = {
+  overrides,
   active,
   spacing,
   radius,
