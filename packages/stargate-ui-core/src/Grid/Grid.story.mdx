@@ -12,7 +12,7 @@ import Grid from './Grid';
 <Status type="experimental" />
 
 <Canvas>
-  <Grid row spacing={4}>
+  <Grid row spacing={1}>
     <Grid col xs={12} style={{background: 'red'}}>
       xs=12
     </Grid>
@@ -38,11 +38,11 @@ import Grid from './Grid';
 </Canvas>
 
 <Canvas>
-  <Grid row spacing={4} justifyContent="flex-end">
-    <Grid col xs={3} md={12} style={{background: 'red'}} spacing={1}>
+  <Grid row spacing={4} justifyContent="flex-start">
+    {/* <Grid col xs={3} md={12} style={{background: 'red'}} spacing={1}>
       xs=12
-    </Grid>
-    <Grid col xs md={12} style={{background: 'green'}} spacing={1}>
+    </Grid> */}
+    <Grid col xs={3} md={12} style={{background: 'green'}} spacing={1}>
       xs=6
     </Grid>
     <Grid col xs={3} md={12} style={{background: 'blue'}} spacing={1}>
