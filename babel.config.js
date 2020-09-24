@@ -36,6 +36,10 @@ const development = {
   plugins: [resolver],
 };
 
+const staging = {
+  plugins: [resolver],
+};
+
 const production = {
   plugins: [
     [
@@ -55,6 +59,7 @@ const config = {
     test,
     development,
     production,
+    staging,
   },
 };
 

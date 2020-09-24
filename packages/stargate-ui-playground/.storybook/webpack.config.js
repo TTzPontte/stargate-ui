@@ -10,9 +10,11 @@ const env = {
   NODE_ENV,
 } = process.env;
 
+const mode = ['production', 'staging'].includes(NODE_ENV) ? 'production' : NODE_ENV;
+
 module.exports = async ({ config }) =>
   merge(config, {
-    mode: NODE_ENV,
+    mode,
     devtool: 'inline-source-map',
     module: {
       rules: [
