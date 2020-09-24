@@ -3,7 +3,7 @@
 exports[`Typography should render properly 1`] = `
 <div>
   <p
-    class="stargate-factory-0-2-3 stargate-factory-d0-0-2-4 stargate-typography-0-2-1 stargate-typography-d0-0-2-2"
+    class="stargate-factory-0-2-4 stargate-factory-d0-0-2-5 stargate-typography-0-2-2 stargate-typography-d0-0-2-3"
   >
     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minima reiciendis id nemo dicta! Soluta voluptate cupiditate corrupti architecto rerum nisi excepturi sunt quaerat iste quibusdam, non nam possimus ut eveniet.
   </p>

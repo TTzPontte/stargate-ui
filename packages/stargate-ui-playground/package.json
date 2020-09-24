@@ -15,11 +15,9 @@
     "@storybook/addon-jest": "^6.0.21",
     "@storybook/addon-links": "^6.0.19",
     "@storybook/cli": "^6.0.19",
-    "@storybook/react": "^6.0.19",
-    "clsx": "^1.1.1"
+    "@storybook/react": "^6.0.19"
   },
   "devDependencies": {
-    "prop-types": "^15.7.2",
     "webpack-merge": "^5.1.2"
   },
   "repository": {

@@ -4,10 +4,10 @@ exports[`SvgIcon should render properly 1`] = `
 <div>
   <span
     aria-hidden="true"
-    class="stargate-factory-0-2-3 stargate-factory-d0-0-2-4 stargate-svgIcon-0-2-1 stargate-svgIcon-d0-0-2-2"
+    class="stargate-factory-0-2-4 stargate-factory-d0-0-2-5 stargate-svgIcon-0-2-2 stargate-svgIcon-d0-0-2-3"
   >
     <svg
-      class="stargate-factory-0-2-5 stargate-factory-d0-0-2-6"
+      class="stargate-factory-0-2-6 stargate-factory-d0-0-2-7"
       viewBox="0,0,24,24"
     >
       <path

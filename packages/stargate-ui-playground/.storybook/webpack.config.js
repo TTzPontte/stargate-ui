@@ -31,7 +31,6 @@ module.exports = async ({ config }) =>
         {
           test: /\.(woff|woff2|eot|ttf|otf)$/,
           use: ['file-loader'],
-          include: /node_modules\/typeface-/
         },
       ],
     },

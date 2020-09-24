@@ -1,42 +1,39 @@
 /**
- * @todo create shared config with ../stargate-ui-core/rollup.config.js
+ * Thanks @juntossomosmais and @felipefialho for open the source of
+ * the Venice and with that, helping us to build Stargate UI too.
+ * {@link https://github.com/juntossomosmais/venice/blob/master/packages/react-ds/rollup.config.js}
  */
-import rollupCommon from '../../rollup.config';
+import configCommon from '../../rollup.config';
+import {
+  peerDependencies,
+  module as fileEs,
+  main as fileCjs,
+} from './package.json';
 
-import pkg from './package.json';
+const { NODE_ENV } = process.env;
 
 const outputOptions = {
-  sourcemap: true,
+  sourcemap: NODE_ENV === 'development',
   freeze: false,
   esModule: true,
 };
 
-const production = {
-  ...rollupCommon,
+const config = {
+  ...configCommon,
   input: 'src/index.js',
-  // output: {
-  //   globals,
-  //   format: 'umd',
-  //   file: 'dist/stargate-ui-icons.min.js',
-  //   name: 'StargateUIIcons',
-  // },
   output: [
     {
-      file: pkg.module,
+      file: fileEs,
       format: 'es',
       ...outputOptions,
     },
     {
-      file: pkg.main,
+      file: fileCjs,
       format: 'cjs',
       ...outputOptions,
     },
   ],
+  external: Object.keys(peerDependencies),
 };
-
-/**
- * @todo create bundle for development
- */
-const config = [production];
 
 export default config;

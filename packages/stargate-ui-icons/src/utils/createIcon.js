@@ -1,5 +1,5 @@
 import React from 'react';
-import SvgIcon from '../../../stargate-ui-core/src/SvgIcon';
+import { SvgIcon } from '@pontte/stargate-ui-core';
 
 const createIconComponent = (name, path) => (
   React.memo(

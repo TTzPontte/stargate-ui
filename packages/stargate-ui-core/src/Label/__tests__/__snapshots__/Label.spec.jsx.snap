@@ -3,7 +3,7 @@
 exports[`Label should render properly 1`] = `
 <div>
   <label
-    class="stargate-factory-0-2-4 stargate-factory-d0-0-2-5 stargate-typography-0-2-2 stargate-typography-d0-0-2-3 stargate-label-0-2-1"
+    class="stargate-factory-0-2-5 stargate-factory-d0-0-2-6 stargate-typography-0-2-3 stargate-typography-d0-0-2-4 stargate-label-0-2-2"
   >
     Lorem ipsum dolor
   </label>

@@ -4,8 +4,6 @@ import { withTests } from '@storybook/addon-jest';
 import { DocsContainer } from '@pontte/stargate-ui-playground';
 import { Theme } from '@pontte/stargate-ui-styles';
 
-console.log(Theme);
-
 import sortStories from './helpers/sortStories';
 
 /**

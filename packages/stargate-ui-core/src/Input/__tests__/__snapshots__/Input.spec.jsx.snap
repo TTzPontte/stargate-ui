@@ -3,18 +3,18 @@
 exports[`Input should render properly 1`] = `
 <div>
   <div
-    class="stargate-factory-0-2-7 stargate-factory-d0-0-2-8"
+    class="stargate-factory-0-2-8 stargate-factory-d0-0-2-9"
   >
     <label
-      class="stargate-factory-0-2-12 stargate-factory-d0-0-2-13 stargate-typography-0-2-10 stargate-typography-d0-0-2-11 stargate-label-0-2-9"
+      class="stargate-factory-0-2-13 stargate-factory-d0-0-2-14 stargate-typography-0-2-11 stargate-typography-d0-0-2-12 stargate-label-0-2-10"
     >
       Lorem ipsum dolor
     </label>
     <div
-      class="stargate-factory-0-2-14 stargate-factory-d0-0-2-15 stargate-inputGroup-0-2-1 stargate-inputGroup-d0-0-2-5"
+      class="stargate-factory-0-2-15 stargate-factory-d0-0-2-16 stargate-inputGroup-0-2-2 stargate-inputGroup-d0-0-2-6"
     >
       <input
-        class="stargate-factory-0-2-16 stargate-factory-d0-0-2-17 stargate-inputElement-0-2-4 stargate-inputElement-d1-0-2-6"
+        class="stargate-factory-0-2-17 stargate-factory-d0-0-2-18 stargate-inputElement-0-2-5 stargate-inputElement-d1-0-2-7"
         type="text"
         value=""
       />
