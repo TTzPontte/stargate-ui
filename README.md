@@ -4,16 +4,11 @@
   </a>
 </p>
 
-<h1 align="center">
-  Stargate UI
-</h1>
-
 <div align="center">
 
   [React](https://reactjs.org/) library from Stargate Design System by [Pontte](https://pontte.com.br) ✨🚪
 
-  ![](https://github.com/pontte/stargate-ui/workflows/promote-prod-from-preprod-branch/badge.svg)
-  ![](https://github.com/pontte/stargate-ui/workflows/promote-prod-stargate-ui-playground/badge.svg)
+  ![promote-prod-stargate-ui](https://github.com/pontte/stargate-ui/workflows/promote-prod-stargate-ui/badge.svg)
 
 </div>
 
@@ -23,4 +18,5 @@ After clone project in your machine, run follow commands:
 
 ```sh
 yarn
+yarn start
 ```
