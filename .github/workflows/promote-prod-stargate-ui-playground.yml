@@ -45,7 +45,7 @@ jobs:
         run: |
           yarn package:playground build
         env:
-          NODE_ENV: 'production'
+          NODE_ENV: production
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
