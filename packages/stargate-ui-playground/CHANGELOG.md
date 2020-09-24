@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.2-alpha.4 (2020-09-24)
+
+**Note:** Version bump only for package @pontte/stargate-ui-playground
+
+
+
+
+
 ## [0.0.2-alpha.3](https://github.com/pontte/stargate-ui/compare/@pontte/stargate-ui-playground@0.0.2-alpha.2...@pontte/stargate-ui-playground@0.0.2-alpha.3) (2020-09-22)
 
 **Note:** Version bump only for package @pontte/stargate-ui-playground
