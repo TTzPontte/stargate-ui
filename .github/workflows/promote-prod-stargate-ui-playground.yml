@@ -2,8 +2,8 @@ name: promote-prod-stargate-ui-playground
 
 on:
   push:
-    paths:
-      - packages/**
+    # paths:
+      # - packages/**
     branches:
       - alpha
 
@@ -45,6 +45,8 @@ jobs:
       - name: Generate build
         run: |
           yarn package:playground build
+        env:
+          NODE_ENV: 'production'
 
       - uses: peaceiris/actions-gh-pages@v3
         with:
