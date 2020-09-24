@@ -10,7 +10,6 @@ on:
 env:
   NPM_TOKEN: ${{ secrets.BOT_REGISTRY_TOKEN }}
   NPM_CONFIG_USERCONFIG: .npmrc
-  NODE_ENV: 'production'
 
 jobs:
   publish:
@@ -54,6 +53,8 @@ jobs:
 
       - name: Generate build
         run: yarn build
+        env:
+          NODE_ENV: 'production'
 
       - name: Promote under production version
         run: |
