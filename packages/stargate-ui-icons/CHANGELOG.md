@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.2-alpha.6 (2020-09-24)
+
+
+### Bug Fixes
+
+* **styles:** add missing dependency ([66db6a8](https://github.com/pontte/stargate-ui/commit/66db6a89fae772426d8ebd9b2c5203108a716521))
+
+
+
+
+
 ## 0.0.2-alpha.5 (2020-09-24)
 
 **Note:** Version bump only for package @pontte/stargate-ui-icons
