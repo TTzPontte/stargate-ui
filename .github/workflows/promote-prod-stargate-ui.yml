@@ -3,7 +3,9 @@ name: promote-prod-stargate-ui
 on:
   push:
     paths:
-      - packages/**
+      - packages/stargate-ui-core/**
+      - packages/stargate-ui-icons/**
+      - packages/stargate-ui-styles/**
     branches:
       - alpha
 
