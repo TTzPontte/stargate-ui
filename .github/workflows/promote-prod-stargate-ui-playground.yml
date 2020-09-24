@@ -38,12 +38,10 @@ jobs:
             ${{ runner.os }}-
 
       - name: Generate coverage of packages
-        run: |
-          yarn package:playground coverage
+        run: yarn package:playground coverage
 
       - name: Generate build
-        run: |
-          yarn package:playground build
+        run: yarn package:playground build
         env:
           NODE_ENV: staging
 
