@@ -2,7 +2,7 @@ import deepmerge from 'deepmerge';
 
 import palette from './palette';
 import grid from './grid';
-import breakpoint from './breakpoint';
+import breakpoints from './breakpoints';
 import typography from './typography';
 
 const THEME_BASE = 8;
@@ -21,7 +21,7 @@ const active = () => (
 
 const overrides = [
   palette,
-  breakpoint,
+  breakpoints,
   typography,
   grid,
 ].reduce((overrides, { overrides: props = {} }) => deepmerge(overrides, props), {});
@@ -33,7 +33,7 @@ const theme = {
   radius,
   palette,
   grid,
-  breakpoint,
+  breakpoints,
   typography,
   mode: 'lighter',
   dir: 'ltr',

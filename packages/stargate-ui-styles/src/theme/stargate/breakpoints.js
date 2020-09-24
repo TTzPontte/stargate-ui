@@ -7,25 +7,25 @@ const screens = {
 };
 
 const up = (key) => {
-  return `@media (min-width: ${screens[key]})`;
+  return `@media (min-width: ${screens[key]}px)`;
 };
 
 const down = (key) => {
-  return `@media (max-width: ${screens[key]})`;
+  return `@media (max-width: ${screens[key]}px)`;
 };
 
 const between = (startKey, endKey) => {
-  return `@media (min-width: ${screens[startKey]}) and (max-width: ${screens[endKey]})`;
+  return `@media (min-width: ${screens[startKey]}px) and (max-width: ${screens[endKey]}px)`;
 };
 
 const only = (key) => {
   const matchPreviousScreen = Object.keys(screens).indexOf(n);
   const previousKey = screens[matchPreviousScreen - 1] || 0;
 
-  return `@media (min-width: ${screens[previousKey]}) and (max-width: ${screens[key]})`;
+  return `@media (min-width: ${screens[previousKey]}px) and (max-width: ${screens[key]}px)`;
 };
 
-const breakpoint = {
+const breakpoints = {
   up,
   down,
   between,
@@ -33,4 +33,4 @@ const breakpoint = {
   screens,
 };
 
-export default breakpoint;
+export default breakpoints;
