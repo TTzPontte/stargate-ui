@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.0 (2020-09-24)
+
+
+### Features
+
+* **icons:** add social media icons ([7a40a7f](https://github.com/pontte/stargate-ui/commit/7a40a7f5e7669bb03177f5f260d6c186941f3d4f))
+
+
+
+
+
 ## 0.0.2-alpha.5 (2020-09-24)
 
 
