@@ -54,13 +54,13 @@ jobs:
         env:
           NODE_ENV: production
 
-      - name: Promote under production version
-        run: |
-          npx lerna version --conventional-prerelease --create-release github -y
-        env:
-          GH_TOKEN: ${{ secrets.BOT_TOKEN }}
+      # - name: Promote under production version
+      #   run: |
+      #     npx lerna version --conventional-prerelease --create-release github -y
+      #   env:
+      #     GH_TOKEN: ${{ secrets.BOT_TOKEN }}
 
       - name: Publish
-        run: npx lerna publish from-package -y
+        run: npx lerna publish --conventional-prerelease --create-release github -y
         env:
           GH_TOKEN: ${{ secrets.BOT_TOKEN }}
