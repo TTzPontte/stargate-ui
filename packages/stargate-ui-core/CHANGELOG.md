@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.2 (2020-09-24)
+
+
+### Bug Fixes
+
+* **core:** add export of Grid ([f6b4dea](https://github.com/pontte/stargate-ui/commit/f6b4dea53e6e59f0648694f368ba9ead07228003))
+
+
+
+
+
 # 0.1.0-alpha.1 (2020-09-24)
 
 **Note:** Version bump only for package @pontte/stargate-ui-core
