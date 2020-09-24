@@ -26,7 +26,8 @@
     "@pontte/stargate-ui-styles": "^0.0.2-alpha.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-is": "^16.13.1"
   },
   "dependencies": {
     "clsx": "^1.1.1",

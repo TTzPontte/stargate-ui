@@ -121,12 +121,10 @@ const styles = (theme) => {
       spacing && `-${getOffset(theme.spacing(spacing), 2)}`
     ),
     width: ({ spacing }) => (
-      spacing && `calc(100% + ${getOffset(theme.spacing(spacing))})`
+      `calc(100% + ${getOffset(theme.spacing(spacing))})`
     ),
     '& > *': {
       padding: ({ spacing }) => {
-        console.log(getOffset(theme.spacing(spacing), 2));
-
         return getOffset(theme.spacing(spacing), 2)
       },
     },
