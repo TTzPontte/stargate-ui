@@ -23,10 +23,41 @@ export const TypographyStory = (props) => (
   {TypographyStory.bind({})}
 </Story>
 
-
 ## Typography
 
 <Status type="stable" />
+
+### General
+
+Stargate UI uses *Lato* as font default but **not includes font files** automatically.
+
+### Install
+
+You can install from [typeface-lato](https://www.npmjs.com/package/typeface-lato).
+
+```sh
+npm install typace-lato -S
+```
+
+or
+
+```sh
+yarn add typace-lato
+```
+
+Then, import it in your entry-point.
+
+```jsx
+import 'typace-lato';
+```
+
+### Google Fonts
+
+If you want saving some bits from your server, you can add from [Google Fonts Lato](https://fonts.google.com/specimen/Lato).
+
+```html
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+```
 
 ### Heading
 
