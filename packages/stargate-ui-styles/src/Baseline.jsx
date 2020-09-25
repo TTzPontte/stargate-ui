@@ -14,6 +14,10 @@ const styles = ({ overrides: { Baseline = {} } }) => {
         '*': {
           '-webkit-font-smoothing': 'antialiased',
         },
+        body: {
+          margin: 0,
+          padding: 0,
+        },
       },
     }
   ]);
