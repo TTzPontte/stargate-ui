@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.6 (2020-09-25)
+
+
+### Bug Fixes
+
+* **core:** add missing property for Typography ([24b9cd5](https://github.com/pontte/stargate-ui/commit/24b9cd5dce160a986b3dd9f8c8d23e50a0711e31))
+
+
+
+
+
 # 0.1.0-alpha.5 (2020-09-25)
 
 
