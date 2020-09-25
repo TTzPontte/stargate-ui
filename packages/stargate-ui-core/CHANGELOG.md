@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.4 (2020-09-25)
+
+
+### Features
+
+* **styles:** add shades into the theme object ([243e2b6](https://github.com/pontte/stargate-ui/commit/243e2b6c16242708456f07b06bb2223b99767016))
+
+
+
+
+
 # 0.1.0-alpha.3 (2020-09-24)
 
 
