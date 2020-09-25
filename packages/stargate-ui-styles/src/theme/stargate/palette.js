@@ -21,6 +21,7 @@ const getReadableTextColor = (backgroundColor, color1 = darkest, color2 = lighte
 };
 
 const palette = {
+  colors,
   getReadableTextColor,
   setLightness,
   lighter,
