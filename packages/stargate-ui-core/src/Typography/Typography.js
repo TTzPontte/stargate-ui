@@ -78,9 +78,6 @@ const styles = (theme) => {
         TYPOGRAPHY_VARIANT_BODY,
       ].includes(variant)) && 'block') || 'initial';
     },
-    alignText: ({ align }) => (
-      align
-    ),
   };
 
   return {
@@ -95,7 +92,6 @@ const Typography = (props) => {
     transform,
     paragraph,
     gutter,
-    align = 'inherit',
     variant: typographyVariant,
     element: elementTagString = 'p',
     className: inheritedClassName,
@@ -118,7 +114,6 @@ const Typography = (props) => {
     paragraph,
     gutter,
     display,
-    align,
   });
   const className = clsx(Object.values(classes), inheritedClassName);
   const marginBottom = ((gutter || paragraph || [
@@ -199,17 +194,6 @@ Typography.propTypes = {
     'inherit',
     'block',
     'inline',
-  ]),
-  /**
-   * @default inherit
-   */
-  align: PropTypes.oneOf([
-    'inherit',
-    'initial',
-    'left',
-    'right',
-    'center',
-    'justify',
   ]),
 };
 

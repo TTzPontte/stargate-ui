@@ -55,6 +55,9 @@ const styles = (theme) => {
         ].map(spacing),
       ];
     },
+    textAlign: ({ textAlign }) => (
+      textAlign
+    )
   };
 
   return { factory };
@@ -64,6 +67,7 @@ const Factory = React.forwardRef((props, ref) => {
   const {
     children,
     element = 'div',
+    textAlign = 'inherit',
     margin,
     marginTop = 0,
     marginRight = 0,
@@ -101,6 +105,7 @@ const Factory = React.forwardRef((props, ref) => {
     paddingX,
     padding,
     color,
+    textAlign,
   });
   const className = clsx(Object.values(classes), inheritedClassName);
 
@@ -130,6 +135,17 @@ Factory.propTypes = {
     'warning',
     'error',
     'info',
+  ]),
+  /**
+   * @default inherit
+   */
+  textAlign: PropTypes.oneOf([
+    'inherit',
+    'initial',
+    'left',
+    'right',
+    'center',
+    'justify',
   ]),
 };
 
