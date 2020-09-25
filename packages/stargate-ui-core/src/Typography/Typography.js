@@ -117,6 +117,7 @@ const Typography = (props) => {
     paragraph,
     gutter,
     display,
+    align,
   });
   const className = clsx(Object.values(classes), inheritedClassName);
   const marginBottom = ((gutter || paragraph || [
