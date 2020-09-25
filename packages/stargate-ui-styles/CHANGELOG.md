@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.7 (2020-09-25)
+
+
+### Bug Fixes
+
+* **core:** remove `align` from Typography and add support for ([4696a76](https://github.com/pontte/stargate-ui/commit/4696a766513bdbc20edd691a4d99589cceebaccf))
+
+
+
+
+
 # 0.1.0-alpha.6 (2020-09-25)
 
 
