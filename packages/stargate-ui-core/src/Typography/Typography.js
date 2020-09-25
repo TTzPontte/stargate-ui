@@ -95,6 +95,7 @@ const Typography = (props) => {
     transform,
     paragraph,
     gutter,
+    align = 'inherit',
     variant: typographyVariant,
     element: elementTagString = 'p',
     className: inheritedClassName,
