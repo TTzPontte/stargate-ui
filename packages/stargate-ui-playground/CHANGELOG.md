@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.5 (2020-09-25)
+
+
+### Bug Fixes
+
+* **styles:** add margin and padding equal 0 for Baseline ([d06bb19](https://github.com/pontte/stargate-ui/commit/d06bb197767ffcf1e87e98f8102f563fa22ed6c2))
+
+
+
+
+
 # 0.1.0-alpha.4 (2020-09-25)
 
 
