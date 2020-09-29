@@ -33,7 +33,10 @@ const config = {
       ...outputOptions,
     },
   ],
-  external: Object.keys(peerDependencies),
+  external: [
+    ...Object.keys(peerDependencies),
+    'react-is',
+  ],
 };
 
 export default config;

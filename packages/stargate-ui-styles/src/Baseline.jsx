@@ -1,29 +1,34 @@
 import * as React from 'react';
 import deepmerge from 'deepmerge';
-import resetJss from 'reset-jss';
 import PropTypes from 'prop-types';
+import resetJss from 'reset-jss';
 
 import useStyles from './hooks/useStyles';
 
-const styles = ({ overrides: { Baseline = {} } }) => {
-  const baseline = deepmerge.all([
+const styles = ({ overrides: { Baseline = {} } }) =>
+  deepmerge.all([
     Baseline,
     resetJss,
     {
       '@global': {
-        '*': {
-          '-webkit-font-smoothing': 'antialiased',
+        html: {
+          boxSizing: 'border-box',
+          WebkitTextSizeAdjust: '100%',
+          WebkitFontSmoothing: 'antialiased',
+          MozOsxFontSmoothing: 'grayscale',
+        },
+        '*, *::before, *::after': {
+          boxSizing: 'inherit',
         },
         body: {
           margin: 0,
-          padding: 0,
+        },
+        'strong, b': {
+          fontWeight: 'bold',
         },
       },
     }
   ]);
-
-  return { baseline };
-};
 
 const Baseline = ({ children = null }) => {
   useStyles(styles);
