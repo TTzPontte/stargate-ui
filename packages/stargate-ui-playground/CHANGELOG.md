@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.9 (2020-09-30)
+
+
+### Bug Fixes
+
+* **core:** separate margin and padding properties from Factory ([5e812bb](https://github.com/pontte/stargate-ui/commit/5e812bbcdca1b1b8087fd11ef5a971c5322e2546))
+
+
+
+
+
 # 0.1.0-alpha.8 (2020-09-30)
 
 **Note:** Version bump only for package @pontte/stargate-ui-playground
