@@ -116,17 +116,26 @@ const styles = (theme) => {
     }), {})
   };
 
+  const setRowCollapse = ({ spacing }) => (
+    `-${getOffset(theme.spacing(spacing), 2)}`
+  );
+
+  const setColsGutter = ({ spacing }) => (
+    getOffset(theme.spacing(spacing), 2)
+  );
+
   const gridRowGutter = {
-    margin: ({ spacing }) => (
-      spacing && `-${getOffset(theme.spacing(spacing), 2)}`
-    ),
+    marginLeft: setRowCollapse,
+    marginRight: setRowCollapse,
     width: ({ spacing }) => (
       `calc(100% + ${getOffset(theme.spacing(spacing))})`
     ),
+    /**
+     * @todo check why refer $gridCol does not working
+     */
     '& > *': {
-      padding: ({ spacing }) => {
-        return getOffset(theme.spacing(spacing), 2)
-      },
+      paddingLeft: setColsGutter,
+      paddingRight: setColsGutter,
     },
   };
 
@@ -146,12 +155,12 @@ const styles = (theme) => {
 
 const Grid = React.forwardRef((props, ref) => {
   const {
+    row,
+    col,
+    className: inheritedClassName,
     alignContent = 'stretch',
     alignItems = 'stretch',
-    className: inheritedClassName,
-    row = false,
     direction = 'row',
-    col = false,
     justifyContent = 'flex-start',
     lg = false,
     md = false,
@@ -159,7 +168,7 @@ const Grid = React.forwardRef((props, ref) => {
     xl = false,
     xs = false,
     spacing = 0,
-    ...inheritedProps
+    ...factoryProps
   } = props;
 
   const [
@@ -199,7 +208,11 @@ const Grid = React.forwardRef((props, ref) => {
   );
 
   return (
-    <div ref={ref} className={className} {...inheritedProps} />
+    <Factory
+      ref={ref}
+      className={className}
+      {...factoryProps}
+    />
   );
 });
 
@@ -228,9 +241,6 @@ Grid.propTypes = {
   children: PropTypes.node,
   classes: PropTypes.object,
   className: PropTypes.string,
-  /**
-   * @default false
-   */
   row: PropTypes.bool,
   /**
    * @default row
@@ -241,9 +251,6 @@ Grid.propTypes = {
     'row-reverse',
     'row',
   ]),
-  /**
-   * @default false
-   */
   col: PropTypes.bool,
   /**
    * @default flex-start

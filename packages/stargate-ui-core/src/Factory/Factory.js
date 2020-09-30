@@ -11,49 +11,88 @@ const styles = (theme) => {
   } = theme;
 
   const factory = {
-    maxWidth: '100%',
     color: ({ color }) => (
       palette?.[color]?.[mode].color
     ),
-    margin: (props) => {
+    marginLeft: (props) => {
       const {
         margin,
         marginX,
-        marginY,
-        marginTop,
-        marginBottom,
         marginLeft,
+      } = props;
+      const n = marginLeft ?? marginX ?? margin;
+
+      return n && spacing(n);
+    },
+    marginRight: (props) => {
+      const {
+        margin,
+        marginX,
         marginRight,
       } = props;
+      const n = marginRight ?? marginX ?? margin;
 
-      return [
-        (margin && spacing(margin)) ?? [
-          marginY ?? marginTop,
-          marginX ?? marginRight,
-          marginY ?? marginBottom,
-          marginX ?? marginLeft
-        ].map(spacing),
-      ];
+      return n && spacing(n);
     },
-    padding: (props) => {
+    marginTop: (props) => {
+      const {
+        margin,
+        marginY,
+        marginTop,
+      } = props;
+      const n = marginTop ?? marginY ?? margin;
+
+      return n && spacing(n);
+    },
+    marginBottom: (props) => {
+      const {
+        margin,
+        marginY,
+        marginBottom,
+      } = props;
+      const n = marginBottom ?? marginY ?? margin;
+
+      return n && spacing(n);
+    },
+    paddingLeft: (props) => {
       const {
         padding,
         paddingX,
-        paddingY,
-        paddingTop,
-        paddingBottom,
         paddingLeft,
+      } = props;
+      const n = paddingLeft ?? paddingX ?? padding;
+
+      return n && spacing(n);
+    },
+    paddingRight: (props) => {
+      const {
+        padding,
+        paddingX,
         paddingRight,
       } = props;
+      const n = paddingRight ?? paddingX ?? padding;
 
-      return [
-        (padding && spacing(padding)) ?? [
-          paddingY ?? paddingTop,
-          paddingX ?? paddingRight,
-          paddingY ?? paddingBottom,
-          paddingX ?? paddingLeft
-        ].map(spacing),
-      ];
+      return n && spacing(n);
+    },
+    paddingTop: (props) => {
+      const {
+        padding,
+        paddingY,
+        paddingTop,
+      } = props;
+      const n = paddingTop ?? paddingY ?? padding;
+
+      return n && spacing(n);
+    },
+    paddingBottom: (props) => {
+      const {
+        padding,
+        paddingY,
+        paddingBottom,
+      } = props;
+      const n = paddingBottom ?? paddingY ?? padding;
+
+      return n && spacing(n);
     },
     textAlign: ({ textAlign }) => (
       textAlign
@@ -69,16 +108,16 @@ const Factory = React.forwardRef((props, ref) => {
     element = 'div',
     textAlign = 'inherit',
     margin,
-    marginTop = 0,
-    marginRight = 0,
-    marginBottom = 0,
-    marginLeft = 0,
+    marginTop,
+    marginRight,
+    marginBottom,
+    marginLeft,
     marginY,
     marginX,
-    paddingTop = 0,
-    paddingRight = 0,
-    paddingBottom = 0,
-    paddingLeft = 0,
+    paddingTop,
+    paddingRight,
+    paddingBottom,
+    paddingLeft,
     paddingY,
     paddingX,
     padding,
