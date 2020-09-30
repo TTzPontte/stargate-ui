@@ -1,0 +1,7 @@
+#!/bin/bash
+
+echo $(tput setaf 5)Make Stargate UI accessible locally with npm$(tput setaf 7)
+npx lerna exec --parallel -- npm link
+
+echo $(tput setaf 5)Make Stargate UI accessible locally with Yarn$(tput setaf 7)
+npx lerna exec --parallel -- yarn link

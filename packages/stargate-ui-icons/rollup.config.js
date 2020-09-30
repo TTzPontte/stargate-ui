@@ -35,8 +35,7 @@ const config = {
   ],
   external: [
     ...Object.keys(peerDependencies),
-    '@pontte/stargate-ui-core',
-    '@pontte/stargate-ui-styles',
+    'react-is',
   ],
 };
 
