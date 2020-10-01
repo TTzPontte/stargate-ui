@@ -57,6 +57,9 @@ const styles = (theme) => {
     display: 'flex',
     flexWrap: 'wrap',
     width: '100%',
+    height: ({ fit }) => (
+      fit && '100%'
+    ),
     flexDirection: ({ direction }) => (
       direction
     ),
@@ -158,6 +161,7 @@ const Grid = React.forwardRef((props, ref) => {
     row,
     col,
     collapse,
+    fit,
     className: inheritedClassName,
     alignContent = 'stretch',
     alignItems = 'stretch',
@@ -180,6 +184,7 @@ const Grid = React.forwardRef((props, ref) => {
       ...classes
     }
   ] = useStyles(styles, {
+    fit,
     collapse,
     alignContent,
     alignItems,
