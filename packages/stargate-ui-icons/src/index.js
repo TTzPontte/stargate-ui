@@ -1,5 +1,7 @@
 export { default as ArrowLeft } from './ArrowLeft';
 export { default as ArrowRight } from './ArrowRight';
+export { default as ArrowRoundedLeft } from './ArrowRoundedLeft';
+export { default as ArrowRoundedRight } from './ArrowRoundedRight';
 export { default as Close } from './Close';
 export { default as Facebook } from './Facebook';
 export { default as Instagram } from './Instagram';
