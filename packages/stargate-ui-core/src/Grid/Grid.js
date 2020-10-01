@@ -116,8 +116,8 @@ const styles = (theme) => {
     }), {})
   };
 
-  const setRowCollapse = ({ spacing }) => (
-    `-${getOffset(theme.spacing(spacing), 2)}`
+  const setRowCollapse = ({ spacing, collapse }) => (
+    !collapse && `-${getOffset(theme.spacing(spacing), 2)}`
   );
 
   const setColsGutter = ({ spacing }) => (
@@ -157,6 +157,7 @@ const Grid = React.forwardRef((props, ref) => {
   const {
     row,
     col,
+    collapse,
     className: inheritedClassName,
     alignContent = 'stretch',
     alignItems = 'stretch',
@@ -179,6 +180,7 @@ const Grid = React.forwardRef((props, ref) => {
       ...classes
     }
   ] = useStyles(styles, {
+    collapse,
     alignContent,
     alignItems,
     direction,
