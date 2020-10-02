@@ -2670,42 +2670,6 @@
     "@semantic-release/git" "^9.0.0"
     semantic-release "^17.1.1"
 
-"@pontte/stargate-ui-core@^0.0.2-alpha.4":
-  version "0.0.2-alpha.6"
-  resolved "https://npm.pkg.github.com/download/@pontte/stargate-ui-core/0.0.2-alpha.6/c1db5286065f35d623b7eea31358233e405cd4e4b106e7eb4d80d0fd2a5f0f7e#97f43516bcade1ced29c5fe24ec83c4f0b996b0e"
-  integrity sha512-UZyL+ScMawX9CZrw4WIh5l9NdRhkl2cD9hcAK1XndNjYkJ4s/rCB5DfkYXIFNKgZCrsb1kkWvtms3TMHaD5E1w==
-  dependencies:
-    clsx "^1.1.1"
-
-"@pontte/stargate-ui-icons@^0.0.2-alpha.4":
-  version "0.0.2-alpha.6"
-  resolved "https://npm.pkg.github.com/download/@pontte/stargate-ui-icons/0.0.2-alpha.6/958e13c73bcc6503a8df8d4386b72eda035a96cead00cf340842445c58464c92#80c8dbdf6ff565f488d93b9a5a72bc84bd325390"
-  integrity sha512-NV7o407TjO+mQjXoLN2zZRM70yIjmXMAW0uMXernpoKQFadsPtS/VttNcqyRa3BX0m62R8tncYgegZqijKxqfQ==
-
-"@pontte/stargate-ui-styles@^0.0.2-alpha.4":
-  version "0.0.2-alpha.6"
-  resolved "https://npm.pkg.github.com/download/@pontte/stargate-ui-styles/0.0.2-alpha.6/8c8eece615f679c87693c2cb17025b70654ca6a4f16028e166179e696b26fa4a#d9bad155afb88bab0f756b539280e17f8fb26d8a"
-  integrity sha512-rEC/d4gl8Y6jr9OiUlkS6mzUT+5XSvLAF3CVZryiDQoRonCZL+DN6SpLETUYqv7FgtP2XLFo8DSWveqMZ0Fn5A==
-  dependencies:
-    deepmerge "^4.2.2"
-    polished "^3.6.6"
-    react-jss "^10.4.0"
-    reset-jss "^1.0.0"
-    typeface-lato "^0.0.75"
-
-"@pontte/stargate-ui-styles@^0.1.0-alpha.9":
-  version "0.1.0-alpha.9"
-  resolved "https://npm.pkg.github.com/download/@pontte/stargate-ui-styles/0.1.0-alpha.9/c4b92914af7dc027f18540735295dd24d4c513aca3db73e140fdf8c5263fcfbe#93d5410c12699cd03d8c13f94b08f9e74534c79e"
-  integrity sha512-wVq1ZMRm384BSwY7wY8r+6O2iQ8S0DkBn+y5dlMlneZxe/K3IQPX6F1U1mMBdTxWpU+TxpUV/xduksE1Ui3TJw==
-  dependencies:
-    deepmerge "^4.2.2"
-    polished "^3.6.6"
-    react "^16.13.1"
-    react-dom "^16.13.1"
-    react-jss "^10.4.0"
-    reset-jss "^1.0.0"
-    typeface-lato "^0.0.75"
-
 "@reach/router@^1.3.3":
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.3.4.tgz#d2574b19370a70c80480ed91f3da840136d10f8c"
@@ -14719,7 +14683,7 @@ react-docgen@^5.0.0:
     node-dir "^0.1.10"
     strip-indent "^3.0.0"
 
-react-dom@^16.13.1, react-dom@^16.8.3:
+react-dom@^16.8.3:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.13.1.tgz#c1bd37331a0486c078ee54c4740720993b2e0e7f"
   integrity sha512-81PIMmVLnCNLO/fFOQxdQkvEq/+Hfpv24XNJfpyZhTRfO0QcmQIF/PgCa1zCOj2w1hrn12MFLyaJ/G0+Mxtfag==
@@ -14860,7 +14824,7 @@ react-textarea-autosize@^8.1.1:
     use-composed-ref "^1.0.0"
     use-latest "^1.0.0"
 
-react@^16.13.1, react@^16.8.3:
+react@^16.8.3:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react/-/react-16.13.1.tgz#2e818822f1a9743122c063d6410d85c1e3afe48e"
   integrity sha512-YMZQQq32xHLX0bz5Mnibv1/LHb3Sqzngu7xstSM+vrkE5Kzr9xE0yMByK5kMoTK30YVJE61WfbxIFFvfeDKT1w==

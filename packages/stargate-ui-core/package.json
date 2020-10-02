@@ -30,14 +30,7 @@
     "react-dom": "^16.13.1"
   },
   "dependencies": {
-    "@pontte/stargate-ui-icons": "^0.0.2-alpha.4",
-    "@pontte/stargate-ui-styles": "^0.0.2-alpha.4",
     "clsx": "^1.1.1",
-    "deepmerge": "^4.2.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "devDependencies": {
-    "prop-types": "^15.7.2"
+    "deepmerge": "^4.2.2"
   }
 }

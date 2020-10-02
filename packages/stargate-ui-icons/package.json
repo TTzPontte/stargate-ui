@@ -22,19 +22,10 @@
     "build": "rm -rf dist && rollup -c rollup.config.js"
   },
   "peerDependencies": {
-    "@pontte/stargate-ui-core": "^0.0.2-alpha.4",
+    "@pontte/stargate-ui-core": "^0.0.2-alpha.9",
     "@pontte/stargate-ui-styles": "^0.1.0-alpha.9",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
-  },
-  "dependencies": {
-    "@pontte/stargate-ui-core": "^0.0.2-alpha.4",
-    "@pontte/stargate-ui-styles": "^0.1.0-alpha.10",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
-  },
-  "devDependencies": {
-    "prop-types": "^15.7.2"
   }
 }
