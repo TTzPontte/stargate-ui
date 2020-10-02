@@ -19,6 +19,22 @@ const active = () => (
   '&:hover, &:active, &:focus'
 );
 
+const resets = {
+  button: {
+    cursor: 'pointer',
+    outline: 'none',
+    border: 0,
+  },
+};
+
+const transition = (property, time = '.2s') => ({
+  ease: [
+    property,
+    time,
+    'ease',
+  ],
+});
+
 const overrides = [
   palette,
   breakpoints,
@@ -27,6 +43,8 @@ const overrides = [
 ].reduce((overrides, { overrides: props = {} }) => deepmerge(overrides, props), {});
 
 const theme = {
+  resets,
+  transition,
   overrides,
   active,
   spacing,
