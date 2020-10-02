@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.10 (2020-10-02)
+
+
+### Bug Fixes
+
+* **icons:** add `Theme` from Stargate UI Styles ([d501f3b](https://github.com/pontte/stargate-ui/commit/d501f3b0bd263fd1967f36942972fbdfaa9a720c))
+
+
+
+
+
 # 0.1.0-alpha.9 (2020-09-30)
 
 

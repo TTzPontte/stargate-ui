@@ -1,6 +1,6 @@
 {
   "name": "@pontte/stargate-ui-icons",
-  "version": "0.1.0-alpha.9",
+  "version": "0.1.0-alpha.10",
   "description": "",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@pontte/stargate-ui-core": "^0.0.2-alpha.4",
-    "@pontte/stargate-ui-styles": "^0.1.0-alpha.9",
+    "@pontte/stargate-ui-styles": "^0.1.0-alpha.10",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   },
