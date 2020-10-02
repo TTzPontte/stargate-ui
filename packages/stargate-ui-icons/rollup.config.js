@@ -23,19 +23,19 @@ const config = {
   input: 'src/index.js',
   output: [
     {
+      ...outputOptions,
       file: fileEs,
       format: 'es',
-      ...outputOptions,
     },
     {
+      ...outputOptions,
       file: fileCjs,
       format: 'cjs',
-      ...outputOptions,
     },
   ],
   external: [
+    ...configCommon.external,
     ...Object.keys(peerDependencies),
-    'react-is',
   ],
 };
 

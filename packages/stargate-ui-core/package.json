@@ -23,8 +23,6 @@
     "test": "jest"
   },
   "peerDependencies": {
-    "@pontte/stargate-ui-icons": "^0.0.2-alpha.4",
-    "@pontte/stargate-ui-styles": "^0.0.2-alpha.4",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"

@@ -8,6 +8,7 @@ import { terser } from 'rollup-plugin-terser';
 import nodeGlobals from 'rollup-plugin-node-globals';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import postcss from 'rollup-plugin-postcss';
+import svgr from '@svgr/rollup';
 
 dotenv.config();
 
@@ -21,29 +22,35 @@ const env = {
   'process.env.NODE_ENV': NODE_ENV
 };
 
+const extensions = [
+  '.js',
+  '.jsx',
+];
+
 const config = {
+  external: [
+    'react-is',
+  ],
   plugins: [
+    svgr(),
     postcss({
       extract: false,
       modules: true,
     }),
     nodeResolve({
       browser: true,
-      extensions: [
-        '.js',
-        '.jsx',
-      ],
+      extensions,
     }),
     nodeGlobals(),
     commonJs({
+      extensions,
       ignoreGlobal: true,
       include: /node_modules/,
     }),
     NODE_ENV === 'development' && sourceMaps(),
     babel({
-      exclude: /node_modules/,
       configFile: path.resolve(__dirname, 'babel.config.js'),
-      babelHelpers: 'runtime',
+      babelHelpers: 'runtime'
     }),
     replace(
       Object.keys(env).reduce((props, name) => ({

@@ -42,6 +42,7 @@ const staging = {
 
 const production = {
   plugins: [
+    resolver,
     [
       /**
        * @todo add as dependency from @pontte/babel-preset

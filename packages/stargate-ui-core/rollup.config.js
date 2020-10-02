@@ -12,8 +12,6 @@ import {
 
 const { NODE_ENV } = process.env;
 
-console.log(NODE_ENV)
-
 const outputOptions = {
   sourcemap: NODE_ENV === 'development',
   freeze: false,
@@ -25,19 +23,21 @@ const config = {
   input: 'src/index.js',
   output: [
     {
+      ...outputOptions,
+      ...configCommon.globals,
       file: fileEs,
       format: 'es',
-      ...outputOptions,
     },
     {
+      ...outputOptions,
+      ...configCommon.globals,
       file: fileCjs,
       format: 'cjs',
-      ...outputOptions,
     },
   ],
   external: [
+    ...configCommon.external,
     ...Object.keys(peerDependencies),
-    'react-is',
   ],
 };
 
