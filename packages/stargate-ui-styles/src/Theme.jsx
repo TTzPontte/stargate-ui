@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Baseline from './Baseline';
 import ThemeProvider from './ThemeProvider';
 
-import stargate from './theme/stargate';
+import { stargate } from './themes';
 
 const Theme = ({ theme = stargate, children }) => (
   <ThemeProvider theme={theme}>

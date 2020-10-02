@@ -28,6 +28,7 @@ const config = {
       modules: true,
     }),
     nodeResolve({
+      browser: true,
       extensions: [
         '.js',
         '.jsx',
