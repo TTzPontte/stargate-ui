@@ -8,6 +8,7 @@ const styles = (theme) => {
     spacing,
     palette,
     mode,
+    breakpoints,
   } = theme;
 
   const factory = {
@@ -99,14 +100,31 @@ const styles = (theme) => {
     )
   };
 
-  return { factory };
+  const factoryHidden = ({ hideDown, hideUp }) => {
+    if (hideUp) {
+      return {
+        [breakpoints.up(hideUp)]: {
+          display: 'none',
+        }
+      }
+    }
+
+    return {
+      [breakpoints.down(hideDown)]: {
+        display: 'none',
+      }
+    }
+  };
+
+  return {
+    factory,
+    factoryHidden,
+  };
 };
 
 const Factory = React.forwardRef((props, ref) => {
   const {
     children,
-    element = 'div',
-    textAlign = 'inherit',
     margin,
     marginTop,
     marginRight,
@@ -122,13 +140,20 @@ const Factory = React.forwardRef((props, ref) => {
     paddingX,
     padding,
     color,
+    hideDown,
+    hideUp,
+    element = 'div',
+    textAlign = 'inherit',
     className: inheritedClassName,
     ...elementProps
   } = props;
-  /**
-   * segundo argumento volta apenas valores??
-   */
-  const [classes] = useStyles(styles, {
+
+  const [
+    {
+      factory: classFactory,
+      factoryHidden: classFactoryHidden,
+    }
+  ] = useStyles(styles, {
     margin,
     marginY,
     marginX,
@@ -145,17 +170,17 @@ const Factory = React.forwardRef((props, ref) => {
     padding,
     color,
     textAlign,
+    hideDown,
+    hideUp,
   });
-  const className = clsx(Object.values(classes), inheritedClassName);
 
-  /**
-   * will accept props
-   *
-   * gutter as margin/padding
-   * padding
-   * margin
-   * align
-   */
+  const className = clsx(
+    classFactory,
+    {
+      [classFactoryHidden]: hideUp || hideDown,
+    },
+    inheritedClassName
+  );
 
   return createElement(element, {
     ref,
