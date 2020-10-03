@@ -1,7 +1,9 @@
 import React, { createElement } from 'react';
 import PropTypes from 'prop-types';
-import { useStyles } from '@pontte/stargate-ui-styles';
+import { useStyles, themes } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
+
+const THEME_BREAKPOINTS_TYPES = Object.keys(themes.stargate.breakpoints.screens);
 
 const styles = (theme) => {
   const {
@@ -191,6 +193,27 @@ const Factory = React.forwardRef((props, ref) => {
 
 Factory.propTypes = {
   children: PropTypes.node,
+  margin: PropTypes.number,
+  marginTop: PropTypes.number,
+  marginBottom: PropTypes.number,
+  marginLeft: PropTypes.number,
+  marginRight: PropTypes.number,
+  marginY: PropTypes.number,
+  marginX: PropTypes.number,
+  padding: PropTypes.number,
+  paddingTop: PropTypes.number,
+  paddingBottom: PropTypes.number,
+  paddingLeft: PropTypes.number,
+  paddingRight: PropTypes.number,
+  paddingY: PropTypes.number,
+  paddingX: PropTypes.number,
+  hideDown: PropTypes.oneOf(THEME_BREAKPOINTS_TYPES),
+  hideUp: PropTypes.oneOf(THEME_BREAKPOINTS_TYPES),
+  /**
+   * @default element
+   */
+  element: PropTypes.elementType,
+  className: PropTypes.string,
   color: PropTypes.oneOf([
     'default',
     'primary',
