@@ -6,7 +6,6 @@ import Factory from '../Factory';
 
 const Svg = (props) => {
   const {
-    children,
     className: inheritedClassName,
     ...factoryProps
   } = props;
@@ -19,9 +18,7 @@ const Svg = (props) => {
       className={className}
       aria-hidden
       {...factoryProps}
-    >
-      {children}
-    </Factory>
+    />
   );
 };
 

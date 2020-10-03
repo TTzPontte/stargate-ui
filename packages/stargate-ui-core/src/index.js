@@ -8,3 +8,5 @@ export { default as Label } from './Label';
 export { default as Input } from './Input';
 export { default as Factory } from './Factory';
 export { default as Grid } from './Grid';
+export { default as Container } from './Container';
+export { default as Link } from './Link';

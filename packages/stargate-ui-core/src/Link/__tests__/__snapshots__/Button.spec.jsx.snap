@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button should render properly 1`] = `
+<div>
+  <button
+    class="stargate-factory-0-2-10 stargate-factory-d0-0-2-11 stargate-button-0-2-2 stargate-button-d0-0-2-6 stargate-buttonText-0-2-3 stargate-buttonText-d1-0-2-7"
+  >
+    <span
+      class="stargate-factory-0-2-14 stargate-factory-d0-0-2-15 stargate-typography-0-2-12 stargate-typography-d0-0-2-13"
+    >
+      Click here
+    </span>
+  </button>
+</div>
+`;

@@ -102,13 +102,14 @@ const styles = (theme) => {
 
 const Button = (props) => {
   const {
-    children,
     contained,
     outlined,
     disabled,
     large,
+    link,
     color = 'default',
     onClick = () => {},
+    children: inheritedChildren,
     className: inheritedClasses,
     ...factoryProps
   } = props;
@@ -150,6 +151,20 @@ const Button = (props) => {
   const paddingY = (1.5 * n);
   const paddingX = (6 * n);
 
+  let children = (
+    <Typography
+      element="span"
+      variant={typographyVariant}
+      gutter={0}
+      transform="uppercase"
+      children={children}
+    />
+  );
+
+  if (link) {
+    children = React.createElement(link, { children });
+  }
+
   return (
     <Factory
       element="button"
@@ -158,16 +173,9 @@ const Button = (props) => {
       paddingX={paddingX}
       paddingY={paddingY}
       marginX={.5}
+      children={children}
       {...factoryProps}
-    >
-      <Typography
-        element="span"
-        variant={typographyVariant}
-        gutter={0}
-        transform="uppercase"
-        children={children}
-      />
-    </Factory>
+    />
   );
 };
 

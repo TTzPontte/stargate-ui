@@ -24,6 +24,8 @@ const resets = {
     cursor: 'pointer',
     outline: 'none',
     border: 0,
+    padding: 0,
+    background: 'transparent',
   },
 };
 

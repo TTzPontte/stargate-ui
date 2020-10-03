@@ -143,9 +143,12 @@ const styles = (theme) => {
   };
 
   const gridCol = {
+    ...gridColSize.xs,
     boxSizing: 'border-box',
     margin: 0,
-    ...gridColSize.xs,
+    alignSelf: ({ alignItems }) => (
+      alignItems
+    ),
   };
 
   return {

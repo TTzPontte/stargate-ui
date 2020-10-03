@@ -43,6 +43,13 @@ const SvgIcon = (props) => {
     children,
     color,
     viewBox = [0, 0, 24, 24],
+    padding,
+    paddingX,
+    paddingY,
+    paddingLeft,
+    paddingRight,
+    paddingTop,
+    paddingBottom,
     className: inheritedClassName,
     ...factoryProps
   } = props;
@@ -51,7 +58,16 @@ const SvgIcon = (props) => {
   const className = clsx(Object.values(classes), inheritedClassName);
 
   return (
-    <Svg className={className}>
+    <Svg
+      className={className}
+      padding={padding}
+      paddingX={paddingX}
+      paddingY={paddingY}
+      paddingLeft={paddingLeft}
+      paddingRight={paddingRight}
+      paddingTop={paddingTop}
+      paddingBottom={paddingBottom}
+    >
       <Factory
         element="svg"
         viewBox={viewBox.join(',')}

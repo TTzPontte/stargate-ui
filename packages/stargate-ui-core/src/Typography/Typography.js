@@ -4,6 +4,7 @@ import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
 
 import Factory from '../Factory';
+import Svg from '../Svg';
 
 const TYPOGRAPHY_VARIANT_H1 = 'h1';
 const TYPOGRAPHY_VARIANT_H2 = 'h2';
@@ -55,8 +56,8 @@ const styles = (theme) => {
     lineHeight: ({ variant }) => (
       theme.typography?.[variant].lineHeight || lineHeight
     ),
-    fontWeight: ({ variant }) => (
-      theme.typography?.[variant].fontWeight || fontWeight
+    fontWeight: ({ variant, weight }) => (
+      weight || theme.typography?.[variant].fontWeight || fontWeight
     ),
     textTransform: ({ transform }) => (
       transform
@@ -80,8 +81,26 @@ const styles = (theme) => {
     },
   };
 
+  const typographyQuote = {
+    position: 'relative',
+    zIndex: 2,
+  };
+
+  const typographyQuoteIcon = {
+    position: 'absolute',
+    opacity: .2,
+    top: 0,
+    left: 0,
+    zIndex: 1,
+    width: ({ variant }) => (
+      (theme.typography?.[variant].fontSize || fontSize) * 4
+    ),
+  };
+
   return {
     typography,
+    typographyQuote,
+    typographyQuoteIcon,
   };
 };
 
@@ -92,6 +111,9 @@ const Typography = (props) => {
     transform,
     paragraph,
     gutter,
+    quote,
+    children,
+    weight,
     variant: typographyVariant,
     element: elementTagString = 'p',
     className: inheritedClassName,
@@ -107,15 +129,29 @@ const Typography = (props) => {
     (a, b) => typographyMapping[b] === elementTagString ? b : a
   );
 
-  const [classes] = useStyles(styles, {
+  const [
+    {
+      typography: classTypography,
+      typographyQuote: classTypographyQuote,
+      typographyQuoteIcon: classTypographyQuoteIcon,
+    },
+  ] = useStyles(styles, {
     variant,
     transform,
     color,
     paragraph,
     gutter,
     display,
+    weight,
   });
-  const className = clsx(Object.values(classes), inheritedClassName);
+  const className = clsx(
+    classTypography,
+    {
+      [classTypographyQuote]: quote,
+    },
+    inheritedClassName,
+  );
+
   const marginBottom = ((gutter || paragraph || [
     TYPOGRAPHY_VARIANT_H1,
     TYPOGRAPHY_VARIANT_H2,
@@ -133,7 +169,19 @@ const Typography = (props) => {
       marginBottom={marginBottom}
       color={color}
       {...factoryProps}
-    />
+    >
+      {quote && (
+        <Svg className={classTypographyQuoteIcon}>
+          {/* @todo path does not fit */}
+          <svg>
+            <path fill="currentColor" transform="translate(-995.205 -1888.884)" d="M1004.8,1910.5h-9.6v-9.5c0-5.7,3.2-8.9,9.6-9.6v4.8
+              c-3.1,0.1-4.7,1.7-4.8,4.8h4.8V1910.5z M1019.2,1910.5h-9.6v-9.5c0-5.7,3.2-8.9,9.6-9.6v4.8c-3.1,0.1-4.7,1.7-4.8,4.8h4.8V1910.5z"
+            />
+          </svg>
+        </Svg>
+      )}
+      {children}
+    </Factory>
   );
 };
 
