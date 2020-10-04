@@ -10,6 +10,7 @@
     "url": "ssh://git@github.com:pontte/stargate-ui.git"
   },
   "files": [
+    "src/*",
     "dist/*",
     "LICENSE",
     "CHANGELOG.md",
