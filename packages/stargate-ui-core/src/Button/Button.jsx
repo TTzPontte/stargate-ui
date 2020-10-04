@@ -35,6 +35,9 @@ const styles = (theme) => {
     outline: 'none',
     backgroundColor: 'transparent',
     transition: [['all', '.4s', 'ease']],
+    width: ({ full }) => (
+      full && '100%'
+    ),
     pointerEvents: ({ disabled }) => (
       disabled && 'none'
     )
@@ -107,6 +110,7 @@ const Button = (props) => {
     disabled,
     large,
     link,
+    full,
     color = 'default',
     onClick = () => {},
     children: inheritedChildren,
@@ -125,6 +129,7 @@ const Button = (props) => {
     color,
     disabled,
     large,
+    full,
   });
   const className = clsx(
     Object.values(classes),
@@ -157,9 +162,9 @@ const Button = (props) => {
       variant={typographyVariant}
       gutter={0}
       transform="uppercase"
-      children={children}
+      children={inheritedChildren}
     />
-  );
+  )
 
   if (link) {
     children = React.createElement(link, { children });

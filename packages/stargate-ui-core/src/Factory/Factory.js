@@ -193,20 +193,77 @@ const Factory = React.forwardRef((props, ref) => {
 
 Factory.propTypes = {
   children: PropTypes.node,
-  margin: PropTypes.number,
-  marginTop: PropTypes.number,
-  marginBottom: PropTypes.number,
-  marginLeft: PropTypes.number,
-  marginRight: PropTypes.number,
-  marginY: PropTypes.number,
-  marginX: PropTypes.number,
-  padding: PropTypes.number,
-  paddingTop: PropTypes.number,
-  paddingBottom: PropTypes.number,
-  paddingLeft: PropTypes.number,
-  paddingRight: PropTypes.number,
-  paddingY: PropTypes.number,
-  paddingX: PropTypes.number,
+//   margin: PropTypes.oneOf([
+//     PropTypes.number,
+//     'auto',
+//     'initial',
+//   ]),
+//   marginTop: PropTypes.oneOf([
+//     PropTypes.number,
+//     'auto',
+//     'initial',
+//   ]),
+//   marginBottom: PropTypes.oneOf([
+//     PropTypes.number,
+//     'auto',
+//     'initial',
+//   ]),
+//   marginLeft: PropTypes.oneOf([
+//     PropTypes.number,
+//     'auto',
+//     'initial',
+//   ]),
+//   marginRight: PropTypes.oneOf([
+//     PropTypes.number,
+//     'auto',
+//     'initial',
+//   ]),
+//   marginY: PropTypes.oneOf([
+//     PropTypes.number,
+//     'auto',
+//     'initial',
+//   ]),
+//   marginX: PropTypes.oneOf([
+//     PropTypes.number,
+//     'auto',
+//     'initial',
+//   ]),
+//   padding: PropTypes.oneOf([
+//     PropTypes.number,
+//     'auto',
+//     'initial',
+//   ]),
+//   paddingTop: PropTypes.oneOf([
+//     PropTypes.number,
+//     'auto',
+//     'initial',
+//   ]),
+//   paddingBottom: PropTypes.oneOf([
+//     PropTypes.number,
+//     'auto',
+//     'initial',
+//   ]),
+//   paddingLeft: PropTypes.oneOf([
+//     PropTypes.number,
+//     'auto',
+//     'initial',
+//   ]),
+//   paddingRight: PropTypes.oneOf([
+//     PropTypes.number,
+//     'auto',
+//     'initial',
+//   ]),
+//   paddingY: PropTypes.oneOf([
+//     PropTypes.number,
+//     'auto',
+//     'initial',
+//   ]),
+//   paddingX: PropTypes.oneOf([
+//     PropTypes.number,
+//     'auto',
+//     'initial',
+//     ]),
+//   ]),
   hideDown: PropTypes.oneOf(THEME_BREAKPOINTS_TYPES),
   hideUp: PropTypes.oneOf(THEME_BREAKPOINTS_TYPES),
   /**

@@ -5,29 +5,29 @@ import clsx from 'clsx';
 import Factory from '../Factory';
 
 const styles = (theme) => {
+  const { breakpoints, spacing } = theme;
+
   const container = {
     width: '100%',
     marginLeft: 'auto',
     boxSizing: 'border-box',
-    paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-    [theme.breakpoints.up('sm')]: {
-      paddingLeft: theme.spacing(3),
-      paddingRight: theme.spacing(3),
+    paddingLeft: spacing(2),
+    paddingRight: spacing(2),
+    [breakpoints.up('sm')]: {
+      paddingLeft: spacing(3),
+      paddingRight: spacing(3),
     },
     maxWidth: ({ maxWidth }) => (
-      maxWidth
+      typeof maxWidth === 'number' ? maxWidth : breakpoints.screens?.[maxWidth]
     ),
   };
 
-  return {
-    container,
-  };
+  return { container };
 };
 
 const Container = (props) => {
   const {
-    maxWidth = 1280,
+    maxWidth = 'lg',
     className: inheritedClassName,
     ...factoryProps
   } = props;

@@ -39,6 +39,7 @@ const styles = (theme) => {
     borderRadius: radius(),
     width: '100%',
     border: [[1, 'solid']],
+    background: palette.lighter,
     borderColor: ({ color }) => (
       getColor(color)
     ),
