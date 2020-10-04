@@ -146,8 +146,9 @@ const Factory = React.forwardRef((props, ref) => {
     hideUp,
     element = 'div',
     textAlign = 'inherit',
+    element: inheritedElement,
     className: inheritedClassName,
-    ...elementProps
+    ...inheritedProps
   } = props;
 
   const [
@@ -184,92 +185,138 @@ const Factory = React.forwardRef((props, ref) => {
     inheritedClassName
   );
 
+  /**
+   * It able to use custom component as wrapper of Factory.
+   * @example
+   * <Factory element={<a href="/somewhere-out-space" />} />
+   */
+  if (element.$$typeof) {
+    return createElement(element.type, {
+      ...element.props,
+      ...inheritedProps,
+      ref,
+      className,
+      children,
+    });
+  }
+
   return createElement(element, {
+    ...inheritedProps,
     ref,
     className,
-    ...elementProps,
-  }, children);
+    children,
+  });
 });
 
 Factory.propTypes = {
   children: PropTypes.node,
-//   margin: PropTypes.oneOf([
-//     PropTypes.number,
-//     'auto',
-//     'initial',
-//   ]),
-//   marginTop: PropTypes.oneOf([
-//     PropTypes.number,
-//     'auto',
-//     'initial',
-//   ]),
-//   marginBottom: PropTypes.oneOf([
-//     PropTypes.number,
-//     'auto',
-//     'initial',
-//   ]),
-//   marginLeft: PropTypes.oneOf([
-//     PropTypes.number,
-//     'auto',
-//     'initial',
-//   ]),
-//   marginRight: PropTypes.oneOf([
-//     PropTypes.number,
-//     'auto',
-//     'initial',
-//   ]),
-//   marginY: PropTypes.oneOf([
-//     PropTypes.number,
-//     'auto',
-//     'initial',
-//   ]),
-//   marginX: PropTypes.oneOf([
-//     PropTypes.number,
-//     'auto',
-//     'initial',
-//   ]),
-//   padding: PropTypes.oneOf([
-//     PropTypes.number,
-//     'auto',
-//     'initial',
-//   ]),
-//   paddingTop: PropTypes.oneOf([
-//     PropTypes.number,
-//     'auto',
-//     'initial',
-//   ]),
-//   paddingBottom: PropTypes.oneOf([
-//     PropTypes.number,
-//     'auto',
-//     'initial',
-//   ]),
-//   paddingLeft: PropTypes.oneOf([
-//     PropTypes.number,
-//     'auto',
-//     'initial',
-//   ]),
-//   paddingRight: PropTypes.oneOf([
-//     PropTypes.number,
-//     'auto',
-//     'initial',
-//   ]),
-//   paddingY: PropTypes.oneOf([
-//     PropTypes.number,
-//     'auto',
-//     'initial',
-//   ]),
-//   paddingX: PropTypes.oneOf([
-//     PropTypes.number,
-//     'auto',
-//     'initial',
-//     ]),
-//   ]),
+  margin: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([
+      'auto',
+      'initial',
+    ]),
+  ]),
+  marginTop: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([
+      'auto',
+      'initial',
+    ]),
+  ]),
+  marginBottom: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([
+      'auto',
+      'initial',
+    ]),
+  ]),
+  marginLeft: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([
+      'auto',
+      'initial',
+    ]),
+  ]),
+  marginRight: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([
+      'auto',
+      'initial',
+    ]),
+  ]),
+  marginY: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([
+      'auto',
+      'initial',
+    ]),
+  ]),
+  marginX: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([
+      'auto',
+      'initial',
+    ]),
+  ]),
+  padding: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([
+      'auto',
+      'initial',
+    ]),
+  ]),
+  paddingTop: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([
+      'auto',
+      'initial',
+    ]),
+  ]),
+  paddingBottom: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([
+      'auto',
+      'initial',
+    ]),
+  ]),
+  paddingLeft: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([
+      'auto',
+      'initial',
+    ]),
+  ]),
+  paddingRight: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([
+      'auto',
+      'initial',
+    ]),
+  ]),
+  paddingY: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([
+      'auto',
+      'initial',
+    ]),
+  ]),
+  paddingX: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.oneOf([
+      'auto',
+      'initial',
+    ]),
+  ]),
   hideDown: PropTypes.oneOf(THEME_BREAKPOINTS_TYPES),
   hideUp: PropTypes.oneOf(THEME_BREAKPOINTS_TYPES),
   /**
-   * @default element
+   * @default div
    */
-  element: PropTypes.elementType,
+  element: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.elementType,
+  ]),
   className: PropTypes.string,
   color: PropTypes.oneOf([
     'default',
