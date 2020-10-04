@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.12 (2020-10-04)
+
+
+### Features
+
+* add prefix support for Theme ([5509531](https://github.com/pontte/stargate-ui/commit/550953142aee17007a891427fc88c3446d2b1e45))
+
+
+
+
+
 # 0.1.0-alpha.11 (2020-10-02)
 
 **Note:** Version bump only for package @pontte/stargate-ui-icons
