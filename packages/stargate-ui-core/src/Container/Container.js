@@ -32,6 +32,8 @@ const Container = (props) => {
     ...factoryProps
   } = props;
 
+  console.log('oi')
+
   const [
     {
       container: classContainer,

@@ -6,12 +6,20 @@ import ThemeProvider from './ThemeProvider';
 
 import { stargate } from './themes';
 
-const Theme = ({ theme = stargate, children }) => (
-  <ThemeProvider theme={theme}>
-    <Baseline />
-    {children}
-  </ThemeProvider>
-);
+const Theme = (props) => {
+  const {
+    theme = stargate,
+    prefix = 'stargate-ui',
+    children,
+  } = props;
+
+  return (
+    <ThemeProvider theme={theme} prefix={prefix}>
+      <Baseline />
+      {children}
+    </ThemeProvider>
+  );
+};
 
 Theme.propTypes = {
   children: PropTypes.node.isRequired,

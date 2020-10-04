@@ -37,6 +37,7 @@ const Button = (props) => {
       variant="body"
       transform="uppercase"
       display="inline-flex"
+      gutter={0}
       className={clsx(classLink, inheritedClasses)}
       {...typographyProps}
     />
