@@ -11,11 +11,11 @@ const styles = (theme) => {
     width: '100%',
     marginLeft: 'auto',
     boxSizing: 'border-box',
-    paddingLeft: spacing(2),
-    paddingRight: spacing(2),
+    paddingLeft: spacing(3),
+    paddingRight: spacing(3),
     [breakpoints.up('sm')]: {
-      paddingLeft: spacing(3),
-      paddingRight: spacing(3),
+      paddingLeft: spacing(2),
+      paddingRight: spacing(2),
     },
     maxWidth: ({ maxWidth }) => (
       typeof maxWidth === 'number' ? maxWidth : breakpoints.screens?.[maxWidth]
