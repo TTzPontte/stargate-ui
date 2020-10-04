@@ -47,7 +47,7 @@ const config = {
       ignoreGlobal: true,
       include: /node_modules/,
     }),
-    NODE_ENV === 'development' && sourceMaps(),
+    sourceMaps(),
     babel({
       configFile: path.resolve(__dirname, 'babel.config.js'),
       babelHelpers: 'runtime'
@@ -58,7 +58,6 @@ const config = {
         [name]: JSON.stringify(env[name]),
       }), {}),
     ),
-    NODE_ENV === 'production' && terser(),
   ],
 };
 
