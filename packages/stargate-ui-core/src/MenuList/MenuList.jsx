@@ -5,9 +5,7 @@ import clsx from 'clsx';
 import Factory from '../Factory';
 
 const styles = () => {
-  return {
-
-  };
+  return {};
 };
 
 const MenuList = (props) => {
@@ -23,7 +21,7 @@ const MenuList = (props) => {
     <Factory
       className={className}
       {...factoryProps}
-      >
+    >
       {children}
     </Factory>
   );
