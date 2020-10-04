@@ -30,6 +30,7 @@
   },
   "dependencies": {
     "clsx": "^1.1.1",
-    "deepmerge": "^4.2.2"
+    "deepmerge": "^4.2.2",
+    "react-is": "^16.13.1"
   }
 }

@@ -28,9 +28,7 @@ const extensions = [
 ];
 
 const config = {
-  external: [
-    'react-is',
-  ],
+  external: [],
   plugins: [
     svgr(),
     postcss({
