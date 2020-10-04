@@ -7,6 +7,8 @@ import Typography from '../Typography';
 const styles = (theme) => {
   const { active, transition } = theme;
 
+  console.log('olar');
+
   const link = {
     textDecoration: 'none',
     color: 'inherit',
