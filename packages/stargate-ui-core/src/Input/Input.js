@@ -99,7 +99,7 @@ const styles = (theme) => {
   };
 };
 
-const Input = (props) => {
+const Input = React.forwardRef((props, ref) => {
   const {
     disabled,
     readonly,
@@ -162,15 +162,15 @@ const Input = (props) => {
 
   const [value, setValue] = useState(defaultValue);
 
-  const inputRef = useRef();
+  const inputRef = useRef(ref);
 
-  const handleChange = ({ currentTarget: { value } }) => {
+  const handleChange = (event) => {
     if (disabled) {
       return;
     }
 
-    setValue(value);
-    onChange({ value });
+    setValue(event.currentTarget.value);
+    onChange(event);
   }
 
   /**
@@ -186,7 +186,7 @@ const Input = (props) => {
   }
 
   const handleControlClick = () => {
-    inputRef.current.focus();
+    inputRef?.current?.focus();
   };
 
   return (
@@ -255,7 +255,7 @@ const Input = (props) => {
       {helper && <InputHelper children={helper} />}
     </Factory>
   );
-};
+});
 
 Input.propTypes = {
   clear: PropTypes.bool,
