@@ -35,12 +35,13 @@ const styles = (theme) => {
     outline: 'none',
     backgroundColor: 'transparent',
     transition: [['all', '.4s', 'ease']],
+    textDecoration: 'none',
     width: ({ full }) => (
       full && '100%'
     ),
     pointerEvents: ({ disabled }) => (
       disabled && 'none'
-    )
+    ),
   };
 
   const buttonText = {
@@ -109,11 +110,11 @@ const Button = (props) => {
     outlined,
     disabled,
     large,
-    link,
     full,
+    element = 'button',
     color = 'default',
     onClick = () => {},
-    children: inheritedChildren,
+    children,
     className: inheritedClasses,
     ...factoryProps
   } = props;
@@ -156,31 +157,24 @@ const Button = (props) => {
   const paddingY = (1.5 * n);
   const paddingX = (6 * n);
 
-  let children = (
-    <Typography
-      element="span"
-      variant={typographyVariant}
-      gutter={0}
-      transform="uppercase"
-      children={inheritedChildren}
-    />
-  )
-
-  if (link) {
-    children = React.createElement(link, { children });
-  }
-
   return (
     <Factory
-      element="button"
-      className={className}
-      onClick={handleClick}
       paddingX={paddingX}
       paddingY={paddingY}
       marginX={.5}
-      children={children}
       {...factoryProps}
-    />
+      element={element}
+      className={className}
+      onClick={handleClick}
+    >
+      <Typography
+        element="span"
+        variant={typographyVariant}
+        gutter={0}
+        transform="uppercase"
+        children={children}
+      />
+    </Factory>
   );
 };
 
