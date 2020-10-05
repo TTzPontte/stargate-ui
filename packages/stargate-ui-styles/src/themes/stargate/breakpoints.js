@@ -6,6 +6,14 @@ const screens = {
   xl: 1920,
 };
 
+const gutters = {
+  xs: 4,
+  sm: 4,
+  md: 4,
+  lg: 2,
+  xl: 2,
+};
+
 const up = (key) => {
   return `@media (min-width: ${screens[key]}px)`;
 };
@@ -31,6 +39,7 @@ const breakpoints = {
   between,
   only,
   screens,
+  gutters,
 };
 
 export default breakpoints;

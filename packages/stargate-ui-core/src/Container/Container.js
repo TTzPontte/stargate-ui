@@ -11,15 +11,16 @@ const styles = (theme) => {
     width: '100%',
     marginLeft: 'auto',
     boxSizing: 'border-box',
-    paddingLeft: spacing(3),
-    paddingRight: spacing(3),
-    [breakpoints.up('sm')]: {
-      paddingLeft: spacing(2),
-      paddingRight: spacing(2),
-    },
     maxWidth: ({ maxWidth }) => (
       typeof maxWidth === 'number' ? maxWidth : breakpoints.screens?.[maxWidth]
     ),
+    ...Object.keys(breakpoints.screens).reduce((acc, screen) => ({
+      ...acc,
+      [breakpoints.up(screen)]: {
+        paddingLeft: spacing(breakpoints.gutters[screen]),
+        paddingRight: spacing(breakpoints.gutters[screen]),
+      },
+    }), {}),
   };
 
   return { container };
@@ -31,8 +32,6 @@ const Container = (props) => {
     className: inheritedClassName,
     ...factoryProps
   } = props;
-
-  console.log('oi')
 
   const [
     {
