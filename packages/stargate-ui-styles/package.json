@@ -1,6 +1,6 @@
 {
   "name": "@pontte/stargate-ui-styles",
-  "version": "0.1.0-alpha.17",
+  "version": "0.1.0-alpha.18",
   "description": "",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -29,17 +29,17 @@
     "reset-jss": "^1.0.0"
   },
   "peerDependencies": {
-    "react-is": "^16.13.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-is": "^16.13.1",
     "typeface-lato": "^0.0.75"
   },
   "devDependencies": {
-    "react-is": "^16.13.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-is": "^16.13.1",
     "typeface-lato": "^0.0.75"
   }
 }

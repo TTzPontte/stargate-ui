@@ -1,6 +1,6 @@
 {
   "name": "@pontte/stargate-ui-icons",
-  "version": "0.1.0-alpha.17",
+  "version": "0.1.0-alpha.18",
   "description": "",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
@@ -23,15 +23,15 @@
     "build": "rm -rf dist && rollup -c rollup.config.js"
   },
   "peerDependencies": {
-    "react-is": "^16.13.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-is": "^16.13.1"
   },
   "devDependencies": {
-    "react-is": "^16.13.1",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-is": "^16.13.1"
   }
 }
