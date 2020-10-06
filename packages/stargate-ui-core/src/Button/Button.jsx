@@ -42,6 +42,11 @@ const styles = (theme) => {
     pointerEvents: ({ disabled }) => (
       disabled && 'none'
     ),
+    '& > *': {
+      flexBasis: 'auto',
+      flexGrow: 1,
+      maxWidth: 'auto'
+    },
   };
 
   const buttonText = {
