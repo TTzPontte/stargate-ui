@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.21 (2020-10-07)
+
+
+### Features
+
+* introduce Bar, new icons and some improvements ([eca365c](https://github.com/pontte/stargate-ui/commit/eca365c8abefb7c8c48b7ea4992c4f7a8113fc47))
+
+
+
+
+
 # 0.1.0-alpha.20 (2020-10-07)
 
 **Note:** Version bump only for package @pontte/stargate-ui-core
