@@ -9,3 +9,5 @@ export { default as Instagram } from './Instagram';
 export { default as Whatsapp } from './Whatsapp';
 export { default as Youtube } from './Youtube';
 export { default as Linkedin } from './Linkedin';
+export { default as User } from './User';
+export { default as Logout } from './Logout';

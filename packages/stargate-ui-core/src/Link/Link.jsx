@@ -5,7 +5,11 @@ import clsx from 'clsx';
 import Typography from '../Typography';
 
 const styles = (theme) => {
-  const { active, transition } = theme;
+  const {
+    active,
+    transition,
+    resets,
+  } = theme;
 
   const link = {
     textDecoration: 'none',
@@ -13,6 +17,9 @@ const styles = (theme) => {
     transition: transition('opacity').ease,
     [active()]: {
       opacity: .6,
+    },
+    'button&': {
+      ...resets.button,
     },
   };
 

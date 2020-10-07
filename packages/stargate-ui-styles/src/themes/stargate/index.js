@@ -42,6 +42,9 @@ const transition = (property, time = '.2s') => ({
   ],
 });
 
+const zIndex = {
+  bar: 1000,
+};
 
 const overrides = [
   palette,
@@ -51,6 +54,7 @@ const overrides = [
 ].reduce((overrides, { overrides: props = {} }) => deepmerge(overrides, props), {});
 
 const theme = {
+  zIndex,
   maxWidth,
   resets,
   transition,
