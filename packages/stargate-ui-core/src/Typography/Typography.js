@@ -107,8 +107,6 @@ const styles = (theme) => {
     const { max, min } = fontVariant?.fontSizeFluid;
     const fontSize = unit.fluid(max, min, maxWidth);
 
-    console.log(variant, fontSize);
-
     return {
       fontSize,
       [breakpoints.up('lg')]: {

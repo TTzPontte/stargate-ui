@@ -3,10 +3,10 @@
 exports[`Button should render properly 1`] = `
 <div>
   <button
-    class="stargate-factory-0-2-10 stargate-factory-d0-0-2-11 stargate-button-0-2-2 stargate-button-d0-0-2-6 stargate-buttonText-0-2-3 stargate-buttonText-d1-0-2-7"
+    class="stargate-ui-factory-0-2-9 stargate-ui-factory-d0-0-2-11 stargate-ui-button-0-2-1 stargate-ui-button-d0-0-2-5 stargate-ui-buttonText-0-2-2 stargate-ui-buttonText-d1-0-2-6"
   >
     <span
-      class="stargate-factory-0-2-14 stargate-factory-d0-0-2-15 stargate-typography-0-2-12 stargate-typography-d0-0-2-13"
+      class="stargate-ui-factory-0-2-20 stargate-ui-factory-d0-0-2-22 stargate-ui-typography-0-2-13 stargate-ui-typography-d0-0-2-17 stargate-ui-typographyFluid-0-2-16 stargate-ui-typographyFluid-d2-0-2-19"
     >
       Click here
     </span>
