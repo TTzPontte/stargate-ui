@@ -1,3 +1,6 @@
+/**
+ * @todo need organize utils outside `stargate` theme
+ */
 import deepmerge from 'deepmerge';
 
 import palette from './palette';
@@ -6,6 +9,8 @@ import breakpoints from './breakpoints';
 import typography from './typography';
 
 const THEME_BASE = 8;
+
+const maxWidth = breakpoints.screens.lg;
 
 const spacing = (n = 1) => (
   typeof n === 'string' ? n : (n * THEME_BASE)
@@ -37,6 +42,7 @@ const transition = (property, time = '.2s') => ({
   ],
 });
 
+
 const overrides = [
   palette,
   breakpoints,
@@ -45,6 +51,7 @@ const overrides = [
 ].reduce((overrides, { overrides: props = {} }) => deepmerge(overrides, props), {});
 
 const theme = {
+  maxWidth,
   resets,
   transition,
   overrides,

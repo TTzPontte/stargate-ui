@@ -5,13 +5,16 @@ import resetJss from 'reset-jss';
 
 import useStyles from './hooks/useStyles';
 
-const styles = ({ overrides: { Baseline = {} } }) =>
-  deepmerge.all([
+const styles = (theme) => {
+  const { overrides: { Baseline = {} } } = theme;
+
+  return deepmerge.all([
     Baseline,
     resetJss,
     {
       '@global': {
         html: {
+          fontSize: '62.5%',
           boxSizing: 'border-box',
           WebkitTextSizeAdjust: '100%',
           WebkitFontSmoothing: 'antialiased',
@@ -29,6 +32,7 @@ const styles = ({ overrides: { Baseline = {} } }) =>
       },
     }
   ]);
+}
 
 const Baseline = ({ children = null }) => {
   useStyles(styles);

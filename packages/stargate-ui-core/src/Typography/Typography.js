@@ -35,11 +35,16 @@ const TYPOGRAPHY_VARIANT = {
 
 const styles = (theme) => {
   const {
-    fontFamily,
-    fontSize,
-    lineHeight,
-    fontWeight,
-  } = theme.typography;
+    breakpoints,
+    unit,
+    maxWidth,
+    typography: {
+      fontFamily,
+      fontSize,
+      lineHeight,
+      fontWeight,
+    },
+  } = theme;
 
   /**
    * @todo add support for custom color
@@ -50,9 +55,9 @@ const styles = (theme) => {
     fontFamily: ({ variant }) => (
       theme.typography?.[variant].fontFamily || fontFamily
     ),
-    fontSize: ({ variant }) => (
+    fontSize: ({ variant }) => {
       theme.typography?.[variant].fontSize || fontSize
-    ),
+    },
     lineHeight: ({ variant }) => (
       theme.typography?.[variant].lineHeight || lineHeight
     ),
@@ -97,10 +102,26 @@ const styles = (theme) => {
     ),
   };
 
+  const typographyFluid = ({ variant }) => {
+    const fontVariant = theme.typography?.[variant];
+    const { max, min } = fontVariant?.fontSizeFluid;
+    const fontSize = unit.fluid(max, min, maxWidth);
+
+    console.log(variant, fontSize);
+
+    return {
+      fontSize,
+      [breakpoints.up('lg')]: {
+        fontSize: theme.typography?.[variant].fontSize || fontSize,
+      },
+    }
+  };
+
   return {
     typography,
     typographyQuote,
     typographyQuoteIcon,
+    typographyFluid,
   };
 };
 
@@ -114,6 +135,7 @@ const Typography = (props) => {
     quote,
     children,
     weight,
+    fluid = true,
     variant: typographyVariant,
     element: elementTagString = 'p',
     className: inheritedClassName,
@@ -134,6 +156,7 @@ const Typography = (props) => {
       typography: classTypography,
       typographyQuote: classTypographyQuote,
       typographyQuoteIcon: classTypographyQuoteIcon,
+      typographyFluid: classTypographyFluid,
     },
   ] = useStyles(styles, {
     variant,
@@ -148,6 +171,7 @@ const Typography = (props) => {
     classTypography,
     {
       [classTypographyQuote]: quote,
+      [classTypographyFluid]: fluid,
     },
     inheritedClassName,
   );

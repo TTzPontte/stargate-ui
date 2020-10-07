@@ -1,4 +1,5 @@
 import 'typeface-lato';
+import { unit } from '../../utils';
 
 const fontFamily = [
   'Lato',
@@ -8,7 +9,7 @@ const fontFamily = [
 
 const fontCommon = {
   fontFamily,
-  fontSize: 16,
+  fontSize: unit.rem(16, 10),
 };
 
 const headingCommon = {
@@ -26,43 +27,83 @@ const bodyCommon = {
 const typographyVariant = {
   h1: {
     ...headingCommon,
-    fontSize: 48,
+    fontSize: unit.rem(48, 10),
+    fontSizeFluid: {
+      max: unit.rem(48, 10),
+      min: unit.rem(30, 10),
+    },
   },
   h2: {
     ...headingCommon,
-    fontSize: 40,
+    fontSize: unit.rem(40, 10),
+    fontSizeFluid: {
+      max: unit.rem(30, 10),
+      min: unit.rem(24, 10),
+    },
   },
   h3: {
     ...headingCommon,
-    fontSize: 30,
+    fontSize: unit.rem(30, 10),
+    fontSizeFluid: {
+      max: 0,
+      min: 0,
+    },
   },
   h4: {
     ...headingCommon,
-    fontSize: 24,
+    fontSize: unit.rem(24, 10),
+    fontSizeFluid: {
+      max: 0,
+      min: 0,
+    },
   },
   h5: {
     ...headingCommon,
-    fontSize: 16,
+    fontSize: unit.rem(16, 10),
+    fontSizeFluid: {
+      max: 0,
+      min: 0,
+    },
   },
   h6: {
     ...headingCommon,
-    fontSize: 14,
+    fontSize: unit.rem(14, 10),
+    fontSizeFluid: {
+      max: 0,
+      min: 0,
+    },
   },
   body: {
     ...bodyCommon,
-    fontSize: 16,
+    fontSize: unit.rem(16, 10),
+    fontSizeFluid: {
+      max: unit.rem(18, 10),
+      min: unit.rem(14, 10),
+    },
   },
   bodylower: {
     ...bodyCommon,
-    fontSize: 14,
+    fontSize: unit.rem(14, 10),
+    fontSizeFluid: {
+      max: unit.rem(14, 10),
+      min: unit.rem(14, 10),
+    },
   },
   small: {
     ...bodyCommon,
-    fontSize: 14,
+    fontSize: unit.rem(14, 10),
+    fontSizeFluid: {
+      max: unit.rem(14, 10),
+      min: unit.rem(14, 10),
+    },
   },
   tiny: {
     ...bodyCommon,
-    fontSize: 13,
+    fontSize: unit.rem(13, 10),
+    fontSizeFluid: {
+      max: unit.rem(13, 10),
+      min: unit.rem(10, 10),
+    },
   },
 };
 

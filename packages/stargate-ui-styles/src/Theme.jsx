@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import deepmerge from 'deepmerge';
 
 import Baseline from './Baseline';
 import ThemeProvider from './ThemeProvider';
 
 import { stargate } from './themes';
+import * as utils from './utils';
 
 const Theme = (props) => {
   const {
-    theme = stargate,
     prefix = 'stargate-ui',
+    theme: inheritedTheme = stargate,
     children,
   } = props;
+
+  const theme = deepmerge(utils, inheritedTheme);
 
   return (
     <ThemeProvider theme={theme} prefix={prefix}>
