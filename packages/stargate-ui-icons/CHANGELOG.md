@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.19 (2020-10-07)
+
+
+### Features
+
+* add fluid Typography and utils for theming ([1cd50ad](https://github.com/pontte/stargate-ui/commit/1cd50adca9d46f8fd27e125a84077d09df929298))
+
+
+
+
+
 # 0.1.0-alpha.18 (2020-10-05)
 
 **Note:** Version bump only for package @pontte/stargate-ui-icons
