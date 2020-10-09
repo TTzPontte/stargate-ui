@@ -20,7 +20,7 @@
   "module": "dist/index.esm.js",
   "scripts": {
     "start": "NODE_ENV=development rollup -c rollup.config.js --watch",
-    "build": "rm -rf dist && rollup -c rollup.config.js"
+    "build": "rm -rf dist && echo \"no build\""
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
