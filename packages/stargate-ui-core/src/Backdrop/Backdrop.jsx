@@ -1,18 +1,11 @@
-import React, { Fragment, useEffect, forwardRef } from 'react';
+import React, { Fragment, useEffect, forwardRef, useState } from 'react';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import { Close as SvgIconClose } from '@pontte/stargate-ui-icons';
 import clsx from 'clsx';
 
-import Factory from '../Factory';
-
 const styles = (theme) => {
   const {
-    spacing,
     zIndex,
-    palette,
-    breakpoints,
-    radius,
-    resets,
   } = theme;
 
   const keyframes = {
@@ -39,16 +32,14 @@ const styles = (theme) => {
     background: 'rgba(0, 0, 0, 0.5)',
     WebkitTapHighlightColor: 'transparent',
     opacity: 1,
-  };
-
-  const backdropVisible = {
+    overflow: 'hidden',
     animation: [
       [
         'show',
         '1.5s',
         'ease-out',
         '0s',
-        'forwards',
+        'backwards',
       ],
     ],
   };
@@ -56,41 +47,33 @@ const styles = (theme) => {
   return {
     ...keyframes,
     backdrop,
-    backdropVisible,
   };
 };
 
 const Backdrop = forwardRef((props, ref) => {
   const {
-    open = false,
     children,
+    opened = false,
+    timeout = 1000,
+    className: inheritedClassName,
     ...inheritedProps
   } = props;
 
-  const [
-    {
-      backdrop,
-      backdropVisible: classBackdropVisible,
-    },
-  ] = useStyles(styles);
-  const classBackdrop = clsx(
-    backdrop,
-    {
-      [classBackdropVisible]: open,
-    },
-  );
+  const [{ backdrop: classBackdrop }] = useStyles(styles);
+  const className = clsx(classBackdrop, inheritedClassName);
 
   return (
     <Fragment>
       {
-        open && (
+        opened && (
           <div
             ref={ref}
             {...inheritedProps}
-            className={classBackdrop}
+            className={className}
           />
         )
       }
+
       {children}
     </Fragment>
   );

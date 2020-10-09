@@ -168,7 +168,6 @@ const Button = (props) => {
     <Factory
       paddingX={paddingX}
       paddingY={paddingY}
-      marginX={.5}
       {...factoryProps}
       element={element}
       className={className}

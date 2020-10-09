@@ -10,13 +10,14 @@ const styles = (props) => {
   const {
     palette,
     mode,
+    unit,
   } = props;
 
   /**
    * @todo change to rem func
    */
   const setDimensions = ({ large }) => (
-    !large ? '1.2rem' : '1.6rem'
+    !large ? unit.rem(10) : unit.rem(22)
   );
 
   const svgIcon = {
