@@ -37,7 +37,7 @@ const typographyVariant = {
     ...headingCommon,
     fontSize: unit.rem(40, 10),
     fontSizeFluid: {
-      max: unit.rem(30, 10),
+      max: unit.rem(40, 10),
       min: unit.rem(24, 10),
     },
   },
@@ -45,32 +45,32 @@ const typographyVariant = {
     ...headingCommon,
     fontSize: unit.rem(30, 10),
     fontSizeFluid: {
-      max: 0,
-      min: 0,
+      max: unit.rem(30, 10),
+      min: unit.rem(18, 10),
     },
   },
   h4: {
     ...headingCommon,
     fontSize: unit.rem(24, 10),
     fontSizeFluid: {
-      max: 0,
-      min: 0,
+      max: unit.rem(24, 10),
+      min: unit.rem(16, 10),
     },
   },
   h5: {
     ...headingCommon,
     fontSize: unit.rem(16, 10),
     fontSizeFluid: {
-      max: 0,
-      min: 0,
+      max: unit.rem(16, 10),
+      min: unit.rem(14, 10),
     },
   },
   h6: {
     ...headingCommon,
     fontSize: unit.rem(14, 10),
     fontSizeFluid: {
-      max: 0,
-      min: 0,
+      max: unit.rem(14, 10),
+      min: unit.rem(14, 10),
     },
   },
   body: {
@@ -85,8 +85,8 @@ const typographyVariant = {
     ...bodyCommon,
     fontSize: unit.rem(14, 10),
     fontSizeFluid: {
-      max: unit.rem(14, 10),
-      min: unit.rem(14, 10),
+      max: unit.rem(16, 10),
+      min: unit.rem(12, 10),
     },
   },
   small: {
@@ -94,15 +94,15 @@ const typographyVariant = {
     fontSize: unit.rem(14, 10),
     fontSizeFluid: {
       max: unit.rem(14, 10),
-      min: unit.rem(14, 10),
+      min: unit.rem(12, 10),
     },
   },
   tiny: {
     ...bodyCommon,
-    fontSize: unit.rem(13, 10),
+    fontSize: unit.rem(12, 10),
     fontSizeFluid: {
-      max: unit.rem(13, 10),
-      min: unit.rem(10, 10),
+      max: unit.rem(12, 10),
+      min: unit.rem(12, 10),
     },
   },
 };

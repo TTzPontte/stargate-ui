@@ -44,7 +44,16 @@ const transition = (property, time = '.2s') => ({
 
 const zIndex = {
   bar: 1000,
+  backdrop: 2000,
+  drawer: 3000,
 };
+
+const boxShadow = [
+  0,
+  0,
+  10,
+  `rgba(0, 0, 0, .1)`,
+];
 
 const overrides = [
   palette,
@@ -55,6 +64,7 @@ const overrides = [
 
 const theme = {
   zIndex,
+  boxShadow,
   maxWidth,
   resets,
   transition,
