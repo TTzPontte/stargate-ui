@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import deepmerge from 'deepmerge';
 
-import Baseline from './Baseline';
 import ThemeProvider from './ThemeProvider';
 
 import { stargate } from './themes';
@@ -18,10 +17,11 @@ const Theme = (props) => {
   const theme = deepmerge(utils, inheritedTheme);
 
   return (
-    <ThemeProvider theme={theme} prefix={prefix}>
-      <Baseline />
-      {children}
-    </ThemeProvider>
+    <ThemeProvider
+      theme={theme}
+      prefix={prefix}
+      children={children}
+    />
   );
 };
 

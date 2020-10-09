@@ -1,15 +1,14 @@
-import * as React from 'react';
+import React, { Fragment } from 'react';
 import deepmerge from 'deepmerge';
 import PropTypes from 'prop-types';
 import resetJss from 'reset-jss';
 
-import useStyles from './hooks/useStyles';
+import { useStyles } from '@pontte/stargate-ui-styles';
 
 const styles = (theme) => {
   const { overrides: { Baseline = {} } } = theme;
 
   return deepmerge.all([
-    Baseline,
     resetJss,
     {
       '@global': {
@@ -30,14 +29,15 @@ const styles = (theme) => {
           fontWeight: 'bold',
         },
       },
-    }
+    },
+    Baseline,
   ]);
-}
+};
 
 const Baseline = ({ children = null }) => {
   useStyles(styles);
 
-  return <React.Fragment children={children} />
+  return <Fragment children={children} />
 };
 
 Baseline.propTypes = {
