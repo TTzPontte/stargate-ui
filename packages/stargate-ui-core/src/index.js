@@ -12,6 +12,8 @@ export { default as Container } from './Container';
 export { default as Link } from './Link';
 export { default as Divider } from './Divider';
 export { default as Bar } from './Bar';
+export { default as Drawer } from './Drawer';
+export { default as ButtonAction } from './ButtonAction';
 
 export { default as MenuList } from './MenuList';
 export * from './MenuList';
