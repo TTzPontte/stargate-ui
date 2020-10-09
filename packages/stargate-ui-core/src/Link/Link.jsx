@@ -7,27 +7,52 @@ import Typography from '../Typography';
 const styles = (theme) => {
   const {
     active,
-    transition,
     resets,
+    palette,
+    mode,
   } = theme;
 
   const link = {
     textDecoration: 'none',
     color: 'inherit',
-    transition: transition('opacity').ease,
-    [active()]: {
-      opacity: .6,
-    },
     'button&': {
       ...resets.button,
     },
   };
 
-  return { link };
+  const linkUnderline = {
+    display: 'inline',
+    borderBottom: [
+      [
+        1,
+        'solid',
+        'transparent',
+      ],
+    ],
+    transition: [
+      [
+        'border-color',
+        '.2s',
+        'ease-in-out',
+      ],
+    ],
+    [active()]: {
+      borderColor: ({ color }) => (
+        palette?.[color]?.[mode].text || 'initial'
+      ),
+    },
+  };
+
+  return {
+    link,
+    linkUnderline,
+  };
 };
 
-const Button = (props) => {
+const Link = (props) => {
   const {
+    color,
+    underline = true,
     className: inheritedClasses,
     ...typographyProps
   } = props;
@@ -35,20 +60,28 @@ const Button = (props) => {
   const [
     {
       link: classLink,
+      linkUnderline: classLinkUnderline,
     },
-  ] = useStyles(styles);
+  ] = useStyles(styles, { color });
+  const className = clsx(
+    classLink,
+    {
+      [classLinkUnderline]: underline,
+    },
+    inheritedClasses,
+  );
 
   return (
     <Typography
       element="a"
       variant="body"
       transform="uppercase"
-      display="inline-flex"
       gutter={0}
-      className={clsx(classLink, inheritedClasses)}
       {...typographyProps}
+      color={color}
+      className={className}
     />
   );
 };
 
-export default Button;
+export default Link;
