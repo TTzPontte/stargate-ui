@@ -12,7 +12,7 @@ const styles = (theme) => {
     marginLeft: 'auto',
     boxSizing: 'border-box',
     maxWidth: ({ maxWidth }) => (
-      typeof maxWidth === 'number' ? maxWidth : breakpoints.screens?.[maxWidth]
+      (typeof maxWidth === 'number' || maxWidth === '100%') ? maxWidth : breakpoints.screens?.[maxWidth]
     ),
     ...Object.keys(breakpoints.screens).reduce((acc, screen) => ({
       ...acc,

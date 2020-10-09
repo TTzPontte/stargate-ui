@@ -226,6 +226,8 @@ const Grid = React.forwardRef((props, ref) => {
   );
 });
 
+Grid.displayName = 'Grid';
+
 Grid.propTypes = {
   /**
    * @default stretch

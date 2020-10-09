@@ -16,6 +16,7 @@ const styles = (theme) => {
     border,
     radius,
     mode,
+    resets,
   } = theme;
   const { setLightness } = palette;
 
@@ -28,14 +29,15 @@ const styles = (theme) => {
   );
 
   const button = {
+    ...resets.button,
     display: 'inline-flex',
     border: [[...border, 'transparent']],
     borderRadius: radius(10),
     cursor: 'pointer',
-    outline: 'none',
-    backgroundColor: 'transparent',
     transition: [['all', '.4s', 'ease']],
     textDecoration: 'none',
+    marginLeft: 0,
+    marginRight: 0,
     width: ({ full }) => (
       full && '100%'
     ),

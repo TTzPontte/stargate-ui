@@ -208,6 +208,8 @@ const Factory = React.forwardRef((props, ref) => {
   });
 });
 
+Factory.displayName = 'Factory';
+
 Factory.propTypes = {
   children: PropTypes.node,
   margin: PropTypes.oneOfType([

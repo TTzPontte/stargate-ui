@@ -31,7 +31,8 @@
   },
   "dependencies": {
     "clsx": "^1.1.1",
-    "deepmerge": "^4.2.2"
+    "deepmerge": "^4.2.2",
+    "react-dom": "^16.13.1"
   },
   "devDependencies": {
     "prop-types": "^15.7.2",

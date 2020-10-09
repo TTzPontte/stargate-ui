@@ -86,4 +86,6 @@ const Bar = React.forwardRef((props, ref) => {
   );
 });
 
+Bar.displayName = 'Bar';
+
 export default Bar;
