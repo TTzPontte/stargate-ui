@@ -16,9 +16,17 @@ const styles = (props) => {
   /**
    * @todo change to rem func
    */
-  const setDimensions = ({ large }) => (
-    !large ? unit.rem(10) : unit.rem(22)
-  );
+  const setDimensions = ({ size }) => {
+    if (size === 'large') {
+      return unit.rem(22);
+    }
+
+    if (size === 'medium') {
+      return unit.rem(18);
+    }
+
+    return unit.rem(14);
+  };
 
   const svgIcon = {
     overflow: 'hidden',
@@ -28,6 +36,7 @@ const styles = (props) => {
     flexShrink: 0,
     width: setDimensions,
     height: setDimensions,
+    lineHeight: 0,
     '& path': {
       fill: ({ color }) => (
         palette?.[color]?.[mode].color || 'currentColor'
@@ -40,40 +49,26 @@ const styles = (props) => {
 
 const SvgIcon = (props) => {
   const {
-    large,
     children,
     color,
+    size = 'medium',
     viewBox = [0, 0, 24, 24],
-    padding,
-    paddingX,
-    paddingY,
-    paddingLeft,
-    paddingRight,
-    paddingTop,
-    paddingBottom,
     className: inheritedClassName,
-    ...factoryProps
+    ...inheritedProps
   } = props;
 
-  const [classes] = useStyles(styles, { color, large });
+  const [classes] = useStyles(styles, { color, size });
   const className = clsx(Object.values(classes), inheritedClassName);
 
   return (
     <Svg
       className={className}
-      padding={padding}
-      paddingX={paddingX}
-      paddingY={paddingY}
-      paddingLeft={paddingLeft}
-      paddingRight={paddingRight}
-      paddingTop={paddingTop}
-      paddingBottom={paddingBottom}
+      {...inheritedProps}
     >
       <Factory
         element="svg"
         viewBox={viewBox.join(',')}
         children={children}
-        {...factoryProps}
       />
     </Svg>
   );

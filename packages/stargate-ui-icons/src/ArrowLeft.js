@@ -1,7 +1,7 @@
 import React from 'react';
-import createIcon from './utils/createIcon';
+import createSvgIcon from '../utils/createSvgIcon';
 
-export default createIcon(
+export default createSvgIcon(
   'ArrowLeft',
   <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2">
     <circle cx="13" cy="13" r="13" stroke-miterlimit="10" />

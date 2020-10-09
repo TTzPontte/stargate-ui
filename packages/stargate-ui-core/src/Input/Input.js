@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useStyles } from '@pontte/stargate-ui-styles';
-import { Close as SvgIconClose } from '@pontte/stargate-ui-icons';
 
+import { Close as SvgIconClose } from '../icons';
 import Factory from '../Factory';
 import InputLabel from '../InputLabel';
 import InputHelper from '../InputHelper';

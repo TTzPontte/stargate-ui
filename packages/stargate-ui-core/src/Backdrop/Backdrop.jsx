@@ -1,6 +1,8 @@
-import React, { Fragment, useEffect, forwardRef, useState } from 'react';
+import React, {
+  Fragment,
+  forwardRef,
+} from 'react';
 import { useStyles } from '@pontte/stargate-ui-styles';
-import { Close as SvgIconClose } from '@pontte/stargate-ui-icons';
 import clsx from 'clsx';
 
 const styles = (theme) => {

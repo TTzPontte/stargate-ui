@@ -31,6 +31,7 @@ const resets = {
     border: 0,
     padding: 0,
     background: 'transparent',
+    margin: 0,
   },
 };
 
