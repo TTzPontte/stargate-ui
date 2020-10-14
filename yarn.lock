@@ -1049,10 +1049,19 @@
     globals "^11.1.0"
     lodash "^4.17.19"
 
-"@babel/types@^7.0.0", "@babel/types@^7.0.0-beta.49", "@babel/types@^7.10.4", "@babel/types@^7.10.5", "@babel/types@^7.11.0", "@babel/types@^7.11.5", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.4.4", "@babel/types@^7.6.1", "@babel/types@^7.7.0", "@babel/types@^7.9.5":
+"@babel/types@^7.0.0", "@babel/types@^7.10.4", "@babel/types@^7.10.5", "@babel/types@^7.11.0", "@babel/types@^7.11.5", "@babel/types@^7.3.0", "@babel/types@^7.3.3", "@babel/types@^7.4.4", "@babel/types@^7.6.1", "@babel/types@^7.7.0", "@babel/types@^7.9.5":
   version "7.11.5"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.11.5.tgz#d9de577d01252d77c6800cee039ee64faf75662d"
   integrity sha512-bvM7Qz6eKnJVFIn+1LPtjlBFPVN5jNDc1XmN15vWe7Q3DPBufWWsLiIvUu7xW87uTG6QoggpIDnUgLQvPheU+Q==
+  dependencies:
+    "@babel/helper-validator-identifier" "^7.10.4"
+    lodash "^4.17.19"
+    to-fast-properties "^2.0.0"
+
+"@babel/types@^7.0.0-beta.49":
+  version "7.12.0"
+  resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.12.0.tgz#b6b49f425ee59043fbc89c61b11a13d5eae7b5c6"
+  integrity sha512-ggIyFmT2zMaYRheOfPDQ4gz7QqV3B+t2rjqjbttDJxMcb7/LukvWCmlIl1sWcOxrvwpTDd+z0OytzqsbGeb3/g==
   dependencies:
     "@babel/helper-validator-identifier" "^7.10.4"
     lodash "^4.17.19"
@@ -2592,10 +2601,10 @@
   dependencies:
     "@types/node" ">= 8"
 
-"@pontte/babel-preset@^1.0.0-beta.5":
-  version "1.0.0-beta.5"
-  resolved "https://npm.pkg.github.com/download/@pontte/babel-preset/1.0.0-beta.5/86d968fc1f506fbc68000e3e8df3fad6e441d712e071859708f82259525ebc21#c0f889680a8e88043bfa869a0e83c1e4dd242273"
-  integrity sha512-N0LipjPFOecUdJyF2Fy5RACPBn2vtnqzBRU1wvwtqcIP9jGcjdDpcfq8RV+be49xYgJIJslt1By1ClNiqsnQ0Q==
+"@pontte/babel-preset@1.0.0-alpha.6":
+  version "1.0.0-alpha.6"
+  resolved "https://npm.pkg.github.com/download/@pontte/babel-preset/1.0.0-alpha.6/d01a234b0e9464374720af813032a61051336d6d7fdc9474d9ee0df2ffa9e166#e9d208efa5985aad7f094dd5f8eef2f02667b857"
+  integrity sha512-Uu3e/O8appGGZSXLvOghSD96XXl3QcmQdUWrH5h7hzrb15cdFydrHwxl/U79N/cpnHDSztzqPR2bTqw8cocRUQ==
   dependencies:
     "@babel/core" "^7.10.4"
     "@babel/helper-plugin-utils" "^7.10.4"
@@ -2611,8 +2620,9 @@
     "@babel/preset-react" "^7.10.4"
     "@babel/runtime" "^7.10.4"
     babel-plugin-lodash "^3.3.4"
+    babel-plugin-optimize-clsx "^2.6.1"
   optionalDependencies:
-    "@pontte/semantic-release-config" "^1.1.1-alpha.1"
+    "@pontte/semantic-release-config" "^1.0.2-beta.1"
     "@semantic-release/changelog" "^5.0.1"
     "@semantic-release/git" "^9.0.0"
     semantic-release "^17.1.1"
@@ -2652,7 +2662,7 @@
     "@semantic-release/git" "^9.0.0"
     semantic-release "^17.1.1"
 
-"@pontte/semantic-release-config@^1.0.2":
+"@pontte/semantic-release-config@^1.0.2", "@pontte/semantic-release-config@^1.0.2-beta.1":
   version "1.1.0"
   resolved "https://npm.pkg.github.com/download/@pontte/semantic-release-config/1.1.0/fea37ec82ef5947beefbbef41cf352ef03fd055865909ca215219b8e558c5ff5#baffff9d3bc59dd5ea9f451ce9fad57525d431ff"
   integrity sha512-9K0D5Man6v91Vxvyj/4pFMzsIHq0qSEMKkIS5YnoJNnFqUV3gp6fzpxxxeka8N4Zwpr6BepUzTnTYE0DcS532A==
@@ -2661,14 +2671,15 @@
     "@semantic-release/git" "^9.0.0"
     semantic-release "^17.1.1"
 
-"@pontte/semantic-release-config@^1.1.1-alpha.1":
-  version "1.1.1-alpha.3"
-  resolved "https://npm.pkg.github.com/download/@pontte/semantic-release-config/1.1.1-alpha.3/f4721ee83e8bf21955abd104bc3c09adaaea253b3dc167b70564ae51f4c1133e#56428ffdd05cdf478bb85137f161fbc74b4fdc81"
-  integrity sha512-L8gsXTRPabXDlDOrPXEhtKf9MuZQhuTZBO31Mm1FXEQbWRRBKUDd+ekUsoC0c+sZNSlh9qQ2LGCjrNTbX6Q2yg==
-  optionalDependencies:
-    "@semantic-release/changelog" "^5.0.1"
-    "@semantic-release/git" "^9.0.0"
-    semantic-release "^17.1.1"
+"@pontte/stargate-ui-styles@^0.1.0-alpha.24":
+  version "0.1.0-alpha.24"
+  resolved "https://npm.pkg.github.com/download/@pontte/stargate-ui-styles/0.1.0-alpha.24/3e5417c6ffd5541bcf6c4e6894d4cdb77c812d5ee36cb2ba0bb8cb03215a25b1#dd183eeb3734b5d55ec22321e5b827927423d06b"
+  integrity sha512-mi4Q4H9LqW7APJuU9Cy+wPyiRj8T7y8y+qngAyIRcmTSDlLHBWt/GGzDiB2lMTpkuEc+xpW55zHhYbR+OavmJg==
+  dependencies:
+    deepmerge "^4.2.2"
+    polished "^3.6.6"
+    react-jss "^10.4.0"
+    reset-jss "^1.0.0"
 
 "@reach/router@^1.3.3":
   version "1.3.4"
@@ -15582,16 +15593,6 @@ rollup-plugin-sourcemaps@^0.6.2:
     "@rollup/pluginutils" "^3.0.9"
     source-map-resolve "^0.6.0"
 
-rollup-plugin-terser@^7.0.2:
-  version "7.0.2"
-  resolved "https://registry.yarnpkg.com/rollup-plugin-terser/-/rollup-plugin-terser-7.0.2.tgz#e8fbba4869981b2dc35ae7e8a502d5c6c04d324d"
-  integrity sha512-w3iIaU4OxcF52UUXiZNsNeuXIMDvFrr+ZXK6bFZ0Q60qyVfq4uLptoS4bbq3paG3x216eQllFZX7zt6TIImguQ==
-  dependencies:
-    "@babel/code-frame" "^7.10.4"
-    jest-worker "^26.2.1"
-    serialize-javascript "^4.0.0"
-    terser "^5.0.0"
-
 rollup-pluginutils@^2.3.1, rollup-pluginutils@^2.8.2:
   version "2.8.2"
   resolved "https://registry.yarnpkg.com/rollup-pluginutils/-/rollup-pluginutils-2.8.2.tgz#72f2af0748b592364dbd3389e600e5a9444a351e"
@@ -16820,15 +16821,6 @@ terser@^4.1.2, terser@^4.6.3, terser@^4.8.0:
   version "4.8.0"
   resolved "https://registry.yarnpkg.com/terser/-/terser-4.8.0.tgz#63056343d7c70bb29f3af665865a46fe03a0df17"
   integrity sha512-EAPipTNeWsb/3wLPeup1tVPaXfIaU68xMnVdPafIL1TV05OhASArYyIfFvnvJCNrR2NIOvDVNNTFRa+Re2MWyw==
-  dependencies:
-    commander "^2.20.0"
-    source-map "~0.6.1"
-    source-map-support "~0.5.12"
-
-terser@^5.0.0:
-  version "5.3.2"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.3.2.tgz#f4bea90eb92945b2a028ceef79181b9bb586e7af"
-  integrity sha512-H67sydwBz5jCUA32ZRL319ULu+Su1cAoZnnc+lXnenGRYWyLE3Scgkt8mNoAsMx0h5kdo758zdoS0LG9rYZXDQ==
   dependencies:
     commander "^2.20.0"
     source-map "~0.6.1"

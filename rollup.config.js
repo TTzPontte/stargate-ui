@@ -4,7 +4,6 @@ import { nodeResolve } from '@rollup/plugin-node-resolve';
 import babel from '@rollup/plugin-babel';
 import commonJs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
-import { terser } from 'rollup-plugin-terser';
 import nodeGlobals from 'rollup-plugin-node-globals';
 import sourceMaps from 'rollup-plugin-sourcemaps';
 import postcss from 'rollup-plugin-postcss';
