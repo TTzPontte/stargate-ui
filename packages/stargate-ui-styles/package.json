@@ -32,14 +32,12 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-is": "^16.13.1",
-    "typeface-lato": "^0.0.75"
+    "react-is": "^16.13.1"
   },
   "devDependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-is": "^16.13.1",
-    "typeface-lato": "^0.0.75"
+    "react-is": "^16.13.1"
   }
 }

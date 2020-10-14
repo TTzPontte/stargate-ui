@@ -1,4 +1,3 @@
-import 'typeface-lato';
 import { unit } from '../../utils';
 
 const fontFamily = [
