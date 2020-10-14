@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.24 (2020-10-14)
+
+
+### Bug Fixes
+
+* **styles:** remove import of font Lato ([e6b0c9b](https://github.com/pontte/stargate-ui/commit/e6b0c9b5db5b1f408dae1d295b8f33c79d4bce16))
+
+
+
+
+
 # 0.1.0-alpha.23 (2020-10-09)
 
 **Note:** Version bump only for package @pontte/stargate-ui-playground
