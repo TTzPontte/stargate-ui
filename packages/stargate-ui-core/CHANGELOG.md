@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.26 (2020-10-15)
+
+
+### Bug Fixes
+
+* **core:** revert export of styles from core ([1c843b9](https://github.com/pontte/stargate-ui/commit/1c843b976516a222a05cfc7fb0c3aed840e95c09))
+
+
+
+
+
 # 0.1.0-alpha.25 (2020-10-14)
 
 
