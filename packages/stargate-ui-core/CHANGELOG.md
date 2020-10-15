@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.28 (2020-10-15)
+
+
+### Features
+
+* **core:** add overflow hidden when Backdrop is actived ([ecd09fb](https://github.com/pontte/stargate-ui/commit/ecd09fbdef35a655397d9132f620627fa6ddf57e))
+
+
+
+
+
 # 0.1.0-alpha.27 (2020-10-15)
 
 
