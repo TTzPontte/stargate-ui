@@ -41,7 +41,7 @@ module.exports = async ({ config }) =>
         '@pontte/stargate-ui-playground': path.resolve(__dirname, '../src'),
         '@pontte/stargate-ui-style': path.resolve(__dirname, '../../stargate-ui-styles/src'),
         '@pontte/stargate-ui-core': path.resolve(__dirname, '../../stargate-ui-core/src'),
-        // '@pontte/stargate-ui-icons': path.resolve(__dirname, '../../stargate-ui-icons/src'),
+        '@pontte/stargate-ui-icons': path.resolve(__dirname, '../../stargate-ui-icons/src'),
       },
     },
     plugins: [
