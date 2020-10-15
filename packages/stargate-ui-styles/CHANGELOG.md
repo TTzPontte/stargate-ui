@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.27 (2020-10-15)
+
+
+### Bug Fixes
+
+* resolve path of icons ([d6ff972](https://github.com/pontte/stargate-ui/commit/d6ff97230eae29e6b6d7ecce22a25cb169f21394))
+
+
+
+
+
 # 0.1.0-alpha.26 (2020-10-15)
 
 
