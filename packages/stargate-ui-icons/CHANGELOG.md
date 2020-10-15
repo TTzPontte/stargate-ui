@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.29 (2020-10-15)
+
+
+### Features
+
+* **core:** change height of Drawer ([b4ce041](https://github.com/pontte/stargate-ui/commit/b4ce041937319ab817f57120af8425eb86c7f5f2))
+
+
+
+
+
 # 0.1.0-alpha.28 (2020-10-15)
 
 
