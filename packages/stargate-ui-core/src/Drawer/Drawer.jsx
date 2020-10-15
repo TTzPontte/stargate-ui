@@ -22,7 +22,7 @@ const styles = (theme) => {
     position: 'fixed',
     top: 0,
     right: 0,
-    height: '100vh',
+    height: '100%',
     transform: 'translateX(100%)',
     transition: [
       'transform',
