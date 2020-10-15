@@ -64,6 +64,14 @@ const Backdrop = forwardRef((props, ref) => {
   const [{ backdrop: classBackdrop }] = useStyles(styles);
   const className = clsx(classBackdrop, inheritedClassName);
 
+  React.useEffect(() => {
+    if (opened) {
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => document.body.style.overflow = 'unset';
+  }, [opened]);
+
   return (
     <Fragment>
       {
