@@ -3,7 +3,9 @@ import { addParameters, addDecorator } from '@storybook/react';
 import { withTests } from '@storybook/addon-jest';
 import { DocsContainer } from '@pontte/stargate-ui-playground';
 import { Theme } from '@pontte/stargate-ui-styles';
+import { Baseline } from '@pontte/stargate-ui-core';
 
+import { docs } from './theme';
 import sortStories from './helpers/sortStories';
 
 /**
@@ -13,6 +15,7 @@ import coreResults from '../../stargate-ui-core/jest-coverage.json';
 
 const storyTheme = (storyFn) => (
   <Theme>
+    <Baseline />
     {storyFn()}
   </Theme>
 );
@@ -20,6 +23,7 @@ const storyTheme = (storyFn) => (
 const docsTheme = ({ children, ...props }) => (
   <DocsContainer {...props}>
     <Theme>
+      <Baseline />
       {children}
     </Theme>
   </DocsContainer>
@@ -36,8 +40,11 @@ const parameters = {
     ]),
   },
   docs: {
+    ...docs,
     container: docsTheme,
   },
+  controls: false,
+  viewMode: 'docs',
 };
 
 addParameters(parameters);

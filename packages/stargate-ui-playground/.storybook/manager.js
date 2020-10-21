@@ -1,5 +1,10 @@
 import { addons } from '@storybook/addons';
+import { create } from '@storybook/theming/create';
 
-import { default as theme } from './themes';
+import { theme } from './theme';
 
-addons.setConfig({ theme });
+addons.setConfig({
+  theme: create(theme),
+  isFullscreen: false,
+  showPanel: true,
+});

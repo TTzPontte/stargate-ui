@@ -10,7 +10,7 @@ const color4 = '#3F3356';
 const color5 = '#C3C3D5';
 const color6 = '#FAF9FD';
 
-const config = {
+const theme = {
   brandUrl,
   base: 'light',
   brandTitle: 'Stargate UI',
@@ -27,4 +27,5 @@ const config = {
   fontBase: 'Lato, sans-serif',
 };
 
-export default config;
+export * from './docs';
+export { theme };

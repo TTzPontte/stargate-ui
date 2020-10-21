@@ -1,6 +1,7 @@
 const config = {
   stories: [
     '../../**/!(node_modules|.boilerplate)/**/*.story.mdx',
+    '../../**/!(node_modules|.boilerplate)/**/*.story.js',
   ],
   addons: [
     '@storybook/addon-a11y',

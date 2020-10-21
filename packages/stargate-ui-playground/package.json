@@ -10,14 +10,16 @@
     "coverage": "sh ../../scripts/stargate-ui-core test --json --outputFile=jest-coverage.json"
   },
   "dependencies": {
-    "@storybook/addon-a11y": "^6.0.19",
-    "@storybook/addon-essentials": "^6.0.19",
-    "@storybook/addon-jest": "^6.0.21",
-    "@storybook/addon-links": "^6.0.19",
-    "@storybook/cli": "^6.0.19",
-    "@storybook/react": "^6.0.19"
+    "@storybook/addon-a11y": "^6.0.26",
+    "@storybook/addon-essentials": "^6.0.26",
+    "@storybook/addon-jest": "^6.0.26",
+    "@storybook/addon-links": "^6.0.26",
+    "@storybook/cli": "^6.0.26",
+    "@storybook/react": "^6.0.26",
+    "react-syntax-highlighter": "^15.2.1"
   },
   "devDependencies": {
+    "ts-dedent": "^2.0.0",
     "webpack-merge": "^5.1.2"
   },
   "repository": {
