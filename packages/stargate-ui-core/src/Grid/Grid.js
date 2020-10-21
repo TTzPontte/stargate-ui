@@ -230,6 +230,7 @@ Grid.displayName = 'Grid';
 
 Grid.propTypes = {
   /**
+   * Add CSS `align-content` property when @property row is defined.
    * @default stretch
    */
   alignContent: PropTypes.oneOf([
@@ -241,6 +242,8 @@ Grid.propTypes = {
     'stretch',
   ]),
   /**
+   * Add CSS `align-items` property when @property {bool} row is defined or `align-self`
+   * when @property col is defined.
    * @default stretch
    */
   alignItems: PropTypes.oneOf([
@@ -250,11 +253,18 @@ Grid.propTypes = {
     'flex-start',
     'stretch',
   ]),
-  children: PropTypes.node,
-  classes: PropTypes.object,
+  /**
+   * Add a new CSS class to `className` property.
+   * @default undefined
+   */
   className: PropTypes.string,
+  /**
+   * Add row style.
+   * @default row
+   */
   row: PropTypes.bool,
   /**
+   * Add CSS `flow-direction` property when @property {bool} row is defined.
    * @default row
    */
   direction: PropTypes.oneOf([
@@ -263,8 +273,13 @@ Grid.propTypes = {
     'row-reverse',
     'row',
   ]),
+  /**
+   * Add column style.
+   * @default row
+   */
   col: PropTypes.bool,
   /**
+   * Add CSS `justify-content` property when @property {bool} row is defined.
    * @default flex-start
    */
   justifyContent: PropTypes.oneOf([
@@ -276,29 +291,52 @@ Grid.propTypes = {
     'space-evenly',
   ]),
   /**
+   * Add large breakpoint when @property {bool} col is defined.
    * @default false
    */
   lg: PropTypes.oneOf(GRID_SIZES),
   /**
+   * Add medium breakpoint when @property {bool} col is defined.
    * @default false
    */
   md: PropTypes.oneOf(GRID_SIZES),
   /**
+   * Add small breakpoint when @property {bool} col is defined.
    * @default false
    */
   sm: PropTypes.oneOf(GRID_SIZES),
   /**
+   * Add grid gutter when @property {bool} row is defined.
    * @default 0
    */
   spacing: PropTypes.oneOf(GRID_SPACINGS),
   /**
+   * Add extra large breakpoint when @property {bool} col is defined.
    * @default false
    */
   xl: PropTypes.oneOf(GRID_SIZES),
   /**
+   * Add extra small breakpoint when @property {bool} col is defined.
    * @default false
    */
   xs: PropTypes.oneOf(GRID_SIZES),
+};
+
+/**
+ * Add @property {object} factoryProps made available properties information
+ * for Props in the Storybook but do not use as major define for default properties.
+ */
+Grid.defaultProps = {
+  lg: false,
+  md: false,
+  sm: false,
+  xl: false,
+  xs: false,
+  spacing: 0,
+  alignContent: 'stretch',
+  alignItems: 'stretch',
+  direction: 'row',
+  justifyContent: 'flex-start',
 };
 
 export default Grid;

@@ -2,51 +2,78 @@ import {
   Meta,
   Canvas,
   Status,
+  Props,
 } from '@pontte/stargate-ui-playground';
 import Grid from './Grid';
+import Typography from '../Typography'
 
 <Meta title="Core/Grid" component={Grid} />
 
 # Grid
 
-<Status type="experimental" />
+<Status type="stable" />
+
+## Basic Usage
 
 <Canvas>
-  <Grid row spacing={1}>
-    <Grid col xs={12} style={{background: 'red'}}>
-      xs=12
+  <Story name="Basic Usage">
+    <Grid row spacing={1}>
+      <Grid
+        col
+        xs={12}
+        textAlign="center"
+      >
+        <Typography>
+          xs=12
+        </Typography>
+      </Grid>
+      <Grid
+        col
+        xs={6}
+        textAlign="center"
+      >
+        <Typography>
+          xs=6
+        </Typography>
+      </Grid>
+      <Grid
+        col
+        xs={6}
+        textAlign="center"
+      >
+        <Typography>
+          xs=6
+        </Typography>
+      </Grid>
+      <Grid
+        col
+        xs={4}
+        textAlign="center"
+      >
+        <Typography>
+          xs=3
+        </Typography>
+      </Grid>
+      <Grid
+        col
+        xs={4}
+        textAlign="center"
+      >
+        <Typography>
+          xs=3
+        </Typography>
+      </Grid>
+      <Grid
+        col
+        xs={4}
+        textAlign="center"
+      >
+        <Typography>
+          xs=3
+        </Typography>
+      </Grid>
     </Grid>
-    <Grid col xs={6} md={12} style={{background: 'green'}}>
-      xs=6
-    </Grid>
-    <Grid col xs={6} style={{background: 'blue'}}>
-      xs=6
-    </Grid>
-    <Grid col xs={3} style={{background: 'grey'}}>
-      xs=3
-    </Grid>
-    <Grid col xs={3} style={{background: 'purple'}}>
-      xs=3
-    </Grid>
-    <Grid col xs style={{background: 'yellow'}}>
-      xs=3
-    </Grid>
-    <Grid col xs style={{background: 'orange'}}>
-      xs=3
-    </Grid>
-  </Grid>
+  </Story>
 </Canvas>
 
-<Canvas>
-  <Grid row spacing={4} justifyContent="flex-start">
-    {/* <Grid col xs={3} md={12} style={{background: 'red'}} spacing={1}>
-      xs=12
-    </Grid> */}
-    <Grid col xs={3} md={12} style={{background: 'green'}}>
-      xs=6
-    </Grid>
-    <Grid col xs={3} md={12} style={{background: 'blue'}}>
-      xs=6
-    </Grid>
-  </Grid>
-</Canvas>
+<Props component={Grid} />
