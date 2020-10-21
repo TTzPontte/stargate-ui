@@ -6,7 +6,7 @@ exports[`Input should render properly 1`] = `
     class="stargate-ui-factory-0-2-7 stargate-ui-factory-d0-0-2-9"
   >
     <label
-      class="stargate-ui-factory-0-2-19 stargate-ui-factory-d0-0-2-21 stargate-ui-typography-0-2-12 stargate-ui-typography-d0-0-2-16 stargate-ui-typographyFluid-0-2-15 stargate-ui-typographyFluid-d2-0-2-18 stargate-ui-label-0-2-11"
+      class="stargate-ui-factory-0-2-19 stargate-ui-factory-d0-0-2-21 stargate-ui-typography-0-2-12 stargate-ui-typography-d0-0-2-16 stargate-ui-label-0-2-11 stargate-ui-typographyFluid-0-2-15 stargate-ui-typographyFluid-d2-0-2-18"
     >
       Lorem ipsum dolor
     </label>

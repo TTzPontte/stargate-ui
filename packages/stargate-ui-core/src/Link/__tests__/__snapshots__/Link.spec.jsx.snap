@@ -3,7 +3,7 @@
 exports[`Link should render properly 1`] = `
 <div>
   <a
-    class="stargate-ui-factory-0-2-9 stargate-ui-factory-d0-0-2-11 stargate-ui-typography-0-2-2 stargate-ui-typography-d0-0-2-6 stargate-ui-typographyFluid-0-2-5 stargate-ui-typographyFluid-d2-0-2-8 stargate-ui-link-0-2-1"
+    class="stargate-ui-factory-0-2-11 stargate-ui-factory-d0-0-2-13 stargate-ui-typography-0-2-4 stargate-ui-typography-d0-0-2-8 stargate-ui-link-0-2-1 stargate-ui-linkUnderline-0-2-2 stargate-ui-linkUnderline-d0-0-2-3 stargate-ui-typographyFluid-0-2-7 stargate-ui-typographyFluid-d2-0-2-10"
   >
     Click here
   </a>
