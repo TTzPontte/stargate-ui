@@ -1,0 +1,80 @@
+import {
+  Meta,
+  Canvas,
+  Status,
+} from '@pontte/stargate-ui-playground';
+
+import Factory from '../Factory';
+
+import Typography from '../Typography';
+
+import Card from './Card';
+
+<Meta title="Core/Card" component={Card} />
+
+# Card
+
+<Status type="experimental" />
+
+### Default Card
+
+<Canvas>
+  <Card
+  >
+    Default Card
+  </Card>
+  <Card
+    clickable
+    selected
+    paddingX={6}
+    paddingY={8}
+    borderColor="primary"
+    color="secondary"
+  >
+    Default Card Bigger
+  </Card>
+</Canvas>
+
+### Customized Card
+
+<Canvas>
+  <Card
+    paddingX={2}
+    paddingY={2}
+  >
+    <Factory element="div" style={{flexDirection: "collumn", textAlign: "center"}}>
+      <Typography element="h6">
+        180 meses
+      </Typography>
+      <p>
+        1ª PARCELA
+      </p>
+      <Typography element="h6">
+        R$ 936,62
+      </Typography>
+      <p>
+        ÚLTIMA PARCELA
+      </p>
+    </Factory>
+  </Card>
+  <Card
+    color="primary"
+    paddingX={2}
+    paddingY={2}
+  >
+    <Factory element="div" style={{flexDirection: "collumn", textAlign: "center"}}>
+      <Typography element="h6">
+        180 meses
+      </Typography>
+      <p>
+        1ª PARCELA
+      </p>
+      <Typography element="h6">
+        R$ 936,62
+      </Typography>
+      <p>
+        ÚLTIMA PARCELA
+      </p>
+    </Factory>
+  </Card>
+</Canvas>
