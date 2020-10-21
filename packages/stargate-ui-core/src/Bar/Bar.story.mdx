@@ -1,0 +1,47 @@
+import { useState } from 'react';
+import {
+  Meta,
+  Canvas,
+  Status,
+  Story,
+  Props,
+  Source,
+  withAction,
+} from '@pontte/stargate-ui-playground';
+
+import Grid from '../Grid';
+import Button from '../Button';
+import Bar from './Bar';
+
+<Meta title="Core/Bar" component={Bar} />
+
+## Bar
+
+<Status type="stable" />
+
+Bar is flexible kind of header for the application.
+
+<Canvas>
+  <Story name="Basic Usage">
+    {
+      /**
+      * @todo add breakline when MDX upgrade to 2.0 @see {@link https://github.com/storybookjs/storybook/issues/7902#issuecomment-680421528}
+      */
+      (props) => (
+        <Bar {...props} onScroll={withAction('onClick')}>
+          <Grid
+            row
+            spacing={2}
+            justifyContent="space-between"
+          >
+            <Grid col xs="auto">
+              Logo
+            </Grid>
+          </Grid>
+        </Bar>
+      )
+    }
+  </Story>
+</Canvas>
+
+<Props component={Bar} />

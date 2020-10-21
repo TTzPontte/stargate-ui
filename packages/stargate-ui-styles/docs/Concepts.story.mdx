@@ -1,0 +1,53 @@
+import { Meta } from '@pontte/stargate-ui-playground';
+
+<Meta title='Styles/Concepts' />
+
+# Concepts
+
+Stagate UI Styles manage stylish and theming for component uses CSS-in-JS tool [React-JSS](https://cssinjs.org/react-jss/?v=v10.4.0).
+
+## Basics
+
+Basic use of [@pontte/stargate-ui-styles](https://github.com/pontte/stargate-ui/tree/alpha/packages/stargate-ui-styles) includes:
+
+**Theme provider**
+
+The `Theme` will provide integration with JSS tool and theme definitions.
+
+**CSS as JS object**
+
+The `useStyles` hook will allows create isolated CSS for the component using theming object provided by `Theme` and component properties if defined.
+
+Check documentation about [useStyles](?path=/story/styles-hooks--page#usestyles) hook.
+
+```jsx
+import React from 'react';
+import { useStyles, Theme } from '@pontte/stargate-ui-styles';
+
+const styles = () => {
+  const componentContainer = { background: 'purple'};
+
+  class componentParagraph = { color: 'white' };
+
+  return { component };
+};
+
+const Component = () => {
+  const [
+    {
+      componentContainer: classComponent,
+      componentParagraph: classComponentParagraph,
+    },
+  ] = useStyles(styles);
+
+  return (
+    <Theme>
+      <div className={classComponent}>
+        <p className={classComponentParagraph}>
+          My cool component!
+        </p>
+      </div>
+    </Theme>
+  );
+};
+```

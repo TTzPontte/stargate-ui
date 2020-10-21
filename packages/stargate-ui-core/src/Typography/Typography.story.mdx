@@ -2,30 +2,18 @@ import {
   Meta,
   Canvas,
   Status,
+  Story,
+  Props,
 } from '@pontte/stargate-ui-playground';
 import Typography from './Typography';
 
-export const TypographyStory = (props) => (
-  <Typography {...props}>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae cum quidem officiis dolor impedit corrupti recusandae asperiores nesciunt architecto ea hic, error dolores fugiat. Eius itaque iure neque beatae ducimus.
-  </Typography>
-);
-
 <Meta title="Core/Typography" component={Typography} />
-
-<Story
-  name="Explore Properties"
-  parameters={{
-    docs: { disable: true },
-    jest: ['Typography.spec.jsx'],
-  }}
->
-  {TypographyStory.bind({})}
-</Story>
 
 ## Typography
 
 <Status type="stable" />
+
+Typography provide style of font definitions.
 
 ### General
 
@@ -58,6 +46,22 @@ If you want saving some bits from your server, you can add from [Google Fonts La
 ```html
 <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 ```
+
+### Basic Usage
+
+<Canvas>
+  <Story name="Basic Usage">
+    {
+      (props) => (
+        <Typography {...props}>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        </Typography>
+      )
+    }
+  </Story>
+</Canvas>
+
+<Props of={Typography} />
 
 ### Heading
 

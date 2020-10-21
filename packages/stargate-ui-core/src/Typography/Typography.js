@@ -264,6 +264,7 @@ Typography.propTypes = {
     'inherit',
     'block',
     'inline',
+    'inline-block',
   ]),
 };
 

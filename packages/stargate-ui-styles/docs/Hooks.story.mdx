@@ -1,0 +1,60 @@
+import { Meta } from '@pontte/stargate-ui-playground';
+
+<Meta title='Styles/Hooks' />
+
+# Hooks
+
+## useStyles
+
+`useStyles` is a hook that allows create isolated CSS for a component using theming object and properties.
+
+### Sintax
+
+```js
+useStyles(styles, props);
+```
+
+#### Parameters
+
+**styles**
+
+The first argument is a function that return as argument the `theme` object if it has provided and must be returned as value an object containing the style definitions.
+
+```js
+useStyles((theme) => {
+  /* `component` is equivalent to `.component` class in CSS */
+  component: {
+    color: theme.palette.lighter,
+  },
+});
+```
+
+**props**
+
+The second argument is a object containing properties for [dynamic use](https://cssinjs.org/react-jss/?v=v10.4.0#dynamic-values). `props` can be properties received by component or even state and values.
+
+```js
+useStyles(styles, { color: 'light' });
+```
+
+#### Return
+
+`useStyles` return an array of object, where key is the same of declared in its return and value is string with name of CSS class processed and attached in the document.
+
+```jsx
+const [classes] = useStyles((theme) => {
+  component: {
+    color: ({ color }) => {
+      if (color === 'light') {
+        return theme.palette.lighter;
+      }
+
+      return theme.palette.darken;
+    },
+  },
+}, { color: 'light' });
+
+<div className={classes.component}>
+  Lorem ipsum dolor
+</div>
+```

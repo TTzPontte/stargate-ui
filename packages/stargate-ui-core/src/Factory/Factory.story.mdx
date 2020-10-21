@@ -1,0 +1,41 @@
+import { useState } from 'react';
+import {
+  Meta,
+  Canvas,
+  Status,
+  Story,
+  Props,
+  Source,
+} from '@pontte/stargate-ui-playground';
+
+import Factory from './Factory';
+
+<Meta title="Core/Factory" component={Factory} />
+
+## Backdrop
+
+<Status type="stable" />
+
+Factory is basic component used to build any component with built-in helpful properties.
+
+<Canvas>
+  <Story name="Basic Usage">
+    {
+      (props) => (
+        <Factory
+          element="a"
+          color="success"
+          href="/?#"
+          target="_blank"
+          {...props}
+        >
+          Custom link element
+        </Factory>
+      )
+    }
+  </Story>
+</Canvas>
+
+<Props component={Factory} />
+
+Factory also accepts any default properties of HTML.

@@ -4,35 +4,37 @@ import {
   Status,
   Story,
   withAction,
+  Props,
 } from '@pontte/stargate-ui-playground';
 
 import Button from './Button';
 
-export const ButtonStory = (props) => (
-  <Button
-    onClick={withAction('onClick')}
-    children="Cool button"
-    color="primary"
-    contained
-    {...props}
-  />
-);
-
 <Meta title="Core/Button" component={Button} />
 
-<Story
-  name="Explore Properties"
-  parameters={{
-    docs: { disable: true },
-    jest: ['Button.spec.jsx'],
-  }}
->
-  {ButtonStory.bind({})}
-</Story>
-
-## Button
+# Button
 
 <Status type="stable" />
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic Usage" parameters={{
+    jest: ['Button.spec.jsx'],
+  }}>
+    {
+      () => (
+        <Button
+          onClick={withAction('onClick')}
+          children="Button"
+          color="primary"
+          contained
+        />
+      )
+    }
+  </Story>
+</Canvas>
+
+<Props component={Button} />
 
 ### Contained Button
 

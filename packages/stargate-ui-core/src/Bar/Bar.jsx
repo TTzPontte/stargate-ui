@@ -1,6 +1,7 @@
-import React, { useRef, useEffect } from 'react';
+import React from 'react';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 import Factory from '../Factory';
 
@@ -16,6 +17,7 @@ const styles = (theme) => {
     paddingBottom: spacing(2),
     zIndex: zIndex.bar,
     background: palette.lighter,
+    width: '100%',
   };
 
   const barSticky = {
@@ -24,7 +26,6 @@ const styles = (theme) => {
   };
 
   const barFixed = {
-    width: '100%',
     position: 'fixed',
     top: 0,
     left: 0,
@@ -41,13 +42,12 @@ const Bar = React.forwardRef((props, ref) => {
   const {
     sticky,
     fixed,
-    children,
     onScroll = () => {},
     className: inheritedClassName,
     ...inheritedProps
   } = props;
 
-  const barRef = useRef(ref);
+  const barRef = React.useRef(ref);
 
   const handleScroll = () => {
     const scrollY = window.pageYOffset ?? window.scrollY;
@@ -55,7 +55,7 @@ const Bar = React.forwardRef((props, ref) => {
     onScroll(scrollY);
   };
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.addEventListener('scroll', handleScroll);
   }, [barRef]);
 
@@ -65,7 +65,7 @@ const Bar = React.forwardRef((props, ref) => {
       barSticky: classBarSticky,
       barFixed: classBarFixed,
     },
-  ] = useStyles(styles, { sticky });
+  ] = useStyles(styles);
 
   const className = clsx(
     inheritedClassName,
@@ -78,14 +78,44 @@ const Bar = React.forwardRef((props, ref) => {
 
   return (
     <Factory
+      paddingX={2}
+      {...inheritedProps}
       ref={barRef}
       className={className}
-      {...inheritedProps}>
-      {children}
-    </Factory>
+    />
   );
 });
 
 Bar.displayName = 'Bar';
+
+/**
+ * Bar is built under the @func Factory and accepts all features of it as well.
+ * Check out the spec @see {@file ../Factory/Factory.jsx}
+ */
+Bar.propTypes = {
+  /**
+   * Define `sticky` as kind of position.
+   * @default undefined
+   */
+  sticky: PropTypes.bool,
+  /**
+   * Define `fixed` as kind of position.
+   * @default undefined
+   */
+  fixed: PropTypes.bool,
+  /**
+   * Trigger when window has been scrolled.
+   * @default Function
+   */
+  onScroll: PropTypes.func,
+};
+
+/**
+ * Add @property {object} factoryProps made available properties information
+ * for Props in the Storybook but do not use as major define for default properties.
+ */
+Bar.defaultProps = {
+  onScroll: () => {},
+};
 
 export default Bar;

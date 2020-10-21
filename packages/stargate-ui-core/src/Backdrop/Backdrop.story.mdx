@@ -1,0 +1,51 @@
+import { useState } from 'react';
+import {
+  Meta,
+  Canvas,
+  Status,
+  Story,
+  Props,
+  Source,
+} from '@pontte/stargate-ui-playground';
+import dedent from 'ts-dedent';
+
+import Button from '../Button';
+import Backdrop from './Backdrop';
+
+<Meta title="Core/Backdrop" component={Backdrop} />
+
+## Backdrop
+
+<Status type="stable" />
+
+Backdrop is used to provide contrast for a specific element. Common use case is for dialog and process components.
+
+<Story name="Basic Usage">
+  {
+    /**
+     * @todo add breakline when MDX upgrade to 2.0 @see {@link https://github.com/storybookjs/storybook/issues/7902#issuecomment-680421528}
+     */
+    ({ opened: openedControl, ...props }) => {
+      const [opened, setOpened] = useState(false);
+      const handleClick = () => {
+        setOpened(!opened);
+      };
+      React.useEffect(() => {
+        setOpened(openedControl);
+      }, [openedControl]);
+      return (
+        <Backdrop opened={opened} {...props}>
+          <Button
+            contained
+            variant="primary"
+            onClick={handleClick}
+          >
+            {opened ? 'Open backdrop' : 'Close backdrop'}
+          </Button>
+        </Backdrop>
+      )
+    }
+  }
+</Story>
+
+<Props component={Backdrop} />

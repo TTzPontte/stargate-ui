@@ -1,9 +1,7 @@
-import React, {
-  Fragment,
-  forwardRef,
-} from 'react';
+import React from 'react';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 const styles = (theme) => {
   const {
@@ -44,6 +42,10 @@ const styles = (theme) => {
         'backwards',
       ],
     ],
+    '& + *': {
+      position: 'relative',
+      zIndex: zIndex.backdrop + 1,
+    },
   };
 
   return {
@@ -52,13 +54,11 @@ const styles = (theme) => {
   };
 };
 
-const Backdrop = forwardRef((props, ref) => {
+const Backdrop = React.forwardRef((props, ref) => {
   const {
     children,
     opened = false,
-    timeout = 1000,
     className: inheritedClassName,
-    ...inheritedProps
   } = props;
 
   const [{ backdrop: classBackdrop }] = useStyles(styles);
@@ -73,20 +73,44 @@ const Backdrop = forwardRef((props, ref) => {
   }, [opened]);
 
   return (
-    <Fragment>
+    <React.Fragment>
       {
         opened && (
           <div
             ref={ref}
-            {...inheritedProps}
             className={className}
+            aria-hidden="true"
           />
         )
       }
 
       {children}
-    </Fragment>
+    </React.Fragment>
   );
 });
+
+Backdrop.displayName = 'Backdrop';
+
+Backdrop.propTypes = {
+  children: PropTypes.node.isRequired,
+  /**
+   * Specify when opened or not backdrop element.
+   * @default false
+   */
+  opened: PropTypes.bool,
+  /**
+   * Add className for backdrop element.
+   * @default undefined
+   */
+  className: PropTypes.string,
+};
+
+/**
+ * Add @property {object} defaultProps made available properties information
+ * for Props in the Storybook but do not use as major define for default properties.
+ */
+Backdrop.defaultProps = {
+  opened: false,
+};
 
 export default Backdrop;

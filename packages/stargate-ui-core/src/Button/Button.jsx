@@ -1,6 +1,7 @@
 import React from 'react';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 import Factory from '../Factory';
 import Typography from '../Typography';
@@ -118,10 +119,10 @@ const Button = (props) => {
     disabled,
     large,
     full,
+    children,
     element = 'button',
     color = 'default',
     onClick = () => {},
-    children,
     className: inheritedClasses,
     ...factoryProps
   } = props;
@@ -182,6 +183,76 @@ const Button = (props) => {
       />
     </Factory>
   );
+};
+
+Button.displayName = 'Button';
+
+Button.propTypes = {
+  /**
+   * Add contained style.
+   * @default undefined
+   */
+  contained: PropTypes.bool,
+  /**
+   * Add outlined style.
+   * @default undefined
+   */
+  outlined: PropTypes.bool,
+  /**
+   * Add disable state.
+   * @default undefined
+   */
+  disabled: PropTypes.bool,
+  /**
+   * Add large size.
+   * @default undefined
+   */
+  large: PropTypes.bool,
+  /**
+   * Add full style.
+   * @default undefined
+   */
+  full: PropTypes.bool,
+  /**
+   * Add DOM element. Can be a React component or HTML element.
+   * @borrows Factory.propTypes.element as Button.propTypes.element
+   * @default button
+   */
+  element: Factory.propTypes.element,
+  /**
+   * Add color style.
+   * @default default
+   */
+  color: PropTypes.oneOf([
+    'default',
+    'primary',
+    'secondary',
+  ]),
+  /**
+   * Trigger when element is clicked.
+   * @default Function
+   */
+  onClick: PropTypes.func,
+  /**
+   * Add node children.
+   * @default Function
+   */
+  children: Typography.propTypes.children,
+  /**
+   * Add CSS class name.
+   * @default undefined
+   */
+  className: PropTypes.string,
+};
+
+/**
+ * Add @property {object} factoryProps made available properties information
+ * for Props in the Storybook but do not use as major define for default properties.
+ */
+Button.defaultProps = {
+  color: 'default',
+  onClick: () => {},
+  element: 'button',
 };
 
 export default Button;

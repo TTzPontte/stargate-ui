@@ -1,86 +1,53 @@
 import {
   Palette,
   Swatch,
-  Status,
   Meta,
   Canvas,
 } from '@pontte/stargate-ui-playground';
-import { Typography } from '@pontte/stargate-ui-core';
 
 import * as colors from '../src/themes/stargate/colors';
 import palette from '../src/themes/stargate/palette';
 
 <Meta title="Styles/Theming" />
 
-<Typography element="h1">
-  Theming
-</Typography>
+# Theming
 
-<Status type="rc" />
+Explore our default colors.
 
-<Typography>
-  Explore our default colors.
-</Typography>
-
-
-<Typography element="h2" variant="h3">
-  Main Colors
-</Typography>
+## Main Colors
 
 <Swatch name="primary" color={palette.primary.lighter.color} />
 <Swatch name="secondary" color={palette.secondary.lighter.color} />
 
-
-<Typography element="h2" variant="h3">
-  Semantic Colors
-</Typography>
+## Semantic Colors
 
 <Swatch name="success" color={palette.success.lighter.color} />
 <Swatch name="warning" color={palette.warning.lighter.color} />
 <Swatch name="error" color={palette.error.lighter.color} />
 <Swatch name="info" color={palette.info.lighter.color} />
 
-<Typography element="h2" variant="h3">
-  Colors Scales
-</Typography>
+## Colors Scales
 
-<Typography element="h2" variant="h3">
-  Grey
-</Typography>
+### Grey
 
 <Palette name="grey" colors={colors.grey} />
 
-
-<Typography element="h3" variant="h4">
-  Yellow
-</Typography>
+### Yellow
 
 <Palette name="yellow" colors={colors.yellow} />
 
-
-<Typography element="h3" variant="h4">
-  Green
-</Typography>
+### Green
 
 <Palette name="green" colors={colors.green} />
 
-
-<Typography element="h3" variant="h4">
-  Pink
-</Typography>
+### Pink
 
 <Palette name="pink" colors={colors.pink} />
 
-
-<Typography element="h3" variant="h4">
-  Purple
-</Typography>
+### Purple
 
 <Palette name="purple" colors={colors.purple} />
 
-
-<Typography element="h3" variant="h4">
-  Indigo
-</Typography>
+### Indigo
 
 <Palette name="indigo" colors={colors.indigo} />

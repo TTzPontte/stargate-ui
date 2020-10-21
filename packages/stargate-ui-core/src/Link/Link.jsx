@@ -38,7 +38,7 @@ const styles = (theme) => {
     ],
     [active()]: {
       borderColor: ({ color }) => (
-        palette?.[color]?.[mode].text || 'initial'
+        palette?.[color]?.[mode].color || 'initial'
       ),
     },
   };
@@ -76,6 +76,7 @@ const Link = (props) => {
       element="a"
       variant="body"
       transform="uppercase"
+      display="inline"
       gutter={0}
       {...typographyProps}
       color={color}

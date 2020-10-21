@@ -99,7 +99,10 @@ const styles = (theme) => {
     },
     textAlign: ({ textAlign }) => (
       textAlign
-    )
+    ),
+    display: ({ display }) => (
+      display
+    ),
   };
 
   const factoryHidden = ({ hideDown, hideUp }) => {
@@ -144,6 +147,7 @@ const Factory = React.forwardRef((props, ref) => {
     color,
     hideDown,
     hideUp,
+    display,
     element = 'div',
     textAlign = 'inherit',
     element: inheritedElement,
@@ -175,6 +179,7 @@ const Factory = React.forwardRef((props, ref) => {
     textAlign,
     hideDown,
     hideUp,
+    display,
   });
 
   const className = clsx(
@@ -211,7 +216,14 @@ const Factory = React.forwardRef((props, ref) => {
 Factory.displayName = 'Factory';
 
 Factory.propTypes = {
+  /**
+   * @default undefined
+   */
   children: PropTypes.node,
+  /**
+   * Add CSS `margin` property based on spacing base theme.
+   * @default undefined
+   */
   margin: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf([
@@ -219,6 +231,10 @@ Factory.propTypes = {
       'initial',
     ]),
   ]),
+  /**
+   * Add CSS `margin-top` property based on spacing base theme.
+   * @default undefined
+   */
   marginTop: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf([
@@ -226,6 +242,10 @@ Factory.propTypes = {
       'initial',
     ]),
   ]),
+  /**
+   * Add CSS `margin-bottom` property based on spacing base theme.
+   * @default undefined
+   */
   marginBottom: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf([
@@ -233,6 +253,10 @@ Factory.propTypes = {
       'initial',
     ]),
   ]),
+  /**
+   * Add CSS `margin-left` property based on spacing base theme.
+   * @default undefined
+   */
   marginLeft: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf([
@@ -240,6 +264,10 @@ Factory.propTypes = {
       'initial',
     ]),
   ]),
+  /**
+   * Add CSS `margin-right` property based on spacing base theme.
+   * @default undefined
+   */
   marginRight: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf([
@@ -247,6 +275,10 @@ Factory.propTypes = {
       'initial',
     ]),
   ]),
+  /**
+   * Add CSS `margin-top` and `margin-bottom` property based on spacing base theme.
+   * @default undefined
+   */
   marginY: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf([
@@ -254,6 +286,10 @@ Factory.propTypes = {
       'initial',
     ]),
   ]),
+  /**
+   * Add CSS `margin-left` and `margin-right` property based on spacing base theme.
+   * @default undefined
+   */
   marginX: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf([
@@ -261,6 +297,10 @@ Factory.propTypes = {
       'initial',
     ]),
   ]),
+  /**
+   * Add CSS `padding` property based on spacing base theme.
+   * @default undefined
+   */
   padding: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf([
@@ -268,6 +308,10 @@ Factory.propTypes = {
       'initial',
     ]),
   ]),
+  /**
+   * Add CSS `padding-top` property based on spacing base theme.
+   * @default undefined
+   */
   paddingTop: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf([
@@ -275,6 +319,10 @@ Factory.propTypes = {
       'initial',
     ]),
   ]),
+  /**
+   * Add CSS `margin-bottom` property based on spacing base theme.
+   * @default undefined
+   */
   paddingBottom: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf([
@@ -282,6 +330,10 @@ Factory.propTypes = {
       'initial',
     ]),
   ]),
+  /**
+   * Add CSS `padding-left` property based on spacing base theme.
+   * @default undefined
+   */
   paddingLeft: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf([
@@ -289,6 +341,10 @@ Factory.propTypes = {
       'initial',
     ]),
   ]),
+  /**
+   * Add CSS `padding-right` property based on spacing base theme.
+   * @default undefined
+   */
   paddingRight: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf([
@@ -296,6 +352,10 @@ Factory.propTypes = {
       'initial',
     ]),
   ]),
+  /**
+   * Add CSS `padding-top` and `padding-bottom` property based on spacing base theme.
+   * @default undefined
+   */
   paddingY: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf([
@@ -303,6 +363,10 @@ Factory.propTypes = {
       'initial',
     ]),
   ]),
+  /**
+   * Add CSS `padding-left` and `padding-right` property based on spacing base theme.
+   * @default undefined
+   */
   paddingX: PropTypes.oneOfType([
     PropTypes.number,
     PropTypes.oneOf([
@@ -310,16 +374,33 @@ Factory.propTypes = {
       'initial',
     ]),
   ]),
+  /**
+   * Hide when screen size is down of breakpoint.
+   * @default undefined
+   */
   hideDown: PropTypes.oneOf(THEME_BREAKPOINTS_TYPES),
+  /**
+   * Hide when screen size is up of breakpoint.
+   * @default undefined
+   */
   hideUp: PropTypes.oneOf(THEME_BREAKPOINTS_TYPES),
   /**
+   * Add DOM element. Can be a React component or HTML element.
    * @default div
    */
   element: PropTypes.oneOfType([
     PropTypes.element,
     PropTypes.elementType,
   ]),
+  /**
+   * Add a new CSS class to `className` property.
+   * @default undefined
+   */
   className: PropTypes.string,
+  /**
+   * Add CSS `color` property.
+   * @default undefined
+   */
   color: PropTypes.oneOf([
     'default',
     'primary',
@@ -330,6 +411,7 @@ Factory.propTypes = {
     'info',
   ]),
   /**
+   * Add CSS `text-align` property.
    * @default inherit
    */
   textAlign: PropTypes.oneOf([
@@ -340,6 +422,27 @@ Factory.propTypes = {
     'center',
     'justify',
   ]),
+  /**
+   * Add CSS `display` property.
+   * @default undefined
+   */
+  display: PropTypes.oneOf([
+    'initial',
+    'inherit',
+    'block',
+    'inline',
+    'inline-flex',
+    'inline-block',
+  ]),
+};
+
+/**
+ * Add @property {object} factoryProps made available properties information
+ * for Props in the Storybook but do not use as major define for default properties.
+ */
+Factory.defaultProps = {
+  element: 'div',
+  textAlign: 'inherit',
 };
 
 export default Factory;
