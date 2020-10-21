@@ -2,12 +2,13 @@ import {
   Meta,
   Canvas,
   Status,
+  Story,
+  withAction,
+  Props,
 } from '@pontte/stargate-ui-playground';
 
 import Factory from '../Factory';
-
 import Typography from '../Typography';
-
 import Card from './Card';
 
 <Meta title="Core/Card" component={Card} />
@@ -16,65 +17,88 @@ import Card from './Card';
 
 <Status type="experimental" />
 
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic Usage" parameters={{
+    jest: ['Card.spec.jsx'],
+  }}>
+    {
+      () => (
+        <Card
+          onClick={withAction('onClick')}
+          paddingX={8}
+          paddingY={6}
+          clickable
+        >
+          <Typography element="span">
+            Click
+          </Typography>
+        </Card>
+      )
+    }
+  </Story>
+</Canvas>
+
+<Props component={Card} />
+
 ### Default Card
 
 <Canvas>
   <Card
   >
-    Default Card
+    <Typography element="span">
+      Read Only
+    </Typography>
   </Card>
   <Card
+    paddingX={4}
+    paddingY={6}
     clickable
-    selected
-    paddingX={6}
-    paddingY={8}
-    borderColor="primary"
-    color="secondary"
   >
-    Default Card Bigger
+    <Typography element="span">
+     Click
+    </Typography>
   </Card>
 </Canvas>
+
 
 ### Customized Card
 
 <Canvas>
   <Card
-    paddingX={2}
+    paddingX={4}
     paddingY={2}
+    color="warning"
+    borderColor="success"
+    clickable
   >
-    <Factory element="div" style={{flexDirection: "collumn", textAlign: "center"}}>
-      <Typography element="h6">
-        180 meses
-      </Typography>
-      <p>
-        1ª PARCELA
-      </p>
-      <Typography element="h6">
-        R$ 936,62
-      </Typography>
-      <p>
-        ÚLTIMA PARCELA
-      </p>
-    </Factory>
+    <Typography element="span">
+      Click
+    </Typography>
   </Card>
   <Card
-    color="primary"
     paddingX={2}
     paddingY={2}
+    clickable
+    selected
   >
     <Factory element="div" style={{flexDirection: "collumn", textAlign: "center"}}>
-      <Typography element="h6">
+      <Typography element="span" variant="h4" display="block">
         180 meses
       </Typography>
-      <p>
+      <Typography element="span" variant="small" display="block" gutter={.5}>
         1ª PARCELA
-      </p>
-      <Typography element="h6">
+      </Typography>
+      <Typography element="span" variant="h4" display="block">
         R$ 936,62
       </Typography>
-      <p>
+      <Typography element="span" variant="small" display="block" gutter={.5}>
         ÚLTIMA PARCELA
-      </p>
+      </Typography>
+      <Typography element="span" variant="h4" display="block" gutter={0}>
+        R$ 336,62
+      </Typography>
     </Factory>
   </Card>
 </Canvas>

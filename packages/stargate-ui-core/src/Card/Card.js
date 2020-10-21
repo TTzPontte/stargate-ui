@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 import Factory from '../Factory';
 
@@ -9,15 +10,10 @@ const styles = (theme) => {
    * @todo improve dynamic properties
    */
   const {
-    active,
-    spacing,
     palette,
-    border,
     radius,
     mode,
-    resets,
   } = theme;
-  const { setLightness } = palette;
 
   const getColor = (color, type = 'color') => (
     palette?.[color]?.[mode][type]
@@ -30,16 +26,6 @@ const styles = (theme) => {
   const card = {
     display: 'flex',
     maxWidth: 'max-content',
-    border: ({borderColor, color}) => {
-      const colorOfBorder = borderColor || color;
-      return [
-        [
-          1,
-          'solid',
-          getColor(colorOfBorder),
-        ],
-      ]
-    },
     cursor: ({ clickable }) => (
       clickable && 'pointer'
     ),
@@ -48,19 +34,31 @@ const styles = (theme) => {
       backgroundColor: ({ color }) => (
         color === 'default' ? palette.colors.grey[100] : getColor(color)
         ),
-      },
       color: ({ color }) => (
         getTextColor(color)
-        ),
+      ),
+      border: ({borderColor, color}) => {
+        const colorOfBorder = borderColor || color;
+        return [
+          [
+            1,
+            'solid',
+            getColor(colorOfBorder),
+          ],
+        ]
+      },
+    },
   };
 
   const cardSelected = {
-    backgroundColor: 'red',
+    backgroundColor: getColor('primary'),
+    borderColor: getColor('primary'),
+    color: getTextColor('primary'),
   };
 
   return {
-    cardSelected,
     card,
+    cardSelected,
   };
 };
 
@@ -68,7 +66,7 @@ const Card = (props) => {
   const {
     selected: defaultValue = false,
     color = 'default',
-    borderColor = 'default',
+    borderColor,
     onChange = () => {},
     clickable,
     ...factoryProps
@@ -96,9 +94,9 @@ const Card = (props) => {
     cardProps.onClick = handleClick;
   }
 
-  const classCard = clsx({
+  const classCard = clsx(card, {
     [cardSelected]: clickable && selected,
-  }, card)
+  })
 
   return (
     <Factory
@@ -109,6 +107,54 @@ const Card = (props) => {
       className={classCard}
     />
   );
+};
+
+Card.displayName = 'Card';
+
+Card.propTypes = {
+  /**
+   * Add borderColor style.
+   * @default undefined
+   */
+  borderColor: PropTypes.string,
+  /**
+   * Add clickable style.
+   * @default undefined
+   */
+  clickable: PropTypes.bool,
+  /**
+   * Add selected style.
+   * @default false
+   */
+  selected: PropTypes.bool,
+  /**
+   * Add color style.
+   * @default default
+   */
+  color: PropTypes.oneOf([
+    'default',
+    'primary',
+    'secondary',
+    'success',
+    'warning',
+    'info',
+    'error'
+  ]),
+  /**
+   * Trigger when element is clicked.
+   * @default Function
+   */
+  onChange: PropTypes.func,
+};
+
+/**
+ * Add @property {object} factoryProps made available properties information
+ * for Props in the Storybook but do not use as major define for default properties.
+ */
+Card.defaultProps = {
+  color: 'default',
+  selected: false,
+  onChange: () => {},
 };
 
 export default Card;
