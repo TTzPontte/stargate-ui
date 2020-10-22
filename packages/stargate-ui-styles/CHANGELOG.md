@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.32 (2020-10-22)
+
+
+### Features
+
+* **card:** add to index and change label ([15e5a89](https://github.com/pontte/stargate-ui/commit/15e5a892a515ed6cdaf031ec0e69805100710c6c))
+
+
+
+
+
 # 0.1.0-alpha.31 (2020-10-21)
 
 **Note:** Version bump only for package @pontte/stargate-ui-styles
