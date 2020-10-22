@@ -6,9 +6,6 @@ import PropTypes from 'prop-types';
 import Factory from '../Factory';
 
 const styles = (theme) => {
-   /**
-   * @todo improve dynamic properties
-   */
   const {
     palette,
     radius,
@@ -33,11 +30,11 @@ const styles = (theme) => {
     '&:not($cardSelected)': {
       backgroundColor: ({ color }) => (
         color === 'default' ? palette.colors.grey[100] : getColor(color)
-        ),
+      ),
       color: ({ color }) => (
         getTextColor(color)
       ),
-      border: ({borderColor, color}) => {
+      border: ({ borderColor, color }) => {
         const colorOfBorder = borderColor || color;
         return [
           [
@@ -45,7 +42,7 @@ const styles = (theme) => {
             'solid',
             getColor(colorOfBorder),
           ],
-        ]
+        ];
       },
     },
   };
