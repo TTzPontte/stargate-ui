@@ -2,6 +2,7 @@ export * from './icons';
 
 export { default as Button } from './Button';
 export { default as Typography } from './Typography';
+export { default as Card } from './Card';
 export { default as Svg } from './Svg';
 export { default as SvgIcon } from './SvgIcon';
 export { default as Label } from './Label';
