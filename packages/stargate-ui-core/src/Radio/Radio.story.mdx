@@ -7,6 +7,11 @@ import {
   Props,
 } from '@pontte/stargate-ui-playground';
 
+import {
+  Label,
+  Instagram as SvgIconInstagram,
+} from '@pontte/stargate-ui-core';
+
 import Radio from './Radio';
 
 <Meta title="Core/Form Elements/Radio" component={Radio} />
@@ -24,7 +29,7 @@ import Radio from './Radio';
     {
       () => (
         <Radio
-          label="Radio Button"
+          radioLabel="Radio Button"
           checked={false}
         />
       )
@@ -38,21 +43,41 @@ import Radio from './Radio';
 
 <Canvas>
   <Radio
-    label="Default Checked"
+    radioLabel="Default Checked"
     checked
   />
   <Radio
-    label="Default Checked Disabled"
+    radioLabel="Default Checked Disabled"
     checked
     disabled
   />
 </Canvas>
 
+### Default Radio Button with Label
+
+<Canvas>
+  <Radio
+    label="This is a default Label"
+    checked
+  />
+  <Radio
+    label={
+      <Label>
+        <SvgIconInstagram />
+        This is a Customized Label with Icon
+      </Label>
+    }
+    checked
+    disabled
+  />
+</Canvas>
+
+
 ### Colors State
 
 <Canvas>
   <Radio
-    label
+    radioLabel
     color="success"
     checked={false}
   />
