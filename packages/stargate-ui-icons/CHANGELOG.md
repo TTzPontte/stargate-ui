@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.33 (2020-10-23)
+
+
+### Bug Fixes
+
+* **core:** fix dynamic CSS conflicted by context ([50563d2](https://github.com/pontte/stargate-ui/commit/50563d216989fe6da8cd0eab30095b5a1524e626))
+
+
+
+
+
 # 0.1.0-alpha.32 (2020-10-22)
 
 
