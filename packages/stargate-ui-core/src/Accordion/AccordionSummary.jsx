@@ -22,14 +22,17 @@ const styles = (theme) => {
 
   const summaryIcon = {
     transition: transition('transform').ease,
-    transform: ({ opened }) => (
-      opened ? 'rotate(-90deg)' : 'rotate(0)'
-    ),
+    transform: 'rotate(0)',
+  };
+
+  const summaryIconActive = {
+    transform: 'rotate(-90deg)',
   };
 
   return {
     summary,
     summaryIcon,
+    summaryIconActive,
   };
 };
 
@@ -43,8 +46,15 @@ const AccordionSummary = React.forwardRef((props, ref) => {
 
   const { opened, onToggle } = React.useContext(AccordionContext);
 
-  const [{ summary, summaryIcon: classSummaryIcon }] = useStyles(styles, { opened });
+  const [
+    {
+      summary,
+      summaryIconActive,
+      summaryIcon,
+    },
+  ] = useStyles(styles);
   const classSummary = clsx(summary, inheritedClassName);
+  const classSummaryIcon = clsx(summaryIcon, { [summaryIconActive]: opened });
 
   return (
     <Factory
