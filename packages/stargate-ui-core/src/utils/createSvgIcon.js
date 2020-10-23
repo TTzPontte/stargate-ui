@@ -2,15 +2,19 @@
 import React from 'react';
 import SvgIcon from '../SvgIcon';
 
-/**
- * Private module reserved for @material-ui packages.
- */
-export default (displayName, path) => {
-  const Component = (props, ref) => (
-    <SvgIcon data-testid={`${displayName}Icon`} ref={ref} {...props}>
-      {path}
-    </SvgIcon>
-  );
+export default (name, path) => {
+  const Component = (props, ref) => {
+    return (
+      <SvgIcon
+        ref={ref}
+        {...props}
+        children={path}
+      />
+
+    )
+  };
+
+  Component.displayName = name;
 
   return React.memo(React.forwardRef(Component));
 }
