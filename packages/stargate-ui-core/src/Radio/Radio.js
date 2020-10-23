@@ -97,11 +97,18 @@ const Radio = (props) => {
     disabled,
     readonly,
     label,
+    radioLabel,
     color = 'default',
     checked: defaultValue = false,
     onChange = () => {},
     ...factoryProps
   } = props;
+
+  let showLabel = false;
+
+  if (label) {
+    showLabel = true;
+  }
 
   const [
     {
@@ -128,32 +135,37 @@ const Radio = (props) => {
   }
 
   return (
-    <Factory className={classRadioWrapper}>
-      <InputLabel>
-        <Factory
-          ref={inputRef}
-          element="input"
-          type="radio"
-          className={classRadio}
-          checked={checked}
-          onChange={handleClick}
-          aria-label="Radio Button"
-          />
+    <Factory>
+      {showLabel && (
+        <InputLabel children={label} />
+      )}
+      <Factory className={classRadioWrapper}>
+        <InputLabel>
+          <Factory
+            ref={inputRef}
+            element="input"
+            type="radio"
+            className={classRadio}
+            checked={checked}
+            onChange={handleClick}
+            aria-label="Radio Button"
+            />
 
-        <Factory
-          element="span"
-          className={classRadioChecked}
-          marginX={1}
-          onClick={handleClick}
-          {...factoryProps}
-        />
+          <Factory
+            element="span"
+            className={classRadioChecked}
+            marginX={1}
+            onClick={handleClick}
+            {...factoryProps}
+            />
 
-        <Typography
-          variant="body"
-          element="span"
-          children={label}
-        />
-      </InputLabel>
+          <Typography
+            variant="body"
+            element="span"
+            children={radioLabel}
+            />
+        </InputLabel>
+      </Factory>
     </Factory>
   );
 };
@@ -181,6 +193,14 @@ Radio.propTypes = {
    * @default undefined
    */
   label: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]),
+  /**
+   * Add radioLabel style.
+   * @default undefined
+   */
+  radioLabel: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
   ]),
