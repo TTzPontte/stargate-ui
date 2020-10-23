@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Radio should render properly 1`] = `
+<div>
+  <input
+    class="stargate-ui-factory-0-2-4 stargate-ui-factory-d0-0-2-6 stargate-ui-radio-0-2-1"
+    type="radio"
+  />
+  <span
+    class="stargate-ui-factory-0-2-8 stargate-ui-factory-d0-0-2-10 stargate-ui-radioChecked-0-2-2 stargate-ui-radioChecked-d0-0-2-3"
+  />
+  <span
+    class="stargate-ui-factory-0-2-19 stargate-ui-factory-d0-0-2-21 stargate-ui-typography-0-2-12 stargate-ui-typography-d0-0-2-16 stargate-ui-typographyFluid-0-2-15 stargate-ui-typographyFluid-d2-0-2-18"
+  >
+    Radio Button
+  </span>
+</div>
+`;

@@ -1,9 +1,9 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from "prop-types";
+
 import { useStyles } from '@pontte/stargate-ui-styles';
 import { InputLabel } from '@pontte/stargate-ui-core';
-import clsx from 'clsx';
-
+import Typography from '../Typography';
 import Factory from '../Factory';
 
 const styles = (theme) => {
@@ -35,6 +35,7 @@ const styles = (theme) => {
       height: 20,
       borderRadius: radius(3),
       backgroundColor: palette.lighter,
+      margin: 0,
       border: ({color}) => (
         [[1, 'solid', getColor(color)]]
       ),
@@ -44,9 +45,9 @@ const styles = (theme) => {
       display: 'inline-flex',
       '$radio:checked ~ &': {
         bottom: 6,
-        right: 18,
-        width: 8,
-        height: 8,
+        right: 16,
+        width: 12,
+        height: 12,
         position: 'relative',
         borderRadius: radius(2),
         border: (props) => {
@@ -55,7 +56,12 @@ const styles = (theme) => {
             readonly,
             color,
           } = props;
-          return (disabled || readonly) ? [['solid', setLightness(.95, getColor(color))]] : [['solid', (color !== 'default' ? getColor(color) : getColor('success'))]]
+
+          if (disabled || readonly) {
+            return [['solid', setLightness(.95, getColor(color))]];
+          }
+
+          return [['solid', (color !== 'default' ? getColor(color) : getColor('success'))]];
         },
         backgroundColor: (props) => {
           const {
@@ -64,15 +70,25 @@ const styles = (theme) => {
             color,
           } = props;
 
-          return (disabled || readonly) ? setLightness(.95, getColor(color)) : (color !== 'default' ? getColor(color) : getColor('success'))
+          if (disabled || readonly) {
+            return setLightness(.95, getColor(color));
+          }
+
+          return color !== 'default' ? getColor(color) : getColor('success');
         },
       },
     },
   };
 
+  const radioWrapper = {
+    width: 'fit-content',
+    display: 'flex',
+  }
+
   return {
     radio,
     radioChecked,
+    radioWrapper,
   };
 };
 
@@ -91,14 +107,13 @@ const Radio = (props) => {
     {
       radio: classRadio,
       radioChecked: classRadioChecked,
-      ...classes
+      radioWrapper: classRadioWrapper,
     }
   ] = useStyles(styles, {
     disabled,
     readonly,
     color,
   });
-  const className = clsx(Object.values(classes));
 
   const [checked, setChecked] = useState(defaultValue);
   const inputRef = useRef();
@@ -113,39 +128,93 @@ const Radio = (props) => {
   }
 
   return (
-    <InputLabel>
-      <Factory
-        ref={inputRef}
-        element="input"
-        type="radio"
-        className={classRadio}
-        checked={checked}
-      />
+    <Factory className={classRadioWrapper}>
+      <InputLabel>
+        <Factory
+          ref={inputRef}
+          element="input"
+          type="radio"
+          className={classRadio}
+          checked={checked}
+          onChange={handleClick}
+          aria-label="Radio Button"
+          />
 
-      <Factory
-        element="span"
-        className={classRadioChecked}
-        onClick={handleClick}
-        marginX={1}
-        {...factoryProps}
-      />
+        <Factory
+          element="span"
+          className={classRadioChecked}
+          marginX={1}
+          onClick={handleClick}
+          {...factoryProps}
+        />
 
-      {label}
-    </InputLabel>
+        <Typography
+          variant="body"
+          element="span"
+          children={label}
+        />
+      </InputLabel>
+    </Factory>
   );
 };
 
+Radio.displayName = 'Radio';
+
 Radio.propTypes = {
-  color: PropTypes.string,
+  /**
+   * Add disabled style.
+   * @default undefined
+   */
   disabled: PropTypes.bool,
+  /**
+   * Add checked style.
+   * @default false
+   */
+  checked: PropTypes.bool.isRequired,
+  /**
+   * Add readonly style.
+   * @default undefined
+   */
+  readonly: PropTypes.bool,
+  /**
+   * Add label style.
+   * @default undefined
+   */
   label: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
   ]),
-  checked: PropTypes.bool.isRequired,
+  /**
+   * Add type style.
+   * @default undefined
+   */
+  type: PropTypes.string,
+  /**
+   * Add color style.
+   * @default default
+   */
+  color: PropTypes.oneOf([
+    'default',
+    'success',
+    'warning',
+    'info',
+    'error'
+  ]),
+  /**
+   * Trigger when element is clicked.
+   * @default Function
+   */
   onChange: PropTypes.func,
-  readonly: PropTypes.bool,
-  type: PropTypes.string
-}
+};
+
+/**
+ * Add @property {object} factoryProps made available properties information
+ * for Props in the Storybook but do not use as major define for default properties.
+ */
+Radio.defaultProps = {
+  color: 'default',
+  checked: false,
+  onChange: () => {},
+};
 
 export default Radio;
