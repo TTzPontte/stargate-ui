@@ -21,7 +21,7 @@ const styles = (theme) => {
   );
 
   const card = {
-    display: 'flex',
+    display: 'block',
     maxWidth: 'max-content',
     cursor: ({ clickable }) => (
       clickable && 'pointer'
