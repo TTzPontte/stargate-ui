@@ -3,51 +3,69 @@ import {
   Canvas,
   Status,
   Story,
+  withAction,
+  Props,
 } from '@pontte/stargate-ui-playground';
 
 import Radio from './Radio';
 
 <Meta title="Core/Form Elements/Radio" component={Radio} />
 
-## Radio Button
+# Radio Button
 
-<Status type="experimental" />
+<Status type="rc" />
+
+## Basic Usage
 
 <Canvas>
-  <Story name="Radio">
-    <Radio
-      label="Radio Unchecked"
-    />
-    <Radio
-      label="Radio Checked"
-      checked
-    />
-    <Radio
-      label="Radio Checked Disabled"
-      checked
-      disabled
-    />
-    <Radio
-      label="Radio Unchecked Disabled"
-      disabled
-    />
+  <Story name="Basic Usage" parameters={{
+    jest: ['Radio.spec.jsx'],
+  }}>
+    {
+      () => (
+        <Radio
+          label="Radio Button"
+          checked={false}
+        />
+      )
+    }
   </Story>
 </Canvas>
 
-  ## Colors State
+<Props component={Radio} />
+
+### Default Radio Button
 
 <Canvas>
-  <Story name="Colors State">
-    <Radio
+  <Radio
+    label="Default Checked"
+    checked
+  />
+  <Radio
+    label="Default Checked Disabled"
+    checked
+    disabled
+  />
+</Canvas>
+
+### Colors State
+
+<Canvas>
+  <Radio
     label
     color="success"
-    />
-    <Radio
+    checked={false}
+  />
+  <Radio
     color="warning"
     checked
-    />
-    <Radio
+  />
+  <Radio
     color="error"
-    />
-  </Story>
+    checked={false}
+  />
+  <Radio
+    color="info"
+    checked
+  />
 </Canvas>

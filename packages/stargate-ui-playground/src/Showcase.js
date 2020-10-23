@@ -6,7 +6,6 @@ import { Typography } from '@pontte/stargate-ui-core';
 const styles = (theme) => {
   const {
     spacing,
-    radius,
   } = theme;
 
   return {
