@@ -19,3 +19,6 @@ export { default as Baseline } from './Baseline';
 
 export { default as MenuList } from './MenuList';
 export * from './MenuList';
+
+export { default as Accordion } from './Accordion';
+export * from './Accordion';

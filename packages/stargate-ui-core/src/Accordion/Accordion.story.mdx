@@ -8,6 +8,8 @@ import {
 } from '@pontte/stargate-ui-playground';
 
 import Accordion from './Accordion';
+import AccordionSummary from './AccordionSummary';
+import AccordionDetails from './AccordionDetails';
 import Typography from '../Typography';
 
 <Meta title="Core/Accordion" component={Accordion} />
@@ -23,47 +25,47 @@ Accordion is a expansible container that may stand alone as a card or piled up.
 <Canvas>
   <Story name="Basic Usage">
     <Accordion>
-      <Accordion.Summary>
+      <AccordionSummary>
         #1 Accordion summary
-      </Accordion.Summary>
-      <Accordion.Details>
+      </AccordionSummary>
+      <AccordionDetails>
         <Typography>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
         </Typography>
-      </Accordion.Details>
+      </AccordionDetails>
     </Accordion>
     <Accordion>
-      <Accordion.Summary>
+      <AccordionSummary>
         #2 Accordion summary
-      </Accordion.Summary>
-      <Accordion.Details>
+      </AccordionSummary>
+      <AccordionDetails>
         <Typography>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
         </Typography>
-      </Accordion.Details>
+      </AccordionDetails>
     </Accordion>
     <Accordion>
-      <Accordion.Summary>
+      <AccordionSummary>
         #3 Accordion summary
-      </Accordion.Summary>
-      <Accordion.Details>
+      </AccordionSummary>
+      <AccordionDetails>
         <Typography>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
         </Typography>
-      </Accordion.Details>
+      </AccordionDetails>
     </Accordion>
   </Story>
 </Canvas>
 
 <Props component={Accordion} />
 
-### Summary
+### Accordion Summary
 
-<Props component={Accordion.Summary} />
+<Props component={AccordionSummary} />
 
-### Details
+### Accordion Details
 
-<Props component={Accordion.Details} />
+<Props component={AccordionDetails} />
 
 ## Controlled accordion
 
@@ -84,42 +86,42 @@ Accordion allows controlling opening individually.
               opened={controller.name === 'accordion-1' && controller.opened}
               onClick={onClick}
             >
-              <Accordion.Summary>
+              <AccordionSummary>
                 #1 Accordion summary
-              </Accordion.Summary>
-              <Accordion.Details>
+              </AccordionSummary>
+              <AccordionDetails>
                 <Typography>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
                 </Typography>
-              </Accordion.Details>
+              </AccordionDetails>
             </Accordion>
             <Accordion
               controller="accordion-2"
               opened={controller.name === 'accordion-2' && controller.opened}
               onClick={onClick}
             >
-              <Accordion.Summary>
+              <AccordionSummary>
                 #2 Accordion summary
-              </Accordion.Summary>
-              <Accordion.Details>
+              </AccordionSummary>
+              <AccordionDetails>
                 <Typography>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
                 </Typography>
-              </Accordion.Details>
+              </AccordionDetails>
             </Accordion>
             <Accordion
               controller="accordion-3"
               opened={controller.name === 'accordion-3' && controller.opened}
               onClick={onClick}
             >
-              <Accordion.Summary>
+              <AccordionSummary>
                 #3 Accordion summary
-              </Accordion.Summary>
-              <Accordion.Details>
+              </AccordionSummary>
+              <AccordionDetails>
                 <Typography>
                   Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
                 </Typography>
-              </Accordion.Details>
+              </AccordionDetails>
             </Accordion>
           </React.Fragment>
         )

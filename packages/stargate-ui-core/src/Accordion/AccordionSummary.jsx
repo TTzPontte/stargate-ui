@@ -86,7 +86,7 @@ const AccordionSummary = React.forwardRef((props, ref) => {
   );
 });
 
-AccordionSummary.displayName = 'Accordion.Summary';
+AccordionSummary.displayName = 'AccordionSummary';
 
 AccordionSummary.propTypes = {
   /**

@@ -64,9 +64,6 @@ const Accordion = React.forwardRef((props, ref) => {
   );
 });
 
-Accordion.Summary = AccordionSummary;
-Accordion.Details = AccordionDetails;
-
 Accordion.displayName = 'Accordion';
 
 Accordion.propTypes = {
@@ -74,8 +71,8 @@ Accordion.propTypes = {
    * Add component dependencies.
    */
   children: PropTypes.oneOfType([
-    PropTypes.instanceOf(Accordion.Summary),
-    PropTypes.instanceOf(Accordion.Details),
+    PropTypes.instanceOf(AccordionSummary),
+    PropTypes.instanceOf(AccordionDetails),
   ]).isRequired,
   /**
    * Trigger when `Accordion.Summary` is clicked.
