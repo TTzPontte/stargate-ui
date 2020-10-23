@@ -142,12 +142,13 @@ const Typography = (props) => {
 
   const typographyMapping = TYPOGRAPHY_VARIANT;
   const element = elementTagString || typographyMapping[typographyVariant];
+
   /**
    * @todo need to filter equal elements
    */
-  const variant = typographyVariant || Object.keys(typographyMapping).reduce(
-    (a, b) => typographyMapping[b] === elementTagString ? b : a
-  );
+  const variant = typographyVariant || Object.keys(typographyMapping).filter(
+    (k) => typographyMapping[k] === elementTagString
+  )[0] || 'body';
 
   const [
     {
