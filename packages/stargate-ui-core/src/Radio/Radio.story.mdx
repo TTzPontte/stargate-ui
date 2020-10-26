@@ -28,10 +28,17 @@ import Radio from './Radio';
   }}>
     {
       () => (
-        <Radio
-          radioLabel="Radio Button"
-          checked={false}
-        />
+        <>
+          <Radio
+            radioLabel="Radio"
+            checked
+          />
+          <Radio
+            radioLabel="Radio Disabled"
+            checked
+            disabled
+          />
+        </>
       )
     }
   </Story>
@@ -39,21 +46,7 @@ import Radio from './Radio';
 
 <Props component={Radio} />
 
-### Default Radio Button
-
-<Canvas>
-  <Radio
-    radioLabel="Default Checked"
-    checked
-  />
-  <Radio
-    radioLabel="Default Checked Disabled"
-    checked
-    disabled
-  />
-</Canvas>
-
-### Default Radio Button with Label
+## Radio with Label
 
 <Canvas>
   <Radio
@@ -72,8 +65,7 @@ import Radio from './Radio';
   />
 </Canvas>
 
-
-### Colors State
+## Colors State
 
 <Canvas>
   <Radio

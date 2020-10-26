@@ -1,8 +1,8 @@
-import React, { useRef, useState } from 'react';
-import PropTypes from "prop-types";
+import React, { useRef, useState, Fragment } from 'react';
+import PropTypes from 'prop-types';
 
 import { useStyles } from '@pontte/stargate-ui-styles';
-import { InputLabel } from '@pontte/stargate-ui-core';
+import InputLabel from '../InputLabel';
 import Typography from '../Typography';
 import Factory from '../Factory';
 
@@ -100,7 +100,7 @@ const Radio = (props) => {
     radioLabel,
     color = 'default',
     checked: defaultValue = false,
-    onChange = () => {},
+    onClick = () => {},
     ...factoryProps
   } = props;
 
@@ -131,11 +131,11 @@ const Radio = (props) => {
     }
 
     setChecked(!checked);
-    onChange({ checked });
+    onClick({ checked });
   }
 
   return (
-    <Factory>
+    <Fragment>
       {showLabel && (
         <InputLabel children={label} />
       )}
@@ -147,9 +147,9 @@ const Radio = (props) => {
             type="radio"
             className={classRadio}
             checked={checked}
-            onChange={handleClick}
+            onClick={handleClick}
             aria-label="Radio Button"
-            />
+          />
 
           <Factory
             element="span"
@@ -157,16 +157,16 @@ const Radio = (props) => {
             marginX={1}
             onClick={handleClick}
             {...factoryProps}
-            />
+          />
 
           <Typography
             variant="body"
             element="span"
             children={radioLabel}
-            />
+          />
         </InputLabel>
       </Factory>
-    </Factory>
+    </Fragment>
   );
 };
 
@@ -174,22 +174,22 @@ Radio.displayName = 'Radio';
 
 Radio.propTypes = {
   /**
-   * Add disabled style.
+   * Disables button and add disabled CSS style (color default).
    * @default undefined
    */
   disabled: PropTypes.bool,
   /**
-   * Add checked style.
-   * @default false
-   */
-  checked: PropTypes.bool.isRequired,
-  /**
-   * Add readonly style.
+   * Add readonly CSS style (color default).
    * @default undefined
    */
   readonly: PropTypes.bool,
   /**
-   * Add label style.
+   * Add checked state and CSS style.
+   * @default false
+   */
+  checked: PropTypes.bool,
+  /**
+   * Add component label.
    * @default undefined
    */
   label: PropTypes.oneOfType([
@@ -197,18 +197,13 @@ Radio.propTypes = {
     PropTypes.node,
   ]),
   /**
-   * Add radioLabel style.
+   * Add label description for radio.
    * @default undefined
    */
   radioLabel: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
   ]),
-  /**
-   * Add type style.
-   * @default undefined
-   */
-  type: PropTypes.string,
   /**
    * Add color style.
    * @default default
@@ -224,7 +219,7 @@ Radio.propTypes = {
    * Trigger when element is clicked.
    * @default Function
    */
-  onChange: PropTypes.func,
+  onClick: PropTypes.func,
 };
 
 /**
@@ -234,7 +229,7 @@ Radio.propTypes = {
 Radio.defaultProps = {
   color: 'default',
   checked: false,
-  onChange: () => {},
+  onClick: () => {},
 };
 
 export default Radio;
