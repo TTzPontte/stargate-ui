@@ -24,4 +24,3 @@ export { default as Accordion } from './Accordion';
 export * from './Accordion';
 
 export { default as Count } from './Count';
-export * from './Count';
