@@ -5,8 +5,14 @@ import Count from '../Count';
 describe('Count', () => {
   it('should render properly', () => {
     const { container } = render(
-      <Count>
-        R$ 123.456,00
+      <Count
+        /**
+         * Prevent Intl error in CI environment.
+         */
+        currency="USD"
+        locale="en-US"
+      >
+        123.456,00
       </Count>,
     );
 
