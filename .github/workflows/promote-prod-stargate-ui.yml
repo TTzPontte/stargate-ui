@@ -3,11 +3,12 @@ name: promote-prod-stargate-ui
 on:
   push:
     paths:
-      - packages/stargate-ui-core/**
-      - packages/stargate-ui-icons/**
-      - packages/stargate-ui-styles/**
+      - packages/stargate-ui-core/**/*.*!(.mdx|spec|snap)
+      - packages/stargate-ui-icons/**/*.*!(.mdx|spec|snap)
+      - packages/stargate-ui-styles/**/*.*!(.mdx|spec|snap)
     branches:
       - alpha
+      - beta
 
 env:
   NPM_TOKEN: ${{ secrets.BOT_REGISTRY_TOKEN }}
