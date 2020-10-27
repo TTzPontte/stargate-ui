@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.35 (2020-10-27)
+
+
+### Bug Fixes
+
+* **core:** change Button file to jsx ([e9f2d63](https://github.com/pontte/stargate-ui/commit/e9f2d63ca7057e8ef0881baaef8776b235adef21))
+
+
+
+
+
 # 0.1.0-alpha.34 (2020-10-27)
 
 **Note:** Version bump only for package @pontte/stargate-ui-icons
