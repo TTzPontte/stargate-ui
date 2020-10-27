@@ -7,12 +7,9 @@ import {
   Props,
 } from '@pontte/stargate-ui-playground';
 
-import {
-  Label,
-  Instagram as SvgIconInstagram,
-} from '@pontte/stargate-ui-core';
-
-import { Typography } from '@pontte/stargate-ui-core';
+import Typography from '../Typography';
+import { Instagram as SvgIconInstagram } from '../icons';
+import Label from '../Label';
 
 import Checkbox from './Checkbox';
 
@@ -25,36 +22,67 @@ import Checkbox from './Checkbox';
 ## Basic Usage
 
 <Canvas>
-  <Story name="Checkbox">
-    <Checkbox
-      label="Cool checkbox"
-    />
-    <Checkbox
-      label="Cool checkbox"
-      checked
-    />
-    <Checkbox
-      label="Cool checkbox"
-      checked
-    />
+  <Story name="Basic Usage" parameters={{
+    jest: ['Checkbox.spec.jsx'],
+  }}>
+    {
+      () => (
+        <>
+          <Checkbox
+            checkboxLabel="Checkbox"
+            checked
+          />
+          <Checkbox
+            checkboxLabel="Checkbox Disabled"
+            checked
+            disabled
+          />
+        </>
+      )
+    }
   </Story>
+</Canvas>
+
+<Props component={Checkbox} />
+
+## Checkbox with Label
+
+<Canvas>
+  <Checkbox
+    label="This is a default Label"
+    checkboxLabel="Checkbox"
+    checked
+  />
+  <Checkbox
+    label={
+      <Label>
+        <SvgIconInstagram />
+        This is a Customized Label with Icon
+      </Label>
+    }
+    checkboxLabel="Checkbox"
+    checked
+    disabled
+  />
 </Canvas>
 
 ## Colors State
 
 <Canvas>
-  <Story name="Colors State">
-    <Checkbox
-      label
-      color="success"
-    />
-    <Checkbox
-      color="warning"
-      checked
-    />
-    <Checkbox
-      color="error"
-      checked
-    />
-  </Story>
+  <Checkbox
+    color="success"
+    checked={false}
+  />
+  <Checkbox
+    color="warning"
+    checked
+  />
+  <Checkbox
+    color="error"
+    checked={false}
+  />
+  <Checkbox
+    color="info"
+    checked
+  />
 </Canvas>

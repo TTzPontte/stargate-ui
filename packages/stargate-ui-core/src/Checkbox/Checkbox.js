@@ -1,15 +1,12 @@
-import React, { Fragment, useRef, useState } from 'react';
+import React from 'react';
 import PropTypes from "prop-types";
-import { useStyles } from '@pontte/stargate-ui-styles';
-import { InputLabel } from '@pontte/stargate-ui-core';
 
 import { useStyles } from '@pontte/stargate-ui-styles';
-import {
-  InputLabel,
-  Typography,
-  Check as SvgIconCheck,
-} from '@pontte/stargate-ui-core';
+
+import Typography from '../Typography';
+import InputLabel from '../InputLabel';
 import Factory from '../Factory';
+import { Check as SvgIconCheck } from '../icons';
 
 const styles = (theme) => {
   const {
@@ -94,22 +91,6 @@ const styles = (theme) => {
         },
       },
     },
-    '& ~ $checkboxMark:checked': {
-      backgroundColor: (props) => {
-        const {
-          disabled,
-          readonly,
-          color,
-        } = props;
-
-        return (disabled || readonly) ? setLightness(.95, getColor(color)) : getColor(color)
-      },
-    },
-    '&:after': {
-      content: '""',
-      display: 'inline-flex',
-      '$checkbox:checked ~ &': {},
-    },
   };
 
   const checkboxWrapper = {
@@ -124,7 +105,7 @@ const styles = (theme) => {
   };
 };
 
-const Checkbox = (props) => {
+const Checkbox = React.forwardRef((props, ref) => {
   const {
     disabled,
     readonly,
@@ -154,8 +135,8 @@ const Checkbox = (props) => {
     color,
   });
 
-  const [checked, setChecked] = useState(defaultValue);
-  const inputRef = useRef();
+  const [checked, setChecked] = React.useState(defaultValue);
+  const inputInner = React.useRef(ref);
 
   const handleClick = () => {
     if (disabled) {
@@ -167,14 +148,14 @@ const Checkbox = (props) => {
   }
 
   return (
-    <Fragment>
+    <>
       {showLabel && (
         <InputLabel children={label} />
       )}
       <Factory className={classCheckboxWrapper}>
         <InputLabel>
           <Factory
-            ref={inputRef}
+            ref={inputInner}
             element="input"
             type="checkbox"
             className={classCheckbox}
@@ -197,9 +178,9 @@ const Checkbox = (props) => {
           />
         </InputLabel>
       </Factory>
-    </Fragment>
+    </>
   );
-};
+});
 
 Checkbox.displayName = 'Checkbox';
 
