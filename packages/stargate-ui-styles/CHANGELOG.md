@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.36 (2020-10-27)
+
+
+### Bug Fixes
+
+* **core:** change wrong export ([f780317](https://github.com/pontte/stargate-ui/commit/f780317ccd91d307c72d3b1583f1cdf5de204e15))
+
+
+
+
+
 # 0.1.0-alpha.35 (2020-10-27)
 
 
