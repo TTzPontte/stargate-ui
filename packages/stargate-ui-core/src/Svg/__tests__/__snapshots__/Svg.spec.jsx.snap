@@ -4,7 +4,7 @@ exports[`Svg should render properly 1`] = `
 <div>
   <span
     aria-hidden="true"
-    class="stargate-ui-factory-0-2-1 stargate-ui-factory-d0-0-2-3"
+    class="stargate-ui-factory-0-2-2 stargate-ui-factory-d0-0-2-4 stargate-ui-svg-0-2-1"
   >
     <svg
       viewBox="0 0 24 24"
