@@ -22,3 +22,5 @@ export * from './MenuList';
 
 export { default as Accordion } from './Accordion';
 export * from './Accordion';
+
+export * from './Count';
