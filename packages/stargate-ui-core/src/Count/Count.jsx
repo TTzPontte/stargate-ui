@@ -136,5 +136,4 @@ Count.defaultProps = {
   locale: 'pt-BR',
 };
 
-export { Count };
 export default Count;
