@@ -445,5 +445,4 @@ Factory.defaultProps = {
   textAlign: 'inherit',
 };
 
-export { Factory };
 export default Factory;
