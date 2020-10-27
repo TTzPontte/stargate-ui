@@ -1,0 +1,27 @@
+import {
+  Meta,
+  Canvas,
+  Status,
+  Props,
+} from '@pontte/stargate-ui-playground';
+
+import Typography from '../Typography';
+import Count from './Count';
+
+<Meta title="Core/Count" component={Count} />
+
+# Count
+
+<Status type="stable" />
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic Usage">
+    <Typography>
+      Lorem, ipsum dolor sit amet consectetur <Count>R$ 123.456,00</Count>
+    </Typography>
+  </Story>
+</Canvas>
+
+<Props component={Count} />
