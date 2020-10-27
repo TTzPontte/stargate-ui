@@ -179,6 +179,7 @@ const Checkbox = (props) => {
             type="checkbox"
             className={classCheckbox}
             checked={checked}
+            aria-label="Checkbox"
           />
 
           <Factory
