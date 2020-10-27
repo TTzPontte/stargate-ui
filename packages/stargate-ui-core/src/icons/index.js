@@ -13,3 +13,4 @@ export { default as Linkedin } from './Linkedin';
 export { default as User } from './User';
 export { default as Logout } from './Logout';
 export { default as Burguer } from './Burguer';
+export { default as Check } from './Check';

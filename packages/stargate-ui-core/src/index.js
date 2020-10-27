@@ -8,6 +8,7 @@ export { default as Baseline } from './Baseline';
 export { default as Button } from './Button';
 export { default as ButtonAction } from './ButtonAction';
 export { default as Card } from './Card';
+export { default as Checkbox } from './Checkbox';
 export { default as Container } from './Container';
 export { default as Count } from './Count';
 export { default as Divider } from './Divider';
@@ -15,6 +16,7 @@ export { default as Drawer } from './Drawer';
 export { default as Factory } from './Factory';
 export { default as Grid } from './Grid';
 export { default as Input } from './Input';
+export { default as InputLabel } from './InputLabel';
 export { default as Label } from './Label';
 export { default as Link } from './Link';
 

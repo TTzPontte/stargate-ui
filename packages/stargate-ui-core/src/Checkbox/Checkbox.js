@@ -1,8 +1,14 @@
-import React, { useRef, useState } from 'react';
+import React, { Fragment, useRef, useState } from 'react';
 import PropTypes from "prop-types";
 import { useStyles } from '@pontte/stargate-ui-styles';
 import { InputLabel } from '@pontte/stargate-ui-core';
 
+import { useStyles } from '@pontte/stargate-ui-styles';
+import {
+  InputLabel,
+  Typography,
+  Check as SvgIconCheck,
+} from '@pontte/stargate-ui-core';
 import Factory from '../Factory';
 
 const styles = (theme) => {
@@ -34,9 +40,19 @@ const styles = (theme) => {
       height: 20,
       borderRadius: radius(),
       backgroundColor: palette.lighter,
-      border: ({color}) => (
-        [[1, 'solid', getColor(color)]]
-      ),
+      border: (props) => {
+        const {
+          disabled,
+          readonly,
+          color,
+        } = props;
+
+        if (disabled || readonly) {
+          return [[1, 'solid', setLightness(.75, getColor(color))]];
+        }
+
+        return [[1, 'solid', (color !== 'default' ? getColor(color) : getColor('success'))]];
+      },
       '$checkbox:checked ~ &': {
         backgroundColor: (props) => {
           const {
@@ -45,7 +61,11 @@ const styles = (theme) => {
             color,
           } = props;
 
-          return (disabled || readonly) ? setLightness(.95, getColor(color)) : getColor(color)
+          if (disabled || readonly) {
+            return setLightness(.95, getColor(color));
+          }
+
+          return color !== 'default' ? getColor(color) : getColor('success');
         },
       },
     },
@@ -53,18 +73,25 @@ const styles = (theme) => {
       content: '""',
       display: 'inline-flex',
       '$checkbox:checked ~ &': {
-        top: -8,
-        left: -16,
-        width: 4,
+        top: -6,
+        left: -14,
+        width: 8,
         height: 8,
         position: 'relative',
-        transform: [['rotate(45deg)', 'scale(1)' ]],
-        border: ({color}) => (
-          [['solid', setLightness(.45, getColor(color))]]
-        ),
-        borderWidth: [[0, 2, 2, 0]],
-        borderRadius: 0,
-        transition: [['all', '0.3s', 'ease-out']],
+        backgroundImage: `url(${SvgIconCheck})`,
+        border: (props) => {
+          const {
+            disabled,
+            readonly,
+            color,
+          } = props;
+
+          if (disabled || readonly) {
+            return [[1, 'solid', setLightness(.75, getColor(color))]];
+          }
+
+          return [[1, 'solid', 'white']];
+        },
       },
     },
     '& ~ $checkboxMark:checked': {
@@ -85,9 +112,15 @@ const styles = (theme) => {
     },
   };
 
+  const checkboxWrapper = {
+    width: 'fit-content',
+    display: 'flex',
+  }
+
   return {
     checkbox,
     checkboxMark,
+    checkboxWrapper
   };
 };
 
@@ -96,17 +129,24 @@ const Checkbox = (props) => {
     disabled,
     readonly,
     label,
+    checkboxLabel,
     color = 'default',
     checked: defaultValue = false,
-    onChange = () => {},
+    onClick = () => {},
     ...factoryProps
   } = props;
+
+  let showLabel = false;
+
+  if (label) {
+    showLabel = true;
+  }
 
   const [
     {
       checkbox: classCheckbox,
       checkboxMark: classCheckboxMark,
-      ...classes
+      checkboxWrapper: classCheckboxWrapper,
     }
   ] = useStyles(styles, {
     disabled,
@@ -123,43 +163,103 @@ const Checkbox = (props) => {
     }
 
     setChecked(!checked);
-    onChange({ checked });
+    onClick({ checked });
   }
 
   return (
-    <InputLabel>
-      <Factory
-        ref={inputRef}
-        element="input"
-        type="checkbox"
-        className={classCheckbox}
-        checked={checked}
-      />
+    <Fragment>
+      {showLabel && (
+        <InputLabel children={label} />
+      )}
+      <Factory className={classCheckboxWrapper}>
+        <InputLabel>
+          <Factory
+            ref={inputRef}
+            element="input"
+            type="checkbox"
+            className={classCheckbox}
+            checked={checked}
+          />
 
-      <Factory
-        element="span"
-        className={classCheckboxMark}
-        onClick={handleClick}
-        marginRight={1}
-        {...factoryProps}
-      />
+          <Factory
+            element="span"
+            className={classCheckboxMark}
+            onClick={handleClick}
+            marginX={1}
+            {...factoryProps}
+          />
 
-      {label}
-    </InputLabel>
+          <Typography
+            variant="body"
+            element="span"
+            children={checkboxLabel}
+          />
+        </InputLabel>
+      </Factory>
+    </Fragment>
   );
 };
 
+Checkbox.displayName = 'Checkbox';
+
 Checkbox.propTypes = {
-  color: PropTypes.string,
+  /**
+   * Disables button and add disabled CSS style (color default).
+   * @default undefined
+   */
   disabled: PropTypes.bool,
+  /**
+   * Add readonly CSS style (color default).
+   * @default undefined
+   */
+  readonly: PropTypes.bool,
+  /**
+   * Add checked state and CSS style.
+   * @default false
+   */
+  checked: PropTypes.bool,
+  /**
+   * Add component label.
+   * @default undefined
+   */
   label: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
   ]),
-  checked: PropTypes.bool.isRequired,
-  onChange: PropTypes.func,
-  readonly: PropTypes.bool,
-  type: PropTypes.string
-}
+  /**
+   * Add label description for checkbox.
+   * @default undefined
+   */
+  checkboxLabel: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.node,
+  ]),
+  /**
+   * Add color style.
+   * @default default
+   */
+  color: PropTypes.oneOf([
+    'default',
+    'success',
+    'warning',
+    'info',
+    'error'
+  ]),
+  /**
+   * Trigger when element is clicked.
+   * @default Function
+   */
+  onClick: PropTypes.func,
+};
+
+/**
+ * Add @property {object} factoryProps made available properties information
+ * for Props in the Storybook but do not use as major define for default properties.
+ */
+Checkbox.defaultProps = {
+  color: 'default',
+  checked: false,
+  onClick: () => {},
+};
 
 export default Checkbox;
