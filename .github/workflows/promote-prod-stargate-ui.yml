@@ -3,9 +3,9 @@ name: promote-prod-stargate-ui
 on:
   push:
     paths:
-      - packages/stargate-ui-core/**/*.*!(.mdx|spec|snap)
-      - packages/stargate-ui-icons/**/*.*!(.mdx|spec|snap)
-      - packages/stargate-ui-styles/**/*.*!(.mdx|spec|snap)
+      - packages/stargate-ui-core/**
+      - packages/stargate-ui-icons/**
+      - packages/stargate-ui-styles/**
     branches:
       - alpha
       - beta
