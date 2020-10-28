@@ -49,27 +49,25 @@ const styles = (theme) => {
     ],
     '&:after': {
       ...checkedElements,
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: '60%',
+      height: '60%',
+      position: 'absolute',
+      borderRadius: radius(2),
+      backgroundColor: (props) => {
+        const {
+          disabled,
+          readonly,
+        } = props;
+
+        if (disabled || readonly) {
+          return setLightness(.90, getColor('default'));
+        }
+      },
       '$radio:checked ~ &': {
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '60%',
-        height: '60%',
-        position: 'absolute',
-        borderRadius: radius(2),
-        backgroundColor: (props) => {
-          const {
-            disabled,
-            readonly,
-            color,
-          } = props;
-
-          if (disabled || readonly) {
-            return setLightness(.90, getColor(color));
-          }
-
-          return color !== 'default' ? getColor(color) : getColor('success');
-        },
+        backgroundColor: ({color}) => (color !== 'default' ? getColor(color) : getColor('success')),
       },
     },
   };
@@ -110,7 +108,6 @@ const Radio = React.forwardRef((props, ref) => {
       event.preventDefault();
       return;
     }
-
     onChange(event, [value]);
   };
 
@@ -165,35 +162,17 @@ Radio.displayName = 'Radio';
 
 Radio.propTypes = {
   /**
-   * Add input name.
-   * @default undefined
-   */
-  name: PropTypes.string,
-  /**
-   * Disables button and add disabled CSS style (color default).
+   * Disables button and add disabled CSS style.
    * @default undefined
    */
   disabled: PropTypes.bool,
   /**
-   * Add readonly CSS style (color default).
+   * Add readonly CSS style.
    * @default undefined
    */
   readonly: PropTypes.bool,
   /**
-   * Add checked state and CSS style.
-   * @default false
-   */
-  checked: PropTypes.bool,
-  /**
-   * Add component label.
-   * @default undefined
-   */
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node,
-  ]),
-  /**
-   * Add label description for radio.
+   * Add a label description for each radio.
    * @default undefined
    */
   label: PropTypes.oneOfType([
@@ -211,11 +190,6 @@ Radio.propTypes = {
     'info',
     'error'
   ]),
-  /**
-   * Trigger when element is clicked.
-   * @default Function
-   */
-  onClick: PropTypes.func,
 };
 
 /**

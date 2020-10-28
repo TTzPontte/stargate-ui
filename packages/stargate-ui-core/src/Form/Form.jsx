@@ -9,7 +9,7 @@ const Form = (props) => {
 
   return (
     <FormContext.Provider value={context}>
-      <form onSubmit={() => {}} {...factoryProps}>
+      <form {...factoryProps}>
         {children}
       </form>
     </FormContext.Provider>
