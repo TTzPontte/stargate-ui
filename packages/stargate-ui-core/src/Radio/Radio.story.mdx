@@ -30,7 +30,7 @@ import Form from '../Form';
   }}>
     {
       () => {
-        const [value, setValue] = React.useState('radio-1');
+        const [value, setValue] = React.useState('radio-2');
         const handleChange = (event, [v]) => {
           setValue(v);
         };
@@ -41,20 +41,20 @@ import Form from '../Form';
             onChange={handleChange}
           >
             <Radio
-              label="Radio"
+              label="Radio 1"
               value="radio-1"
             />
             <Radio
-              label="Radio"
+              label="Radio 2"
               value="radio-2"
             />
             <Radio
-              label="Radio disabled"
+              label="Radio Disabled"
               disabled
               value="radio-3"
             />
             <Radio
-              label="Radio readonly"
+              label="Radio Readonly"
               disabled
               value="radio-4"
             />
@@ -96,23 +96,36 @@ import Form from '../Form';
 
 ## Using with label
 
-Refer Label component.
+You can use any node element for `label` property. For more info, refer to Label component.
 
 <Canvas>
   <Story name="Using with label">
-    <Label>Lorem ipsum dolor sit amet consectetur:</Label>
-    <RadioGroup
-      name="radion-group-1"
-      value="radio-1"
-    >
-      <Radio
-        label="Option 1"
-        value="radio-1"
-      />
-      <Radio
-        label="Option 2"
-        value="radio-2"
-      />
-    </RadioGroup>
+    {
+      () => {
+        const [value, setValue] = React.useState('radio-2');
+        const handleChange = (event, [v]) => {
+          setValue(v);
+        };
+        return (
+          <>
+            <Label>Lorem ipsum dolor sit amet consectetur:</Label>
+            <RadioGroup
+              name="radion-group-1"
+              value={value}
+              onChange={handleChange}
+            >
+              <Radio
+                label="Radio 1"
+                value="radio-1"
+              />
+              <Radio
+                label="Radio 2"
+                value="radio-2"
+              />
+            </RadioGroup>
+          </>
+        );
+      }
+    }
   </Story>
 </Canvas>

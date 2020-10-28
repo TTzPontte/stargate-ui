@@ -22,7 +22,6 @@ const RadioGroup = (props) => {
     disabled,
     handleChange,
   ]);
-
   return (
     <RadioGroupContext.Provider
       value={context}
