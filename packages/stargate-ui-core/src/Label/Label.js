@@ -1,29 +1,37 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useStyles } from '@pontte/stargate-ui-styles';
+import clsx from 'clsx';
 
 import Typography from '../Typography';
 
 const styles = () => {
   const label = {
-    display: 'inline-flex',
+    display: 'inline-flex!important',
     alignItems: 'center',
+    cursor: 'pointer',
   };
 
   return { label };
 };
 
 const Label = (props) => {
-  const { children, ...factoryProps } = props;
-  const [{ label: classLabel }] = useStyles(styles);
+  const {
+    children,
+    className: inheritedClassName,
+    ...factoryProps
+  } = props;
+
+  const [{ label }] = useStyles(styles);
+  const classLabel = clsx(label, inheritedClassName);
 
   return (
     <Typography
-      element="label"
       variant="body"
+      {...factoryProps}
+      element="label"
       children={children}
       className={classLabel}
-      {...factoryProps}
     />
   );
 };
