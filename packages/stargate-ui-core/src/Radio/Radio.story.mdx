@@ -13,6 +13,8 @@ import {
 } from '@pontte/stargate-ui-core';
 
 import Radio from './Radio';
+import RadioGroup from './RadioGroup';
+import Form from '../Form';
 
 <Meta title="Core/Form Elements/Radio" component={Radio} />
 
@@ -27,62 +29,90 @@ import Radio from './Radio';
     jest: ['Radio.spec.jsx'],
   }}>
     {
-      () => (
-        <>
-          <Radio
-            radioLabel="Radio"
-            checked
-          />
-          <Radio
-            radioLabel="Radio Disabled"
-            checked
-            disabled
-          />
-        </>
-      )
+      () => {
+        const [value, setValue] = React.useState('radio-1');
+        const handleChange = (event, [v]) => {
+          setValue(v);
+        };
+        return (
+          <RadioGroup
+            name="radion-group-1"
+            value={value}
+            onChange={handleChange}
+          >
+            <Radio
+              label="Radio"
+              value="radio-1"
+            />
+            <Radio
+              label="Radio"
+              value="radio-2"
+            />
+            <Radio
+              label="Radio disabled"
+              disabled
+              value="radio-3"
+            />
+            <Radio
+              label="Radio readonly"
+              disabled
+              value="radio-4"
+            />
+          </RadioGroup>
+        );
+      }
     }
   </Story>
 </Canvas>
 
 <Props component={Radio} />
 
-## Radio with Label
+## Colors
 
 <Canvas>
-  <Radio
-    label="This is a default Label"
-    checked
-  />
-  <Radio
-    label={
-      <Label>
-        <SvgIconInstagram />
-        This is a Customized Label with Icon
-      </Label>
-    }
-    checked
-    disabled
-  />
+  <Story name="Colors">
+    <Radio
+      label="Success color"
+      color="success"
+      checked
+    />
+    <Radio
+      label="Warning color"
+      color="warning"
+      checked
+    />
+    <Radio
+      label="Error color"
+      color="error"
+      checked
+    />
+    <Radio
+      label="Info color"
+      color="info"
+      checked
+    />
+  </Story>
 </Canvas>
 
-## Colors State
+## Using with label
+
+Refer Label component.
 
 <Canvas>
-  <Radio
-    radioLabel
-    color="success"
-    checked={false}
-  />
-  <Radio
-    color="warning"
-    checked
-  />
-  <Radio
-    color="error"
-    checked={false}
-  />
-  <Radio
-    color="info"
-    checked
-  />
+  <Story name="Using with label">
+    <Label>Lorem ipsum dolor sit amet consectetur:</Label>
+    <RadioGroup
+      name="radion-group-1"
+      value="radio-1"
+    >
+      <Radio
+        label="Option 1"
+        value="radio-1"
+      />
+      <Radio
+        label="Option 2"
+        value="radio-2"
+      />
+    </RadioGroup>
+  </Story>
 </Canvas>

@@ -1,10 +1,11 @@
-import React, { useRef, useState, Fragment } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { useStyles } from '@pontte/stargate-ui-styles';
-import InputLabel from '../InputLabel';
-import Typography from '../Typography';
+import Label from '../Label';
 import Factory from '../Factory';
+import Typography from '../Typography';
+import RadioGroupContext from './RadioGroupContext';
 
 const styles = (theme) => {
   const {
@@ -26,43 +27,36 @@ const styles = (theme) => {
     opacity: 0,
   };
 
+  const checkedElements = {
+    content: '""',
+    display: 'inline-flex',
+  };
+
   const radioChecked = {
     cursor: 'pointer',
-    '&:before': {
-      content: '""',
-      display: 'inline-flex',
-      width: 20,
-      height: 20,
-      borderRadius: radius(3),
-      backgroundColor: palette.lighter,
-      margin: 0,
-      border: ({color}) => (
-        [[1, 'solid', getColor(color)]]
-      ),
-    },
+    width: 20,
+    height: 20,
+    display: 'inline-block',
+    position: 'relative',
+    borderRadius: radius(3),
+    background: palette.lighter,
+    margin: 0,
+    overflow: 'hidden',
+    border: [
+      1,
+      'solid',
+      palette?.default[mode].color,
+    ],
     '&:after': {
-      content: '""',
-      display: 'inline-flex',
+      ...checkedElements,
       '$radio:checked ~ &': {
-        bottom: 6,
-        right: 16,
-        width: 12,
-        height: 12,
-        position: 'relative',
+        top: '50%',
+        left: '50%',
+        transform: 'translate(-50%, -50%)',
+        width: '60%',
+        height: '60%',
+        position: 'absolute',
         borderRadius: radius(2),
-        border: (props) => {
-          const {
-            disabled,
-            readonly,
-            color,
-          } = props;
-
-          if (disabled || readonly) {
-            return [['solid', setLightness(.95, getColor(color))]];
-          }
-
-          return [['solid', (color !== 'default' ? getColor(color) : getColor('success'))]];
-        },
         backgroundColor: (props) => {
           const {
             disabled,
@@ -71,7 +65,7 @@ const styles = (theme) => {
           } = props;
 
           if (disabled || readonly) {
-            return setLightness(.95, getColor(color));
+            return setLightness(.90, getColor(color));
           }
 
           return color !== 'default' ? getColor(color) : getColor('success');
@@ -92,23 +86,33 @@ const styles = (theme) => {
   };
 };
 
-const Radio = (props) => {
+const Radio = React.forwardRef((props, ref) => {
   const {
     disabled,
     readonly,
     label,
-    radioLabel,
+    value,
     color = 'default',
-    checked: defaultValue = false,
-    onClick = () => {},
     ...factoryProps
   } = props;
 
-  let showLabel = false;
+  const innerRef = React.useRef(ref);
 
-  if (label) {
-    showLabel = true;
-  }
+  const {
+    name,
+    onChange,
+    value: radioGroupValue,
+    disabled: radioGroupDisabled,
+  } = React.useContext(RadioGroupContext);
+
+  const handleChange = (event) => {
+    if (disabled) {
+      event.preventDefault();
+      return;
+    }
+
+    onChange(event, [value]);
+  };
 
   const [
     {
@@ -117,62 +121,54 @@ const Radio = (props) => {
       radioWrapper: classRadioWrapper,
     }
   ] = useStyles(styles, {
-    disabled,
     readonly,
     color,
+    disabled: radioGroupDisabled ?? disabled,
   });
 
-  const [checked, setChecked] = useState(defaultValue);
-  const inputRef = useRef();
-
-  const handleClick = () => {
-    if (disabled) {
-      return;
-    }
-
-    setChecked(!checked);
-    onClick({ checked });
-  }
+  const checked = value && radioGroupValue ? value === radioGroupValue : false;
 
   return (
-    <Fragment>
-      {showLabel && (
-        <InputLabel children={label} />
-      )}
-      <Factory className={classRadioWrapper}>
-        <InputLabel>
-          <Factory
-            ref={inputRef}
-            element="input"
-            type="radio"
-            className={classRadio}
-            checked={checked}
-            onClick={handleClick}
-            aria-label="Radio Button"
-          />
+    <Factory className={classRadioWrapper}>
+      <Label>
+        <Factory
+          checked={checked}
+          {...factoryProps}
+          ref={innerRef}
+          element="input"
+          type="radio"
+          className={classRadio}
+          onChange={handleChange}
+          value={value}
+          disabled={radioGroupDisabled ?? disabled}
+          name={name}
+        />
 
-          <Factory
-            element="span"
-            className={classRadioChecked}
-            marginX={1}
-            onClick={handleClick}
-            {...factoryProps}
-          />
+        <Factory
+          element="span"
+          className={classRadioChecked}
+          marginX={1}
+        />
 
-          <Typography
-            variant="body"
-            element="span"
-            children={radioLabel}
-          />
-        </InputLabel>
-      </Factory>
-    </Fragment>
+        <Typography
+          element="span"
+          variant="body"
+          children={label}
+          gutter={0}
+        />
+      </Label>
+    </Factory>
   );
-};
+});
 
 Radio.displayName = 'Radio';
 
 Radio.propTypes = {
+  /**
+   * Add input name.
+   * @default undefined
+   */
+  name: PropTypes.string,
   /**
    * Disables button and add disabled CSS style (color default).
    * @default undefined
@@ -200,7 +196,7 @@ Radio.propTypes = {
    * Add label description for radio.
    * @default undefined
    */
-  radioLabel: PropTypes.oneOfType([
+  label: PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.node,
   ]),
@@ -228,8 +224,6 @@ Radio.propTypes = {
  */
 Radio.defaultProps = {
   color: 'default',
-  checked: false,
-  onClick: () => {},
 };
 
 export default Radio;
