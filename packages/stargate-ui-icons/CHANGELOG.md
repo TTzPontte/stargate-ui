@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.49 (2020-10-29)
+
+
+### Bug Fixes
+
+* **core:** remove unnecessary file came from conflict ([f9f69a6](https://github.com/pontte/stargate-ui/commit/f9f69a661e1f2a16f7c379d02ef46d0dc4e4caa7))
+
+
+
+
+
 # 0.1.0-alpha.48 (2020-10-29)
 
 **Note:** Version bump only for package @pontte/stargate-ui-icons
