@@ -30,9 +30,9 @@ import Form from '../Form';
   }}>
     {
       () => {
-        const [value, setValue] = React.useState('radio-2');
-        const handleChange = (event, [v]) => {
-          setValue(v);
+        const [value, setValue] = React.useState('radio-4');
+        const handleChange = (event, [radioValue]) => {
+          setValue(radioValue);
         };
         return (
           <RadioGroup
@@ -50,13 +50,14 @@ import Form from '../Form';
             />
             <Radio
               label="Radio Disabled"
-              disabled
+              checked
               value="radio-3"
+              disabled
             />
             <Radio
               label="Radio Readonly"
-              disabled
               value="radio-4"
+              readOnly
             />
           </RadioGroup>
         );
@@ -66,6 +67,8 @@ import Form from '../Form';
 </Canvas>
 
 <Props component={Radio} />
+
+<Props component={RadioGroup} />
 
 ## Colors
 
@@ -86,11 +89,6 @@ import Form from '../Form';
       color="error"
       checked
     />
-    <Radio
-      label="Info color"
-      color="info"
-      checked
-    />
   </Story>
 </Canvas>
 
@@ -103,24 +101,27 @@ You can use any node element for `label` property. For more info, refer to Label
     {
       () => {
         const [value, setValue] = React.useState('radio-2');
-        const handleChange = (event, [v]) => {
-          setValue(v);
+        const handleChange = (event, [radioValue]) => {
+          setValue(radioValue);
         };
         return (
           <>
             <Label>Lorem ipsum dolor sit amet consectetur:</Label>
             <RadioGroup
-              name="radion-group-1"
+              control="radio-1"
+              name="radion-group-2"
               value={value}
               onChange={handleChange}
             >
               <Radio
                 label="Radio 1"
                 value="radio-1"
+                controller="radio-1"
               />
               <Radio
                 label="Radio 2"
                 value="radio-2"
+                controller="radio-1"
               />
             </RadioGroup>
           </>
