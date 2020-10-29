@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CountUp from 'react-countup';
+import { useCountUp } from 'react-countup';
 
 import Factory from '../Factory';
 
@@ -17,8 +17,6 @@ const Count = React.forwardRef((props, ref) => {
     ...factoryProps
   } = props;
 
-  const innerRef = React.useRef(ref);
-
   const number = children
       /**
        * Remove non-numeric and non-comma character.
@@ -29,8 +27,6 @@ const Count = React.forwardRef((props, ref) => {
        */
       .replace(/\,/, '.');
   const end = parseFloat(number);
-
-  console.log('Count:', number, end, children);
 
   const handleFormat = (n) => {
     if (onChange) {
@@ -50,19 +46,19 @@ const Count = React.forwardRef((props, ref) => {
     return valueFormatted;
   }
 
+  const { countUp } = useCountUp({
+    duration,
+    decimals,
+    end,
+    delay,
+    start: 0,
+    formattingFn: handleFormat,
+  });
+
   return (
-    <Factory element="span" {...factoryProps}>
-      {children}
-      {/* <CountUp
-        ref={innerRef}
-        start={0}
-        end={end}
-        delay={delay}
-        duration={duration}
-        decimals={decimals}
-        formattingFn={handleFormat}
-      /> */}
-  </Factory>
+    <Factory element="span" {...factoryProps} ref={ref}>
+      {countUp}
+    </Factory>
   );
 });
 
