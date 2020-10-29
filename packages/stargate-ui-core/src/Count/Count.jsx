@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import CountUp from 'react-countup';
+import CountUp from 'react-countup';
 
 import Factory from '../Factory';
 
@@ -30,6 +30,8 @@ const Count = React.forwardRef((props, ref) => {
       .replace(/\,/, '.');
   const end = parseFloat(number);
 
+  console.log('Count:', number, end, children);
+
   const handleFormat = (n) => {
     if (onChange) {
       onChange({}, n);
@@ -50,8 +52,7 @@ const Count = React.forwardRef((props, ref) => {
 
   return (
     <Factory element="span" {...factoryProps}>
-      {children}
-      {/* <CountUp
+      <CountUp
         ref={innerRef}
         start={0}
         end={end}
@@ -59,7 +60,7 @@ const Count = React.forwardRef((props, ref) => {
         duration={duration}
         decimals={decimals}
         formattingFn={handleFormat}
-      /> */}
+      />
   </Factory>
   );
 });
@@ -121,20 +122,6 @@ Count.propTypes = {
    * Add any props allowed in Factory or default props of HTML.
    */
   // '...props': PropTypes.object,
-};
-
-/**
- * Add @property {object} defaultProps made available properties information
- * for Props in the Storybook but do not use as major define for default properties.
- */
-Count.defaultProps = {
-  delay: 0,
-  duration: 5,
-  decimals: 2,
-  children: '',
-  style: 'decimal',
-  currency: 'BRL',
-  locale: 'pt-BR',
 };
 
 export default Count;
