@@ -27,7 +27,10 @@ const extensions = [
 ];
 
 const config = {
-  external: [],
+  external: [
+    '@pontte/stargate-ui-styles',
+    '@pontte/stargate-ui-icons',
+  ],
   plugins: [
     svgr(),
     postcss({
