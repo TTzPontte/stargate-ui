@@ -21,6 +21,7 @@ export { default as Link } from './Link';
 export { default as MenuList } from './MenuList';
 export * from './MenuList';
 
+export { default as Radio } from './Radio';
 export { default as Svg } from './Svg';
 export { default as SvgIcon } from './SvgIcon';
 export { default as Typography } from './Typography';
