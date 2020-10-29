@@ -13,6 +13,8 @@ import {
 } from '@pontte/stargate-ui-core';
 
 import Radio from './Radio';
+import RadioGroup from './RadioGroup';
+import Form from '../Form';
 
 <Meta title="Core/Form Elements/Radio" component={Radio} />
 
@@ -27,62 +29,104 @@ import Radio from './Radio';
     jest: ['Radio.spec.jsx'],
   }}>
     {
-      () => (
-        <>
-          <Radio
-            radioLabel="Radio"
-            checked
-          />
-          <Radio
-            radioLabel="Radio Disabled"
-            checked
-            disabled
-          />
-        </>
-      )
+      () => {
+        const [value, setValue] = React.useState('radio-4');
+        const handleChange = (event, [radioValue]) => {
+          setValue(radioValue);
+        };
+        return (
+          <RadioGroup
+            name="radion-group-1"
+            value={value}
+            onChange={handleChange}
+          >
+            <Radio
+              label="Radio 1"
+              value="radio-1"
+            />
+            <Radio
+              label="Radio 2"
+              value="radio-2"
+            />
+            <Radio
+              label="Radio Disabled"
+              checked
+              value="radio-3"
+              disabled
+            />
+            <Radio
+              label="Radio Readonly"
+              value="radio-4"
+              readOnly
+            />
+          </RadioGroup>
+        );
+      }
     }
   </Story>
 </Canvas>
 
 <Props component={Radio} />
 
-## Radio with Label
+<Props component={RadioGroup} />
+
+## Colors
 
 <Canvas>
-  <Radio
-    label="This is a default Label"
-    checked
-  />
-  <Radio
-    label={
-      <Label>
-        <SvgIconInstagram />
-        This is a Customized Label with Icon
-      </Label>
-    }
-    checked
-    disabled
-  />
+  <Story name="Colors">
+    <Radio
+      label="Success color"
+      color="success"
+      checked
+    />
+    <Radio
+      label="Warning color"
+      color="warning"
+      checked
+    />
+    <Radio
+      label="Error color"
+      color="error"
+      checked
+    />
+  </Story>
 </Canvas>
 
-## Colors State
+## Using with label
+
+You can use any node element for `label` property. For more info, refer to Label component.
 
 <Canvas>
-  <Radio
-    radioLabel
-    color="success"
-    checked={false}
-  />
-  <Radio
-    color="warning"
-    checked
-  />
-  <Radio
-    color="error"
-    checked={false}
-  />
-  <Radio
-    color="info"
-    checked
-  />
+  <Story name="Using with label">
+    {
+      () => {
+        const [value, setValue] = React.useState('radio-2');
+        const handleChange = (event, [radioValue]) => {
+          setValue(radioValue);
+        };
+        return (
+          <>
+            <Label>Lorem ipsum dolor sit amet consectetur:</Label>
+            <RadioGroup
+              control="radio-1"
+              name="radion-group-2"
+              value={value}
+              onChange={handleChange}
+            >
+              <Radio
+                label="Radio 1"
+                value="radio-1"
+                controller="radio-1"
+              />
+              <Radio
+                label="Radio 2"
+                value="radio-2"
+                controller="radio-1"
+              />
+            </RadioGroup>
+          </>
+        );
+      }
+    }
+  </Story>
 </Canvas>
