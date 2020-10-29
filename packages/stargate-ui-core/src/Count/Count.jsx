@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import CountUp from 'react-countup';
+// import CountUp from 'react-countup';
 
 import Factory from '../Factory';
 
@@ -50,7 +50,8 @@ const Count = React.forwardRef((props, ref) => {
 
   return (
     <Factory element="span" {...factoryProps}>
-      <CountUp
+      {end}
+      {/* <CountUp
         ref={innerRef}
         start={0}
         end={end}
@@ -58,7 +59,7 @@ const Count = React.forwardRef((props, ref) => {
         duration={duration}
         decimals={decimals}
         formattingFn={handleFormat}
-      />
+      /> */}
   </Factory>
   );
 });

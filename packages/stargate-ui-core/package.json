@@ -24,18 +24,15 @@
     "test": "jest"
   },
   "peerDependencies": {
-    "@pontte/stargate-ui-styles": "^0.1.0-alpha.24",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-is": "^16.13.1"
   },
   "dependencies": {
-    "@pontte/stargate-ui-styles": "^0.1.0-alpha.41",
     "clsx": "^1.1.1",
     "deepmerge": "^4.2.2",
-    "react-countup": "^4.3.3",
-    "react-dom": "^16.13.1"
+    "react-countup": "^4.3.3"
   },
   "devDependencies": {
     "prop-types": "^15.7.2",
