@@ -52,7 +52,8 @@ const Count = React.forwardRef((props, ref) => {
 
   return (
     <Factory element="span" {...factoryProps}>
-      <CountUp
+      {children}
+      {/* <CountUp
         ref={innerRef}
         start={0}
         end={end}
@@ -60,7 +61,7 @@ const Count = React.forwardRef((props, ref) => {
         duration={duration}
         decimals={decimals}
         formattingFn={handleFormat}
-      />
+      /> */}
   </Factory>
   );
 });
