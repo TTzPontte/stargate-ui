@@ -41,6 +41,56 @@ const RadioGroup = (props) => {
 
 RadioGroup.displayName = 'RadioGroup';
 
-RadioGroup.propTypes = {};
+RadioGroup.propTypes = {
+  /**
+   * Disables button and add disabled CSS style to Radio's components.
+   *
+   * **@default** `undefined`
+   */
+  disabled: PropTypes.bool,
+  /**
+   * Add readonly CSS style to Radio's components.
+   *
+   * **@default** `undefined`
+   */
+  readOnly: PropTypes.bool,
+  /**
+   * Add component dependencies.
+   */
+  children: PropTypes.oneOfType([
+    PropTypes.instanceOf(RadioGroup),
+  ]).isRequired,
+  /**
+   * Add color style to Radio's components.
+   *
+   * **@default** `success`
+   */
+  color: PropTypes.oneOf([
+    'success',
+    'warning',
+    'error'
+  ]),
+  /**
+   * Specify a name for the RadioGroup.
+   *
+   * **@default** `undefined`
+   */
+  name: PropTypes.string.isRequired,
+  /**
+   * Value of the chosen Radio.
+   *
+   * **@default** `undefined`
+   */
+  value: PropTypes.string.isRequired,
+  /**
+   * Trigger when `Radio` is changed.
+   *
+   * @param {object} event Default on change event
+   * @param {array} value Value of the chosen Radio
+   *
+   * @default `() => {}`
+   */
+  onChange: PropTypes.func,
+};
 
 export default RadioGroup;
