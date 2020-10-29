@@ -6652,6 +6652,11 @@ css-declaration-sorter@^4.0.1:
     postcss "^7.0.1"
     timsort "^0.3.0"
 
+css-initials@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/css-initials/-/css-initials-0.3.1.tgz#0406d78e586fd12b9984a3f7d8a87fcbb2073208"
+  integrity sha512-fkshKv9vV8AmcxkAWVQ9DmEAKiqe09GHdnFaXecp0NIfsGnXIHVJAHfsxdRy9KXV0/KiWdjBqrCYto2fYIO4xQ==
+
 css-jss@10.4.0:
   version "10.4.0"
   resolved "https://registry.yarnpkg.com/css-jss/-/css-jss-10.4.0.tgz#775dc958c15b5dfdbb313b2b09e8b6c5e826a7b5"
@@ -11214,6 +11219,15 @@ jss-plugin-global@10.4.0:
   integrity sha512-b8IHMJUmv29cidt3nI4bUI1+Mo5RZE37kqthaFpmxf5K7r2aAegGliAw4hXvA70ca6ckAoXMUl4SN/zxiRcRag==
   dependencies:
     "@babel/runtime" "^7.3.1"
+    jss "10.4.0"
+
+jss-plugin-isolate@^10.4.0:
+  version "10.4.0"
+  resolved "https://registry.yarnpkg.com/jss-plugin-isolate/-/jss-plugin-isolate-10.4.0.tgz#d328726585631e98c25d206ee1bdb97e99824f1a"
+  integrity sha512-WR0IqdTNW0XgeLefqmOF9CS1GQlXszXv4tHCFH4AjGJG1dUk1VGGX1Wr+TKccFgViKgzXaTo6G96EPYjSGi8Kw==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
+    css-initials "^0.3.1"
     jss "10.4.0"
 
 jss-plugin-nested@10.4.0:
