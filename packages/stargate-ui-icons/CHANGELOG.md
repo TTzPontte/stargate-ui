@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.41 (2020-10-29)
+
+
+### Bug Fixes
+
+* **core:** remove Count for testing ([029a5eb](https://github.com/pontte/stargate-ui/commit/029a5eb71fd9291a77d769111e881e435117165b))
+
+
+
+
+
 # 0.1.0-alpha.40 (2020-10-29)
 
 **Note:** Version bump only for package @pontte/stargate-ui-icons
