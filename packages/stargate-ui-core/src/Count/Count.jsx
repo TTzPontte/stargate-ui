@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useCountUp } from 'react-countup';
+import { CountUp } from 'countup.js';
 
 import Factory from '../Factory';
 
@@ -9,13 +9,15 @@ const Count = React.forwardRef((props, ref) => {
     onChange,
     delay = 0,
     duration = 5,
-    decimals = 2,
+    decimals: decimalPlaces = 2,
     children = '',
     style = 'decimal',
     currency = 'BRL',
     locale: numberFormatLocale = 'pt-BR',
     ...factoryProps
   } = props;
+
+  const innerRef = React.useRef(ref);
 
   const number = children
       /**
@@ -33,7 +35,7 @@ const Count = React.forwardRef((props, ref) => {
       onChange({}, n);
     }
 
-    const numberFormatOptions = { style, minimumFractionDigits: decimals };
+    const numberFormatOptions = { style, minimumFractionDigits: decimalPlaces };
 
     if (style === 'currency' && currency) {
       numberFormatOptions.currency = currency;
@@ -46,18 +48,31 @@ const Count = React.forwardRef((props, ref) => {
     return valueFormatted;
   }
 
-  const { countUp } = useCountUp({
-    duration,
-    decimals,
-    end,
-    delay,
-    start: 0,
-    formattingFn: handleFormat,
-  });
+  React.useEffect(() => {
+    const countUp = new CountUp(
+      innerRef?.current,
+      end,
+      {
+        duration,
+        decimalPlaces,
+        startVal: 0,
+        formattingFn: handleFormat,
+      },
+    );
+
+    const timeout = setTimeout(() => {
+      countUp.start();
+    }, duration);
+
+    return () => clearTimeout(timeout);
+  }, [end, innerRef.current]);
+
 
   return (
-    <Factory element="span" {...factoryProps} ref={ref}>
-      {countUp}
+    <Factory element="span" {...factoryProps}>
+      <span ref={innerRef}>
+        {end}
+      </span>
     </Factory>
   );
 });

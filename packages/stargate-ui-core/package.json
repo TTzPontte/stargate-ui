@@ -31,8 +31,8 @@
   },
   "dependencies": {
     "clsx": "^1.1.1",
-    "deepmerge": "^4.2.2",
-    "react-countup": "^4.3.3"
+    "countup.js": "^2.0.7",
+    "deepmerge": "^4.2.2"
   },
   "devDependencies": {
     "prop-types": "^15.7.2",
