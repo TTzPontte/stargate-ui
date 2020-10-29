@@ -1,0 +1,131 @@
+import {
+  Meta,
+  Canvas,
+  Status,
+  Props,
+  Story,
+  withAction,
+} from '@pontte/stargate-ui-playground';
+
+import Accordion from './Accordion';
+import AccordionSummary from './AccordionSummary';
+import AccordionDetails from './AccordionDetails';
+import Typography from '../Typography';
+
+<Meta title="Core/Accordion" component={Accordion} />
+
+# Accordion
+
+<Status type="stable" />
+
+Accordion is a expansible container that may stand alone as a card or piled up.
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic Usage">
+    <Accordion>
+      <AccordionSummary>
+        #1 Accordion summary
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
+        </Typography>
+      </AccordionDetails>
+    </Accordion>
+    <Accordion>
+      <AccordionSummary>
+        #2 Accordion summary
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
+        </Typography>
+      </AccordionDetails>
+    </Accordion>
+    <Accordion>
+      <AccordionSummary>
+        #3 Accordion summary
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
+        </Typography>
+      </AccordionDetails>
+    </Accordion>
+  </Story>
+</Canvas>
+
+<Props component={Accordion} />
+
+### Accordion Summary
+
+<Props component={AccordionSummary} />
+
+### Accordion Details
+
+<Props component={AccordionDetails} />
+
+## Controlled accordion
+
+Accordion allows controlling opening individually.
+
+<Canvas>
+  <Story name="Controlled accordion">
+    {
+      (props) => {
+        const [controller, setController] = React.useState({ opened: false });
+        const onClick = (event, [controller, opened]) => {
+          setController({ name: controller, opened: !opened });
+        };
+        return (
+          <React.Fragment>
+            <Accordion
+              controller="accordion-1"
+              opened={controller.name === 'accordion-1' && controller.opened}
+              onClick={onClick}
+            >
+              <AccordionSummary>
+                #1 Accordion summary
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              controller="accordion-2"
+              opened={controller.name === 'accordion-2' && controller.opened}
+              onClick={onClick}
+            >
+              <AccordionSummary>
+                #2 Accordion summary
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+            <Accordion
+              controller="accordion-3"
+              opened={controller.name === 'accordion-3' && controller.opened}
+              onClick={onClick}
+            >
+              <AccordionSummary>
+                #3 Accordion summary
+              </AccordionSummary>
+              <AccordionDetails>
+                <Typography>
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
+                </Typography>
+              </AccordionDetails>
+            </Accordion>
+          </React.Fragment>
+        )
+      }
+    }
+  </Story>
+</Canvas>

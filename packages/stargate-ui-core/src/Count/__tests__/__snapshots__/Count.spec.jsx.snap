@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Count should render properly 1`] = `
+<div>
+  <span
+    class="stargate-ui-factory-0-2-1 stargate-ui-factory-d0-0-2-3"
+  >
+    <span>
+      0.00
+    </span>
+  </span>
+</div>
+`;

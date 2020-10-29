@@ -22,3 +22,8 @@ export { default as Typography } from './Typography';
 
 export { default as MenuList } from './MenuList';
 export * from './MenuList';
+
+export { default as Accordion } from './Accordion';
+export * from './Accordion';
+
+export { default as Count } from './Count';

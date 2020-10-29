@@ -3,6 +3,7 @@ export { default as ArrowRight } from './ArrowRight';
 export { default as ArrowRoundedLeft } from './ArrowRoundedLeft';
 export { default as ArrowRoundedRight } from './ArrowRoundedRight';
 export { default as ArrowFlatRight } from './ArrowFlatRight';
+export { default as ArrowFlatDown } from './ArrowFlatDown';
 export { default as Close } from './Close';
 export { default as Facebook } from './Facebook';
 export { default as Instagram } from './Instagram';

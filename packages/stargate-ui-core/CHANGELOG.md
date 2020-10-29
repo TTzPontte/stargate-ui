@@ -3,6 +3,77 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.39 (2020-10-29)
+
+**Note:** Version bump only for package @pontte/stargate-ui-core
+
+
+
+
+
+# 0.1.0-alpha.38 (2020-10-27)
+
+
+### Bug Fixes
+
+* **core:** change wrong export ([6ec219d](https://github.com/pontte/stargate-ui/commit/6ec219d50c32d610f14ead31abfb9421336f801f))
+
+
+
+
+
+# 0.1.0-alpha.37 (2020-10-27)
+
+
+### Bug Fixes
+
+* **core:** change wrong export ([9538509](https://github.com/pontte/stargate-ui/commit/953850941efb78ba45a6a83b156b5467e905f465))
+
+
+
+
+
+# 0.1.0-alpha.36 (2020-10-27)
+
+
+### Bug Fixes
+
+* **core:** change wrong export ([f780317](https://github.com/pontte/stargate-ui/commit/f780317ccd91d307c72d3b1583f1cdf5de204e15))
+
+
+
+
+
+# 0.1.0-alpha.35 (2020-10-27)
+
+
+### Bug Fixes
+
+* **core:** change Button file to jsx ([e9f2d63](https://github.com/pontte/stargate-ui/commit/e9f2d63ca7057e8ef0881baaef8776b235adef21))
+
+
+
+
+
+# 0.1.0-alpha.34 (2020-10-27)
+
+**Note:** Version bump only for package @pontte/stargate-ui-core
+
+
+
+
+
+# 0.1.0-alpha.33 (2020-10-23)
+
+
+### Bug Fixes
+
+* **core:** fix dynamic CSS conflicted by context ([50563d2](https://github.com/pontte/stargate-ui/commit/50563d216989fe6da8cd0eab30095b5a1524e626))
+
+
+
+
+
 # 0.1.0-alpha.32 (2020-10-22)
 
 

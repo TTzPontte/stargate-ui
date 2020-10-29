@@ -1,6 +1,9 @@
 import React from 'react';
-import { ThemeProvider as JssThemeProvider, JssProvider } from 'react-jss';
+import { ThemeProvider as JssThemeProvider, JssProvider, jss } from 'react-jss';
 import PropTypes from 'prop-types';
+import jssPluginIsolate from 'jss-plugin-isolate';
+
+jss.use(jssPluginIsolate({ isolate: 'root' }));
 
 const ThemeProvider = (props) => {
   const {
@@ -15,6 +18,7 @@ const ThemeProvider = (props) => {
     <JssProvider
       id={{minify}}
       classNamePrefix={`${prefix}-`}
+      jss={jss}
     >
       <JssThemeProvider
         theme={theme}

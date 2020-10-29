@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import RadioGroupContext from './RadioGroupContext';
 
@@ -8,7 +9,9 @@ const RadioGroup = (props) => {
     name,
     value,
     disabled,
-    onChange,
+    readOnly,
+    color,
+    onChange = () => {},
   } = props;
 
   const handleChange = React.useCallback(onChange, [onChange]);
@@ -16,12 +19,18 @@ const RadioGroup = (props) => {
     name,
     value,
     disabled,
+    readOnly,
+    color,
     onChange: handleChange,
   }), [
+    name,
     value,
     disabled,
+    readOnly,
+    color,
     handleChange,
   ]);
+
   return (
     <RadioGroupContext.Provider
       value={context}
@@ -29,5 +38,9 @@ const RadioGroup = (props) => {
     />
   );
 };
+
+RadioGroup.displayName = 'RadioGroup';
+
+RadioGroup.propTypes = {};
 
 export default RadioGroup;

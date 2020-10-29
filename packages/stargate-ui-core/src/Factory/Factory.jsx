@@ -437,7 +437,7 @@ Factory.propTypes = {
 };
 
 /**
- * Add @property {object} factoryProps made available properties information
+ * Add @property {object} defaultProps made available properties information
  * for Props in the Storybook but do not use as major define for default properties.
  */
 Factory.defaultProps = {

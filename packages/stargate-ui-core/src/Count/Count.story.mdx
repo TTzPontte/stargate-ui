@@ -1,0 +1,81 @@
+import {
+  Meta,
+  Canvas,
+  Status,
+  Props,
+  Story,
+} from '@pontte/stargate-ui-playground';
+
+import Typography from '../Typography';
+import Count from './Count';
+
+<Meta title="Core/Count" component={Count} />
+
+# Count
+
+<Status type="stable" />
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic Usage">
+    <Typography gutter={0}>
+      <Count>123456,62</Count>
+    </Typography>
+  </Story>
+</Canvas>
+
+<Props component={Count} />
+
+## Number format
+
+Count accepts **decimal**, **currency** and **percent** format. It uses [Intl.NumberFormat](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat) constructor from JavaScript API to format number.
+
+Count will assume pt-BR &#127463;&#127479; locale if <b>locale</b> and <b>currency</b> is not defined.
+
+<Canvas>
+  <Typography gutter={0}>
+    <Count style="currency">123456,62</Count>
+  </Typography>
+</Canvas>
+
+Using <b>locale</b> and <b>currency</b> for en-US &#127482;&#127480; format.
+
+<Canvas>
+  <Typography gutter={0}>
+    <Count
+      style="currency"
+      locale="en-US"
+      currency="USD"
+    >
+      123456,62
+    </Count>
+  </Typography>
+</Canvas>
+
+## Working with changes
+
+In a case when you need to update a string when number hit a target, you can use `onChange` event to retrieve current number.
+
+<Canvas>
+  <Story name="Working with changes">
+    {
+      (props) => {
+        const [count, setCount] = React.useState(0);
+        const handleChange = (event, value) => {
+          setCount(value)
+        };
+        return (
+          <>
+            <Typography element="span">
+              <Count style="currency" onChange={handleChange}>
+                3.000.000,00
+              </Count>
+              &nbsp;{count >= 2000000 ? 'milions' : 'milion'}!
+            </Typography>
+          </>
+        );
+      }
+    }
+  </Story>
+</Canvas>

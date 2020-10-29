@@ -8,6 +8,7 @@ on:
       - packages/stargate-ui-styles/**
     branches:
       - alpha
+      - beta
 
 env:
   NPM_TOKEN: ${{ secrets.BOT_REGISTRY_TOKEN }}
