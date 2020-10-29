@@ -24,6 +24,7 @@
   },
   "dependencies": {
     "deepmerge": "^4.2.2",
+    "jss-plugin-isolate": "^10.4.0",
     "polished": "^3.6.6",
     "react-jss": "^10.4.0",
     "reset-jss": "^1.0.0"
