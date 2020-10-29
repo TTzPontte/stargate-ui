@@ -58,6 +58,7 @@ RadioGroup.propTypes = {
    * Add component dependencies.
    */
   children: PropTypes.oneOfType([
+    PropTypes.node,
     PropTypes.instanceOf(RadioGroup),
   ]).isRequired,
   /**

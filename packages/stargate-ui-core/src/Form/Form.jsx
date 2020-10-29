@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 import FormContext from './FormContext';
 
 const Form = (props) => {
@@ -15,5 +15,9 @@ const Form = (props) => {
     </FormContext.Provider>
   );
 };
+
+Form.propTypes = {
+  children: PropTypes.node.isRequired,
+}
 
 export default Form;

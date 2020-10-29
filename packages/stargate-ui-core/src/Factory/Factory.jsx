@@ -441,6 +441,7 @@ Factory.propTypes = {
     'initial',
     'inherit',
     'block',
+    'flex',
     'inline',
     'inline-flex',
     'inline-block',

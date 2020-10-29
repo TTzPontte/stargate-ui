@@ -49,8 +49,11 @@ const styles = (theme) => {
       position: 'absolute',
       borderRadius: radius(2),
     },
-    '$radio:checked:disabled ~ &:after': {
+    '$radio:checked:disabled ~ &:after, $radio:checked[readonly] ~ &:after': {
       background: palette.setLightness(.90, palette.default[mode].color),
+    },
+    '$radio:not(:checked):disabled ~ &, $radio:not(:checked)[readonly] ~ &': {
+      background: palette.setLightness(.95, palette.default[mode].color),
     },
   };
 
@@ -173,11 +176,11 @@ Radio.propTypes = {
    */
   disabled: PropTypes.bool,
   /**
-   * Add readonly CSS style.
+   * Add readOnly CSS style.
    *
    * **@default** `undefined`
    */
-  readonly: PropTypes.bool,
+  readOnly: PropTypes.bool,
   /**
    * Add a label description for each radio.
    *
