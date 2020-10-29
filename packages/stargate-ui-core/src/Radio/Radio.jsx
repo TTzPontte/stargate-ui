@@ -75,12 +75,19 @@ const styles = (theme) => {
     },
   };
 
+  const radioDecorationLabel = {
+    '$radio:disabled ~ &:last-child, $radio[readonly] ~ &:last-child': {
+      color: palette.setLightness(.80, palette.default[mode].color),
+    }
+  }
+
   return {
     radio,
     radioDecoration,
     radioDecorationSuccess,
     radioDecorationWarning,
     radioDecorationError,
+    radioDecorationLabel,
   };
 };
 
@@ -122,7 +129,12 @@ const Radio = React.forwardRef((props, ref) => {
     onChange(event, [value]);
   };
 
-  const [{ radio: classRadio, ...classes }] = useStyles(styles);
+  const [{
+    radio: classRadio,
+    radioDecorationLabel: classRadioDecorationLabel,
+    ...classes
+  }] = useStyles(styles);
+
   const classRadioDecoration = clsx(
     classes.radioDecoration,
     {
@@ -156,6 +168,7 @@ const Radio = React.forwardRef((props, ref) => {
         />
 
         <Typography
+          className={classRadioDecorationLabel}
           element="span"
           variant="body"
           children={label}
