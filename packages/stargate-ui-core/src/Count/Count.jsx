@@ -50,7 +50,7 @@ const Count = React.forwardRef((props, ref) => {
 
   return (
     <Factory element="span" {...factoryProps}>
-      {end}
+      {children}
       {/* <CountUp
         ref={innerRef}
         start={0}
@@ -120,7 +120,7 @@ Count.propTypes = {
   /**
    * Add any props allowed in Factory or default props of HTML.
    */
-  '...props': PropTypes.object,
+  // '...props': PropTypes.object,
 };
 
 /**
