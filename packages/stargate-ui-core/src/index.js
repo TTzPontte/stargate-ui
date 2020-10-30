@@ -14,6 +14,7 @@ export { default as Count } from './Count';
 export { default as Divider } from './Divider';
 export { default as Drawer } from './Drawer';
 export { default as Factory } from './Factory';
+export { default as Form } from './Form';
 export { default as Grid } from './Grid';
 export { default as Input } from './Input';
 export { default as InputLabel } from './InputLabel';

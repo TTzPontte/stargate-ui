@@ -7,10 +7,8 @@ import {
   Props,
 } from '@pontte/stargate-ui-playground';
 
-import {
-  Label,
-  Instagram as SvgIconInstagram,
-} from '@pontte/stargate-ui-core';
+import { Instagram as SvgIconInstagram } from '../icons';
+import Label from '../Label';
 
 import Radio from './Radio';
 import RadioGroup from './RadioGroup';
@@ -109,7 +107,7 @@ You can use any node element for `label` property. For more info, refer to Label
             <Label>Lorem ipsum dolor sit amet consectetur:</Label>
             <RadioGroup
               control="radio-1"
-              name="radion-group-2"
+              name="radio-group-2"
               value={value}
               onChange={handleChange}
             >

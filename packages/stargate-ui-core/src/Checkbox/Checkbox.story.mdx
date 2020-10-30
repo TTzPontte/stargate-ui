@@ -12,6 +12,8 @@ import { Instagram as SvgIconInstagram } from '../icons';
 import Label from '../Label';
 
 import Checkbox from './Checkbox';
+import CheckboxGroup from './CheckboxGroup';
+import Form from '../Form';
 
 <Meta title="Core/Form Elements/Checkbox" component={Checkbox} />
 
@@ -26,63 +28,106 @@ import Checkbox from './Checkbox';
     jest: ['Checkbox.spec.jsx'],
   }}>
     {
-      () => (
-        <>
-          <Checkbox
-            checkboxLabel="Checkbox"
-            checked
-          />
-          <Checkbox
-            checkboxLabel="Checkbox Disabled"
-            checked
-            disabled
-          />
-        </>
-      )
+      () => {
+        const [value, setValue] = React.useState(['checkbox-4']);
+        const handleChange = (event, [checkboxValue]) => {
+          setValue(checkboxValue);
+        };
+        return (
+          <CheckboxGroup
+            name="checkbox-group-1"
+            value={value}
+            onChange={handleChange}
+          >
+            <Checkbox
+              label="Checkbox 1"
+              value="checkbox-1"
+            />
+            <Checkbox
+              label="Checkbox 2"
+              value="checkbox-2"
+            />
+            <Checkbox
+              label="Checkbox Disabled"
+              value="checkbox-3"
+              disabled
+            />
+            <Checkbox
+              label="Checkbox Readonly"
+              value="checkbox-4"
+              readOnly
+            />
+          </CheckboxGroup>
+        );
+      }
     }
   </Story>
 </Canvas>
 
 <Props component={Checkbox} />
 
-## Checkbox with Label
+<Props component={CheckboxGroup} />
+
+## Colors
 
 <Canvas>
-  <Checkbox
-    label="This is a default Label"
-    checkboxLabel="Checkbox"
-    checked
-  />
-  <Checkbox
-    label={
-      <Label>
-        <SvgIconInstagram />
-        This is a Customized Label with Icon
-      </Label>
+  <Story name="Colors">
+    <Checkbox
+      label="Success color"
+      color="success"
+      checked
+    />
+    <Checkbox
+      label="Warning color"
+      color="warning"
+      checked
+    />
+    <Checkbox
+      label="Error color"
+      color="error"
+      checked
+    />
+  </Story>
+</Canvas>
+
+<!-- ## Using with label
+
+You can use any node element for `label` property. For more info, refer to Label component.
+
+<Canvas>
+  <Story name="Using with label">
+    {
+      () => {
+        const [values, setValues] = React.useState(['checkbox-1']);
+        const radioGroupValues = [];
+        const handleChange = (event, checkboxValue) => {
+          radioGroupValues.push(checkboxValue);
+          setValues(checkboxValue);
+        };
+        return (
+          <>
+            <Label>Lorem ipsum dolor sit amet consectetur:</Label>
+            <CheckboxGroup
+              control="checkbox-1"
+              name="checkbox-group-2"
+              values={values}
+              onChange={handleChange}
+            >
+              <Checkbox
+                label="Checkbox 1"
+                value="checkbox-1"
+                controller="checkbox-1"
+              />
+              <Checkbox
+                label="Checkbox 2"
+                value="checkbox-2"
+                controller="checkbox-1"
+              />
+            </CheckboxGroup>
+          </>
+        );
+      }
     }
-    checkboxLabel="Checkbox"
-    checked
-    disabled
-  />
-</Canvas>
+  </Story>
+</Canvas> -->
 
-## Colors State
-
-<Canvas>
-  <Checkbox
-    color="success"
-    checked={false}
-  />
-  <Checkbox
-    color="warning"
-    checked
-  />
-  <Checkbox
-    color="error"
-    checked={false}
-  />
-  <Checkbox
-    color="info"
-    checked
-  />
-</Canvas>
