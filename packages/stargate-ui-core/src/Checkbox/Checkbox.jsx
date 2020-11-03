@@ -6,7 +6,6 @@ import { useStyles } from '@pontte/stargate-ui-styles';
 import Label from '../Label';
 import Typography from '../Typography';
 import Factory from '../Factory';
-import { Check as SvgIconCheck } from '../icons';
 import CheckboxGroupContext from './CheckboxGroupContext';
 
 const styles = (theme) => {
@@ -46,7 +45,8 @@ const styles = (theme) => {
       background: palette.default[mode].color,
     },
     '$checkbox:checked:disabled ~ &:after, $checkbox:checked[readonly] ~ &:after': {
-      background: setLightness(.90, palette.default[mode].color),
+      borderBottomColor: palette.default[mode].color,
+      borderRightColor: palette.default[mode].color,
     },
     '$checkbox:disabled ~ &, $checkbox[readonly] ~ &': {
       background: setLightness(.95, palette.default[mode].color),
@@ -57,20 +57,20 @@ const styles = (theme) => {
     },
     '&:after': {
       content: '""',
-      display: 'inline-flex',
+      display: 'inline-block',
       '$checkbox:checked ~ &': {
-        top: '50%',
+        top: '45%',
         left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: '50%',
-        height: '50%',
+        transform: 'translate(-50%, -50%) rotate(45deg)',
+        width: '32%',
+        height: '56%',
         position: 'absolute',
-        backgroundImage: `url(${SvgIconCheck})`,
-        border: [
-          1,
-          'solid',
-          palette.default[mode].color,
-        ],
+        borderBottom: [2, 'solid', palette.lighter],
+        borderRight: [2, 'solid', palette.lighter],
+        borderTopLeftRadius: '2px',
+        borderTopRightRadius: '2px',
+        borderBottomLeftRadius: '2px',
+        borderBottomRightRadius: '1px',
       },
     },
   };
