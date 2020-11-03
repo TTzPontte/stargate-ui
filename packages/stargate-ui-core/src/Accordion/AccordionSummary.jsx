@@ -13,11 +13,28 @@ import AccordionContext from './AccordionContext';
 import { ArrowFlatRight } from '../icons';
 
 const styles = (theme) => {
-  const { resets, transition } = theme;
+  const {
+    resets,
+    transition,
+    spacing,
+  } = theme;
 
   const summary = {
     ...resets.button,
     width: '100%',
+  };
+
+  const summaryVariantDefault = {
+    padding: [
+      spacing(3),
+      spacing(3),
+      spacing(3),
+      0,
+    ],
+  };
+
+  const summaryVariantOutlined = {
+    padding: spacing(2),
   };
 
   const summaryIcon = {
@@ -33,6 +50,8 @@ const styles = (theme) => {
     summary,
     summaryIcon,
     summaryIconActive,
+    summaryVariantDefault,
+    summaryVariantOutlined,
   };
 };
 
@@ -40,28 +59,33 @@ const AccordionSummary = React.forwardRef((props, ref) => {
   const {
     children,
     className: inheritedClassName,
-    color = 'primary',
-    ...typographyProps
+    color: inheritedColor = 'primary',
+    ...factoryProps
   } = props;
 
-  const { opened, onToggle } = React.useContext(AccordionContext);
+  const {
+    opened,
+    onToggle,
+    variant,
+    color: accordionColor,
+  } = React.useContext(AccordionContext);
+  const color = inheritedColor || accordionColor || 'primary';
 
-  const [
+  const [classes] = useStyles(styles);
+  const classSummary = clsx(
+    classes.summary,
     {
-      summary,
-      summaryIconActive,
-      summaryIcon,
+      [classes.summaryVariantDefault]: !variant,
+      [classes.summaryVariantOutlined]: variant === 'outlined',
     },
-  ] = useStyles(styles);
-  const classSummary = clsx(summary, inheritedClassName);
-  const classSummaryIcon = clsx(summaryIcon, { [summaryIconActive]: opened });
+    inheritedClassName,
+  );
+  const classSummaryIcon = clsx(classes.summaryIcon, { [classes.summaryIconActive]: opened });
 
   return (
     <Factory
+      {...factoryProps}
       ref={ref}
-      paddingX={2}
-      paddingY={2}
-      {...typographyProps}
       className={classSummary}
       type="button"
       element="button"
@@ -77,8 +101,9 @@ const AccordionSummary = React.forwardRef((props, ref) => {
             weight="bold"
             color={color}
             gutter={0}
-            children={children}
-          />
+          >
+            {children}
+          </Typography>
         </Grid>
 
         <Grid
@@ -86,10 +111,7 @@ const AccordionSummary = React.forwardRef((props, ref) => {
           xs="auto"
           alignItems="center"
         >
-          <ArrowFlatRight
-            className={classSummaryIcon}
-            color="success"
-          />
+          <ArrowFlatRight className={classSummaryIcon} color="success" />
         </Grid>
       </Grid>
     </Factory>
@@ -104,23 +126,21 @@ AccordionSummary.propTypes = {
    */
   children: PropTypes.node.isRequired,
   /**
-   * Add a new CSS class to `className` property.
-   * @default undefined
+   * Add a new CSS class.
+   *
+   * **@default** `undefined`
    */
   className: PropTypes.string,
   /**
-   * @borrows Color.propTypes.color as Typography.propTypes.color
-   * @default primary
+   * Add typography CSS color. Can inherit color from **@module** `Accordion`.
+   *
+   * **@default** `primary`
    */
-  color: Typography.propTypes.color,
-};
-
-/**
- * Add @property {object} defaultProps made available properties information
- * for Props in the Storybook but do not use as major define for default properties.
- */
-AccordionSummary.defaultProps = {
-  color: 'primary',
+  color: PropTypes.oneOf(['primary']),
+  /**
+   * Accept properties from **@module** `Factory`.
+   */
+  '...props': PropTypes.any,
 };
 
 export default AccordionSummary;

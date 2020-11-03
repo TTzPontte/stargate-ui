@@ -6,19 +6,55 @@ import PropTypes from 'prop-types';
 import Factory from '../Factory';
 import AccordionContext from './AccordionContext';
 
-const styles = () => {
+const styles = ({ spacing }) => {
   const details = {
+    /**
+     * @todo remove `!important` when fix context conflict
+     */
+    margin: '0!important',
     '&:not($detailsExpanded)': {
       height: 0,
       overflow: 'hidden',
     },
   };
+  /**
+   * Do not remove.
+   */
+  const detailsContent = {};
 
   const detailsExpanded = {
     height: 'auto',
   };
 
-  return { details, detailsExpanded };
+  const detailsVariantDefault = {
+    '& > $detailsContent': {
+      /**
+       * Need to be same value from CSS padding of {@file ./AccordionSummary}
+       */
+      paddingBottom: spacing(3),
+    },
+  };
+
+  const detailsVariantOutlined = {
+    padding: [
+      0,
+      spacing(2),
+    ],
+    '& > $detailsContent': {
+      /**
+       * Need to be same value from CSS padding of {@file ./AccordionSummary}
+       */
+      paddingBottom: spacing(2),
+    },
+  };
+
+  return {
+    details,
+    detailsContent,
+    detailsExpanded,
+    detailsVariantOutlined,
+    detailsVariantDefault,
+  };
 };
 
 const AccordionDetails = React.forwardRef((props, ref) => {
@@ -28,34 +64,28 @@ const AccordionDetails = React.forwardRef((props, ref) => {
     ...factoryProps
   } = props;
 
-  const { opened } = React.useContext(AccordionContext);
+  const { opened, variant } = React.useContext(AccordionContext);
 
-  const [
-    {
-      details,
-      detailsExpanded,
-    }
-  ] = useStyles(styles);
+  const [{ detailsContent: classDetailsContent, ...classes }] = useStyles(styles);
   const classDetails = clsx(
-    details,
+    classes.details,
     {
-      [detailsExpanded]: opened,
+      [classes.detailsExpanded]: opened,
+      [classes.detailsVariantDefault]: !variant,
+      [classes.detailsVariantOutlined]: variant === 'outlined',
     },
     inheritedClassName,
   );
 
   return (
     <Factory
+      {...factoryProps}
       ref={ref}
       className={classDetails}
-      {...factoryProps}
     >
-      <Factory
-        paddingX={2}
-        paddingTop={1}
-        paddingBottom={2}
-        children={children}
-      />
+      <div className={classDetailsContent}>
+        {children}
+      </div>
     </Factory>
   );
 });
@@ -68,10 +98,15 @@ AccordionDetails.propTypes = {
    */
   children: PropTypes.node.isRequired,
   /**
-   * Add a new CSS class to `className` property.
-   * @default undefined
+   * Add a new CSS class.
+   *
+   * **@default** `undefined`
    */
   className: PropTypes.string,
+  /**
+   * Accept properties from **@module** `Factory`.
+   */
+  '...props': PropTypes.any,
 };
 
 export default AccordionDetails;

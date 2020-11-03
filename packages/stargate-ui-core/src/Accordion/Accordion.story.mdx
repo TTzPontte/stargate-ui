@@ -24,12 +24,13 @@ Accordion is a expansible container that may stand alone as a card or piled up.
 
 <Canvas>
   <Story name="Basic Usage">
+    <Typography>Default variant</Typography>
     <Accordion>
       <AccordionSummary>
         #1 Accordion summary
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
+        <Typography gutter={0}>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
         </Typography>
       </AccordionDetails>
@@ -39,17 +40,48 @@ Accordion is a expansible container that may stand alone as a card or piled up.
         #2 Accordion summary
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
+        <Typography gutter={0}>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
         </Typography>
       </AccordionDetails>
     </Accordion>
-    <Accordion>
+    <Accordion marginBottom={4}>
       <AccordionSummary>
         #3 Accordion summary
       </AccordionSummary>
       <AccordionDetails>
-        <Typography>
+        <Typography gutter={0}>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
+        </Typography>
+      </AccordionDetails>
+    </Accordion>
+    <Typography>Outlined variant</Typography>
+    <Accordion color="primary" variant="outlined">
+      <AccordionSummary>
+        #1 Accordion summary
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography gutter={0}>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
+        </Typography>
+      </AccordionDetails>
+    </Accordion>
+    <Accordion color="primary" variant="outlined">
+      <AccordionSummary>
+        #2 Accordion summary
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography gutter={0}>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
+        </Typography>
+      </AccordionDetails>
+    </Accordion>
+    <Accordion color="primary" variant="outlined">
+      <AccordionSummary>
+        #3 Accordion summary
+      </AccordionSummary>
+      <AccordionDetails>
+        <Typography gutter={0}>
           Lorem, ipsum dolor sit amet consectetur adipisicing elit. Asperiores voluptates laborum assumenda excepturi cupiditate, dicta repellat odio minima expedita unde magni, omnis quaerat animi exercitationem ratione. Velit iure accusantium maxime?
         </Typography>
       </AccordionDetails>

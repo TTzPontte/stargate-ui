@@ -1,27 +1,67 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { useStyles } from '@pontte/stargate-ui-styles';
+import clsx from 'clsx';
 
 import AccordionSummary from './AccordionSummary';
 import AccordionDetails from './AccordionDetails';
 import AccordionContext from './AccordionContext';
-import Card from '../Card';
+import Factory from '../Factory';
+
+const styles = (theme) => {
+  const {
+    palette,
+    mode,
+    radius,
+    spacing,
+  } = theme;
+
+  const borderStyle = [
+    1,
+    'solid',
+    palette.default[mode].color,
+  ];
+
+  const accordionVariantDefault = {
+    borderBottom: borderStyle,
+  };
+
+  const accordionVariantOutlined = {
+    border: borderStyle,
+    borderRadius: radius(),
+    marginBottom: spacing(2),
+  };
+
+  const accordionColorPrimary = {
+    borderColor: palette.primary[mode].color,
+  };
+
+  return {
+    accordionVariantDefault,
+    accordionVariantOutlined,
+    accordionColorPrimary,
+  };
+};
 
 const Accordion = React.forwardRef((props, ref) => {
   const {
-    children: defaultChildren,
     onClick,
     controller,
-    opened: defaultOpened = false,
-    ...cardProps
+    variant,
+    color,
+    children: inheritedChildren,
+    className: inheritedClassName,
+    opened: inheritedOpened = false,
+    ...factoryProps
   } = props;
 
-  const children = React.Children.toArray(defaultChildren);
-  const [opened, setOpened] = React.useState(defaultOpened);
+  const children = React.Children.toArray(inheritedChildren);
+  const [opened, setOpened] = React.useState(inheritedOpened);
 
   if (controller) {
     React.useEffect(() => {
-      setOpened(defaultOpened);
-    }, [defaultOpened]);
+      setOpened(inheritedOpened);
+    }, [inheritedOpened]);
   }
 
   const handleToggle = React.useCallback(
@@ -33,34 +73,41 @@ const Accordion = React.forwardRef((props, ref) => {
       if (onClick) {
         onClick(event, [
           controller,
-          controller ? defaultOpened : opened,
+          controller ? inheritedOpened : opened,
         ]);
       }
     },
-    [defaultOpened, opened],
+    [inheritedOpened, opened],
   );
 
   const context = React.useMemo(() => ({
+    color,
     opened,
+    variant,
     onToggle: handleToggle,
   }), [
+    color,
     opened,
+    variant,
     onClick,
   ]);
 
+  const [classes] = useStyles(styles);
+  const classAccordion = clsx(
+    {
+      [classes.accordionVariantDefault]: !variant,
+      [classes.accordionVariantOutlined]: variant == 'outlined',
+      [classes.accordionColorPrimary]: color === 'primary',
+    },
+    inheritedClassName,
+  );
+
   return (
-    <Card
-      {...cardProps}
-      marginBottom={2}
-      paddingX={0}
-      paddingY={0}
-      borderColor="primary"
-    >
-      <AccordionContext.Provider
-        value={context}
-        children={children}
-      />
-    </Card>
+    <Factory {...factoryProps} className={classAccordion}>
+      <AccordionContext.Provider value={context}>
+        {children}
+      </AccordionContext.Provider>
+    </Factory>
   );
 });
 
@@ -75,33 +122,37 @@ Accordion.propTypes = {
     PropTypes.instanceOf(AccordionDetails),
   ]).isRequired,
   /**
-   * Trigger when `Accordion.Summary` is clicked.
+   * Trigger when **@module** `AccordionSummary` is clicked.
    *
    * @param {object} event Default click event
    * @param {array} controller Name of clicked accordion and its state
    *
-   * @default undefined
+   * **@default** `undefined`
    */
   onClick: PropTypes.func,
   /**
    * Add controller name and if `onClick` is defined, is returned it name
    * to control accordion individually.
-   * @default undefined
+   *
+   * **@default** `undefined`
    */
   controller: PropTypes.string,
   /**
    * Add state of accordion.
-   * @default false
+   *
+   * **@default** `false`
    */
   opened: PropTypes.bool,
-};
-
-/**
- * Add @property {object} defaultProps made available properties information
- * for Props in the Storybook but do not use as major define for default properties.
- */
-Accordion.defaultProps = {
-  opened: false,
+  /**
+   * Add border color.
+   *
+   * **@default** `undefined`
+   */
+  color: PropTypes.oneOf(['primary']),
+  /**
+   * Accept properties from **@module** `Factory`.
+   */
+  '...props': PropTypes.any,
 };
 
 export default Accordion;
