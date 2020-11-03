@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.50 (2020-11-03)
+
+
+### Features
+
+* **core:** add variant for Accordion and minor improvements ([9975d30](https://github.com/pontte/stargate-ui/commit/9975d303f1e6a6e12c717ad20bc3578396821512))
+
+
+
+
+
 # 0.1.0-alpha.49 (2020-10-29)
 
 
