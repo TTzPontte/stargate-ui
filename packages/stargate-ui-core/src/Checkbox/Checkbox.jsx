@@ -121,13 +121,15 @@ const Checkbox = React.forwardRef((props, ref) => {
   const {
     name,
     onChange,
+    checkboxGroupValues,
+    // value: checkboxGroupValue,
     color: checkboxGroupColor,
-    value: checkboxGroupValue,
     disabled: checkboxGroupDisabled,
     readOnly: checkboxGroupReadonly,
   } = React.useContext(CheckboxGroupContext);
 
-  const checked = value && checkboxGroupValue ? value == checkboxGroupValue : defaultChecked;
+  console.log('checkboxGroupValues', value, checkboxGroupValues)
+  const checked = value && checkboxGroupValues ? checkboxGroupValues.includes(value) : defaultChecked;
   /**
    * Local properties has priority over @func CheckboxGroupContext.
    */

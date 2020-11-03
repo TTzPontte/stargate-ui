@@ -7,7 +7,7 @@ const CheckboxGroup = (props) => {
   const {
     children,
     name,
-    value,
+    checkboxGroupValues,
     disabled,
     readOnly,
     color,
@@ -17,14 +17,14 @@ const CheckboxGroup = (props) => {
   const handleChange = React.useCallback(onChange, [onChange]);
   const context = React.useMemo(() => ({
     name,
-    value,
+    checkboxGroupValues,
     disabled,
     readOnly,
     color,
     onChange: handleChange,
   }), [
     name,
-    value,
+    checkboxGroupValues,
     disabled,
     readOnly,
     color,
@@ -57,6 +57,7 @@ CheckboxGroup.propTypes = {
    * Add component dependencies.
    */
   children: PropTypes.oneOfType([
+    PropTypes.node,
     PropTypes.instanceOf(CheckboxGroup),
   ]).isRequired,
   /**
@@ -75,12 +76,18 @@ CheckboxGroup.propTypes = {
    * **@default** `undefined`
    */
   name: PropTypes.string.isRequired,
-  /**
+  // /**
+  //  * Values of the chosen Checkbox.
+  //  *
+  //  * @default `''`
+  //  */
+  // value: PropTypes.string,
+    /**
    * Values of the chosen Checkbox.
    *
    * @default `[]`
    */
-  value: PropTypes.array.isRequired,
+  checkboxGroupValues: PropTypes.array,
   /**
    * Trigger when `Checkbox` is changed.
    *
