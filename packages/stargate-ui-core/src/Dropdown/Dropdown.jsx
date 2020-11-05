@@ -12,41 +12,49 @@ const styles = (theme) => {
   } = theme;
 
   const dropdown = {
+    width: '100%',
     minWidth: 'fit-content',
+    maxWidth: 'fit-content',
+    lineHeight: 1.1,
     color: palette.darkest,
-    borderColor: palette.default.lighter.color,
+    border: [1, 'solid', palette.default.lighter.color],
     borderRadius: radius(),
-    padding: [spacing(1), spacing(3), spacing(1), spacing(1)],
-    '-webkit-appearance': 'none',
-    '-moz-appearance': 'none',
-  };
-
-  const dropdownArrow = {
-    position: 'absolute',
-    top: '0',
-    right: '8px',
-    pointerEvents: 'none',
-    '&:after': {
-      pointerEvents: 'none',
-      display: 'inline-block',
-      content: '""',
-      color: 'black',
-      padding: '3px',
-      border: ['solid', palette.darkest],
-      borderWidth: [0, '2px', '2px', 0],
-      transform: 'rotate(45deg)',
-      borderRadius: radius(.5),
+    padding: [spacing(1)],
+    cursor: 'pointer',
+    display: 'grid',
+    alignItems: 'center',
+    '& select': {
+      '-webkit-appearance': 'none',
+      '-moz-appearance': 'none',
+      backgroundColor: 'transparent',
+      border: 'none',
+      padding: [0, '1em', 0, 0],
+      margin: [0, '8px', 0, 0],
+      width: '100%',
+      cursor: 'inherit',
+      lineHeight: 'inherit',
+      outline: 'none',
+      '-webkit-appearance': 'none',
+      gridArea: 'select',
     },
-  }
-
-  const dropdownWrapper = {
-    position: 'relative',
+      '&:after': {
+        pointerEvents: 'none',
+        content: '""',
+        color: 'black',
+        width: '0.8em',
+        height: '0.8em',
+        border: ['solid', palette.darkest],
+        borderWidth: [0, '2px', '2px', 0],
+        transform: 'rotate(45deg)',
+        borderRadius: radius(.5),
+        gridArea: 'select',
+        justifySelf: 'end',
+        marginLeft: 1,
+      },
   }
 
   return {
     dropdown,
-    dropdownArrow,
-    dropdownWrapper,
   };
 };
 
@@ -74,17 +82,15 @@ const Dropdown = (props) => {
 
   const [{
     dropdown: classDropdown,
-    dropdownArrow: classDropdownArrow,
-    dropdownWrapper: classDropdownWrapper,
   }] = useStyles(styles);
 
   return (
-    <Factory element="span" className={classDropdownWrapper}>
+    <Factory className={classDropdown}>
       <Factory
         {...factoryProps}
         disabled={disabled}
         element="select"
-        className={classDropdown}
+        type="select"
         onChange={handleChange}
         value={value}
         aria-label="Dropdown"
@@ -96,7 +102,6 @@ const Dropdown = (props) => {
           </Factory>
         )}
       </Factory>
-      <Factory className={classDropdownArrow}/>
     </Factory>
   );
 };
