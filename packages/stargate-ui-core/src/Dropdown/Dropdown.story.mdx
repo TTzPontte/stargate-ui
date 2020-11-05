@@ -2,11 +2,44 @@ import {
   Meta,
   Canvas,
   Status,
+  Story,
+  withAction,
+  Props,
 } from '@pontte/stargate-ui-playground';
+
 import Dropdown from './Dropdown';
 
 <Meta title="Core/Form Elements/Dropdown" component={Dropdown} />
 
-# Dropdown
+# Dropdown Button
 
-<Status type="experimental" />
+<Status type="rc" />
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic Usage" parameters={{
+    jest: ['Dropdown.spec.jsx'],
+  }}>
+    {
+      () => {
+        const options = [
+          { value: 'one', label: 'One' },
+          { value: 'two', label: 'Two' },
+          { value: 'three', label: 'Three' },
+          { value: 'four', label: 'Four' },
+        ];
+        return (
+          <Dropdown
+            name="dropdownTeste"
+            options={options}
+            placeholder="Teste"
+          />
+        );
+      }
+    }
+  </Story>
+</Canvas>
+
+<Props component={Dropdown} />
+

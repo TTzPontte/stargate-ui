@@ -142,7 +142,7 @@ Card.propTypes = {
     false,
   ]),
   /**
-   * Trigger when element is clicked.
+   * Trigger when element is changed.
    * @default Function
    */
   onChange: PropTypes.func,
