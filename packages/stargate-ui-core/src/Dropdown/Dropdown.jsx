@@ -1,26 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import clsx from 'clsx';
 
 import { useStyles } from '@pontte/stargate-ui-styles';
-import Label from '../Label';
 import Factory from '../Factory';
-import Typography from '../Typography';
 
 const styles = (theme) => {
   const {
     palette,
     radius,
-    mode,
+    spacing,
   } = theme;
 
   const dropdown = {
-      color: 'black',
-      width: '50%'
+    minWidth: 'fit-content',
+    color: palette.darkest,
+    borderColor: palette.default.lighter.color,
+    borderRadius: radius(),
+    padding: [spacing(1), spacing(3), spacing(1), spacing(1)],
+    '-webkit-appearance': 'none',
+    '-moz-appearance': 'none',
   };
+
+  const dropdownArrow = {
+    position: 'absolute',
+    top: '0',
+    right: '8px',
+    pointerEvents: 'none',
+    '&:after': {
+      pointerEvents: 'none',
+      display: 'inline-block',
+      content: '""',
+      color: 'black',
+      padding: '3px',
+      border: ['solid', palette.darkest],
+      borderWidth: [0, '2px', '2px', 0],
+      transform: 'rotate(45deg)',
+      borderRadius: radius(.5),
+    },
+  }
+
+  const dropdownWrapper = {
+    position: 'relative',
+  }
 
   return {
     dropdown,
+    dropdownArrow,
+    dropdownWrapper,
   };
 };
 
@@ -41,14 +67,19 @@ const Dropdown = (props) => {
       event.preventDefault();
       return;
     }
+
     setValue(event.currentTarget.value);
     onChange(event);
   };
 
-  console.log(value)
-  const [{ dropdown: classDropdown }] = useStyles(styles);
+  const [{
+    dropdown: classDropdown,
+    dropdownArrow: classDropdownArrow,
+    dropdownWrapper: classDropdownWrapper,
+  }] = useStyles(styles);
 
   return (
+    <Factory element="span" className={classDropdownWrapper}>
       <Factory
         {...factoryProps}
         disabled={disabled}
@@ -58,13 +89,15 @@ const Dropdown = (props) => {
         value={value}
         aria-label="Dropdown"
       >
-        <Factory element="option">{placeholder}</Factory>
+        <Factory element="option" value="">{placeholder}</Factory>
         {options.map((option) =>
           <Factory element="option" value={option.value} key={option.label}>
             {option.label}
           </Factory>
         )}
       </Factory>
+      <Factory className={classDropdownArrow}/>
+    </Factory>
   );
 };
 
