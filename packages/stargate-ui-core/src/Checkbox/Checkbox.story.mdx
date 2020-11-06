@@ -19,7 +19,7 @@ import Form from '../Form';
 
 # Checkbox
 
-<Status type="rc" />
+<Status type="stable" />
 
 ## Basic Usage
 
@@ -27,35 +27,30 @@ import Form from '../Form';
   <Story name="Basic Usage" parameters={{
     jest: ['Checkbox.spec.jsx'],
   }}>
-    {
-      () => {
-        return (
-          <CheckboxGroup
-            name="checkbox-group-1"
-          >
-            <Checkbox
-              label="Checkbox 1"
-              value="checkbox-1"
-            />
-            <Checkbox
-              label="Checkbox 2"
-              value="checkbox-2"
-            />
-            <Checkbox
-              label="Checkbox Disabled"
-              value="checkbox-3"
-              disabled
-            />
-            <Checkbox
-              label="Checkbox Readonly"
-              value="checkbox-4"
-              checked
-              readOnly
-            />
-          </CheckboxGroup>
-        );
-      }
-    }
+    <Checkbox
+      label="Unchecked"
+      value="checkbox-1"
+      name="checkbox-basic-usage"
+    />
+    <Checkbox
+      label="Checked"
+      value="checkbox-2"
+      name="checkbox-basic-usage"
+      checked
+    />
+    <Checkbox
+      label="Disabled"
+      value="checkbox-3"
+      disabled
+      checked
+    />
+    <Checkbox
+      label="Readonly"
+      value="checkbox-4"
+      name="checkbox-basic-usage"
+      readOnly
+      checked
+    />
   </Story>
 </Canvas>
 
@@ -85,19 +80,17 @@ import Form from '../Form';
   </Story>
 </Canvas>
 
-## Using with label
+## Using with CheckboxGroup
 
-You can use any node element for `label` property. For more info, refer to Label component.
+`CheckboxGroup` provides data management for `Checkbox`, can controls it and receives value when it has changes as well.
 
 <Canvas>
-  <Story name="Using with label">
+  <Story name="Using with CheckboxGroup">
     {
       () => {
-        const [checkboxGroupValues, setValues] = React.useState([]);
-        const handleChange = (event, [value]) => {
-          console.log(value);
-          checkboxGroupValues.push(value);
-          setValues(checkboxGroupValues);
+        const [values, setValues] = React.useState(['checkbox-1', 'checkbox-2']);
+        const handleChange = (event, [, values]) => {
+          setValues(values);
         };
         return (
           <>
@@ -105,24 +98,47 @@ You can use any node element for `label` property. For more info, refer to Label
             <CheckboxGroup
               control="checkbox-1"
               name="checkbox-group-2"
-              checkboxGroupValues={checkboxGroupValues}
+              value={values}
               onChange={handleChange}
             >
               <Checkbox
                 label="Checkbox 1"
                 value="checkbox-1"
-                controller="checkbox-1"
+                controller="checkbox-group-2"
               />
               <Checkbox
                 label="Checkbox 2"
                 value="checkbox-2"
-                controller="checkbox-1"
+                controller="checkbox-group-2"
+              />
+              <Checkbox
+                label="Checkbox 3"
+                value="checkbox-3"
+                controller="checkbox-group-2"
               />
             </CheckboxGroup>
+            <Typography>
+              Values checked:
+            </Typography>
+            <ul>
+              {
+                values.map((value) => (
+                  <Typography element="li">
+                    {value}
+                  </Typography>
+                ))
+              }
+              {
+                !values.length && (
+                  <Typography element="li">
+                    Empty
+                  </Typography>
+                )
+              }
+            </ul>
           </>
         );
       }
     }
   </Story>
 </Canvas>
-

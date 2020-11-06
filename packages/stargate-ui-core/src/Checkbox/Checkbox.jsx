@@ -109,10 +109,10 @@ const Checkbox = React.forwardRef((props, ref) => {
   const {
     label,
     value,
-    color: defaultColor,
-    checked: defaultChecked,
-    disabled: defaultDisabled,
-    readOnly: defaultReadOnly,
+    color: inheritedColor,
+    checked: inheritedChecked,
+    disabled: inheritedDisabled,
+    readOnly: inheritedReadOnly,
     ...factoryProps
   } = props;
 
@@ -121,28 +121,29 @@ const Checkbox = React.forwardRef((props, ref) => {
   const {
     name,
     onChange,
-    checkboxGroupValues,
-    // value: checkboxGroupValue,
+    value: checkboxGroupValue,
     color: checkboxGroupColor,
     disabled: checkboxGroupDisabled,
     readOnly: checkboxGroupReadonly,
   } = React.useContext(CheckboxGroupContext);
 
-  console.log('checkboxGroupValues', value, checkboxGroupValues)
-  const checked = value && checkboxGroupValues ? checkboxGroupValues.includes(value) : defaultChecked;
   /**
-   * Local properties has priority over @func CheckboxGroupContext.
+   * Inherited properties has priority over @func CheckboxGroupContext
    */
-  const color = defaultColor || checkboxGroupColor || 'success';
-  const disabled = defaultDisabled ?? checkboxGroupDisabled;
-  const readOnly = defaultReadOnly ?? checkboxGroupReadonly;
+  const color = inheritedColor || checkboxGroupColor || 'success';
+  const disabled = inheritedDisabled ?? checkboxGroupDisabled;
+  const readOnly = inheritedReadOnly ?? checkboxGroupReadonly;
+  const checked = value && checkboxGroupValue?.length ? checkboxGroupValue.includes(value) : inheritedChecked;
 
   const handleChange = (event) => {
     if (disabled || readOnly) {
       event.preventDefault();
       return;
     }
-    onChange(event, [value]);
+
+    if (onChange) {
+      onChange(event, [value]);
+    }
   };
 
   const [{ checkbox: classCheckbox, ...classes }] = useStyles(styles);
@@ -170,7 +171,6 @@ const Checkbox = React.forwardRef((props, ref) => {
           onChange={handleChange}
           value={value}
           name={name}
-          aria-label="Checkbox"
         />
 
         <Factory
@@ -182,9 +182,10 @@ const Checkbox = React.forwardRef((props, ref) => {
         <Typography
           variant="body"
           element="span"
-          children={label}
           gutter={0}
-        />
+        >
+          {label}
+        </Typography>
       </Label>
     </Factory>
   );
@@ -193,6 +194,15 @@ const Checkbox = React.forwardRef((props, ref) => {
 Checkbox.displayName = 'Checkbox';
 
 Checkbox.propTypes = {
+  /**
+   * Add input value.
+   *
+   * **@default** `undefined`
+   */
+  value: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number,
+  ]),
   /**
    * Disables button and add disabled CSS style.
    *

@@ -7,34 +7,66 @@ const CheckboxGroup = (props) => {
   const {
     children,
     name,
-    checkboxGroupValues,
     disabled,
     readOnly,
     color,
     onChange = () => {},
+    value: inheritedValue = [],
   } = props;
 
-  const handleChange = React.useCallback(onChange, [onChange]);
+  const [groupValues, setGroupValues] = React.useState([...inheritedValue]);
+
+  /**
+   * Return a new array from @const groupValues after add or
+   * remove a value.
+   * @param {string|number} value
+   * @return {Array}
+   */
+  const updateGroupValues = (value) => {
+    const valuesIndex = groupValues.indexOf(value);
+
+    if (valuesIndex < 0) {
+      return [...groupValues, value];
+    }
+
+    return groupValues.filter((arr, i) => i !== valuesIndex);
+  };
+
+  const handleChange = React.useCallback(
+    /**
+     * @param {Checkbox#SyntheticEvent} event
+     * @param {Array} result
+     * @param {string|number} result[].value
+     */
+    (event, [value]) => {
+      const groupValuesUpdated = updateGroupValues(value);
+
+      setGroupValues(groupValuesUpdated);
+      onChange(event, [value, groupValuesUpdated]);
+    },
+    [onChange],
+  );
+
   const context = React.useMemo(() => ({
     name,
-    checkboxGroupValues,
     disabled,
     readOnly,
     color,
+    value: groupValues,
     onChange: handleChange,
   }), [
     name,
-    checkboxGroupValues,
     disabled,
     readOnly,
     color,
+    groupValues,
     handleChange,
   ]);
+
   return (
-    <CheckboxGroupContext.Provider
-      value={context}
-      children={children}
-    />
+    <CheckboxGroupContext.Provider value={context}>
+      {children}
+    </CheckboxGroupContext.Provider>
   );
 };
 
@@ -42,13 +74,13 @@ CheckboxGroup.displayName = 'CheckboxGroup';
 
 CheckboxGroup.propTypes = {
   /**
-   * Disables button and add disabled CSS style to Checkbox's components.
+   * Disables button and add disabled CSS style to Checkbox components.
    *
    * **@default** `undefined`
    */
   disabled: PropTypes.bool,
   /**
-   * Add readonly CSS style to Checkbox's components.
+   * Add readonly CSS style to Checkbox components.
    *
    * **@default** `undefined`
    */
@@ -61,7 +93,7 @@ CheckboxGroup.propTypes = {
     PropTypes.instanceOf(CheckboxGroup),
   ]).isRequired,
   /**
-   * Add color style to Checkbox's components.
+   * Add color style to Checkbox components.
    *
    * **@default** `success`
    */
@@ -75,19 +107,18 @@ CheckboxGroup.propTypes = {
    *
    * **@default** `undefined`
    */
-  name: PropTypes.string.isRequired,
-  // /**
-  //  * Values of the chosen Checkbox.
-  //  *
-  //  * @default `''`
-  //  */
-  // value: PropTypes.string,
-    /**
+    name: PropTypes.string.isRequired,
+  /**
    * Values of the chosen Checkbox.
    *
    * @default `[]`
    */
-  checkboxGroupValues: PropTypes.array,
+  value: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.string,
+      PropTypes.number,
+    ]),
+  ),
   /**
    * Trigger when `Checkbox` is changed.
    *
