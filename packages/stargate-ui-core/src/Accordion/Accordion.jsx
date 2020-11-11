@@ -117,10 +117,9 @@ Accordion.propTypes = {
   /**
    * Add component dependencies.
    */
-  children: PropTypes.oneOfType([
-    PropTypes.instanceOf(AccordionSummary),
-    PropTypes.instanceOf(AccordionDetails),
-  ]).isRequired,
+  children: PropTypes.arrayOf(PropTypes.shape({
+    type: PropTypes.oneOf([AccordionSummary, AccordionDetails]),
+  })).isRequired,
   /**
    * Trigger when **@module** `AccordionSummary` is clicked.
    *

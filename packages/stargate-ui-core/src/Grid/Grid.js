@@ -30,6 +30,7 @@ const GRID_SPACINGS = [
 const GRID_SIZES = [
   'auto',
   true,
+  false,
   1,
   2,
   3,

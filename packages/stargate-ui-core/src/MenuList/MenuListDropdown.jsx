@@ -1,22 +1,12 @@
-import React, {
-  forwardRef,
-  useEffect,
-} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { useStyles, themes } from '@pontte/stargate-ui-styles';
+import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
 
 import Factory from '../Factory';
 
-const THEME_BREAKPOINTS_TYPES = Object.keys(themes.stargate.breakpoints.screens);
-
 const styles = (theme) => {
-  const {
-    spacing,
-    palette,
-    mode,
-    breakpoints,
-  } = theme;
+  const { breakpoints } = theme;
 
   const dropdown = {
     display: 'display',
@@ -50,7 +40,7 @@ const styles = (theme) => {
   };
 };
 
-const MenuListDropdown = forwardRef((props, ref) => {
+const MenuListDropdown = React.forwardRef((props, ref) => {
   const {
     collapse,
     collapseUp,
@@ -87,8 +77,20 @@ const MenuListDropdown = forwardRef((props, ref) => {
 });
 
 MenuListDropdown.propTypes = {
-  collapseUp: PropTypes.oneOf(THEME_BREAKPOINTS_TYPES),
-  collapseDown: PropTypes.oneOf(THEME_BREAKPOINTS_TYPES),
+  collapseUp: PropTypes.oneOf([
+    'xs',
+    'sm',
+    'md',
+    'lg',
+    'xl',
+  ]),
+  collapseDown: PropTypes.oneOf([
+    'xs',
+    'sm',
+    'md',
+    'lg',
+    'xl',
+  ]),
 };
 
 export default MenuListDropdown;

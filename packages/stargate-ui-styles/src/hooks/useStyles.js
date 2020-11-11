@@ -1,8 +1,12 @@
-import createUseStyles from './createUseStyles';
-import useTheme from './useTheme';
+import { createUseStyles } from 'react-jss';
+import useTheme from './useTheme'
 
-const useStyles = (forward, props) => ([
-  createUseStyles(forward)({ theme: useTheme(), ...props })
-]);
+const useStyles = (styles, props) => {
+  const theme = useTheme();
+
+  return [
+    createUseStyles(styles)({ theme, ...props }),
+  ];
+};
 
 export default useStyles;

@@ -1,9 +1,7 @@
 import React, { createElement } from 'react';
 import PropTypes from 'prop-types';
-import { useStyles, themes } from '@pontte/stargate-ui-styles';
+import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
-
-const THEME_BREAKPOINTS_TYPES = Object.keys(themes.stargate.breakpoints.screens);
 
 const styles = (theme) => {
   const {
@@ -378,12 +376,24 @@ Factory.propTypes = {
    * Hide when screen size is down of breakpoint.
    * @default undefined
    */
-  hideDown: PropTypes.oneOf(THEME_BREAKPOINTS_TYPES),
+  hideDown: PropTypes.oneOf([
+    'xs',
+    'sm',
+    'md',
+    'lg',
+    'xl',
+  ]),
   /**
    * Hide when screen size is up of breakpoint.
    * @default undefined
    */
-  hideUp: PropTypes.oneOf(THEME_BREAKPOINTS_TYPES),
+  hideUp: PropTypes.oneOf([
+    'xs',
+    'sm',
+    'md',
+    'lg',
+    'xl',
+  ]),
   /**
    * Add DOM element. Can be a React component or HTML element.
    * @default div
