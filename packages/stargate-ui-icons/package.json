@@ -21,7 +21,8 @@
   "module": "dist/index.esm.js",
   "scripts": {
     "start": "NODE_ENV=development rollup -c rollup.config.js --watch",
-    "build": "rm -rf dist && echo \"no build\""
+    "build": "rm -rf dist && echo \"no build\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",

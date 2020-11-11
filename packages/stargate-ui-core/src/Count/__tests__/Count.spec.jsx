@@ -2,6 +2,12 @@ import React from 'react';
 
 import Count from '../Count';
 
+jest.mock('countup.js', () => ({
+  CountUp: jest.fn().mockImplementation(() => ({
+    start: jest.fn,
+  })),
+}));
+
 describe('Count', () => {
   it('should render properly', () => {
     const { container } = render(

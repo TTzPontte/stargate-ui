@@ -24,6 +24,7 @@
     "bootstrap": "lerna bootstrap --use-workspaces",
     "start": "yarn package:playground start",
     "build": "lerna exec --no-private --parallel yarn build",
+    "test": "lerna exec --no-private --parallel yarn test",
     "package:core": "sh scripts/stargate-ui-core",
     "package:styles": "sh scripts/stargate-ui-styles",
     "package:icons": "sh scripts/stargate-ui-icons",
