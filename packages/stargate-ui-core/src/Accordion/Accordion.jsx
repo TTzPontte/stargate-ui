@@ -115,7 +115,7 @@ Accordion.displayName = 'Accordion';
 
 Accordion.propTypes = {
   /**
-   * Add component dependencies.
+   * Add children.
    */
   children: PropTypes.arrayOf(PropTypes.shape({
     type: PropTypes.oneOf([AccordionSummary, AccordionDetails]),

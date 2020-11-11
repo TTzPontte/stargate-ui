@@ -25,3 +25,4 @@ export { default as Radio } from './Radio';
 export { default as Svg } from './Svg';
 export { default as SvgIcon } from './SvgIcon';
 export { default as Typography } from './Typography';
+export * from './Picture';

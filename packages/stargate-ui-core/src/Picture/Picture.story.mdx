@@ -1,0 +1,35 @@
+import {
+  Meta,
+  Canvas,
+  Status,
+  Story,
+  Props,
+} from '@pontte/stargate-ui-playground';
+
+import Picture from './Picture';
+import PictureSource from './PictureSource';
+
+<Meta title="Core/Picture" component={Picture} />
+
+# Picture
+
+<Status type="stable" />
+
+Picture allow to add images for all screens easily.
+
+## Basic Usage
+
+<Canvas>
+  <Story name="Basic Usage">
+    <Picture>
+      <PictureSource src={['https://via.placeholder.com/600x400?text=96-dpi-for-lg', 'https://via.placeholder.com/600x400?text=192-dpi-for-lg']} lg />
+      <PictureSource src={['https://via.placeholder.com/600x400?text=96-dpi-for-md', 'https://via.placeholder.com/600x400?text=192-dpi-for-md']} md />
+      <PictureSource src={['https://via.placeholder.com/600x400?text=96-dpi-for-xs', 'https://via.placeholder.com/600x400?text=192-dpi-for-xs']} xs />
+      <PictureSource src="https://via.placeholder.com/600x400?text=fallback" fallback />
+    </Picture>
+  </Story>
+</Canvas>
+
+<Props component={Picture} />
+
+<Props component={PictureSource} />
