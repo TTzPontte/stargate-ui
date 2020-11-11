@@ -5,12 +5,11 @@ import deepmerge from 'deepmerge';
 
 import palette from './palette';
 import grid from './grid';
-import breakpoints from './breakpoints';
 import typography from './typography';
 
 const THEME_BASE = 8;
 
-const maxWidth = breakpoints.screens.lg;
+const maxWidth = 1318;
 
 const spacing = (n = 1) => (
   typeof n === 'string' ? n : (n * THEME_BASE)
@@ -58,7 +57,6 @@ const boxShadow = [
 
 const overrides = [
   palette,
-  breakpoints,
   typography,
   grid,
 ].reduce((overrides, { overrides: props = {} }) => deepmerge(overrides, props), {});
@@ -75,7 +73,6 @@ const theme = {
   radius,
   palette,
   grid,
-  breakpoints,
   typography,
   mode: 'lighter',
   dir: 'ltr',

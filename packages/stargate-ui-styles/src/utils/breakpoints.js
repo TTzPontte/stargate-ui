@@ -1,3 +1,6 @@
+/**
+ * @todo when add support for override utils, refactor this
+ */
 const screens = {
   xs: 0,
   sm: 600,
@@ -42,4 +45,5 @@ const breakpoints = {
   gutters,
 };
 
+export { breakpoints };
 export default breakpoints;
