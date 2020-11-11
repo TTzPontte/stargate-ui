@@ -1,0 +1,50 @@
+import {
+  Meta,
+  Status,
+  Props,
+} from '@pontte/stargate-ui-playground';
+
+import Styles from './Styles';
+
+<Meta title="Styles/Styles" component={Styles} />
+
+# Styles
+
+<Status type="stable" />
+
+Styles allow use `useStyles` for non-functional components or isolated cases. Prefer `useStyles` hook if component is a functional.
+
+```jsx
+import React from 'react';
+import { Styles } from '@pontte/stargate-ui-styles';
+
+const component = () => {
+  const styles = (theme) => {
+    const { palette, mode } = theme;
+
+    const component = {
+      background: palette.warning[mode].color,
+    };
+
+    return { component };
+  };
+
+  return (
+    <Styles use={[styles, props]}>
+      {
+        classes => {
+          const [{ component: classComponent }] = classes;
+
+          return (
+            <div className={classComponent}>
+              ...
+            </div>
+          )
+        }
+      }
+    </Styles>
+  )
+}
+```
+
+<Props component={Styles} />

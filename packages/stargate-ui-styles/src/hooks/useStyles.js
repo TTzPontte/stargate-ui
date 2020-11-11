@@ -6,6 +6,7 @@ const useStyles = (styles, props) => {
 
   return [
     createUseStyles(styles)({ theme, ...props }),
+    theme,
   ];
 };
 
