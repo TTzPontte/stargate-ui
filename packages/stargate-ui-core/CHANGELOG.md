@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.53 (2020-11-11)
+
+
+### Features
+
+* **core:** introduce Picture ([6e727c7](https://github.com/pontte/stargate-ui/commit/6e727c74bc5f166f2c796bae3ffcf9779168f9fe))
+
+
+
+
+
 # 0.1.0-alpha.52 (2020-11-11)
 
 **Note:** Version bump only for package @pontte/stargate-ui-core
