@@ -18,7 +18,7 @@ Styles allow use `useStyles` for non-functional components or isolated cases. Pr
 import React from 'react';
 import { Styles } from '@pontte/stargate-ui-styles';
 
-const component = () => {
+const component = (props) => {
   const styles = (theme) => {
     const { palette, mode } = theme;
 
@@ -30,6 +30,10 @@ const component = () => {
   };
 
   return (
+    /**
+     * @property {object} props is not required if component does not need to watch
+     * changes.
+     */
     <Styles use={[styles, props]}>
       {
         classes => {
