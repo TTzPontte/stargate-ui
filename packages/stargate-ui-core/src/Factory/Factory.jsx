@@ -437,6 +437,7 @@ Factory.propTypes = {
    * @default undefined
    */
   display: PropTypes.oneOf([
+    'flex',
     'initial',
     'inherit',
     'block',

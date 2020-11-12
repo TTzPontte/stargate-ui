@@ -265,7 +265,7 @@ Grid.propTypes = {
    */
   row: PropTypes.bool,
   /**
-   * Add CSS `flow-direction` property when @property {bool} row is defined.
+   * Add CSS `flex-direction` property when @property {bool} row is defined.
    * @default row
    */
   direction: PropTypes.oneOf([
@@ -292,35 +292,35 @@ Grid.propTypes = {
     'space-evenly',
   ]),
   /**
-   * Add large breakpoint when @property {bool} col is defined.
-   * @default false
+   * Add grid gutter when @property {bool} row is defined.
+   * @default 0
    */
-  lg: PropTypes.oneOf(GRID_SIZES),
+  spacing: PropTypes.oneOf(GRID_SPACINGS),
   /**
-   * Add medium breakpoint when @property {bool} col is defined.
+   * Add extra small breakpoint when @property {bool} col is defined.
    * @default false
    */
-  md: PropTypes.oneOf(GRID_SIZES),
+  xs: PropTypes.oneOf(GRID_SIZES),
   /**
    * Add small breakpoint when @property {bool} col is defined.
    * @default false
    */
   sm: PropTypes.oneOf(GRID_SIZES),
   /**
-   * Add grid gutter when @property {bool} row is defined.
-   * @default 0
+   * Add medium breakpoint when @property {bool} col is defined.
+   * @default false
    */
-  spacing: PropTypes.oneOf(GRID_SPACINGS),
+  md: PropTypes.oneOf(GRID_SIZES),
+  /**
+   * Add large breakpoint when @property {bool} col is defined.
+   * @default false
+   */
+  lg: PropTypes.oneOf(GRID_SIZES),
   /**
    * Add extra large breakpoint when @property {bool} col is defined.
    * @default false
    */
   xl: PropTypes.oneOf(GRID_SIZES),
-  /**
-   * Add extra small breakpoint when @property {bool} col is defined.
-   * @default false
-   */
-  xs: PropTypes.oneOf(GRID_SIZES),
 };
 
 /**

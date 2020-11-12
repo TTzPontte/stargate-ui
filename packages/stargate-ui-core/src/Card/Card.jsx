@@ -66,6 +66,7 @@ const Card = (props) => {
     borderColor,
     onChange = () => {},
     clickable,
+    className: inheritedClassName,
     ...factoryProps
   } = props;
 
@@ -93,7 +94,9 @@ const Card = (props) => {
 
   const classCard = clsx(card, {
     [cardSelected]: clickable && selected,
-  })
+  },
+    inheritedClassName,
+  );
 
   return (
     <Factory
