@@ -2,26 +2,27 @@
 
 exports[`Checkbox should render properly 1`] = `
 <div>
-  <label
-    class="stargate-ui-factory-0-2-13 stargate-ui-factory-d0-0-2-15 stargate-ui-typography-0-2-6 stargate-ui-typography-d0-0-2-10 stargate-ui-label-0-2-5 stargate-ui-typographyFluid-0-2-9 stargate-ui-typographyFluid-d2-0-2-12"
-  >
-    Label
-  </label>
   <div
-    class="stargate-ui-factory-0-2-17 stargate-ui-factory-d0-0-2-19 stargate-ui-checkboxWrapper-0-2-3"
+    class="stargate-ui-factory-0-2-6 stargate-ui-factory-d0-0-2-8"
   >
-    <input
-      class="stargate-ui-factory-0-2-21 stargate-ui-factory-d0-0-2-23 stargate-ui-checkbox-0-2-1"
-      type="checkbox"
-    />
-    <span
-      class="stargate-ui-factory-0-2-25 stargate-ui-factory-d0-0-2-27 stargate-ui-checkboxMark-0-2-2 stargate-ui-checkboxMark-d0-0-2-4"
-    />
-    <span
-      class="stargate-ui-factory-0-2-36 stargate-ui-factory-d0-0-2-38 stargate-ui-typography-0-2-29 stargate-ui-typography-d0-0-2-33 stargate-ui-typographyFluid-0-2-32 stargate-ui-typographyFluid-d2-0-2-35"
+    <label
+      class="stargate-ui-factory-0-2-18 stargate-ui-factory-d0-0-2-20 stargate-ui-typography-0-2-11 stargate-ui-typography-d0-0-2-15 stargate-ui-label-0-2-10 stargate-ui-typographyFluid-0-2-14 stargate-ui-typographyFluid-d2-0-2-17"
     >
-      Checkbox
-    </span>
+      <input
+        checkboxlabel="Checkbox"
+        class="stargate-ui-factory-0-2-22 stargate-ui-factory-d0-0-2-24 stargate-ui-checkbox-0-2-1"
+        type="checkbox"
+        value=""
+      />
+      <span
+        class="stargate-ui-factory-0-2-26 stargate-ui-factory-d0-0-2-28 stargate-ui-checkboxDecoration-0-2-2 stargate-ui-checkboxDecorationSuccess-0-2-3"
+      />
+      <span
+        class="stargate-ui-factory-0-2-37 stargate-ui-factory-d0-0-2-39 stargate-ui-typography-0-2-30 stargate-ui-typography-d0-0-2-34 stargate-ui-typographyFluid-0-2-33 stargate-ui-typographyFluid-d2-0-2-36"
+      >
+        Label
+      </span>
+    </label>
   </div>
 </div>
 `;
