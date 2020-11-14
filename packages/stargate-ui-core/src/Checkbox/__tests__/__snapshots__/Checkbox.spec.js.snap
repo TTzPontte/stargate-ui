@@ -9,7 +9,6 @@ exports[`Checkbox should render properly 1`] = `
       class="stargate-ui-factory-0-2-18 stargate-ui-factory-d0-0-2-20 stargate-ui-typography-0-2-11 stargate-ui-typography-d0-0-2-15 stargate-ui-label-0-2-10 stargate-ui-typographyFluid-0-2-14 stargate-ui-typographyFluid-d2-0-2-17"
     >
       <input
-        checkboxlabel="Checkbox"
         class="stargate-ui-factory-0-2-22 stargate-ui-factory-d0-0-2-24 stargate-ui-checkbox-0-2-1"
         type="checkbox"
         value=""
