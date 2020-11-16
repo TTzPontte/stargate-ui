@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.60 (2020-11-16)
+
+**Note:** Version bump only for package @pontte/stargate-ui-icons
+
+
+
+
+
 # 0.1.0-alpha.59 (2020-11-16)
 
 **Note:** Version bump only for package @pontte/stargate-ui-icons
