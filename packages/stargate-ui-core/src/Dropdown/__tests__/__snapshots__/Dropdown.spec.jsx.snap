@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dropdown should render properly 1`] = `
+<div>
+  <div
+    class="stargate-ui-factory-0-2-2 stargate-ui-factory-d0-0-2-4 stargate-ui-dropdown-0-2-1"
+  >
+    <select
+      aria-label="Dropdown"
+      class="stargate-ui-factory-0-2-6 stargate-ui-factory-d0-0-2-8"
+      label="Dropdown"
+      type="select"
+    >
+      <option
+        class="stargate-ui-factory-0-2-10 stargate-ui-factory-d0-0-2-12"
+        value=""
+      >
+        Selecione
+      </option>
+      <option
+        class="stargate-ui-factory-0-2-14 stargate-ui-factory-d0-0-2-16"
+      />
+      <option
+        class="stargate-ui-factory-0-2-18 stargate-ui-factory-d0-0-2-20"
+      />
+      <option
+        class="stargate-ui-factory-0-2-22 stargate-ui-factory-d0-0-2-24"
+      />
+      <option
+        class="stargate-ui-factory-0-2-26 stargate-ui-factory-d0-0-2-28"
+      />
+    </select>
+  </div>
+</div>
+`;

@@ -3,21 +3,21 @@
 exports[`Radio should render properly 1`] = `
 <div>
   <div
-    class="stargate-ui-factory-0-2-6 stargate-ui-factory-d0-0-2-8"
+    class="stargate-ui-factory-0-2-7 stargate-ui-factory-d0-0-2-9"
   >
     <label
-      class="stargate-ui-factory-0-2-18 stargate-ui-factory-d0-0-2-20 stargate-ui-typography-0-2-11 stargate-ui-typography-d0-0-2-15 stargate-ui-label-0-2-10 stargate-ui-typographyFluid-0-2-14 stargate-ui-typographyFluid-d2-0-2-17"
+      class="stargate-ui-factory-0-2-19 stargate-ui-factory-d0-0-2-21 stargate-ui-typography-0-2-12 stargate-ui-typography-d0-0-2-16 stargate-ui-label-0-2-11 stargate-ui-typographyFluid-0-2-15 stargate-ui-typographyFluid-d2-0-2-18"
     >
       <input
-        class="stargate-ui-factory-0-2-22 stargate-ui-factory-d0-0-2-24 stargate-ui-radio-0-2-1"
+        class="stargate-ui-factory-0-2-23 stargate-ui-factory-d0-0-2-25 stargate-ui-radio-0-2-1"
         type="radio"
         value=""
       />
       <span
-        class="stargate-ui-factory-0-2-26 stargate-ui-factory-d0-0-2-28 stargate-ui-radioDecoration-0-2-2 stargate-ui-radioDecorationSuccess-0-2-3"
+        class="stargate-ui-factory-0-2-27 stargate-ui-factory-d0-0-2-29 stargate-ui-radioDecoration-0-2-2 stargate-ui-radioDecorationSuccess-0-2-3"
       />
       <span
-        class="stargate-ui-factory-0-2-37 stargate-ui-factory-d0-0-2-39 stargate-ui-typography-0-2-30 stargate-ui-typography-d0-0-2-34 stargate-ui-typographyFluid-0-2-33 stargate-ui-typographyFluid-d2-0-2-36"
+        class="stargate-ui-factory-0-2-38 stargate-ui-factory-d0-0-2-40 stargate-ui-typography-0-2-31 stargate-ui-typography-d0-0-2-35 stargate-ui-radioDecorationLabel-0-2-6 stargate-ui-typographyFluid-0-2-34 stargate-ui-typographyFluid-d2-0-2-37"
       >
         Radio Button
       </span>

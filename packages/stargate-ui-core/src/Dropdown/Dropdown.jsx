@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import uuid from 'react-uuid';
 
 import { useStyles } from '@pontte/stargate-ui-styles';
 import Factory from '../Factory';
@@ -88,6 +89,7 @@ const Dropdown = (props) => {
     <Factory className={classDropdown}>
       <Factory
         {...factoryProps}
+        key={uuid()}
         disabled={disabled}
         element="select"
         type="select"
@@ -97,7 +99,7 @@ const Dropdown = (props) => {
       >
         <Factory element="option" value="">{placeholder}</Factory>
         {options.map((option) =>
-          <Factory element="option" value={option.value} key={option.label}>
+          <Factory element="option" value={option.value} key={uuid()}>
             {option.label}
           </Factory>
         )}
