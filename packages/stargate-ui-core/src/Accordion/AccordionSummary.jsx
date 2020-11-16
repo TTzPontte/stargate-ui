@@ -58,6 +58,7 @@ const styles = (theme) => {
 const AccordionSummary = React.forwardRef((props, ref) => {
   const {
     children,
+    element,
     className: inheritedClassName,
     color: inheritedColor = 'primary',
     ...factoryProps
@@ -99,8 +100,9 @@ const AccordionSummary = React.forwardRef((props, ref) => {
         <Grid col xs>
           <Typography
             weight="bold"
-            color={color}
             gutter={0}
+            color={color}
+            element={element}
           >
             {children}
           </Typography>
