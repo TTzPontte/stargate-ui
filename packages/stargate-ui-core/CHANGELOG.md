@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.62 (2020-11-16)
+
+
+### Features
+
+* **core:** add support for custom element in Accordion ([86569ef](https://github.com/pontte/stargate-ui/commit/86569ef6a04405597f834042b532eb203c15154b))
+
+
+
+
+
 # 0.1.0-alpha.61 (2020-11-16)
 
 **Note:** Version bump only for package @pontte/stargate-ui-core
