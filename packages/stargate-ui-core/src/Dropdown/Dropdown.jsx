@@ -66,6 +66,7 @@ const Dropdown = (props) => {
     disabled,
     value: defaultValue = '',
     onChange = () => {},
+    className: inheritedClassName,
     ...factoryProps
   } = props;
 
@@ -83,6 +84,7 @@ const Dropdown = (props) => {
 
   const [{
     dropdown: classDropdown,
+    inheritedClassName,
   }] = useStyles(styles);
 
   return (

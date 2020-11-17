@@ -99,6 +99,7 @@ const Radio = React.forwardRef((props, ref) => {
     checked: defaultChecked,
     disabled: defaultDisabled,
     readOnly: defaultReadOnly,
+    className: inheritedClassName,
     ...factoryProps
   } = props;
 
@@ -142,6 +143,7 @@ const Radio = React.forwardRef((props, ref) => {
       [classes.radioDecorationError]: color === 'error',
       [classes.radioDecorationWarning]: color === 'warning',
     },
+    inheritedClassName,
   );
 
   return (

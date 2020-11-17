@@ -113,6 +113,7 @@ const Checkbox = React.forwardRef((props, ref) => {
     checked: inheritedChecked,
     disabled: inheritedDisabled,
     readOnly: inheritedReadOnly,
+    className: inheritedClassName,
     ...factoryProps
   } = props;
 
@@ -154,6 +155,7 @@ const Checkbox = React.forwardRef((props, ref) => {
       [classes.checkboxDecorationError]: color === 'error',
       [classes.checkboxDecorationWarning]: color === 'warning',
     },
+    inheritedClassName,
   );
 
   return (
