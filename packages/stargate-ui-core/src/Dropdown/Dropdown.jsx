@@ -87,7 +87,6 @@ const Dropdown = (props) => {
   const [classes] = useStyles(styles);
   const classDropdown = clsx(classes.dropdown, inheritedClassName);
 
-  console.log(value)
   return (
     <Factory className={classDropdown} marginY={1}>
       <Factory
