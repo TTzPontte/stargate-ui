@@ -10,7 +10,7 @@ import AccordionContext from './AccordionContext';
 /**
  * @todo change location to @pontte/stargate-ui-icons when has been fixed
  */
-import { ArrowFlatRight } from '../icons';
+import { ArrowFlatDown as SvgIconArrowFlatDown } from '../icons';
 
 const styles = (theme) => {
   const {
@@ -43,7 +43,7 @@ const styles = (theme) => {
   };
 
   const summaryIconActive = {
-    transform: 'rotate(-90deg)',
+    transform: 'rotate(-180deg)',
   };
 
   return {
@@ -113,7 +113,7 @@ const AccordionSummary = React.forwardRef((props, ref) => {
           xs="auto"
           alignItems="center"
         >
-          <ArrowFlatRight className={classSummaryIcon} color="success" />
+          <SvgIconArrowFlatDown className={classSummaryIcon} color="success" />
         </Grid>
       </Grid>
     </Factory>
