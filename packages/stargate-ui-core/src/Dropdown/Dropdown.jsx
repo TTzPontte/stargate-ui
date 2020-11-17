@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import uuid from 'react-uuid';
+import clsx from 'clsx';
 
 import { useStyles } from '@pontte/stargate-ui-styles';
 import Factory from '../Factory';
@@ -82,10 +83,8 @@ const Dropdown = (props) => {
     onChange(event);
   };
 
-  const [{
-    dropdown: classDropdown,
-    inheritedClassName,
-  }] = useStyles(styles);
+  const [classes] = useStyles(styles);
+  const classDropdown = clsx(classes.dropdown, inheritedClassName);
 
   return (
     <Factory className={classDropdown}>
