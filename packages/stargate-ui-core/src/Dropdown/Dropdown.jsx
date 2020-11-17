@@ -14,45 +14,45 @@ const styles = (theme) => {
   } = theme;
 
   const dropdown = {
-    width: '100%',
-    minWidth: 'fit-content',
+    minWidth: 252,
     maxWidth: 'fit-content',
     lineHeight: 1.1,
-    color: palette.darkest,
-    border: [1, 'solid', palette.default.lighter.color],
     borderRadius: radius(),
     padding: [spacing(1)],
     cursor: 'pointer',
     display: 'grid',
     alignItems: 'center',
+    textAlign: 'left',
+    color: palette.darkest,
+    backgroundColor: palette.colors.grey[100],
+    border: [1, 'solid', palette.default.lighter.color],
     '& select': {
       '-webkit-appearance': 'none',
       '-moz-appearance': 'none',
-      backgroundColor: 'transparent',
       border: 'none',
       padding: [0, '1em', 0, 0],
-      margin: [0, '8px', 0, 0],
-      width: '100%',
+      margin: [0, 8, 0, 0],
+      minWidth: 200,
       cursor: 'inherit',
       lineHeight: 'inherit',
       outline: 'none',
       '-webkit-appearance': 'none',
       gridArea: 'select',
     },
-      '&:after': {
-        pointerEvents: 'none',
-        content: '""',
-        color: 'black',
-        width: '0.8em',
-        height: '0.8em',
-        border: ['solid', palette.darkest],
-        borderWidth: [0, '2px', '2px', 0],
-        transform: 'rotate(45deg)',
-        borderRadius: radius(.5),
-        gridArea: 'select',
-        justifySelf: 'end',
-        marginLeft: 1,
-      },
+    '&:after': {
+      pointerEvents: 'none',
+      content: '""',
+      color: 'black',
+      width: '0.8em',
+      height: '0.8em',
+      border: ['solid', palette.darkest],
+      borderWidth: [0, 2, 2, 0],
+      transform: 'rotate(45deg)',
+      borderRadius: radius(.5),
+      gridArea: 'select',
+      justifySelf: 'end',
+      marginLeft: 1,
+    },
   }
 
   return {
@@ -63,7 +63,7 @@ const styles = (theme) => {
 const Dropdown = (props) => {
   const {
     options,
-    placeholder = 'Selecione',
+    placeholder,
     disabled,
     value: defaultValue = '',
     onChange = () => {},
@@ -71,7 +71,8 @@ const Dropdown = (props) => {
     ...factoryProps
   } = props;
 
-  const [value, setValue] = React.useState(defaultValue);
+  const firstOption = props.options[0].value;
+  const [value, setValue] = placeholder ? React.useState(defaultValue) : React.useState(firstOption);
 
   const handleChange = (event) => {
     if (disabled) {
@@ -86,8 +87,9 @@ const Dropdown = (props) => {
   const [classes] = useStyles(styles);
   const classDropdown = clsx(classes.dropdown, inheritedClassName);
 
+  console.log(value)
   return (
-    <Factory className={classDropdown}>
+    <Factory className={classDropdown} marginY={1}>
       <Factory
         {...factoryProps}
         key={uuid()}
@@ -98,7 +100,9 @@ const Dropdown = (props) => {
         value={value}
         aria-label="Dropdown"
       >
-        <Factory element="option" value="">{placeholder}</Factory>
+        {placeholder && (
+          <Factory element="option" value="">{placeholder}</Factory>
+        )}
         {options.map((option) =>
           <Factory element="option" value={option.value} key={uuid()}>
             {option.label}
@@ -137,7 +141,7 @@ Dropdown.propTypes = {
   /**
    * Placeholder to Dropdown.
    *
-   * **@default** `'Selecione'`
+   * **@default** `undefined`
    */
   placeholder: PropTypes.string,
   /**

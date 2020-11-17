@@ -30,11 +30,17 @@ import Dropdown from './Dropdown';
           { value: 'four', label: 'Four' },
         ];
         return (
-          <Dropdown
-            name="dropdownTeste"
-            options={options}
-            placeholder="Selecione um número"
-          />
+          <>
+            <Dropdown
+              name="dropdownTeste"
+              options={options}
+              placeholder="Selecione um número"
+            />
+            <Dropdown
+              name="dropdownTeste2"
+              options={options}
+            />
+          </>
         );
       }
     }
