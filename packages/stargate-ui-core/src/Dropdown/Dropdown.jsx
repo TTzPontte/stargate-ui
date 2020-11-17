@@ -11,6 +11,7 @@ const styles = (theme) => {
     palette,
     radius,
     spacing,
+    mode,
   } = theme;
 
   const dropdown = {
@@ -25,7 +26,7 @@ const styles = (theme) => {
     textAlign: 'left',
     color: palette.darkest,
     backgroundColor: palette.colors.grey[100],
-    border: [1, 'solid', palette.default.lighter.color],
+    border: [1, 'solid', palette.default.[mode].color],
     '& select': {
       '-webkit-appearance': 'none',
       '-moz-appearance': 'none',
