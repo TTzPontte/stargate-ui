@@ -12,33 +12,37 @@ const styles = (theme) => {
     radius,
     spacing,
     mode,
+    breakpoints,
   } = theme;
 
   const dropdown = {
     minWidth: 252,
     maxWidth: 'fit-content',
     lineHeight: 1.1,
-    borderRadius: radius(),
-    padding: [spacing(1)],
+    borderRadius: radius(1.5),
+    padding: [spacing(1), spacing(2)],
     cursor: 'pointer',
     display: 'grid',
     alignItems: 'center',
     textAlign: 'left',
-    color: palette.darkest,
+    boxShadow: [0, 7, 64, '#00000012'],
     backgroundColor: palette.colors.grey[100],
-    border: [1, 'solid', palette.default.[mode].color],
+    border: [1, 'solid', palette.default[mode].color],
     '& select': {
       '-webkit-appearance': 'none',
       '-moz-appearance': 'none',
+      color: palette.darkest,
+      fontSize: 16,
       border: 'none',
-      padding: [0, '1em', 0, 0],
-      margin: [0, 8, 0, 0],
-      minWidth: 200,
+      minWidth: 240,
       cursor: 'inherit',
       lineHeight: 'inherit',
       outline: 'none',
       '-webkit-appearance': 'none',
       gridArea: 'select',
+      [breakpoints.down('md')]: {
+        fontSize: 14,
+      }
     },
     '&:after': {
       pointerEvents: 'none',
@@ -52,8 +56,10 @@ const styles = (theme) => {
       borderRadius: radius(.5),
       gridArea: 'select',
       justifySelf: 'end',
-      marginLeft: 1,
     },
+    [breakpoints.down('md')]: {
+      minWidth: 284,
+    }
   }
 
   return {
