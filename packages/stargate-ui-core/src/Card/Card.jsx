@@ -26,7 +26,9 @@ const styles = (theme) => {
     cursor: ({ clickable }) => (
       clickable && 'pointer'
     ),
-    borderRadius: radius(2),
+    borderRadius: ({ borderRadius }) => (
+      borderRadius ? radius(borderRadius) : radius(2)
+    ),
     '&:not($cardSelected)': {
       backgroundColor: ({ color }) => (
         color === 'default' ? palette.colors.grey[100] : getColor(color)
@@ -64,6 +66,7 @@ const Card = (props) => {
     selected: defaultValue = false,
     color = 'default',
     borderColor,
+    borderRadius,
     onChange = () => {},
     clickable,
     className: inheritedClassName,
@@ -77,8 +80,9 @@ const Card = (props) => {
     cardSelected,
   }] = useStyles(styles, {
     color,
-    borderColor,
     clickable,
+    borderColor,
+    borderRadius,
   });
 
   const [selected, setSelected] = useState(defaultValue);
@@ -113,12 +117,17 @@ Card.displayName = 'Card';
 
 Card.propTypes = {
   /**
-   * Add borderColor style.
+   * Add custom borderColor style.
    * @default undefined
    */
   borderColor: PropTypes.string,
   /**
-   * Add clickable style.
+   * Add custom borderRadius to style card.
+   * @default undefined
+   */
+  borderRadius: PropTypes.number,
+  /**
+   * Enable card to be clicked as a button.
    * @default undefined
    */
   clickable: PropTypes.bool,
@@ -128,7 +137,7 @@ Card.propTypes = {
    */
   selected: PropTypes.bool,
   /**
-   * Add color style.
+   * Add color style to background and border.
    * @default default
    */
   color: PropTypes.oneOf([
