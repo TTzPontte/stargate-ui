@@ -17,6 +17,7 @@ const styles = (theme) => {
     radius,
     active,
     mode,
+    breakpoints,
   } = theme;
   const { setLightness } = palette;
 
@@ -36,7 +37,7 @@ const styles = (theme) => {
   const inputGroup = {
     ...inlineFlexCenter,
     overflow: 'hidden',
-    borderRadius: radius(),
+    borderRadius: radius(1.5),
     width: '100%',
     border: [[1, 'solid']],
     background: palette.lighter,
@@ -55,6 +56,7 @@ const styles = (theme) => {
     backgroundColor: 'transparent',
     height: 25,
     color: 'inherit',
+    fontSize: 16,
     '&::placeholder': {
       color: () => (
         getColorLight(.75, 'default')
@@ -66,6 +68,9 @@ const styles = (theme) => {
        */
       outline: 'none',
     },
+    [breakpoints.down('md')]: {
+      fontSize: 14,
+    }
   };
 
   const inputClear = {
