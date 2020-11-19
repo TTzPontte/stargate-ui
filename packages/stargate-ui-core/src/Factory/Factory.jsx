@@ -382,7 +382,6 @@ Factory.propTypes = {
     'md',
     'lg',
     'xl',
-    'xxl',
   ]),
   /**
    * Hide when screen size is up of breakpoint.
@@ -394,7 +393,6 @@ Factory.propTypes = {
     'md',
     'lg',
     'xl',
-    'xxl',
   ]),
   /**
    * Add DOM element. Can be a React component or HTML element.

@@ -6,8 +6,7 @@ const screens = {
   sm: 600,
   md: 960,
   lg: 1318,
-  xl: 1440,
-  xxl: 1920,
+  xl: 1920,
 };
 
 const gutters = {
@@ -16,7 +15,6 @@ const gutters = {
   md: 4,
   lg: 2,
   xl: 2,
-  xxl: 2,
 };
 
 const up = (key) => {
