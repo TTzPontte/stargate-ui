@@ -11,9 +11,12 @@ const styles = (theme) => {
     radius,
     mode,
   } = theme;
-
   const getColor = (color, type = 'color') => (
     palette?.[color]?.[mode][type]
+  );
+
+  const getVariant = (variant, shade) => (
+    palette?.colors[variant]?.[shade]
   );
 
   const getTextColor = (color) => (
@@ -21,8 +24,7 @@ const styles = (theme) => {
   );
 
   const card = {
-    display: 'block',
-    maxWidth: 'max-content',
+    display: 'inline-block',
     cursor: ({ clickable }) => (
       clickable && 'pointer'
     ),
@@ -30,12 +32,19 @@ const styles = (theme) => {
       borderRadius ? radius(borderRadius) : radius(2)
     ),
     '&:not($cardSelected)': {
-      backgroundColor: ({ color }) => (
-        color === 'default' ? palette.colors.grey[100] : getColor(color)
-      ),
-      color: ({ color }) => (
-        getTextColor(color)
-      ),
+      backgroundColor: ({...props}) => {
+        const { color, variant, shade } = props;
+        if (variant) {
+          return getVariant(variant, shade);
+        }
+        return color === 'default' ? palette.colors.grey[100] : getColor(color)
+      },
+      color: ({ color, variant, shade }) => {
+        if (variant && variant !== 'grey' && shade >= 700) {
+          return palette.colors.grey[100]
+        }
+        return getTextColor(color)
+      },
       border: ({ borderColor, color }) => {
         const colorOfBorder = borderColor || color;
         return [
@@ -65,6 +74,8 @@ const Card = (props) => {
   const {
     selected: defaultValue = false,
     color = 'default',
+    variant,
+    shade = 800,
     borderColor,
     borderRadius,
     onChange = () => {},
@@ -80,6 +91,8 @@ const Card = (props) => {
     cardSelected,
   }] = useStyles(styles, {
     color,
+    shade,
+    variant,
     clickable,
     borderColor,
     borderRadius,
@@ -104,8 +117,6 @@ const Card = (props) => {
 
   return (
     <Factory
-      paddingX={2}
-      paddingY={4}
       {...factoryProps}
       {...cardProps}
       className={classCard}
@@ -118,27 +129,37 @@ Card.displayName = 'Card';
 Card.propTypes = {
   /**
    * Add custom borderColor style.
-   * @default undefined
+   * **@default** `undefined`
    */
   borderColor: PropTypes.string,
   /**
+   * Add custom variant of color style.
+   * **@default** `undefined`
+   */
+  variant: PropTypes.string,
+  /**
+   * Set shade of variant color style.
+   * **@default** `800`
+   */
+  shade: PropTypes.number,
+  /**
    * Add custom borderRadius to style card.
-   * @default undefined
+   * **@default** `undefined`
    */
   borderRadius: PropTypes.number,
   /**
    * Enable card to be clicked as a button.
-   * @default undefined
+   * **@default** `undefined`
    */
   clickable: PropTypes.bool,
   /**
    * Add selected style.
-   * @default false
+   * **@default** `false`
    */
   selected: PropTypes.bool,
   /**
    * Add color style to background and border.
-   * @default default
+   * **@default** `default`
    */
   color: PropTypes.oneOf([
     'default',
@@ -152,19 +173,9 @@ Card.propTypes = {
   ]),
   /**
    * Trigger when element is changed.
-   * @default Function
+   * **@default** `func`
    */
   onChange: PropTypes.func,
-};
-
-/**
- * Add @property {object} defaultProps made available properties information
- * for Props in the Storybook but do not use as major define for default properties.
- */
-Card.defaultProps = {
-  color: 'default',
-  selected: false,
-  onChange: () => {},
 };
 
 export default Card;
