@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.67 (2020-11-19)
+
+
+### Bug Fixes
+
+* **core:** fix position of Backdrop ([85cdc20](https://github.com/pontte/stargate-ui/commit/85cdc202dbd6a38cf5de367bebba17bf40491321))
+
+
+
+
+
 # 0.1.0-alpha.66 (2020-11-19)
 
 **Note:** Version bump only for package @pontte/stargate-ui-core
