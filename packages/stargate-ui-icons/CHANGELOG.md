@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.70 (2020-11-20)
+
+
+### Bug Fixes
+
+* **core:** remove position of Backdrop ([0b7d0b2](https://github.com/pontte/stargate-ui/commit/0b7d0b2be2686f02757fbfa220e01e388c1d97a4))
+
+
+
+
+
 # 0.1.0-alpha.69 (2020-11-20)
 
 **Note:** Version bump only for package @pontte/stargate-ui-icons
