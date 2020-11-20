@@ -43,7 +43,6 @@ const styles = (theme) => {
       ],
     ],
     '& + *': {
-      position: 'relative',
       zIndex: zIndex.backdrop + 1,
     },
   };
