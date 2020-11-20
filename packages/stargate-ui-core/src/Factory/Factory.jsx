@@ -431,6 +431,7 @@ Factory.propTypes = {
     'right',
     'center',
     'justify',
+    'end',
   ]),
   /**
    * Add CSS `display` property.

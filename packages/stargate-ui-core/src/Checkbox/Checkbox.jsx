@@ -28,7 +28,7 @@ const styles = (theme) => {
   const checkboxDecoration = {
     cursor: 'pointer',
     content: '""',
-    display: 'inline-flex',
+    display: 'inline-block',
     position: 'relative',
     width: 20,
     height: 20,
