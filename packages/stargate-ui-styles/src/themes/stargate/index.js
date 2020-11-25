@@ -4,6 +4,7 @@
 import deepmerge from 'deepmerge';
 
 import palette from './palette';
+import partners from './partners';
 import grid from './grid';
 import typography from './typography';
 
@@ -77,6 +78,7 @@ const theme = {
   mode: 'lighter',
   dir: 'ltr',
   border: [2, 'solid'],
+  partners,
 };
 
 export default theme;

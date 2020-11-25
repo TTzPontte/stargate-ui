@@ -2,6 +2,7 @@ import palette from './palette';
 import grid from './grid';
 import breakpoint from './breakpoint';
 import typography from './typography';
+import partners from './partners';
 
 const THEME_BASE = 8;
 
@@ -33,6 +34,7 @@ const theme = {
   mode: 'lighter',
   dir: 'ltr',
   border: [2, 'solid'],
+  partners,
 };
 
 export default theme;
