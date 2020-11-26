@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import PropTypes from 'prop-types';
 import { useStyles } from '@pontte/stargate-ui-styles';
+import clsx from 'clsx';
 
 import { Close as SvgIconClose } from '../icons';
 import Factory from '../Factory';
@@ -121,6 +122,7 @@ const Input = React.forwardRef((props, ref) => {
     onClear = () => {},
     onChange = () => {},
     value: defaultValue = '',
+    className: inheritedClassName,
     ...factoryProps
   } = props;
 
@@ -137,6 +139,8 @@ const Input = React.forwardRef((props, ref) => {
     componentAtEnd,
     color: error ? 'error' : color,
   });
+
+  const className = clsx(classInputElement, inheritedClassName);
 
   let showClear = false;
   let showError = false;
@@ -217,7 +221,7 @@ const Input = React.forwardRef((props, ref) => {
         <Factory
           ref={inputRef}
           element="input"
-          className={classInputElement}
+          className={className}
           type={type}
           disabled={disabled}
           readOnly={readonly}
