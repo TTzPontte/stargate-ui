@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.73 (2020-11-30)
+
+
+### Features
+
+* **styles:** add partner theme midas ([516b2c9](https://github.com/pontte/stargate-ui/commit/516b2c9430b701305b10d5fecc050e0dc513cf67))
+
+
+
+
+
 # 0.1.0-alpha.72 (2020-11-26)
 
 **Note:** Version bump only for package @pontte/stargate-ui-core
