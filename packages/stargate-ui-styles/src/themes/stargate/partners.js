@@ -52,6 +52,13 @@ const partners = {
     tertiary: lightest,
     poweredByLogo: false,
   },
+  midas: {
+    background: colors.indigo[600],
+    primary: colors.gold[900],
+    secondary: colors.gold[900],
+    tertiary: lightest,
+    poweredByLogo: true,
+  },
 };
 
 export default partners;
