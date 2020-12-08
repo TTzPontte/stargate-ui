@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.75 (2020-12-08)
+
+
+### Bug Fixes
+
+* remove forwardRef from input ([e195c1b](https://github.com/pontte/stargate-ui/commit/e195c1b81edaf77fa3400fc359c82b3d4eea76d9))
+
+
+
+
+
 # 0.1.0-alpha.74 (2020-12-08)
 
 
