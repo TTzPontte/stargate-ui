@@ -171,7 +171,6 @@ const Input = React.forwardRef((props, ref) => {
 
   const [value, setValue] = useState(defaultValue);
 
-  const inputRef = useRef(ref);
   const handleChange = (event) => {
     if (disabled) {
       return;
@@ -214,7 +213,7 @@ const Input = React.forwardRef((props, ref) => {
         )}
 
         <Factory
-          ref={inputRef}
+          ref={ref}
           element="input"
           className={className}
           type={type}
