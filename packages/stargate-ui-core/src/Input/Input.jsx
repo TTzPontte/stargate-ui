@@ -121,7 +121,6 @@ const Input = React.forwardRef((props, ref) => {
     color = 'default',
     onClear = () => {},
     onChange = () => {},
-    onClick = () => {},
     value: defaultValue = '',
     className: inheritedClassName,
     ...factoryProps
@@ -223,7 +222,6 @@ const Input = React.forwardRef((props, ref) => {
           readOnly={readonly}
           value={value}
           onChange={handleChange}
-          onClick={inputRef?.current?.focus()}
           {...factoryProps}
         />
 
@@ -271,7 +269,6 @@ Input.propTypes = {
     PropTypes.bool,
   ]),
   onClear: PropTypes.func,
-  onClick: PropTypes.func,
   /**
    * @default text
    */
