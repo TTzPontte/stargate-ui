@@ -172,7 +172,6 @@ const Input = React.forwardRef((props, ref) => {
   const [value, setValue] = useState(defaultValue);
 
   const inputRef = useRef(ref);
-
   const handleChange = (event) => {
     if (disabled) {
       return;
@@ -194,12 +193,8 @@ const Input = React.forwardRef((props, ref) => {
     onClear();
   }
 
-  const handleControlClick = () => {
-    inputRef?.current?.focus();
-  };
-
   return (
-    <Factory onClick={handleControlClick}>
+    <Factory>
       {showLabel && (
         <InputLabel children={label} />
       )}
