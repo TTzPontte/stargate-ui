@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.74 (2020-12-08)
+
+
+### Bug Fixes
+
+* test fix of focus() bug on input ([7022ac6](https://github.com/pontte/stargate-ui/commit/7022ac61bfcff61093099f41f0154ef8f6faa57e))
+
+
+
+
+
 # 0.1.0-alpha.73 (2020-11-30)
 
 
