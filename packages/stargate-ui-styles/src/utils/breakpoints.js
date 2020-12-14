@@ -5,7 +5,7 @@ const screens = {
   xs: 0,
   sm: 600,
   md: 960,
-  lg: 1024,
+  lg: 1318,
   xl: 1920,
 };
 
