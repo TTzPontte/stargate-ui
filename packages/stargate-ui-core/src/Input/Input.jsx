@@ -223,7 +223,7 @@ const Input = React.forwardRef((props, ref) => {
       }
     }
 
-  }, []);
+  }, [disabled]);
 
   const handleClear = () => {
     if (disabled) {
@@ -235,8 +235,6 @@ const Input = React.forwardRef((props, ref) => {
   }
 
   const handleControlClick = () => {
-    console.log(inputRef.current)
-
     inputRef?.current !== null && inputRef?.current?.focus();
   };
 
