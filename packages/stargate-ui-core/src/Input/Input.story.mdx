@@ -14,9 +14,12 @@ import {
 } from '@pontte/stargate-ui-core';
 
 import Input from './Input';
+const ref = React.createRef();
 
 export const InputStory = (props) => (
   <Input
+    ref={ref}
+    name="input1"
     label="Cool input"
     onClear={withAction('onClear')}
     onChange={withAction('onChange')}
@@ -44,14 +47,65 @@ export const InputStory = (props) => (
 
 <Canvas>
   <Input
+    ref={ref}
+    name="input1"
     label="Default"
     placeholder="Placeholder"
   />
   <Input
+    ref={ref}
+    name="input2"
     label="Disabled"
     placeholder="Placeholder"
     disabled
-    value="sahsauhsa"
+    value="disabled"
+  />
+</Canvas>
+
+### Using with Masks
+
+<Canvas>
+  <Input
+    ref={ref}
+    name="inputcep"
+    label="Zipcode Mask"
+    placeholder="00000-000"
+    mask="zipCode"
+  />
+  <Input
+    ref={ref}
+    name="inputcurrency"
+    label="Currency Mask"
+    placeholder="0000.00"
+    mask="currency"
+  />
+  <Input
+    ref={ref}
+    name="inputage"
+    label="Age Mask"
+    placeholder="00"
+    mask="age"
+  />
+  <Input
+    ref={ref}
+    name="inputphone"
+    label="Phone Mask"
+    placeholder="(00) 00000-0000"
+    mask="phone"
+  />
+  <Input
+    ref={ref}
+    name="inputcpf"
+    label="Cpf Mask"
+    placeholder="000.000.000-00"
+    mask="cpf"
+  />
+  <Input
+    ref={ref}
+    name="inputcnpj"
+    label="Cnpj Mask"
+    placeholder="00.000.000/0000-00"
+    mask="cnpj"
   />
 </Canvas>
 
@@ -59,10 +113,14 @@ export const InputStory = (props) => (
 
 <Canvas>
   <Input
+    ref={ref}
+    name="input3"
     label="Icon at start of input"
     componentAtStart={<SvgIconClose />}
   />
   <Input
+    ref={ref}
+    name="input4"
     label="Icon at end of input"
     componentAtEnd={<SvgIconClose />}
   />
@@ -74,6 +132,8 @@ You can use any node element for `label` property. We recommend to use <Link kin
 
 <Canvas>
   <Input
+    ref={ref}
+    name="input5"
     label={
       <Label>
         <SvgIconClose />
@@ -87,6 +147,8 @@ You can use any node element for `label` property. We recommend to use <Link kin
 
 <Canvas>
   <Input
+    ref={ref}
+    name="input6"
     label="Input with clear option"
     value="Mussum Ipsum, cacilds vidis litro abertis."
     clear
@@ -97,6 +159,8 @@ You can use any node element for `label` property. We recommend to use <Link kin
 
 <Canvas>
   <Input
+    ref={ref}
+    name="input7"
     label="Input with help text"
     helper="Mussum Ipsum, cacilds vidis litro abertis. Atirei o pau no gatis, per gatis num morreus. Interagi no mé, cursus quis, vehicula ac nisi. Mé faiz elementum girarzis, nisi eros vermeio. Nec orci ornare consequat. Praesent lacinia ultrices consectetur. Sed non ipsum felis."
   />
@@ -108,6 +172,8 @@ At the moment, **Input** only supports messages for error statement and 1 per ti
 
 <Canvas>
   <Input
+    ref={ref}
+    name="input8"
     label="Input With Error"
     value="Wrong value typed"
     error
@@ -121,11 +187,15 @@ Stargate UI doesn't provide form validation control so your project needs to hav
 
 <Canvas>
   <Input
+    ref={ref}
+    name="input9"
     label="Input with success state"
     value="Mussum Ipsum, cacilds vidis litro abertis."
     color="success"
   />
   <Input
+    ref={ref}
+    name="input10"
     label="Input with warning state"
     value="Mussum Ipsum, cacilds vidis litro abertis."
     color="warning"

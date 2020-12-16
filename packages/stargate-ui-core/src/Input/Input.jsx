@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
@@ -7,6 +7,14 @@ import { Close as SvgIconClose } from '../icons';
 import Factory from '../Factory';
 import InputLabel from '../InputLabel';
 import InputHelper from '../InputHelper';
+import {
+  zipCodeMask,
+  currencyMask,
+  phoneMask,
+  ageMask,
+  cpfMask,
+  cnpjMask,
+ } from './masks';
 
 /**
  * @todo check color pattern for input element
@@ -116,11 +124,14 @@ const Input = React.forwardRef((props, ref) => {
     clear,
     helper,
     error,
+    name,
     errorMessage,
+    mask,
     type = 'text',
     color = 'default',
     onClear = () => {},
     onChange = () => {},
+    onKeyUp= () => {},
     value: defaultValue = '',
     className: inheritedClassName,
     ...factoryProps
@@ -171,18 +182,49 @@ const Input = React.forwardRef((props, ref) => {
 
   const [value, setValue] = useState(defaultValue);
 
-  const handleChange = (event) => {
+  const inputRef = useRef(ref);
+
+  const handleChange = (e) => {
     if (disabled) {
       return;
     }
 
-    setValue(event.currentTarget.value);
-    onChange(event);
+    setValue(e.currentTarget.value);
+    onChange(e);
   }
 
-  /**
-   * @todo create event manager
-   */
+  const handleKeyUp = useCallback((e, mask) => {
+    if (disabled) {
+      return;
+    }
+
+    if (mask) {
+      switch (mask) {
+        case 'zipCode':
+          zipCodeMask(e);
+          break;
+        case 'cpf':
+          cpfMask(e);
+          break;
+        case 'phone':
+          phoneMask(e);
+          break;
+        case 'age':
+          ageMask(e);
+            break;
+        case 'currency':
+          currencyMask(e);
+          break;
+        case 'cnpj':
+          cnpjMask(e);
+          break;
+        default:
+          console.log(`Sorry, we are out of ${mask}s.`);
+      }
+    }
+
+  }, []);
+
   const handleClear = () => {
     if (disabled) {
       return;
@@ -192,8 +234,14 @@ const Input = React.forwardRef((props, ref) => {
     onClear();
   }
 
+  const handleControlClick = () => {
+    console.log(inputRef.current)
+
+    inputRef?.current !== null && inputRef?.current?.focus();
+  };
+
   return (
-    <Factory>
+    <Factory onClick={handleControlClick}>
       {showLabel && (
         <InputLabel children={label} />
       )}
@@ -213,14 +261,16 @@ const Input = React.forwardRef((props, ref) => {
         )}
 
         <Factory
-          ref={ref}
+          ref={inputRef}
           element="input"
           className={className}
           type={type}
           disabled={disabled}
           readOnly={readonly}
           value={value}
+          name={name}
           onChange={handleChange}
+          onKeyUp={(e) => handleKeyUp(e, mask)}
           {...factoryProps}
         />
 
@@ -280,9 +330,21 @@ Input.propTypes = {
   disabled: PropTypes.bool,
   readonly: PropTypes.bool,
   /**
+   * @default undefined
+   */
+  mask: PropTypes.string,
+  /**
+   * @default undefined
+   */
+  name: PropTypes.string.isRequired,
+  /**
    * @default Function
    */
   onChange: PropTypes.func,
+  /**
+   * @default Function
+   */
+  onKeyUp: PropTypes.func,
   /**
    * @default default
    */
