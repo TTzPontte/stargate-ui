@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.78 (2020-12-16)
+
+
+### Bug Fixes
+
+* remove console.log ([9dc73a0](https://github.com/pontte/stargate-ui/commit/9dc73a03e537c1579ac7d7c7f14b47a8158c3879))
+
+
+
+
+
 # 0.1.0-alpha.77 (2020-12-14)
 
 **Note:** Version bump only for package @pontte/stargate-ui-playground
