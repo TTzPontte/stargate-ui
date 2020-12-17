@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.79 (2020-12-17)
+
+
+### Bug Fixes
+
+* update tests and fix it ([b01ee11](https://github.com/pontte/stargate-ui/commit/b01ee1166ae589ba63ed84d5883464f09c40c59e))
+
+
+
+
+
 # 0.1.0-alpha.78 (2020-12-16)
 
 
