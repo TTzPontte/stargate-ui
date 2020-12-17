@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
