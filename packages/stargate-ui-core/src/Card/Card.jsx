@@ -70,7 +70,7 @@ const styles = (theme) => {
   };
 };
 
-const Card = (props) => {
+const Card = React.forwardRef((props, ref) => {
   const {
     selected: defaultValue = false,
     color = 'default',
@@ -79,13 +79,14 @@ const Card = (props) => {
     borderColor,
     borderRadius,
     onChange = () => {},
+    onClick = () => {},
     clickable,
     className: inheritedClassName,
     ...factoryProps
   } = props;
 
   const cardProps = {};
-
+  const innerRef = useRef(ref);
   const [{
     card,
     cardSelected,
@@ -119,10 +120,11 @@ const Card = (props) => {
     <Factory
       {...factoryProps}
       {...cardProps}
+      ref={innerRef}
       className={classCard}
     />
   );
-};
+});
 
 Card.displayName = 'Card';
 
@@ -176,6 +178,11 @@ Card.propTypes = {
    * **@default** `func`
    */
   onChange: PropTypes.func,
+  /**
+   * Trigger when element is changed.
+   * **@default** `func`
+   */
+  onClick: PropTypes.func,
 };
 
 export default Card;
