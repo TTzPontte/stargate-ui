@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.80 (2020-12-18)
+
+
+### Bug Fixes
+
+* **core:** add focus to card ([1808832](https://github.com/pontte/stargate-ui/commit/1808832b339ab9757691cc997ee7ee60cb3d91bb))
+
+
+
+
+
 # 0.1.0-alpha.79 (2020-12-17)
 
 
