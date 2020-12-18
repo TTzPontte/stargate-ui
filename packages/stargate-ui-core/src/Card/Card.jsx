@@ -86,7 +86,8 @@ const Card = React.forwardRef((props, ref) => {
   } = props;
 
   const cardProps = {};
-  const innerRef = useRef(ref);
+  const inputRef = useRef(ref);
+
   const [{
     card,
     cardSelected,
@@ -102,12 +103,15 @@ const Card = React.forwardRef((props, ref) => {
   const [selected, setSelected] = useState(defaultValue);
 
   const handleClick = () => {
+    inputRef?.current !== null && inputRef?.current?.focus();
+
     setSelected(!selected);
     onChange({ selected });
   }
 
   if (clickable) {
     cardProps.onClick = handleClick;
+    cardProps.onChange = handleClick;
   }
 
   const classCard = clsx(card, {
@@ -116,11 +120,12 @@ const Card = React.forwardRef((props, ref) => {
     inheritedClassName,
   );
 
+
   return (
     <Factory
       {...factoryProps}
       {...cardProps}
-      ref={innerRef}
+      ref={inputRef}
       className={classCard}
     />
   );
