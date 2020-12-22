@@ -14,29 +14,19 @@ import {
   ageMask,
   cpfMask,
   cnpjMask,
- } from './masks';
+} from './masks';
 
 /**
  * @todo check color pattern for input element
  * @todo needs pattern for disabled and readonly state
  */
 const styles = (theme) => {
-  const {
-    palette,
-    radius,
-    active,
-    mode,
-    breakpoints,
-  } = theme;
+  const { palette, radius, active, mode, breakpoints } = theme;
   const { setLightness } = palette;
 
-  const getColor = (color, type = 'color') => (
-    palette?.[color]?.[mode][type]
-  );
+  const getColor = (color, type = 'color') => palette?.[color]?.[mode][type];
 
-  const getColorLight = (n, color) => (
-    setLightness(n, getColor(color))
-  );
+  const getColorLight = (n, color) => setLightness(n, getColor(color));
 
   const inlineFlexCenter = {
     display: 'inline-flex',
@@ -50,12 +40,9 @@ const styles = (theme) => {
     width: '100%',
     border: [[1, 'solid']],
     background: palette.lighter,
-    borderColor: ({ color }) => (
-      getColor(color)
-    ),
-    color: ({ color }) => (
-      color === 'default' ? getColor(color, 'text') : getColor(color)
-    ),
+    borderColor: ({ color }) => getColor(color),
+    color: ({ color }) =>
+      color === 'default' ? getColor(color, 'text') : getColor(color),
   };
 
   const inputElement = {
@@ -67,9 +54,7 @@ const styles = (theme) => {
     color: 'inherit',
     fontSize: 16,
     '&::placeholder': {
-      color: () => (
-        getColorLight(.75, 'default')
-      ),
+      color: () => getColorLight(0.75, 'default'),
     },
     [active()]: {
       /**
@@ -79,7 +64,7 @@ const styles = (theme) => {
     },
     [breakpoints.down('md')]: {
       fontSize: 14,
-    }
+    },
   };
 
   const inputClear = {
@@ -96,7 +81,7 @@ const styles = (theme) => {
       /**
        * @todo add support for transitions in ui-core
        */
-      opacity: .5,
+      opacity: 0.5,
     },
   };
 
@@ -131,7 +116,8 @@ const Input = React.forwardRef((props, ref) => {
     color = 'default',
     onClear = () => {},
     onChange = () => {},
-    onKeyUp= () => {},
+    onKeyUp = () => {},
+    onBlur = () => {},
     value: defaultValue = '',
     className: inheritedClassName,
     ...factoryProps
@@ -144,7 +130,7 @@ const Input = React.forwardRef((props, ref) => {
       inputClear: classInputClear,
       inputOrnament: classInputOrnament,
     },
-] = useStyles(styles, {
+  ] = useStyles(styles, {
     disabled,
     readonly,
     componentAtEnd,
@@ -191,7 +177,7 @@ const Input = React.forwardRef((props, ref) => {
 
     setValue(e.currentTarget.value);
     onChange(e);
-  }
+  };
 
   const handleKeyUp = useCallback((e, mask) => {
     if (disabled) {
@@ -202,28 +188,33 @@ const Input = React.forwardRef((props, ref) => {
       switch (mask) {
         case 'zipCode':
           zipCodeMask(e);
+          setValue(e.currentTarget.value);
           break;
         case 'cpf':
           cpfMask(e);
+          setValue(e.currentTarget.value);
           break;
         case 'phone':
           phoneMask(e);
+          setValue(e.currentTarget.value);
           break;
         case 'age':
           ageMask(e);
-            break;
+          setValue(e.currentTarget.value);
+          break;
         case 'currency':
           currencyMask(e);
+          setValue(e.currentTarget.value);
           break;
         case 'cnpj':
           cnpjMask(e);
+          setValue(e.currentTarget.value);
           break;
         default:
           console.log(`Sorry, we are out of ${mask}s.`);
       }
     }
-
-  }, [disabled]);
+  }, []);
 
   const handleClear = () => {
     if (disabled) {
@@ -232,7 +223,7 @@ const Input = React.forwardRef((props, ref) => {
 
     setValue('');
     onClear();
-  }
+  };
 
   const handleControlClick = () => {
     inputRef?.current !== null && inputRef?.current?.focus();
@@ -240,9 +231,7 @@ const Input = React.forwardRef((props, ref) => {
 
   return (
     <Factory onClick={handleControlClick}>
-      {showLabel && (
-        <InputLabel children={label} />
-      )}
+      {showLabel && <InputLabel children={label} />}
 
       <Factory
         className={classInputGroup}
@@ -280,9 +269,7 @@ const Input = React.forwardRef((props, ref) => {
             paddingX={1}
             onClick={handleClear}
           >
-            <SvgIconClose
-              color={error ? 'error' : color}
-            />
+            <SvgIconClose color={error ? 'error' : color} />
           </Factory>
         )}
 
@@ -296,12 +283,7 @@ const Input = React.forwardRef((props, ref) => {
         )}
       </Factory>
 
-      {showError && (
-        <InputHelper
-          color="error"
-          children={errorMessage}
-        />
-      )}
+      {showError && <InputHelper color="error" children={errorMessage} />}
 
       {helper && <InputHelper children={helper} />}
     </Factory>
@@ -315,16 +297,10 @@ Input.propTypes = {
     PropTypes.number,
     PropTypes.bool,
   ]),
-  onClear: PropTypes.func,
   /**
    * @default text
    */
-  type: PropTypes.oneOf([
-    'text',
-    'number',
-    'phone',
-    'email',
-  ]),
+  type: PropTypes.oneOf(['text', 'number', 'phone', 'email']),
   disabled: PropTypes.bool,
   readonly: PropTypes.bool,
   /**
@@ -344,36 +320,27 @@ Input.propTypes = {
    */
   onKeyUp: PropTypes.func,
   /**
+   * @default Function
+   */
+  onBlur: PropTypes.func,
+  /**
+   * @default Function
+   */
+  onClear: PropTypes.func,
+  /**
    * @default default
    */
-  color: PropTypes.oneOf([
-    'default',
-    'success',
-    'warning',
-    'error',
-  ]),
+  color: PropTypes.oneOf(['default', 'success', 'warning', 'error']),
   /**
    * @borrows Input.propTypes.label as InputLabel.propTypes.children
    */
-  label: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node,
-  ]),
-  componentAtStart: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]),
-  componentAtEnd: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.element,
-  ]),
+  label: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  componentAtStart: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+  componentAtEnd: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   /**
    * @borrows Input.propTypes.helper as InputHelper.propTypes.children
    */
-  helper: PropTypes.oneOfType([
-    PropTypes.string,
-    PropTypes.node,
-  ]),
+  helper: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   error: PropTypes.bool,
   errorMessage: PropTypes.oneOfType([
     PropTypes.string,
