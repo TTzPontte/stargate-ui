@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.83 (2020-12-22)
+
+
+### Bug Fixes
+
+* bug on input when has no mask ([061a257](https://github.com/pontte/stargate-ui/commit/061a2570af04f38819af7272c3e55bcad805795b))
+
+
+
+
+
 # 0.1.0-alpha.82 (2020-12-22)
 
 **Note:** Version bump only for package @pontte/stargate-ui-core
