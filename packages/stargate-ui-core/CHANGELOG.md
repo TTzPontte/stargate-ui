@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.81 (2020-12-22)
+
+
+### Bug Fixes
+
+* **core:** bug on currency mask ([ec714fa](https://github.com/pontte/stargate-ui/commit/ec714fa79b57fae194598e0b52ea2fe5a91d97a6))
+
+
+
+
+
 # 0.1.0-alpha.80 (2020-12-18)
 
 
