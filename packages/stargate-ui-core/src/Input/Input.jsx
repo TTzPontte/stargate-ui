@@ -7,14 +7,7 @@ import { Close as SvgIconClose } from '../icons';
 import Factory from '../Factory';
 import InputLabel from '../InputLabel';
 import InputHelper from '../InputHelper';
-import {
-  zipCodeMask,
-  currencyMask,
-  phoneMask,
-  ageMask,
-  cpfMask,
-  cnpjMask,
-} from './masks';
+import { handleMask } from './masks';
 
 /**
  * @todo check color pattern for input element
@@ -116,8 +109,6 @@ const Input = React.forwardRef((props, ref) => {
     color = 'default',
     onClear = () => {},
     onChange = () => {},
-    onKeyUp = () => {},
-    onBlur = () => {},
     value: defaultValue = '',
     className: inheritedClassName,
     ...factoryProps
@@ -170,51 +161,14 @@ const Input = React.forwardRef((props, ref) => {
 
   const inputRef = useRef(ref);
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e, mask) => {
     if (disabled) {
       return;
     }
 
-    setValue(e.currentTarget.value);
+    handleMask(e, mask, setValue);
     onChange(e);
-  };
-
-  const handleKeyUp = useCallback((e, mask) => {
-    if (disabled) {
-      return;
-    }
-
-    if (mask) {
-      switch (mask) {
-        case 'zipCode':
-          zipCodeMask(e);
-          setValue(e.currentTarget.value);
-          break;
-        case 'cpf':
-          cpfMask(e);
-          setValue(e.currentTarget.value);
-          break;
-        case 'phone':
-          phoneMask(e);
-          setValue(e.currentTarget.value);
-          break;
-        case 'age':
-          ageMask(e);
-          setValue(e.currentTarget.value);
-          break;
-        case 'currency':
-          currencyMask(e);
-          setValue(e.currentTarget.value);
-          break;
-        case 'cnpj':
-          cnpjMask(e);
-          setValue(e.currentTarget.value);
-          break;
-        default:
-          console.log(`Sorry, we are out of ${mask}s.`);
-      }
-    }
-  }, []);
+  }, [value]);
 
   const handleClear = () => {
     if (disabled) {
@@ -256,8 +210,7 @@ const Input = React.forwardRef((props, ref) => {
           readOnly={readonly}
           value={value}
           name={name}
-          onChange={handleChange}
-          onKeyUp={(e) => handleKeyUp(e, mask)}
+          onChange={(e) => handleChange(e, mask)}
           {...factoryProps}
         />
 
@@ -315,14 +268,6 @@ Input.propTypes = {
    * @default Function
    */
   onChange: PropTypes.func,
-  /**
-   * @default Function
-   */
-  onKeyUp: PropTypes.func,
-  /**
-   * @default Function
-   */
-  onBlur: PropTypes.func,
   /**
    * @default Function
    */
