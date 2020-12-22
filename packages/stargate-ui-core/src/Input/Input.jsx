@@ -166,7 +166,7 @@ const Input = React.forwardRef((props, ref) => {
       return;
     }
 
-    handleMask(e, mask, setValue);
+    mask ? handleMask(e, mask, setValue) : setValue(e.target.value);
     onChange(e);
   }, [value]);
 
