@@ -13,3 +13,8 @@ export { default as Linkedin } from './Linkedin';
 export { default as User } from './User';
 export { default as Logout } from './Logout';
 export { default as Burguer } from './Burguer';
+export { default as Warning } from './Warning';
+export { default as Success } from './Success';
+export { default as Error } from './Error';
+export { default as Info } from './Info';
+export { default as CloseFlat } from './CloseFlat';

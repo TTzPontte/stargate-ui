@@ -1,15 +1,15 @@
 import PropTypes from "prop-types";
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
 
 import Factory from '../Factory';
 import Typography from '../Typography';
-import { Close as SvgIconClose } from '@pontte/stargate-ui-icons';
-import { Warning as SvgIconWarning } from '@pontte/stargate-ui-icons';
-import { Info as SvgIconInfo } from '@pontte/stargate-ui-icons';
-import { Error as SvgIconError } from '@pontte/stargate-ui-icons';
-import { Success as SvgIconSuccess } from '@pontte/stargate-ui-icons';
+import { CloseFlat as SvgIconClose } from '../icons';
+import { Warning as SvgIconWarning } from '../icons';
+import { Info as SvgIconInfo } from '../icons';
+import { Error as SvgIconError } from '../icons';
+import { Success as SvgIconSuccess } from '../icons';
 
 const styles = (theme) => {
   /**
@@ -74,6 +74,8 @@ const styles = (theme) => {
   const alertClose = {
     border: 0,
     lineHeight: 0,
+    position: 'relative',
+    top: 5,
     overflow: 'hidden',
     cursor: 'pointer',
     backgroundColor: 'transparent',
@@ -91,6 +93,9 @@ const styles = (theme) => {
        */
       opacity: .8,
     },
+    '& svg': {
+      width: 12,
+    }
   };
 
   const alertOrnament = {
@@ -112,7 +117,7 @@ const styles = (theme) => {
   };
 };
 
-const Alert = (props) => {
+const Alert = React.forwardRef((props, ref) => {
   const {
     children,
     contained,
@@ -123,6 +128,7 @@ const Alert = (props) => {
     onClick = () => {},
     ...factoryProps
   } = props;
+  const innerRef = useRef(ref);
 
   const [isClosed, setClose] = useState(false);
 
@@ -164,37 +170,31 @@ const Alert = (props) => {
     showIcon = false;
   }
 
-  const whichIconBySeverity = (props) => {
+  const getIconBySeverity = (props) => {
     const { severity } = props;
 
-    if (severity === 'warning') {
-      return <SvgIconWarning className={classAlertOrnament} color="warning"/>;
+    switch (severity) {
+      case 'warning':
+        return <SvgIconWarning className={classAlertOrnament} color="warning"/>;
+      case 'info':
+        return <SvgIconInfo className={classAlertOrnament} color="info"/>;
+      case 'error':
+        return<SvgIconError className={classAlertOrnament} color="error"/>;
+      case 'success':
+        return<SvgIconSuccess className={classAlertOrnament} color="success"/>;
+      default:
+        return <SvgIconInfo className={classAlertOrnament}/>;
     }
-
-    if (severity === 'info') {
-      return <SvgIconInfo className={classAlertOrnament} color="info"/>;
-    }
-
-    if (severity === 'error') {
-      return <SvgIconError className={classAlertOrnament} color="error"/>;
-    }
-
-    if (severity === 'success') {
-      return <SvgIconSuccess className={classAlertOrnament} color="success"/>;
-    }
-
-    return <SvgIconInfo className={classAlertOrnament}/>;
   };
 
   return (
     <Factory
-      element="div"
+      ref={innerRef}
       className={classAlertWrapper}
       paddingX={.5}
       {...factoryProps}
     >
       <Factory
-        element="div"
         className={classAlertContainerItem}
         paddingX={.5}
         paddingY={1}
@@ -208,12 +208,11 @@ const Alert = (props) => {
         )}
 
         {showIcon && (
-          whichIconBySeverity(props)
+          getIconBySeverity(props)
         )}
       </Factory>
 
       <Factory
-        element="div"
         className={classAlertContainerItem}
         paddingX={.5}
         paddingY={1}
@@ -229,7 +228,6 @@ const Alert = (props) => {
 
       {close && (
         <Factory
-          element="div"
           className={classAlertContainerItem}
           paddingX={.5}
           paddingY={1}
@@ -246,7 +244,7 @@ const Alert = (props) => {
       )}
     </Factory>
   );
-};
+});
 
 Alert.propTypes = {
   children: PropTypes.node.isRequired,
