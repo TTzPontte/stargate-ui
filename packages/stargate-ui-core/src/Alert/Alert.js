@@ -158,17 +158,16 @@ const Alert = React.forwardRef((props, ref) => {
 
   const typographyVariant = large ? 'body' : 'bodylower';
 
-
   const handleClose = () => {
     setClose(!isClosed);
     onClick();
-  }
+  };
 
   let showIcon = true;
 
   if (icon) {
     showIcon = false;
-  }
+  };
 
   const getIconBySeverity = (props) => {
     const { severity } = props;
@@ -184,7 +183,7 @@ const Alert = React.forwardRef((props, ref) => {
         return<SvgIconSuccess className={classAlertOrnament} color="success"/>;
       default:
         return <SvgIconInfo className={classAlertOrnament}/>;
-    }
+    };
   };
 
   return (
@@ -225,7 +224,6 @@ const Alert = React.forwardRef((props, ref) => {
         />
       </Factory>
 
-
       {close && (
         <Factory
           className={classAlertContainerItem}
@@ -262,6 +260,6 @@ Alert.propTypes = {
     PropTypes.string,
     PropTypes.element,
   ]),
-}
+};
 
 export default Alert;
