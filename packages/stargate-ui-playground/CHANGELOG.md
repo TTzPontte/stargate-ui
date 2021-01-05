@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.84 (2021-01-05)
+
+
+### Bug Fixes
+
+* remove blank lines and add semicolons ([b52fe5b](https://github.com/pontte/stargate-ui/commit/b52fe5b4026454f3488c1d30f19406a10c255591))
+
+
+
+
+
 # 0.1.0-alpha.83 (2020-12-22)
 
 
