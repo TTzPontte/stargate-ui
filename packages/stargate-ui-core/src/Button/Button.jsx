@@ -12,7 +12,6 @@ const styles = (theme) => {
    */
   const {
     active,
-    spacing,
     palette,
     border,
     radius,
@@ -65,10 +64,10 @@ const styles = (theme) => {
 
   const buttonContained = {
     color: ({ disabled, ...props }) => (
-      disabled ? setLightness(.8, getColor(props)) : getTextColor(props)
+      disabled ? palette.colors.grey[900] : getTextColor(props)
     ),
     backgroundColor: ({ disabled, ...props }) => (
-      disabled ? setLightness(.95, getColor(props)) : getColor(props)
+      disabled ? palette.colors.grey[800] : getColor(props)
     ),
     [active()]: {
       color: ({ disabled, ...props }) => (
@@ -86,10 +85,10 @@ const styles = (theme) => {
   const buttonOutlined = {
     borderColor: getColor,
     color: ({ disabled, ...props }) => (
-      disabled ? setLightness(.85, getColor(props)) : getColor(props)
+      disabled ? palette.colors.grey[900] : getColor(props)
     ),
     borderColor: ({ disabled, ...props }) => (
-      disabled ? setLightness(.85, getColor(props)) : getColor(props)
+      disabled ? palette.colors.grey[800] : getColor(props)
     ),
     [active()]: {
       color: ({ disabled, ...props }) => (
