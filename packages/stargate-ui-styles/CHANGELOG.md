@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.85 (2021-01-11)
+
+
+### Bug Fixes
+
+* **core:** fix color of button when disabled ([0796cb7](https://github.com/pontte/stargate-ui/commit/0796cb76915b289476a2fa64cd458ba99ef35153))
+
+
+
+
+
 # 0.1.0-alpha.84 (2021-01-05)
 
 
