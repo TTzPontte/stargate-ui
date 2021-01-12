@@ -1,6 +1,6 @@
 {
   "name": "@pontte/stargate-ui-styles",
-  "version": "0.1.0-alpha.85",
+  "version": "0.1.0-alpha.86",
   "description": "",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.86 (2021-01-12)
+
+
+### Bug Fixes
+
+* **core:** export Alert component at index ([dd944fe](https://github.com/pontte/stargate-ui/commit/dd944fe2ca27b9967f63ae3d0839ea23e412f1fb))
+
+
+
+
+
 # 0.1.0-alpha.85 (2021-01-11)
 
 
