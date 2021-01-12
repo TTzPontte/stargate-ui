@@ -2,6 +2,7 @@ export * from './icons';
 
 export { default as Accordion } from './Accordion';
 export * from './Accordion';
+export { default as Alert } from './Alert';
 
 export { default as Bar } from './Bar';
 export { default as Baseline } from './Baseline';
@@ -35,3 +36,4 @@ export { default as Svg } from './Svg';
 export { default as SvgIcon } from './SvgIcon';
 export { default as Typography } from './Typography';
 export * from './Picture';
+
