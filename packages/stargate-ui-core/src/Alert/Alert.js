@@ -126,6 +126,7 @@ const Alert = React.forwardRef((props, ref) => {
     severity,
     close,
     onClick = () => {},
+    className: inheritedClassName,
     ...factoryProps
   } = props;
   const innerRef = useRef(ref);
@@ -153,7 +154,8 @@ const Alert = React.forwardRef((props, ref) => {
     classAlert,
     {
       [classAlertContained]: contained,
-    }
+    },
+    inheritedClassName,
   );
 
   const typographyVariant = large ? 'body' : 'bodylower';
