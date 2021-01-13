@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.87 (2021-01-13)
+
+
+### Bug Fixes
+
+* add support for inheritedClassname at Alert ([bbeaf3a](https://github.com/pontte/stargate-ui/commit/bbeaf3a1c0b26618f75343755d5fccb3a1778992))
+
+
+
+
+
 # 0.1.0-alpha.86 (2021-01-12)
 
 
