@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.88 (2021-01-18)
+
+
+### Features
+
+* **styles:** add partner apto theme ([28564a1](https://github.com/pontte/stargate-ui/commit/28564a18e214ec11be2224d04036392154bb0366))
+
+
+
+
+
 # 0.1.0-alpha.87 (2021-01-13)
 
 
