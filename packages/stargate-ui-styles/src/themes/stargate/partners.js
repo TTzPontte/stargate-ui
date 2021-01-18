@@ -59,6 +59,13 @@ const partners = {
     tertiary: lightest,
     poweredByLogo: true,
   },
+  apto: {
+    background: colors.grey[600],
+    primary: colors.indigo[400],
+    secondary: colors.indigo[700],
+    tertiary: lightest,
+    poweredByLogo: true,
+  },
 };
 
 export default partners;
