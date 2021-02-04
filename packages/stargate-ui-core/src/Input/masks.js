@@ -63,6 +63,17 @@ export const phoneMask = (e) => {
   return e;
 };
 
+export const verificationCodeMask = (e) => {
+  let value = e.currentTarget.value;
+
+  e.currentTarget.maxLength = 1;
+  value = value.replace(/\D/g, '');
+
+  e.currentTarget.value = value;
+
+  return e;
+};
+
 export const handleMask = (e, mask, setValue) => {
   if (mask) {
     switch (mask) {
@@ -88,6 +99,10 @@ export const handleMask = (e, mask, setValue) => {
         break;
       case 'cnpj':
         cnpjMask(e);
+        setValue(e.currentTarget.value);
+        break;
+      case 'verificationCode':
+        verificationCodeMask(e);
         setValue(e.currentTarget.value);
         break;
       default:
