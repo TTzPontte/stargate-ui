@@ -67,6 +67,13 @@ const partners = {
     tertiary: lightest,
     poweredByLogo: true,
   },
+  even: {
+    background: backgroundDefault,
+    primary: '#00626A',
+    secondary: '#022541',
+    tertiary: lightest,
+    poweredByLogo: true,
+  },
 };
 
 export default partners;
