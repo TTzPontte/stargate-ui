@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.91 (2021-02-23)
+
+
+### Features
+
+* add partner even ([69cf295](https://github.com/pontte/stargate-ui/commit/69cf295684f64d3ee343a33992692379edadae9c))
+
+
+
+
+
 # 0.1.0-alpha.90 (2021-02-04)
 
 
