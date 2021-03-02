@@ -10,26 +10,26 @@ exports[`Accordion should render properly 1`] = `
       type="button"
     >
       <div
-        class="stargate-ui-factory-0-2-33 stargate-ui-factory-d0-0-2-35 stargate-ui-gridRow-0-2-17 stargate-ui-gridRow-d0-0-2-25 stargate-ui-gridRowGutter-0-2-19 stargate-ui-gridRowGutter-d2-0-2-27"
+        class="stargate-ui-factory-0-2-35 stargate-ui-factory-d0-0-2-37 stargate-ui-gridRow-0-2-17 stargate-ui-gridRow-d0-0-2-26 stargate-ui-gridRowGutter-0-2-19 stargate-ui-gridRowGutter-d2-0-2-28"
       >
         <div
-          class="stargate-ui-factory-0-2-53 stargate-ui-factory-d0-0-2-55 stargate-ui-gridCol-0-2-38 stargate-ui-gridCol-d1-0-2-46 stargate-ui-gridColSize-xs-0-2-40 stargate-ui-gridColSize-xs-d3-0-2-48"
+          class="stargate-ui-factory-0-2-57 stargate-ui-factory-d0-0-2-59 stargate-ui-gridCol-0-2-40 stargate-ui-gridCol-d1-0-2-49 stargate-ui-gridColSize-xs-0-2-42 stargate-ui-gridColSize-xs-d3-0-2-51"
         >
           <p
-            class="stargate-ui-factory-0-2-64 stargate-ui-factory-d0-0-2-66 stargate-ui-typography-0-2-57 stargate-ui-typography-d0-0-2-61 stargate-ui-typographyFluid-0-2-60 stargate-ui-typographyFluid-d2-0-2-63"
+            class="stargate-ui-factory-0-2-68 stargate-ui-factory-d0-0-2-70 stargate-ui-typography-0-2-61 stargate-ui-typography-d0-0-2-65 stargate-ui-typographyFluid-0-2-64 stargate-ui-typographyFluid-d2-0-2-67"
           >
             Accordion Summary
           </p>
         </div>
         <div
-          class="stargate-ui-factory-0-2-84 stargate-ui-factory-d0-0-2-86 stargate-ui-gridCol-0-2-69 stargate-ui-gridCol-d1-0-2-77 stargate-ui-gridColSize-xs-0-2-71 stargate-ui-gridColSize-xs-d3-0-2-79"
+          class="stargate-ui-factory-0-2-90 stargate-ui-factory-d0-0-2-92 stargate-ui-gridCol-0-2-73 stargate-ui-gridCol-d1-0-2-82 stargate-ui-gridColSize-xs-0-2-75 stargate-ui-gridColSize-xs-d3-0-2-84"
         >
           <span
             aria-hidden="true"
-            class="stargate-ui-factory-0-2-91 stargate-ui-factory-d0-0-2-93 stargate-ui-svg-0-2-90 stargate-ui-svgIcon-0-2-88 stargate-ui-svgIcon-d0-0-2-89 stargate-ui-summaryIcon-0-2-9"
+            class="stargate-ui-factory-0-2-97 stargate-ui-factory-d0-0-2-99 stargate-ui-svg-0-2-96 stargate-ui-svgIcon-0-2-94 stargate-ui-svgIcon-d0-0-2-95 stargate-ui-summaryIcon-0-2-9"
           >
             <svg
-              class="stargate-ui-factory-0-2-95 stargate-ui-factory-d0-0-2-97"
+              class="stargate-ui-factory-0-2-101 stargate-ui-factory-d0-0-2-103"
               viewBox="0,0,24,24"
             >
               <path
@@ -41,10 +41,10 @@ exports[`Accordion should render properly 1`] = `
       </div>
     </button>
     <div
-      class="stargate-ui-factory-0-2-104 stargate-ui-factory-d0-0-2-106 stargate-ui-details-0-2-99 stargate-ui-detailsVariantDefault-0-2-103"
+      class="stargate-ui-factory-0-2-110 stargate-ui-factory-d0-0-2-112 stargate-ui-details-0-2-105 stargate-ui-detailsVariantDefault-0-2-109"
     >
       <div
-        class="stargate-ui-detailsContent-0-2-100"
+        class="stargate-ui-detailsContent-0-2-106"
       >
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut voluptate ad distinctio quas vel praesentium, est vero suscipit dignissimos, reprehenderit, cumque nam incidunt reiciendis quibusdam nihil dolorem perferendis eos accusamus?
       </div>
