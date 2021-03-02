@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.95 (2021-03-02)
+
+
+### Bug Fixes
+
+* breakpoints ([d69051b](https://github.com/pontte/stargate-ui/commit/d69051bfb9d26b8405afc36d377edbfd846f2e4d))
+
+
+
+
+
 # 0.1.0-alpha.94 (2021-03-02)
 
 **Note:** Version bump only for package @pontte/stargate-ui-icons

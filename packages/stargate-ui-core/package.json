@@ -1,6 +1,6 @@
 {
   "name": "@pontte/stargate-ui-core",
-  "version": "0.1.0-alpha.94",
+  "version": "0.1.0-alpha.95",
   "description": "",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
