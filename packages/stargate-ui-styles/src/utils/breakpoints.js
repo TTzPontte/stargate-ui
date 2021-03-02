@@ -5,8 +5,8 @@ const screens = {
   xs: 0,
   sm: 600,
   md: 960,
-  desktop: 1024,
-  lg: 1440,
+  desktop: 1023,
+  lg: 1439,
   xl: 1920,
 };
 
