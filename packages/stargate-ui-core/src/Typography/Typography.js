@@ -109,7 +109,7 @@ const styles = (theme) => {
 
     return {
       fontSize,
-      [breakpoints.up('lg')]: {
+      [breakpoints.up('desktop')]: {
         fontSize: theme.typography?.[variant].fontSize || fontSize,
       },
     }

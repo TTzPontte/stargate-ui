@@ -8,6 +8,7 @@ const PictureSource = (props) => {
     xs,
     sm,
     md,
+    desktop,
     lg,
     xl,
     src,
@@ -30,6 +31,7 @@ const PictureSource = (props) => {
     xs,
     sm,
     md,
+    desktop,
     lg,
     xl,
   }).filter(([, value]) => value);
@@ -86,6 +88,10 @@ PictureSource.propTypes = {
    * Show image for medium breakpoint.
    */
   md: PropTypes.bool,
+  /**
+   * Show image for desktop breakpoint.
+   */
+  desktop: PropTypes.bool,
   /**
    * Show image for large breakpoint.
    */

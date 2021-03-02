@@ -173,6 +173,7 @@ const Grid = React.forwardRef((props, ref) => {
     justifyContent = 'flex-start',
     lg = false,
     md = false,
+    desktop = false,
     sm = false,
     xl = false,
     xs = false,
@@ -196,6 +197,7 @@ const Grid = React.forwardRef((props, ref) => {
     justifyContent,
     spacing,
     lg,
+    desktop,
     md,
     sm,
     xl,
@@ -211,9 +213,9 @@ const Grid = React.forwardRef((props, ref) => {
       [classes[`gridColSize-xs`]]: xs !== false,
       [classes[`gridColSize-sm`]]: sm !== false,
       [classes[`gridColSize-md`]]: md !== false,
+      [classes[`gridColSize-desktop`]]: desktop !== false,
       [classes[`gridColSize-lg`]]: lg !== false,
       [classes[`gridColSize-xl`]]: xl !== false,
-
     },
     inheritedClassName,
   );
@@ -311,6 +313,11 @@ Grid.propTypes = {
    * @default false
    */
   md: PropTypes.oneOf(GRID_SIZES),
+    /**
+   * Add desktop breakpoint when @property {bool} col is defined.
+   * @default false
+   */
+  desktop: PropTypes.oneOf(GRID_SIZES),
   /**
    * Add large breakpoint when @property {bool} col is defined.
    * @default false
@@ -330,6 +337,7 @@ Grid.propTypes = {
 Grid.defaultProps = {
   lg: false,
   md: false,
+  desktop: false,
   sm: false,
   xl: false,
   xs: false,

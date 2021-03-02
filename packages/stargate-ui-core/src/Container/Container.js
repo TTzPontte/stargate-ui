@@ -28,7 +28,7 @@ const styles = (theme) => {
 
 const Container = (props) => {
   const {
-    maxWidth = 'lg',
+    maxWidth = 'desktop',
     className: inheritedClassName,
     ...factoryProps
   } = props;
