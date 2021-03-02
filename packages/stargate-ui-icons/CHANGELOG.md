@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.92 (2021-03-01)
+
+
+### Features
+
+* update breaking point lg to 1024px ([a2885b3](https://github.com/pontte/stargate-ui/commit/a2885b39e6879fd043ca18868f44e35919d361ad))
+
+
+
+
+
 # 0.1.0-alpha.91 (2021-02-23)
 
 
