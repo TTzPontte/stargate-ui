@@ -34,7 +34,7 @@ Backdrop is used to provide contrast for a specific element. Common use case is 
         setOpened(openedControl);
       }, [openedControl]);
       return (
-        <Backdrop opened={opened} {...props} onClick={handleClick}>
+        <Backdrop opened={opened} onClick={handleClick} {...props}>
           <Button
             contained
             variant="primary"
