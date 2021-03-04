@@ -68,13 +68,19 @@ const Drawer = forwardRef((props, ref) => {
   const {
     children,
     maxWidth = 'xs',
-    opened = false,
     close = () => {},
     onOpen = () => {},
     onClose = () => {},
+    opened: inheritedOpened = false,
     className: inheritedClassName,
     ...inheritedProps
   } = props;
+
+  const [opened, setOpened] = React.useState(inheritedOpened);
+
+  React.useEffect(() => {
+    setOpened(inheritedOpened);
+  }, [inheritedOpened]);
 
   const [
     {
@@ -99,6 +105,10 @@ const Drawer = forwardRef((props, ref) => {
     onClose();
   };
 
+  const handleClick = () => {
+    setOpened(false);
+  };
+
   useEffect(() => {
     if (opened) {
       handleOpen();
@@ -109,8 +119,9 @@ const Drawer = forwardRef((props, ref) => {
 
   return (
     <Backdrop
+      ref={ref}
       opened={opened}
-      onClick={handleClose}
+      onClick={handleClick}
     >
       <Factory
         ref={ref}
