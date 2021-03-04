@@ -57,6 +57,7 @@ const Backdrop = React.forwardRef((props, ref) => {
   const {
     children,
     opened = false,
+    onClick = () => {},
     className: inheritedClassName,
   } = props;
 
@@ -78,6 +79,7 @@ const Backdrop = React.forwardRef((props, ref) => {
           <div
             ref={ref}
             className={className}
+            onClick={onClick}
             aria-hidden="true"
           />
         )
@@ -102,6 +104,11 @@ Backdrop.propTypes = {
    * @default undefined
    */
   className: PropTypes.string,
+  /**
+   * Handle onClick func.
+   * @default undefined
+   */
+  onClick: PropTypes.func,
 };
 
 /**

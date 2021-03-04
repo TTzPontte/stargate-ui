@@ -27,20 +27,20 @@ Backdrop is used to provide contrast for a specific element. Common use case is 
      */
     ({ opened: openedControl, ...props }) => {
       const [opened, setOpened] = useState(false);
-      const handleClick = () => {
+      const handleClick = (event) => {
         setOpened(!opened);
       };
       React.useEffect(() => {
         setOpened(openedControl);
       }, [openedControl]);
       return (
-        <Backdrop opened={opened} {...props}>
+        <Backdrop opened={opened} {...props} onClick={handleClick}>
           <Button
             contained
             variant="primary"
             onClick={handleClick}
           >
-            {opened ? 'Open backdrop' : 'Close backdrop'}
+            {opened ? 'Close backdrop' : 'Open backdrop'}
           </Button>
         </Backdrop>
       )

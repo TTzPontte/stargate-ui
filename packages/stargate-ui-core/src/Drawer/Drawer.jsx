@@ -110,6 +110,7 @@ const Drawer = forwardRef((props, ref) => {
   return (
     <Backdrop
       opened={opened}
+      onClick={handleClose}
     >
       <Factory
         ref={ref}
