@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.97 (2021-03-04)
+
+
+### Bug Fixes
+
+* add handleClick do opened ([f53914f](https://github.com/pontte/stargate-ui/commit/f53914ffb39cb765bce08fa4ada694873c172c15))
+
+
+
+
+
 # 0.1.0-alpha.96 (2021-03-04)
 
 **Note:** Version bump only for package @pontte/stargate-ui-icons
