@@ -106,7 +106,7 @@ const Drawer = forwardRef((props, ref) => {
   };
 
   const handleClick = () => {
-    setOpened(!opened);
+    setOpened(false);
   };
 
   useEffect(() => {
