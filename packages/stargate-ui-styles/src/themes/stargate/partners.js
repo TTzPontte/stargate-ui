@@ -74,7 +74,7 @@ const partners = {
     tertiary: lightest,
     poweredByLogo: true,
   },
-  centralMaster: {
+  centralmaster: {
     background: backgroundDefault,
     primary: '#1072B8',
     secondary: '#55BC85',
