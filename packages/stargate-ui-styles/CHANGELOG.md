@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.100 (2021-04-01)
+
+
+### Features
+
+* add mutual partner ([645b7b0](https://github.com/pontte/stargate-ui/commit/645b7b0e7eeafb10a3fd7ca7fc64b7b8aaa37a58))
+
+
+
+
+
 # 0.1.0-alpha.99 (2021-03-30)
 
 **Note:** Version bump only for package @pontte/stargate-ui-styles
