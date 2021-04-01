@@ -81,6 +81,13 @@ const partners = {
     tertiary: lightest,
     poweredByLogo: true,
   },
+  mutual: {
+    background: backgroundDefault,
+    primary: '#272976',
+    secondary: '#FF4086',
+    tertiary: lightest,
+    poweredByLogo: true,
+  },
 };
 
 export default partners;
