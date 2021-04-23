@@ -88,6 +88,13 @@ const partners = {
     tertiary: lightest,
     poweredByLogo: true,
   },
+  hugpay: {
+    background: backgroundDefault,
+    primary: '#009820',
+    secondary: '#353535',
+    tertiary: lightest,
+    poweredByLogo: true,
+  },
 };
 
 export default partners;
