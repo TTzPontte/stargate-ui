@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.103 (2021-04-23)
+
+
+### Features
+
+* add partner hugpay/facafacil ([6752b84](https://github.com/pontte/stargate-ui/commit/6752b84dee6dc13d07f4fcacc3009447b05ee232))
+
+
+
+
+
 # 0.1.0-alpha.102 (2021-04-08)
 
 **Note:** Version bump only for package @pontte/stargate-ui-icons
