@@ -95,6 +95,13 @@ const partners = {
     tertiary: lightest,
     poweredByLogo: true,
   },
+  clubefenacon: {
+    background: backgroundDefault,
+    primary: '#75262C',
+    secondary: '#797876',
+    tertiary: lightest,
+    poweredByLogo: true,
+  },
 };
 
 export default partners;
