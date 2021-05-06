@@ -25,7 +25,7 @@ yarn start
 
 - Checkout your branch from the updated Alpha branch and develop your code.
 - When you're done, commit your changes following the [Semantic Versioning](https://semver.org/) pattern and open a Pull Request on github.
-- After your code it's reviewd and approved merge it into the Alpha branch.
+- After your code it's reviwed and approved merge it into the Alpha branch.
 - A new version of the Stargate package will be available to download now!
 
 
