@@ -20,3 +20,19 @@ After clone project in your machine, run follow commands:
 yarn
 yarn start
 ```
+
+## Deploy step by step
+
+- Checkout your branch from the updated Alpha branch and develop your code.
+- When you're done, commit your changes following the [Semantic Versioning](https://semver.org/) pattern and open a Pull Request on github.
+- After your code it's reviewd and approved merge it into the Alpha branch.
+- A new version of the Stargate package will be available to download now!
+
+
+## Install on your projects
+
+To install or update the new versions of the Stagate library on your project run the following command:
+
+```sh
+npm i @pontte/stargate-ui-{styles,core,icons}@latest -S
+```
