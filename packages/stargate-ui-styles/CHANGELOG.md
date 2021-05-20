@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.105 (2021-05-20)
+
+
+### Features
+
+* **core:** add prop loading to button ([cdac45f](https://github.com/pontte/stargate-ui/commit/cdac45f0eb60ebfc235458578f2b3901fbb3aa3a))
+
+
+
+
+
 # 0.1.0-alpha.104 (2021-04-28)
 
 
