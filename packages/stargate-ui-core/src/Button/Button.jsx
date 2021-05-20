@@ -2,6 +2,7 @@ import React from 'react';
 import { useStyles } from '@pontte/stargate-ui-styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
+import { ClapSpinner } from 'react-spinners-kit';
 
 import Factory from '../Factory';
 import Typography from '../Typography';
@@ -122,6 +123,7 @@ const Button = (props) => {
     element = 'button',
     color = 'default',
     onClick = () => {},
+    loading = false,
     className: inheritedClasses,
     ...factoryProps
   } = props;
@@ -178,7 +180,9 @@ const Button = (props) => {
         variant={typographyVariant}
         gutter={0}
         transform="uppercase"
-        children={children}
+        children={
+          (loading ? <ClapSpinner size={16} frontColor="#FFFFFF" backColor="#5C3B6B"/> : children)
+        }
       />
     </Factory>
   );
@@ -242,6 +246,11 @@ Button.propTypes = {
    * @default undefined
    */
   className: PropTypes.string,
+   /**
+   * Add icon loading.
+   * @default false
+   */
+  loading: PropTypes.bool,
 };
 
 /**
@@ -252,6 +261,7 @@ Button.defaultProps = {
   color: 'default',
   onClick: () => {},
   element: 'button',
+  loading: false,
 };
 
 export default Button;
