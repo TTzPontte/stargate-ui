@@ -32,7 +32,8 @@
   "dependencies": {
     "clsx": "^1.1.1",
     "countup.js": "^2.0.7",
-    "deepmerge": "^4.2.2"
+    "deepmerge": "^4.2.2",
+    "react-spinners-kit": "^1.9.1"
   },
   "devDependencies": {
     "prop-types": "^15.7.2",
