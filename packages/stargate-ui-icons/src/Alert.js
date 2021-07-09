@@ -1,5 +1,5 @@
 import React from 'react';
-import createIcon from './utils/createIcon';
+import createIcon from './utils/createSvgIcon';
 
 export default createIcon(
   'Alert',
