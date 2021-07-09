@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.106 (2021-07-09)
+
+
+### Features
+
+* **icons:** add two new icons and resolve imports ([567c3f5](https://github.com/pontte/stargate-ui/commit/567c3f52eee38f6fbf24cc4e54cee89bc51b38b1))
+
+
+
+
+
 # 0.1.0-alpha.105 (2021-05-20)
 
 
