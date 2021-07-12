@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.107 (2021-07-12)
+
+**Note:** Version bump only for package @pontte/stargate-ui-icons
+
+
+
+
+
 # 0.1.0-alpha.106 (2021-07-09)
 
 
