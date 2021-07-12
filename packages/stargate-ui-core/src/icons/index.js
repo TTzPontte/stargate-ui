@@ -18,3 +18,5 @@ export { default as Success } from './Success';
 export { default as Error } from './Error';
 export { default as Info } from './Info';
 export { default as CloseFlat } from './CloseFlat';
+export { default as Copy } from './Copy';
+export { default as Mail } from './Mail';
