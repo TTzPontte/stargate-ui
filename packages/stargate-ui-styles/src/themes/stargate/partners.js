@@ -102,6 +102,13 @@ const partners = {
     tertiary: lightest,
     poweredByLogo: true,
   },
+  algar: {
+    background: backgroundDefault,
+    primary: '#0068A6',
+    secondary: '#00A651',
+    tertiary: lightest,
+    poweredByLogo: true,
+  },
 };
 
 export default partners;
