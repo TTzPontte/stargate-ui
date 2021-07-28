@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.108 (2021-07-28)
+
+
+### Features
+
+* add partner algar ([399939b](https://github.com/pontte/stargate-ui/commit/399939b25c7ea671b0fda1a4140950664c2d58c1))
+
+
+
+
+
 # 0.1.0-alpha.107 (2021-07-12)
 
 **Note:** Version bump only for package @pontte/stargate-ui-playground
