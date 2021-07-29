@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.109 (2021-07-29)
+
+
+### Features
+
+* **styles:** add partners creditway and idinheiro ([be6320a](https://github.com/pontte/stargate-ui/commit/be6320a63c62f4098204a2b7aaf330137c4151be))
+
+
+
+
+
 # 0.1.0-alpha.108 (2021-07-28)
 
 
