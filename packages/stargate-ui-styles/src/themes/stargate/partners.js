@@ -109,6 +109,20 @@ const partners = {
     tertiary: lightest,
     poweredByLogo: true,
   },
+  creditway: {
+    background: backgroundDefault,
+    primary: '#002363',
+    secondary: '#BD6F08',
+    tertiary: lightest,
+    poweredByLogo: true,
+  },
+  idinheiro: {
+    background: backgroundDefault,
+    primary: '#373737',
+    secondary: '#0071FF',
+    tertiary: lightest,
+    poweredByLogo: true,
+  },
 };
 
 export default partners;
