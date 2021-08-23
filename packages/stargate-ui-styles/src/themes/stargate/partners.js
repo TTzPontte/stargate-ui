@@ -123,6 +123,13 @@ const partners = {
     tertiary: lightest,
     poweredByLogo: true,
   },
+  superrico: {
+    background: backgroundDefault,
+    primary: '#032B88',
+    secondary: '#AD0903',
+    tertiary: lightest,
+    poweredByLogo: true,
+  },
 };
 
 export default partners;
