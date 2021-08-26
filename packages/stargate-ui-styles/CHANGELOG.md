@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.111 (2021-08-26)
+
+
+### Features
+
+* **styles:** add partner casanetcred ([84b81bf](https://github.com/pontte/stargate-ui/commit/84b81bf83cffc68dd3be5c89aeda6cc86c944fb6))
+
+
+
+
+
 # 0.1.0-alpha.110 (2021-08-23)
 
 
