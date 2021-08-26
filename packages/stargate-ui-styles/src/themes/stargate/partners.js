@@ -130,6 +130,13 @@ const partners = {
     tertiary: lightest,
     poweredByLogo: true,
   },
+  casanetcred: {
+    background: backgroundDefault,
+    primary: '#243757',
+    secondary: '#43A6DA',
+    tertiary: lightest,
+    poweredByLogo: true,
+  },
 };
 
 export default partners;
