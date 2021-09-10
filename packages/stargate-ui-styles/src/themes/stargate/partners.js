@@ -137,6 +137,13 @@ const partners = {
     tertiary: lightest,
     poweredByLogo: true,
   },
+  tektura: {
+    background: backgroundDefault,
+    primary: '#7D2450',
+    secondary: '#E93D1F',
+    tertiary: lightest,
+    poweredByLogo: true,
+  },
 };
 
 export default partners;
