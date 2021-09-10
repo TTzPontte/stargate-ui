@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0-alpha.112 (2021-09-10)
+
+
+### Features
+
+* add partner tektura ([86041fb](https://github.com/pontte/stargate-ui/commit/86041fbdd8afa151e8e801495a3b62904f75e6af))
+
+
+
+
+
 # 0.1.0-alpha.111 (2021-08-26)
 
 
